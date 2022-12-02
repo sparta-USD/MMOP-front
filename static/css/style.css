@@ -41,6 +41,9 @@ header nav .flex{
     justify-content: space-between;
     align-items: center;
 }
+header nav .navbar_logo{
+    margin-right: 32px;
+}
 header nav .navbar_logo img{
     height: 24px;
 
@@ -58,7 +61,7 @@ header nav ul.navbar_menu button{
 header nav ul.navbar_menu > li > a, header nav ul.navbar_menu > li > button, header nav ul.navbar_menu > li .dropdown>button{
     display: block;
     line-height: 20px;
-    padding: 0px 20px;
+    padding: 0px 16px;
 }
 header nav ul.navbar_menu > li > button.btn:hover, header nav ul.navbar_menu > li .dropdown>button:hover, header nav ul.navbar_menu > li .dropdown>button:active, header nav ul.navbar_menu > li .dropdown>button:focus-visible, .btn:first-child:active{
     background: transparent;
