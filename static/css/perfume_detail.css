@@ -20,50 +20,53 @@
     height: 400px;
 }
 
-
+.btn-dark{
+    margin: 0px 0px 0px 10px;
+}
 .btn_create_group{
-    margin-top: 20px;
+    margin-top: 50px;
     justify-content: center;
-    text-align: center;
+    float: left;
 }
 
 .perfume_desc_box{
-    border: black solid 1px;
-    padding: 30px;
+    padding: 20px;
     width: 500px;
-    height: 400px;
-    margin-left: 20px
+    height: 430px;
+    margin: 0 0 0 20px
 }
 
 .perfume_name{
     font-size: xx-large;
     font-weight: bold;
     margin: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .perfume_detail_top{
-    margin: 10px;
     display: flex;
-}
-
-.perfume_detail_note{
-    margin-top: 40px;
+    justify-content: space-between;
 }
 
 .top_1, .top_2{
     margin: 10px;
     font-size: large;
+    font-weight: 600;
 }
 
 .top_2{
-    float: right;
-    margin-left: 100px;
+    margin-right: 70px;
 }
 
 .note_0, .note_1, .note_2, .note_3{
     margin: 20px;
 }
+
+.note_0{
+    font-weight: bold;
+    font-size: large;
+}
+
 
 /* sec_perfume_detail_tab */
 .tab_list{
