@@ -169,28 +169,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 리뷰 탭 */
 .container_review_tab{
     justify-content: center;
@@ -259,6 +237,112 @@
     width: 100px;
     height: 100px;
 }
+
+
+/* 추천제품 탭 */
+.container_recommend_tab{
+    margin-top: 80px;
+}
+
+.perfume_recommend_list{
+    margin-top: 60px;
+}
+
+
+/* ********* */
+/* item_card */
+/* ********* */
+.item_card{
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+    border-radius : 16px;
+    margin-bottom: 16px;
+    line-height: 1.26;
+    overflow: hidden;
+    /* padding: 16px; */
+}
+
+/* card_header */
+.item_card .card_header{
+    position: relative;
+}
+.item_card .item_image{
+    vertical-align: unset;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.item_card .item_image >img{
+    position: absolute;
+    /* width: 100%; */
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.item_card:hover .item_image.scale_up img{
+    transform: scale(1.2) translate(-40%,-40%);
+    transition: all .2s ease-in-out;
+}
+
+/* card_content */
+.item_card .card_content{
+    width: 100%;
+    padding: 15px;
+}
+.item_card .card_content p{
+    margin-bottom: 8px;
+}
+.item_card .card_content p.item_card_title{
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    /* word-break: keep-all; */
+}
+.item_card .card_content .item_card_title{
+    font-weight: 600;
+    font-size : 1em;
+}
+.item_card .card_content .item_card_editor{
+    font-size: 0.75em;
+}
+
+/* card_footer */
+.item_card .card_footer{
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 0.75em;
+}
+.item_card .card_footer::before{
+    content: "";
+    display: block;
+    width: calc(100% - 32px);
+    height: 1px;
+    background: #f0f0f0;
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+.item_card .card_footer .perfume_card_price{
+    color: black;
+    font-size: 1.2em;
+}
+.item_card .card_footer .perfume_card_price .price{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
 
 /* 별점 */
 .starpoint_wrap{display:inline-block;margin-left: 4px;}
