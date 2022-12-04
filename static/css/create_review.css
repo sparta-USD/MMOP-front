@@ -14,7 +14,7 @@
 .create_review_box{
     width: 400px;
     height: 100px;
-    margin: 100px 0px 0px 100px;
+    margin: 80px 0px 0px 80px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -82,31 +82,67 @@
 
 .review_star_grade{
     text-align: center;
+    margin-bottom: 30px;
 }
 /* 별점 */
-.starpoint_wrap{display:inline-block;margin-left: 4px;}
-.starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat; background-size: auto 34px; font-size:0;}
-.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:16px;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 -18px no-repeat; background-size: auto 34px; pointer-events:none;}
-.starpoint_box .label_star{display:inline-block;width:8.85px;height:16px;box-sizing:border-box;}
+.starpoint_wrap{display:inline-block;}
+.starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat;font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:18px;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 -20px no-repeat;pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:10px;height:18px;box-sizing:border-box;}
 .starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
-.star_10 .starpoint_bg, .starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
-.star_20 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
-.star_30 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
-.star_40 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
-.star_50 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
-.star_60 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
-.star_70 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
-.star_80 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
-.star_90 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
-.star_100 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+
 .blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
+
+
+/* write 부분 */
+.sec_create_review_write{
+    width: 100%;
+    margin: 10px 0px 30px 0px;
+}
+
+.review_form{
+    font-weight: bold;
+    font-size: large;
+    margin: 20px 0px 20px 0px;
+}
+
+.review_image_upload_box{
+    margin: 30px 0px 30px 0px;
+}
+
+.review_image_upload_box h1{
+    font-weight: bold;
+    font-size: large;
+}
+
+.review_image_upload_box2{
+    margin-bottom: 30px;
+}
+
+.review_create_button{
+    margin: 100px 0px 70px 0px;
+}
+
+.btn_review_ok{
+    font-size: x-large;
+}
