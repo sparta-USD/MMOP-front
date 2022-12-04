@@ -84,6 +84,7 @@
     text-align: center;
     margin-bottom: 30px;
 }
+
 /* 별점 */
 .starpoint_wrap{display:inline-block;}
 .starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat;font-size:0;}
@@ -110,7 +111,6 @@
 .starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
 .starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
-
 .blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
 
 
