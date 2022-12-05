@@ -93,3 +93,32 @@ async function handleCreateReview() {
         console.warn(error.message);
     });
 }
+
+// 4. 별점 체크 부분
+// (1) 별점 마킹 모듈 프로토타입으로 생성
+function Rating(){};
+Rating.prototype.rate = 0; // 선택한 별점 값을 저장하는 변수
+Rating.prototype.setRate = function(newrate){ // 클릭한 별점을 포함해 그 왼쪽에 있는 모든 별점의 체크박스를 체크하는 기능
+    // 별점 마킹 : 클릭한 별 이하 모든 별 체크 처리
+    this.rate = newrate;
+    document.querySelector('.starpoint_box').style.width = parseInt(newrate * 60) + 'px';
+    let items = document.querySelectorAll('.star_radio');
+    items.forEach(function(item, idx){
+        if(idx < newrate){
+            item.checked = true;
+        }else{
+            item.checked = false;
+        }
+    });
+}
+let rating = new Rating(); //별점 인스턴스 생성
+
+// (2) 별점을 클릭하면 별점 모듈의 setRate() 메소드 호출
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelector('.starpoint_box').addEventListener('click',function(e){
+        let elem = e.target;
+        if(elem.classList.contains('star_radio')){
+            rating.setRate(parseInt(elem.value));
+        }
+    })
+});
