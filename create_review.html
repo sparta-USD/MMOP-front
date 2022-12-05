@@ -126,11 +126,11 @@
         <section class="sec_create_review_write">
             <div class="create_good_review mb-3">
                 <label for="exampleFormControlTextarea1" class="review_form form-label">😍 좋았던 점 (최소 20자 최대 5000자 이내)</label>
-                <textarea id="desc" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 좋았던 점을 작성해주세요." rows="7"></textarea>
+                <textarea id="good_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 좋았던 점을 작성해주세요." rows="7"></textarea>
             </div>
             <div class="create_bad_review mb-3">
                 <label for="exampleFormControlTextarea1" class="review_form form-label">🤔 아쉬웠던 점 (최소 20자 최대 5000자 이내)</label>
-                <textarea id="desc" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 아쉬웠던 점을 작성해주세요." rows="7"></textarea>
+                <textarea id="bad_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 아쉬웠던 점을 작성해주세요." rows="7"></textarea>
             </div>
             <hr style="margin-top: 30px;"/>
             <div>
@@ -138,7 +138,7 @@
                     <h1>📷 제품 사진 등록(선택)</h1>
                 </div>
                 <div class="review_image_upload_box2">
-                    <input id="review_image_upload" type="file">      
+                    <input id="review_image" type="file">      
                 </div>
                 <div>
                     <p>사용하신 제품의 사진을 업로드해주세요 :)</p>
@@ -148,9 +148,9 @@
         <hr color="gray" size="8"/>
         <section class="review_create_button">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button id="btn_review_ok" class="btn_review_ok btn btn-dark" type="button"><a href="/mypage.html">
+                <button id="btn_review_ok" class="btn_review_ok btn btn-dark" type="button">
                     작성완료
-                </a></button>
+                </button>
               </div>
         </section>
     </div>

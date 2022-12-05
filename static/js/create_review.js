@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
 // 제품 정보 불러오기
 async function handlePerfumeInfo(){
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/2', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/3', {
         headers: {
             "Authorization":"Bearer" + localStorage.getItem("access"),
         },
@@ -58,4 +58,39 @@ async function handlePerfumeInfo(){
         `;
         review_perfume_detail.append(perfume_detail);
     })
+}
+
+// 리뷰 작성하기
+async function handleCreateReview() {
+
+    const review_formData = new FormData();
+    const good_content = document.getElementById("good_content").value;
+    const bad_content = document.getElementById("bad_content").value;
+    const review_image = document.getElementById("review_image").files[0];
+
+    review_formData.append("good_content", good_content);
+    review_formData.append("bad_content", bad_content);
+    review_formData.append("review_image", review_image);
+
+    const response = await fetch('http://127.0.0.1:8000/perfume/3/reviews/', {
+        method: 'POST',
+        headers: {
+            "Authorization":"Bearer" + localStorage.getItem("access"),
+        },
+        body: review_formData,
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        alert("리뷰 작성에 성공했습니다!")
+        // location.href="/mypage.html?pefume=" + result["id"];
+    })
+    .catch(error => {
+        alert("리뷰 작성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+        console.warn(error.message);
+    });
 }
