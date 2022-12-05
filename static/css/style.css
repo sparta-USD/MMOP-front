@@ -38,9 +38,9 @@ header.header_sticky{
     color: var(--main-black);
     transition: 0.4s;
 }
-header nav{
+/* header nav{
     padding: 0 16px;
-}
+} */
 header nav .flex{
     display: flex;
     justify-content: space-between;
@@ -164,18 +164,21 @@ a, a:hover{
 /* sidenav */
 .area_container{
     display: flex;
-    flex-direction: row-reverse;
     position: relative;
+    margin-top: 120px;
+    margin-bottom: 100px;
 }
 .sidenav{
+    flex : 0 0 250px;
     width: 250px;
     min-height: 250px;
-    position: absolute;
-    left:0;
+    /* position: absolute; */
+    left:12px;
     top: 32px;
 }
 .main{
-    padding: 32px 16px;
+    padding: 0 16px 0 72px;
+    width: 100%;
 }
 /* section */
 .sec{
@@ -197,6 +200,12 @@ a, a:hover{
 .item_card{
     position:relative;
     margin-bottom: 32px;
+    box-shadow: 0;
+    transition: 0.4s;
+}
+.item_card:hover{
+    box-shadow: 1px 1px 10px #efefef;
+    transition: 0.4s;
 }
 /* card_header */
 .item_card .card_header{
@@ -218,6 +227,15 @@ a, a:hover{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+}
+.item_card .perfume_card_heart{
+    position: absolute;
+    z-index: 10;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    right:13px;
 }
 /* card_content */
 .item_card .card_content{
@@ -245,6 +263,16 @@ a, a:hover{
 .item_card .card_content .item_card_editor{
     font-size: 0.75em;
 }
+.item_card .card_content .item_card_tag{
+    font-size: 0.65em;
+    color: #999;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
 /* card_footer */
 .item_card .card_footer{
     padding: 16px;
@@ -254,6 +282,60 @@ a, a:hover{
     position: relative;
     font-size: 0.75em;
 }
+
+/* 아이템 material */
+.item_card .material{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 5px;
+    width: 33.333333%;
+    height: 33.333333%;
+}
+.item_card .material:nth-child(1){
+    top: 0;
+}
+.item_card .material:nth-child(2){
+    top: 33.333333%;
+}
+.item_card .material:nth-child(3){
+    top: 66.666666%;
+}
+.item_card .material img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+
+/* 별점 */
+.starpoint_wrap{display:inline-block;margin-left: 4px;}
+.starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat; background-size: auto 34px; font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:16px;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 -18px no-repeat; background-size: auto 34px; pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:8.85px;height:16px;box-sizing:border-box;}
+.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.star_10 .starpoint_bg, .starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
+.star_20 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
+.star_30 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
+.star_40 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
+.star_50 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
+.star_60 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
+.star_70 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
+.star_80 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
+.star_90 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
+.star_100 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
 
 
 @media (max-width: 991px){
