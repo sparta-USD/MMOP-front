@@ -54,30 +54,38 @@
     left:0;
     width: 100%;
     height:100%;
+    padding:0;
 } 
 .item_card.check_card input[type=checkbox]{
     display: none;
+}
+.item_card.check_card label{
+    width: 100%;
+    height:100%;
 }
 .item_card.check_card label .btn_check{
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
     color: var(--base-gray-999);
     font-size: 6em;
     font-weight: 900;
     opacity: 0;
 }
 .item_card.check_card:hover label .btn_check{
-    background-color: var(--main-white);
+    background-color: rgba(0,0,0,0.03);
     color: var(--main-red);
     opacity: 0.7;
     transition: 0.4s;
+    width: 100%;
+    height: 100%;
 }
 .item_card.check_card input[type=checkbox]:checked +label .btn_check{
+    background-color: rgba(0,0,0,0.05);
     border-color: var(--main-black);
     color: var(--main-red);
     opacity:1;
