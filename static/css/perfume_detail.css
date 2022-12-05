@@ -144,8 +144,14 @@
     align-items: center;
 }
 
+.tab_perfume_brand{
+    font-size: large;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
 .tab_perfume_name{
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bold;
     text-align: center;
 }
@@ -163,8 +169,19 @@
 }
 
 .tab_detail_content{
-    width: 600px;
+    width: 800px;
     margin: 100px 185px 0px 185px;
+}
+
+.tab_note_1, .tab_note_2, .tab_note_3, .tab_note_4{
+    margin: 30px;
+    font-size: large;
+}
+
+.tab_note_0{
+    margin: 20px 0px 30px 10px;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .perfume_content_title, .perfume_content_body, .perfume_content_scent, .perfume_content_base{
