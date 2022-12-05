@@ -13,6 +13,9 @@
     --main-white: #ffffff;
     --second-white: #f5f5f5;
     --base-gray-999: #999;
+    --base-gray-e4: #e4e4e4;
+    --base-gray-ef :#efefef;
+
 }
 
 body{
@@ -159,6 +162,11 @@ a, a:hover{
     min-height: calc(100vh - 351.4px) ;
 }
 /* sidenav */
+.area_container{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+}
 .sidenav{
     width: 250px;
     min-height: 250px;
@@ -168,7 +176,6 @@ a, a:hover{
 }
 .main{
     padding: 32px 16px;
-    margin-left: 250px;
 }
 /* section */
 .sec{

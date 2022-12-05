@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMOP - My Profile</title>
+    <!-- 페이지 meta태그 -->
+    <meta name=”description” content="Make My Own Perfume. 당신만의 향수를 제작해보세요!">
+    <meta name=”keywords” content="MMOP, perfume, 취향테스트, 향수추천, 나만의 향수, 수제향수, 향수커스텀제작">
+    <meta property="og:site_name" content="MMOP" />
+    <meta property="og:title" content="MMOP" />
+    <meta property="og:description" content="Make My Own Perfume. 당신만의 향수를 제작해보세요!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"
+        content="https://assets.burberry.com/is/image/Burberryltd/FF7081DD-1E90-4399-A98D-B1C150B964A6?$BBY_V2_SL_1x1$&wid=1251&hei=1251" />
+    <meta property="og:image"
+        content="https://assets.burberry.com/is/image/Burberryltd/FF7081DD-1E90-4399-A98D-B1C150B964A6?$BBY_V2_SL_1x1$&wid=1251&hei=1251" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 페이지별 css 추가 -->
+    <link rel="stylesheet" href="/static/css/profile.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="flex">
+                    <div class="navbar_logo">
+                        <a href="/">
+                            <img src="/static/images/logo.png" alt="unftlogo" />
+                        </a>
+                    </div>
+                    <div class="navbar_nav flex w-100">
+                        <ul class="navbar_menu nav-left">
+                            <li class="navbar_item">
+                                <a href="#">
+                                    향수 추천
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#">
+                                    향수 제작
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar_menu nav-right">
+                            <li class="navbar_item">
+                                <a href="/users/sign-in.html">
+                                    SIGN IN
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="wrap">
+        <div class="container area_container">
+            <nav class="sidenav tab_menu">
+                <ul class="tab_list">
+                    <li class="tab_item active" id="tab_menu_01">
+                        <a href="#tab_01">나만의 향수</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </li>
+                    <li class="tab_item" id="tab_menu_02">
+                        <a href="#tab_02">나의 리뷰</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </li>
+                    <li class="tab_item" id="tab_menu_03">
+                        <a href="#tab_03">찜한 상품</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </li>
+                    <li class="tab_item" id="tab_menu_04">
+                        <a href="#tab_04">개인 정보 수정</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main tab_body">
+                <div class="tab_content my_perfume_list active" id="tab_01">
+                    <section class="sec sec_customperfume">
+                        <div class='mmop_card_list perfume_card_list' id="my_custom_perfume_list">
+                            <div class="row">
+                                <!-- card start -->
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://www.trndf.com/news/data/20190709/p1065591406141189_714_thum.jpg">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://w.namu.la/s/79faad188a641486929396483770829847d5b8b2e42f7250863746bd5b43dec58494e4c51f181f92494375cb267d9b3760e76f078d8810a5ffbdb4a99454af99306beff5e5808511f81a92489a044f88c19bb18cecefc80e7e3f197127a4cdb3">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://www.shutterstock.com/image-photo/pine-cones-needles-260nw-62295190.jpg">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGPNRIaJt_WCOcAVPzfgGkGHRrgZHk-Q5DQ&usqp=CAU">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://w.namu.la/s/79faad188a641486929396483770829847d5b8b2e42f7250863746bd5b43dec58494e4c51f181f92494375cb267d9b3760e76f078d8810a5ffbdb4a99454af99306beff5e5808511f81a92489a044f88c19bb18cecefc80e7e3f197127a4cdb3">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://www.shutterstock.com/image-photo/pine-cones-needles-260nw-62295190.jpg">
+                                                </div>
+                                                <div class="perfume_images material">
+                                                    <img
+                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGPNRIaJt_WCOcAVPzfgGkGHRrgZHk-Q5DQ&usqp=CAU">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>조말론 우드 세이지 앤 씨솔트 코롱</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_tag"><span
+                                                            class="creator">#시트러스 #백합 #솔방울</span></p>
+                                                    <div class="card_button">
+                                                        <button type="button" class=" btn perfume_card_edit">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+                <div class="tab_content my_review_list" id="tab_02">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+                                    <p>샤넬 샹스 오 후레쉬</p>
+                                    <div class="review_star_grade">
+                                        <div class="starpoint_wrap">
+                                            <div class="starpoint_box star_70">
+                                                <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                        class="blind">0.5점</span></label>
+                                                <label for="starpoint_2" class="label_star" title="1"><span
+                                                        class="blind">1점</span></label>
+                                                <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                        class="blind">1.5점</span></label>
+                                                <label for="starpoint_4" class="label_star" title="2"><span
+                                                        class="blind">2점</span></label>
+                                                <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                        class="blind">2.5점</span></label>
+                                                <label for="starpoint_6" class="label_star" title="3"><span
+                                                        class="blind">3점</span></label>
+                                                <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                        class="blind">3.5점</span></label>
+                                                <label for="starpoint_8" class="label_star" title="4"><span
+                                                        class="blind">4점</span></label>
+                                                <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                        class="blind">4.5점</span></label>
+                                                <label for="starpoint_10" class="label_star" title="5"><span
+                                                        class="blind">5점</span></label>
+                                                <span class="starpoint_bg"></span>
+                                            </div>
+                                        </div>
+                                        <span class="review_user_grade">3.5</span>
+                                    </div>
+                                </button>
+                                
+                            </h2>
+                            <div id="flush-collapse1" class="accordion-collapse collapse"
+                                aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="sec_review_head">
+                                        <div class="sec_review_userinfo">
+                                            <div class="review_user_info">
+                                                <div class="review_username">
+                                                    username
+                                                </div>
+                                                
+                                                <div class="review_created_time">22. 11. 19</div>
+                                                <button class="btn review-edit-button" type="button">수정</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sec_review_body">
+                                        <div class="review_body_content">
+                                            <div class="review_good">
+                                                <div class="review_good_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/positive-vote.png">
+                                                </div>
+                                                <div class="review_good_content">
+                                                    이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이
+                                                    향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수
+                                                    향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)
+                                                </div>
+                                            </div>
+                                            <div class="review_bad">
+                                                <div class="review_bad_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/negative-vote.png">
+                                                </div>
+                                                <div class="review_bad_content">
+                                                    하지만 머리가 아프군요!! 머리가 암프군요!!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="review_result_image_box">
+                                                <img class="review_result_image"
+                                                    src="data:image/jpeg;base64,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">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+                                    <p>샤넬 샹스 오 후레쉬</p>
+                                    <div class="review_star_grade">
+                                        <div class="starpoint_wrap">
+                                            <div class="starpoint_box star_70">
+                                                <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                        class="blind">0.5점</span></label>
+                                                <label for="starpoint_2" class="label_star" title="1"><span
+                                                        class="blind">1점</span></label>
+                                                <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                        class="blind">1.5점</span></label>
+                                                <label for="starpoint_4" class="label_star" title="2"><span
+                                                        class="blind">2점</span></label>
+                                                <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                        class="blind">2.5점</span></label>
+                                                <label for="starpoint_6" class="label_star" title="3"><span
+                                                        class="blind">3점</span></label>
+                                                <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                        class="blind">3.5점</span></label>
+                                                <label for="starpoint_8" class="label_star" title="4"><span
+                                                        class="blind">4점</span></label>
+                                                <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                        class="blind">4.5점</span></label>
+                                                <label for="starpoint_10" class="label_star" title="5"><span
+                                                        class="blind">5점</span></label>
+                                                <span class="starpoint_bg"></span>
+                                            </div>
+                                        </div>
+                                        <span class="review_user_grade">3.5</span>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse2" class="accordion-collapse collapse"
+                                aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="sec_review_head">
+                                        <div class="sec_review_userinfo">
+                                            <div class="review_user_info">
+                                                <div class="review_username">
+                                                    username
+                                                </div>
+                                                
+                                                <div class="review_created_time">22. 11. 19</div>
+                                                <button class="btn review-edit-button" type="button">수정</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sec_review_body">
+                                        <div class="review_body_content">
+                                            <div class="review_good">
+                                                <div class="review_good_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/positive-vote.png">
+                                                </div>
+                                                <div class="review_good_content">
+                                                    이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이
+                                                    향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수
+                                                    향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)
+                                                </div>
+                                            </div>
+                                            <div class="review_bad">
+                                                <div class="review_bad_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/negative-vote.png">
+                                                </div>
+                                                <div class="review_bad_content">
+                                                    하지만 머리가 아프군요!! 머리가 암프군요!!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="review_result_image_box">
+                                                <img class="review_result_image"
+                                                    src="data:image/jpeg;base64,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">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                                    <p>샤넬 샹스 오 후레쉬</p>
+                                    <div class="review_star_grade">
+                                        <div class="starpoint_wrap">
+                                            <div class="starpoint_box star_70">
+                                                <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                        class="blind">0.5점</span></label>
+                                                <label for="starpoint_2" class="label_star" title="1"><span
+                                                        class="blind">1점</span></label>
+                                                <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                        class="blind">1.5점</span></label>
+                                                <label for="starpoint_4" class="label_star" title="2"><span
+                                                        class="blind">2점</span></label>
+                                                <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                        class="blind">2.5점</span></label>
+                                                <label for="starpoint_6" class="label_star" title="3"><span
+                                                        class="blind">3점</span></label>
+                                                <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                        class="blind">3.5점</span></label>
+                                                <label for="starpoint_8" class="label_star" title="4"><span
+                                                        class="blind">4점</span></label>
+                                                <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                        class="blind">4.5점</span></label>
+                                                <label for="starpoint_10" class="label_star" title="5"><span
+                                                        class="blind">5점</span></label>
+                                                <span class="starpoint_bg"></span>
+                                            </div>
+                                        </div>
+                                        <span class="review_user_grade">3.5</span>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse3" class="accordion-collapse collapse"
+                                aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="sec_review_head">
+                                        <div class="sec_review_userinfo">
+                                            <div class="review_user_info">
+                                                <div class="review_username">
+                                                    username
+                                                </div>
+                                                
+                                                <div class="review_created_time">22. 11. 19</div>
+                                                <button class="btn review-edit-button" type="button">수정</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sec_review_body">
+                                        <div class="review_body_content">
+                                            <div class="review_good">
+                                                <div class="review_good_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/positive-vote.png">
+                                                </div>
+                                                <div class="review_good_content">
+                                                    이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이
+                                                    향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)이 향수
+                                                    향 너무 맘에 들어요!!! :)이 향수 향 너무 맘에 들어요!!! :)
+                                                </div>
+                                            </div>
+                                            <div class="review_bad">
+                                                <div class="review_bad_image">
+                                                    <img class="review_profile_image"
+                                                        src="/static/images/negative-vote.png">
+                                                </div>
+                                                <div class="review_bad_content">
+                                                    하지만 머리가 아프군요!! 머리가 암프군요!!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="review_result_image_box">
+                                                <img class="review_result_image"
+                                                    src="data:image/jpeg;base64,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">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_content like_list" id="tab_03">
+                    <section class="sec sec_customperfume">
+                        <div class='mmop_card_list perfume_card_list' id="my_custom_perfume_list">
+                            <div class="row">
+                                <!-- card start -->
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <img class="perfume_card_heart" src="/static/images/heart.png">
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_editor"><span
+                                                            class="creator">껍질이 두꺼운 두터운 자몽과 오렌지의 쌉싸름한 상큼함</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <img class="perfume_card_heart" src="/static/images/heart.png">
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_editor"><span
+                                                            class="creator">껍질이 두꺼운 두터운 자몽과 오렌지의 쌉싸름한 상큼함</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <img class="perfume_card_heart" src="/static/images/heart.png">
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_editor"><span
+                                                            class="creator">껍질이 두꺼운 두터운 자몽과 오렌지의 쌉싸름한 상큼함</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <img class="perfume_card_heart" src="/static/images/heart.png">
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_editor"><span
+                                                            class="creator">껍질이 두꺼운 두터운 자몽과 오렌지의 쌉싸름한 상큼함</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <a href="#">
+                                        <div class='perfume_card item_card'>
+                                            <div class="card_header list_profile">
+                                                <div class="perfume_images item_image scale_up">
+                                                    <img aria-hidden="false" draggable="false" loading="lazy"
+                                                        src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                </div>
+                                                <img class="perfume_card_heart" src="/static/images/heart.png">
+                                            </div>
+                                            <div class="card_body">
+                                                <div class="card_content">
+                                                    <p class="perfume_card_title item_card_title"><span
+                                                            class="title"></span>딥디크오에도 오 드 뚜왈렛</p>
+                                                    <p class="perfume_card_creator item_card_editor"><span
+                                                            class="creator">껍질이 두꺼운 두터운 자몽과 오렌지의 쌉싸름한 상큼함</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+                <div class="tab_content profile_edit" id="tab_04">
+                    <section class="sec form-control profile_edit_data">
+                        <p class="profile_title">기본 회원 정보</p>
+                        <div class="mb-3 row">
+                            <div class="edit_line">
+                                <label for="nickname" class="col-sm-2 col-form-label">닉네임</label>
+                                <div class="col-sm-8 profile_edit_input">
+                                    <input class="form-control" placeholder="닉네임" id="profile_username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="edit_line">
+                                <label for="email" class="col-sm-2 col-form-label">이메일</label>
+                                <div class="col-sm-8 profile_edit_input">
+                                    <input class="form-control " id="profile_email" placeholder="email"
+                                        aria-label="Disabled input example" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="edit_line">
+                                <label for="phonenumber" class="col-sm-2 col-form-label">연락처</label>
+                                <div class="col-sm-8 profile_edit_input">
+                                    <input class="form-control " placeholder="연락처" id="profile_phone_number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="edit_line">
+                                <label for="password" class="col-sm-2 col-form-label">비밀번호</label>
+                                <div class="col-sm-8 profile_edit_input">
+                                    <a href="http://127.0.0.1:8000/users/password_reset/" id="passwordReset">비밀번호 변경하러 가기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn_edit_complete" id="btn_update_profile" submit="button">수정완료</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="fnb">
+                <ul class="fnb_nav">
+                    <li><a href="#">브랜드 소개</a></li>
+                    <li><a href="#">상품QnA</a></li>
+                    <li><a href="/member/agreement.html">이용약관</a></li>
+                    <li><a href="/member/privacy.html">개인정보 보호정책</a></li>
+                </ul>
+            </div>
+            <div class="footer_content">
+                <div class="footer_info">
+                    <div class="footer_logo">
+                        <a href="/">
+                            <img src="/static/images/logo_white.png" alt="footer_logo">
+                        </a>
+                    </div>
+                    <div class="footer_team_intro">
+                        <p> 상호 (주)USD 사업자등록번호 123-45-67890</p>
+                        <p> 통신판매업 신고 제2022-서울강남-01234호 <a href="#none"
+                                onclick="window.open('#http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1234567890', 'bizCommPop', 'width=750, height=950;');return false;">[사업자정보확인]</a>
+                        </p>
+                        <p> 주소 서울특별시 강남구 테헤란로 0 (삼성동) USD</p>
+                        <p> 전화 <a href="tel:010-1234-5678">010-1234-5678</a></p>
+                        <p> 개인정보관리책임자 이현지 <a href="mailto:dev_usd@usd.com">(dev_usd@usd.com)</a></p>
+                        <p> copyright(c) USD. All rights reserved </p>
+                    </div>
+                </div>
+                <div class="footer_service">
+                    <div class="footer_title">
+                        <strong>고객센터</strong>
+                    </div>
+                    <p class="tel"><a href="tel:010-1234-5678">010-1234-5678</a></p>
+                    <p class="service_time">
+                        AM 10:00 - PM 5:00
+                        <br>
+                        (점심 PM 12:00 - PM 1:00)
+                        <br>
+                        토/일, 공휴일은 휴무
+                    </p>
+                </div>
+                <div class="footer_account">
+                    <div class="footer_title">
+                        <strong>ACCOUNT</strong>
+                    </div>
+                    <ul class="footer_account_link">
+                        <li><a href="/users/sign-in.html">로그인</a></li>
+                        <li><a href="/users/sign-up.html">회원가입</a></li>
+                        <li><a href="/users/password-reset.html">비밀번호 찾기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/profile.js"></script>
+</body>
