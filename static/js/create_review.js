@@ -33,11 +33,29 @@ async function handlePerfumeInfo(){
     })
     .then(result => {
         const response_json = result;
-        console.log(response_json)
         let perfume = response_json;
-        console.log(perfume)
 
-        let 
-    
+        let review_perfume_detail = document.getElementById("review_perfume_detail");
+        review_perfume_detail.innerHTML= '';
+
+        let perfume_detail = document.createElement('div');
+        perfume_detail.className = 'sec_create_review_body';
+        perfume_detail.innerHTML = `
+        <div class="create_review_body_title">
+            <div class="review_image_box">
+                <img class="review_image" src="${perfume['image']}">
+            </div>
+            <div class="review_body_desc_box">
+                <div class="desc_box_brand">
+                    <p>${perfume['brand']}</p>
+                </div>
+                <hr/>
+                <div class="desc_box_name">
+                    <p>${perfume['title']}</p>
+                </div>
+            </div>
+        </div>
+        `;
+        review_perfume_detail.append(perfume_detail);
     })
 }
