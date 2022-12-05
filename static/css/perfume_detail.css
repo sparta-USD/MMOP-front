@@ -43,26 +43,26 @@
 
 .perfume_detail_top{
     display: flex;
-    justify-content: space-between;
 }
 
-.top_1, .top_2{
-    margin: 10px;
+.perfume_detail_middle{
+    margin: 30px 0px 30px 0px;
+}
+
+.top_1, .top_2, .top_3{
+    margin: 5px 60px 5px 10px;
     font-size: large;
     font-weight: 600;
 }
 
-.top_2{
-    margin-right: 70px;
-}
-
-.note_0, .note_1, .note_2, .note_3, .note_4{
+.note_1, .note_2, .note_3, .note_4{
     margin: 12px;
 }
 
 .note_0{
+    margin: 5px 0px 15px 5px;
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
 }
 
 /* ******** */
