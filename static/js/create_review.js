@@ -1,4 +1,4 @@
-// create_review.html에서 작성완료 버튼을 누르면 handleCreateReview() 호출
+// 1. create_review.html에서 작성완료 버튼을 누르면 handleCreateReview() 호출
 document.getElementById("btn_review_ok").addEventListener("click",function(){
     handleCreateReview();
 });
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-// 제품 정보 불러오기
+// 2. 제품 정보 불러오기
 async function handlePerfumeInfo(){
 
     const response = await fetch('http://127.0.0.1:8000/perfume/3', {
@@ -49,7 +49,6 @@ async function handlePerfumeInfo(){
                 <div class="desc_box_brand">
                     <p>${perfume['brand']}</p>
                 </div>
-                <hr/>
                 <div class="desc_box_name">
                     <p>${perfume['title']}</p>
                 </div>
@@ -60,7 +59,7 @@ async function handlePerfumeInfo(){
     })
 }
 
-// 리뷰 작성하기
+// 3. 리뷰 작성하기
 async function handleCreateReview() {
 
     const review_formData = new FormData();

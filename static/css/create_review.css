@@ -57,14 +57,15 @@
 .desc_box_brand p{
     margin-top: 25px;
     width: 400px;
-    font-size: x-large;
+    font-size: medium;
     font-weight: 600;
 }
 
 .desc_box_name p{
+    margin-top: 25px;
     width: 400px;
     font-size: x-large;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 
