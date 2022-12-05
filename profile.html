@@ -658,7 +658,7 @@
                             <div class="edit_line">
                                 <label for="nickname" class="col-sm-2 col-form-label">닉네임</label>
                                 <div class="col-sm-8 profile_edit_input">
-                                    <input class="form-control" placeholder="닉네임" id="inputNickname">
+                                    <input class="form-control" placeholder="닉네임" id="profile_username">
                                 </div>
                             </div>
                         </div>
@@ -666,7 +666,7 @@
                             <div class="edit_line">
                                 <label for="email" class="col-sm-2 col-form-label">이메일</label>
                                 <div class="col-sm-8 profile_edit_input">
-                                    <input class="form-control " id="inputEmail" placeholder="email"
+                                    <input class="form-control " id="profile_email" placeholder="email"
                                         aria-label="Disabled input example" disabled>
                                 </div>
                             </div>
@@ -675,7 +675,7 @@
                             <div class="edit_line">
                                 <label for="phonenumber" class="col-sm-2 col-form-label">연락처</label>
                                 <div class="col-sm-8 profile_edit_input">
-                                    <input class="form-control " placeholder="연락처" id="inputPhoneNumber">
+                                    <input class="form-control " placeholder="연락처" id="profile_phone_number">
                                 </div>
                             </div>
                         </div>
@@ -683,11 +683,11 @@
                             <div class="edit_line">
                                 <label for="password" class="col-sm-2 col-form-label">비밀번호</label>
                                 <div class="col-sm-8 profile_edit_input">
-                                    <a href="#" id="passwordReset">비밀번호 변경하러 가기</a>
+                                    <a href="http://127.0.0.1:8000/users/password_reset/" id="passwordReset">비밀번호 변경하러 가기</a>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn_edit_complete" submit="button">수정완료</button>
+                        <button class="btn btn_edit_complete" id="btn_update_profile" submit="button">수정완료</button>
                     </section>
                 </div>
             </div>

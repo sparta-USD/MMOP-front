@@ -382,6 +382,8 @@
     padding-left: unset;
     padding-right: unset;
     margin-right: 40px;
+    font-weight: 600;
+    color: #999;
 }
 
 .profile_edit_data .profile_edit_input .form-control{
@@ -402,5 +404,17 @@
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 1em;
-    
+    border-radius: unset;
+}
+.sec .btn_edit_complete:hover{
+    margin:auto;
+    display: block;
+    background-color: #202020;
+    width: 130px;
+    height: 50px;
+    color: #f5f5f5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1em;
+    border-radius: unset;
 }
