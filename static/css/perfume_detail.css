@@ -15,7 +15,13 @@
 }
 
 .btn-dark{
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 20px;
+}
+
+.bi-heart, .bi-heart-fill{
+    font-size: 1.5rem;
+    color: var(--main-red);
+    cursor: pointer;
 }
 
 .perfume_desc_box{
