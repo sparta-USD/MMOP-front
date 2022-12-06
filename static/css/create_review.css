@@ -4,12 +4,12 @@
     height: 100px;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 .create_review_box{
     width: 400px;
     height: 100px;
-    margin: 80px 0px 0px 80px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,9 @@
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
-    margin: 80px 0px 80px 0px;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px 0px 0px;
 }
 
 
@@ -30,17 +32,12 @@
 }
 
 .sec_create_review_body{
+    height: 300px;
+}
+
+.review_image_box, .review_image{
+    width: 250px;
     height: 250px;
-}
-
-.review_image_box{
-    width: 200px;
-    height: 200px;
-}
-
-.review_image{
-    width: 200px;
-    height: 200px;
 }
 
 .review_body_desc_box{
