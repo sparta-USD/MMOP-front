@@ -13,3 +13,7 @@ $('.tab_item').on("click",function(e){
     $(".tab_content").removeClass("active");
     $(target_content_id).addClass("active");
 })
+
+$(".none_link").on("click",function(e){
+    e.preventDefault();
+});
