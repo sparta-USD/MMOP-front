@@ -150,6 +150,7 @@
 .sec_btn_wrap button{
     width: 200px;
     margin: 8px;
+    border-radius: 0%;
 }
 
 .sec_btn_wrap button.btn_review_ok:hover{
