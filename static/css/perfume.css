@@ -47,6 +47,12 @@
     font-weight: 500;
 }
 
+#btn_like{
+    color: var(--main-black);
+    font-size: 1.2rem;
+    pointer-events : none; /* 클릭 이벤트 막음 */
+}
+
 /* 버튼 */
 .btn_create_group{
     display: flex;
@@ -72,18 +78,12 @@
     background-color: var(--main-white);
 }
 
-/* .bi-suit-heart, .bi-suit-heart-fill{
-    font-size: 1.5rem;
-    color: var(--main-red);
-    cursor: pointer;
-}
-
-#heart_btn{
+#btn_heart{
     margin: 16px 20px 0px 10px;
     font-size: 1.9rem;
     color: var(--main-red);
     cursor: pointer;
-} */
+}
 
 
 /* ******** */

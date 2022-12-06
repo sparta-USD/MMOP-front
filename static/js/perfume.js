@@ -14,10 +14,10 @@ $('.tab_item').on("click",function(e){
 var i = 0;
 $('i').on('click',function(){
     if(i==0){
-        $(this).attr('class','bi-heart-fill');
+        $(this).attr('class','bi-suit-heart-fill');
         i++;
     }else if(i==1){
-        $(this).attr('class','bi-heart');
+        $(this).attr('class','bi-suit-heart');
         i--;
     }
 });
