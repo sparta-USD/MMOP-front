@@ -10,12 +10,6 @@ $('.tab_item').on("click",function(e){
     $(target_content_id).addClass("active");
 })
 
-// function addLike(){
-//     const pushHeartBtn = document.querySelector(".heartBtn");
-//     pushHeartBtn.innerHTML ='<i class="bi bi-heart-fill">';
-//     pushHeartBtn.style.color ='red'; 
-// }
-
 // 찜하기 버튼 클릭 시 하트 변경
 var i = 0;
 $('i').on('click',function(){
