@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/signin.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
     <!-- 페이지별 css 추가 -->
 </head>
 <body>
@@ -67,34 +67,48 @@
         <div class="wrap">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center">
-                    <div class="sec_signin">
-                        <div class="signin_title">
-                            <h2 class="">로그인</h2>
+                    <div class="sec_signup">
+                        <div class="signup_title">
+                            <h2 class="">회원가입</h2>
                         </div>
-                        <div class="signin_content">
-                            <h3 class="">이메일</h3>
+                        <div class="signup_content">
+                            <h3 class="">이메일*</h3>
                             <div class="email_input">
-                                <input id="email" type="email" name="email" placeholder="이메일을 입력해주세요." class="input_txt">
+                                <input id="email" type="email" name="email" placeholder="MMOP@MMOP.com" class="input_txt">
                             </div>
                         </div>
-                        <div class="signin_content">
-                            <h3 class="">비밀번호</h3>
+                        <div class="signup_content">
+                            <h3 class="">닉네임*</h3>
                             <div class="">
-                                <input id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요." class="input_txt">
+                                <input id="username" type="username" name="username" placeholder="" class="input_txt">
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between signin_content">
-                            <div class="link_wrap">
-                                <a href="#">비밀번호를 잊으셨나요?</a>
-                            </div>
-                            <div class="link_wrap">
-                                <a href="signup.html">회원가입 하기</a>
+                        <div class="signup_content">
+                            <h3 class="">전화번호</h3>
+                            <div class="">
+                                <input id="phone_number" type="text" name="phone_number" placeholder="010-1234-1234" class="input_txt">
                             </div>
                         </div>
+                        <div class="signup_content">
+                            <h3 class="">비밀번호*</h3>
+                            <div class="">
+                                <input id="password" type="password" name="password" placeholder="영문 대소문자, 숫자, 특수문자 조합 8-20자" class="input_txt">
+                            </div>
+                        </div>
+                        <div class="signup_content">
+                            <h3 class="">비밀번호 확인*</h3>
+                            <div class="">
+                                <input id="password2" type="password" name="password2" placeholder="비밀번호를 한번더 입력해주세요" class="input_txt">
+                            </div>
+                        </div>
+                        <div class="signup_content">
+                            <input type="checkbox" value="Y" name="agree" id="agree">
+                            <label for="agree">[필수] 만 14세 이상이며 개인정보 수집 및 이용에 동의합니다.</label>
+                        </div>
+        
                         <div class="btn_wrap mb-3 w-100">
-                            <button id="signin_btn" type="button" class="btn" onclick="handleSignin()">로그인</button>
-                            <!--TODO: 카카오 로그인 구현시, 카카오 가이드에 맞게 수정-->
-                            <button id="kakao_btn" type="button" class="btn" onclick="location.href='#'">카카오 로그인</button>
+                            <button id="signup_btn" type="button" class="btn" onclick="handleSignup()"> 가입하기
+                            <button type="button" class="btn" onclick="location.href='signin.html'"> 로그인하기</button>
                         </div>
                     </div>
                 </div>
@@ -154,5 +168,5 @@
         </div>
     </footer>
     <script src="/static/js/main.js"></script>
-    <script src="/static/js/signin.js"></script>
+    <script src="/static/js/signup.js"></script>
 </body>
