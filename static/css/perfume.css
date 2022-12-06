@@ -42,14 +42,9 @@
     margin: 25px 0px 25px 10px;
 }
 
-.col-3{
+.col_like, .col_gender, .col_price{
     font-size: large;
-    font-weight: 600;
-}
-
-.col-9{
-    font-size: large;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* 버튼 */
@@ -148,7 +143,7 @@
 
 /* 제품정보 탭 */
 .container_desc_tab{
-    margin: 60px 0px 0px 0px;
+    margin: 120px 0px 0px 0px;
     justify-content: center;
     align-items: center;
 }
@@ -156,7 +151,7 @@
 .tab_name_box{
     width: 600px;
     height: 200px;
-    margin: 0px 340px 0px 340px;
+    margin: 0px 340px 50px 340px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,23 +184,35 @@
 
 .tab_detail_content{
     width: 800px;
-    margin: 100px 360px 0px 360px;
+    margin: 180px 280px 180px 280px;
 }
 
-.tab_note_1, .tab_note_2, .tab_note_3, .tab_note_4{
-    margin: 30px;
-    font-size: large;
+.detail_scent, .detail_top_note, .detail_heart_note, .detail_base_note, .detail_none_note{
+    margin: 25px 0px 25px 0px;
 }
 
-.tab_note_0{
-    margin: 20px 0px 30px 10px;
-    font-weight: bold;
+.col_scent{
+    font-size: xx-large;
+    font-weight: 600;
+    margin: 10px 0px 10px 0px;
+}
+
+.col_scent_note{
+    font-size: xx-large;
+    font-weight: 500;
+    margin: 10px 0px 10px 0px;
+}
+
+.col_title{
     font-size: x-large;
+    font-weight: 600;
 }
 
-.perfume_content_title, .perfume_content_body, .perfume_content_scent, .perfume_content_base{
-    margin: 50px 0px 0px 50px;
+.col_note{
+    font-size: x-large;
+    font-weight: 500;
 }
+
 
 
 /* 리뷰 탭 */
