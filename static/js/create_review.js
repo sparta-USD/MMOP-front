@@ -92,7 +92,11 @@ async function handleCreateReview() {
     review_formData.append("review_image", review_image);
     review_formData.append("grade", grade);
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
+    if (good_content == "" || bad_content == "" || review_image == "" || grade == ""){
+        alert("빈칸을 채워주세요!")
+    }
+    else{
+        const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
         method: 'POST',
         headers: {
             "Authorization":"Bearer" + localStorage.getItem("access"),
@@ -113,4 +117,5 @@ async function handleCreateReview() {
         alert("리뷰 작성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
+    }
 }
