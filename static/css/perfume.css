@@ -83,6 +83,11 @@
     cursor: pointer;
 }
 
+#heart_btn{
+    margin: 16px 20px 0px 10px;
+    font-size: 1.9rem;
+}
+
 
 /* ******** */
 /* tab_menu */
