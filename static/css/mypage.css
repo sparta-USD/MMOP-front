@@ -99,6 +99,9 @@
 .container_review_body{
     margin: 20px 250px 20px 250px;
 }
+.review_body_content{
+    margin-bottom: 20px;
+}
 
 .review_profile_image{
     width: 30px;
@@ -154,6 +157,11 @@
     height: 110px;
 }
 
+.bi-emoji-smile, .bi-emoji-frown{
+    font-size: 25px;
+    margin-right: 18px;
+}
+
 
 /* mypage item_card */
 .item_card .card_footer{
@@ -169,6 +177,20 @@
     border-radius: unset;
     margin:auto;
     display: block;
+}
+
+.item_card .bi-suit-heart-fill{
+    color:red;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    right:13px;
+
 }
 
 /* profile_edit */
