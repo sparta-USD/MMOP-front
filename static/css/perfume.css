@@ -72,7 +72,7 @@
     background-color: var(--main-white);
 }
 
-.bi-heart, .bi-heart-fill{
+/* .bi-suit-heart, .bi-suit-heart-fill{
     font-size: 1.5rem;
     color: var(--main-red);
     cursor: pointer;
@@ -81,7 +81,9 @@
 #heart_btn{
     margin: 16px 20px 0px 10px;
     font-size: 1.9rem;
-}
+    color: var(--main-red);
+    cursor: pointer;
+} */
 
 
 /* ******** */
@@ -184,7 +186,12 @@
 
 .tab_detail_content{
     width: 800px;
-    margin: 180px 280px 180px 280px;
+    margin: 150px 280px 150px 280px;
+}
+
+.tab_perfume_detail{
+    border: double 0.5rem var(--second-black);
+    padding: 0rem 1rem 1rem 1rem;
 }
 
 .detail_scent, .detail_top_note, .detail_heart_note, .detail_base_note, .detail_none_note{
