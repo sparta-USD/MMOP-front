@@ -46,6 +46,9 @@ async function handlePerfumeInfo(){
                 <img class="review_image" src="${perfume['image']}">
             </div>
             <div class="review_body_desc_box">
+                <div class="desc_box_id">
+                    <p>#${perfume['id']}</p>
+                </div>
                 <div class="desc_box_brand">
                     <p>${perfume['brand']}</p>
                 </div>

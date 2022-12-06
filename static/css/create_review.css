@@ -26,37 +26,44 @@
 
 
 /* 제품 상세정보 공간 */
+.sec_create_review_body{
+    height: 300px;   
+    margin: 10px 0px 30px 150px;
+}
+
 .create_review_body_title{
     display: flex;
     margin: 0px 0px 30px 0px;
 }
 
-.sec_create_review_body{
+.review_image_box, .review_image{
+    width: 300px;
     height: 300px;
 }
 
-.review_image_box, .review_image{
-    width: 250px;
-    height: 250px;
+.review_body_desc_box{
+    width: 300px;
+    height: 300px;
+    margin-left: 80px;
 }
 
-.review_body_desc_box{
-    width: 400px;
-    height: 200px;
-    margin-left: 40px;
+.desc_box_id p{
+    margin-top: 30px;
+    font-size: large;
+    font-weight: 500;
 }
 
 .desc_box_brand p{
     margin-top: 25px;
     width: 400px;
-    font-size: medium;
+    font-size: large;
     font-weight: 600;
 }
 
 .desc_box_name p{
     margin-top: 25px;
     width: 400px;
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: 600;
 }
 
