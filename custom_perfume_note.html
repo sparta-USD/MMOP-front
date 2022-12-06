@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMOP - Make My Own Perfume.</title>
+    <!-- 페이지 meta태그 -->
+    <meta name=”description” content="Make My Own Perfume. 당신만의 향수를 제작해보세요!">
+    <meta name=”keywords” content="MMOP, perfume, 취향테스트, 향수추천, 나만의 향수, 수제향수, 향수커스텀제작">
+    <meta property="og:site_name" content="MMOP" />
+    <meta property="og:title" content="MMOP" />
+    <meta property="og:description" content="Make My Own Perfume. 당신만의 향수를 제작해보세요!" />	
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://assets.burberry.com/is/image/Burberryltd/FF7081DD-1E90-4399-A98D-B1C150B964A6?$BBY_V2_SL_1x1$&wid=1251&hei=1251" />
+    <meta property="og:image" content="https://assets.burberry.com/is/image/Burberryltd/FF7081DD-1E90-4399-A98D-B1C150B964A6?$BBY_V2_SL_1x1$&wid=1251&hei=1251" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 페이지별 css 추가 -->
+    <link rel="stylesheet" href="/static/css/custom_perfume_note.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="flex">
+                    <div class="navbar_logo">
+                        <a href="/">
+                            <img src="/static/images/logo.png" alt="unftlogo" />
+                        </a>
+                    </div>
+                    <div class="navbar_nav flex w-100">
+                        <ul class="navbar_menu nav-left">
+                            <li class="navbar_item">
+                                <a href="#">
+                                    향수 추천
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#">
+                                    향수 제작
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar_menu nav-right">
+                            <li class="navbar_item">
+                                <a href="/users/sign-in.html">
+                                    SIGN IN
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="wrap">
+        <section class="sec sec_main_banner">
+            <div class="swiper main_banner">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                    <div class="swiper-slide">
+                        <h1>Pick Your Fragrance!</h1>
+                        <p>3가지 향을 선택하여 나만의 향수를 만들어 보세요</p>
+                    </div>
+                    <div class="swiper-slide2">
+                        <div class="circle"><div class="circle_plus">+</div></div>
+                        <div class="circle"><div class="circle_plus">+</div></div>
+                        <div class="circle"><div class="circle_plus">+</div></div>
+                        <p></p>
+                        <button>나만의 향수 만들기</button>
+                    </div>
+                </div>
+              </div>
+        </section>
+        <section style="margin:auto; width:1400px;">
+            <ul class="category">
+                <li class="tab_item active" id="tab_menu_01" ><a href="#tab_01">시트러스</a></li>
+                <li class="tab_item" id="tab_menu_02"><a href="#tab_02">과일, 야채 및 견과류</a></li>
+                <li class="tab_item" id="tab_menu_03"><a href="#tab_03">꽃</a></li>
+                <li class="tab_item" id="tab_menu_04"><a href="#tab_04">흰 꽃</a></li>
+                <li class="tab_item" id="tab_menu_05"><a href="#tab_05">채소, 허브 및 푸제</a></li>
+                <li class="tab_item" id="tab_menu_06"><a href="#tab_06">향료</a></li>
+                <li class="tab_item" id="tab_menu_07"><a href="#tab_07">과자와 미식가</a></li>
+                <li class="tab_item" id="tab_menu_08"><a href="#tab_08">숲과 이끼</a></li>
+                <li class="tab_item" id="tab_menu_09"><a href="#tab_09">수지와 발삼</a></li>
+                <li class="tab_item" id="tab_menu_010"><a href="#tab_010">머스크, 앰버, 동물 냄새</a></li>
+                <li class="tab_item" id="tab_menu_011"><a href="#tab_011">음료수</a></li>
+                <li class="tab_item" id="tab_menu_012"><a href="#tab_012">천연 및 합성, 인기 및 이상한</a></li>
+            </ul>
+        </section>
+        <hr>
+        <section class="sec sec_perfume_list" style="margin-top: 50px;">
+            <div class="container">
+                <div class="tab_content active" id="tab_01">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">귤</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_02">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>      
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>          
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_03">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="col-lg-1 col-md-4 col-6">
+                            <div class='item_card check_card'>
+                                <div class="card_header list_profile">
+                                    <div class="item_image">
+                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <div class="card_content">
+                                        <p class="item_card_title"><span class="title">아카시아</span></p>
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="fnb">
+                <ul class="fnb_nav">
+                    <li><a href="#">브랜드 소개</a></li>
+                    <li><a href="#">상품QnA</a></li>
+                    <li><a href="/member/agreement.html">이용약관</a></li>
+                    <li><a href="/member/privacy.html">개인정보 보호정책</a></li>
+                </ul>
+            </div>
+            <div class="footer_content">
+                <div class="footer_info">
+                    <div class="footer_logo">
+                        <a href="/">
+                            <img src="/static/images/logo_white.png" alt="footer_logo">
+                        </a>
+                    </div>
+                    <div class="footer_team_intro">
+                        <p> 상호 (주)USD 사업자등록번호 123-45-67890</p>
+                        <p> 통신판매업 신고 제2022-서울강남-01234호 <a href="#none" onclick="window.open('#http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1234567890', 'bizCommPop', 'width=750, height=950;');return false;">[사업자정보확인]</a></p>
+                        <p> 주소 서울특별시 강남구 테헤란로 0 (삼성동) USD</p>
+                        <p> 전화 <a href="tel:010-1234-5678">010-1234-5678</a></p>
+                        <p> 개인정보관리책임자 이현지 <a href="mailto:dev_usd@usd.com">(dev_usd@usd.com)</a></p>
+                        <p> copyright(c) USD. All rights reserved </p>    
+                    </div>
+                </div>
+                <div class="footer_service">
+                    <div class="footer_title"> 
+                        <strong>고객센터</strong>
+                    </div>
+                    <p class="tel"><a href="tel:010-1234-5678">010-1234-5678</a></p>  
+                    <p class="service_time">
+                        AM 10:00 - PM 5:00 
+                        <br>
+                        (점심 PM 12:00 - PM 1:00)
+                        <br>
+                        토/일, 공휴일은 휴무
+                    </p>  
+                </div>
+                <div class="footer_account">
+                    <div class="footer_title"> 
+                        <strong>ACCOUNT</strong>
+                    </div>
+                    <ul class="footer_account_link">
+                        <li><a href="/users/sign-in.html">로그인</a></li>
+                        <li><a href="/users/sign-up.html">회원가입</a></li>
+                        <li><a href="/users/password-reset.html">비밀번호 찾기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/custom_perfume_note.js"></script>
+</body>
