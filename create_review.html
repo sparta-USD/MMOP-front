@@ -64,94 +64,96 @@
         </div>
     </header>
     <div class="wrap">
-        <section class="sec_create_review_title">
-            <div class="create_review_box">
-                <h1 class="create_review_title">
-                    리뷰 작성
-                </h1>
-            </div>
-        </section>
-        <section class="sec_create_review_body" id="review_perfume_detail">
-            <div class="create_review_body_title">
-                <div class="review_image_box">
-                    <img class="review_image" src="/static/images/perfume.png">
+        <div class="container">
+            <section class="sec_create_review_title">
+                <div class="create_review_box">
+                    <h1 class="create_review_title">
+                        리뷰 작성
+                    </h1>
                 </div>
-                <div class="review_body_desc_box">
-                    <div class="desc_box_brand">
-                        <p>Diptyque(딥디크)</p>
+            </section>
+            <section class="sec_create_review_body" id="review_perfume_detail">
+                <div class="create_review_body_title">
+                    <div class="review_image_box">
+                        <img class="review_image" src="/static/images/perfume.png">
                     </div>
-                    <div class="desc_box_name">
-                        <p>Diptyque DOSON(딥디크 도손) EDP</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <hr color="gray" size="8"/>
-        <section class="sec_create_review_grade">
-            <div class="create_review_grade_box">
-                <div class="review_select_grade">
-                    <p>평점을 선택해주세요.</p>
-                </div>
-                <div class="review_star_grade">
-                    <div class="starpoint_wrap">
-                        <div class="starpoint_box">
-                          <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                          <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                          <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                          <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                          <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                          <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                          <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                          <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                          <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                          <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                          <input type="radio" name="starpoint" id="starpoint_1" value="0.5" title="0.5점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_2" value="1" title="1점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_3" value="1.5" title="1.5점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_4" value="2" title="2점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_5" value="2.5" title="2.5점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_6" value="3" title="3점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_7" value="3.5" title="3.5점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_8" value="4" title="4점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_9" value="4.5" title="4.5점" class="star_radio">
-                          <input type="radio" name="starpoint" id="starpoint_10" value="5" title="5점" class="star_radio">
-                          <span class="starpoint_bg"></span>
+                    <div class="review_body_desc_box">
+                        <div class="desc_box_brand">
+                            <p>Diptyque(딥디크)</p>
                         </div>
-                      </div>
+                        <div class="desc_box_name">
+                            <p>Diptyque DOSON(딥디크 도손) EDP</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <hr color="gray" size="8"/>
-        <section class="sec_create_review_write">
-            <div class="create_good_review mb-3">
-                <label for="exampleFormControlTextarea1" class="review_form form-label">😍 좋았던 점 (최소 20자 최대 5000자 이내)</label>
-                <textarea id="good_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 좋았던 점을 작성해주세요." rows="7"></textarea>
-            </div>
-            <div class="create_bad_review mb-3">
-                <label for="exampleFormControlTextarea1" class="review_form form-label">🤔 아쉬웠던 점 (최소 20자 최대 5000자 이내)</label>
-                <textarea id="bad_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 아쉬웠던 점을 작성해주세요." rows="7"></textarea>
-            </div>
-            <hr style="margin-top: 30px;"/>
-            <div>
-                <div class="review_image_upload_box">
-                    <h1>📷 제품 사진 등록(선택)</h1>
+            </section>
+            <hr color="gray" size="8"/>
+            <section class="sec_create_review_grade">
+                <div class="create_review_grade_box">
+                    <div class="review_select_grade">
+                        <p>평점을 선택해주세요.</p>
+                    </div>
+                    <div class="review_star_grade">
+                        <div class="starpoint_wrap">
+                            <div class="starpoint_box" id="starpoint_box">
+                            <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                            <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                            <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                            <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                            <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                            <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                            <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                            <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                            <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                            <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                            <input type="radio" name="starpoint" id="starpoint_1" value="0.5" title="0.5점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_2" value="1" title="1점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_3" value="1.5" title="1.5점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_4" value="2" title="2점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_5" value="2.5" title="2.5점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_6" value="3" title="3점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_7" value="3.5" title="3.5점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_8" value="4" title="4점" class="star_radio">
+                            <input type="radio" name="starpoint" id="starpoint_9" value="4.5" title="4.5점" class="star_radio">
+                            <input type="radio" name="starpoint" checked id="starpoint_10" value="5" title="5점" class="star_radio">
+                            <span class="starpoint_bg"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="review_image_upload_box2">
-                    <input id="review_image" type="file">      
+            </section>
+            <hr color="gray" size="8"/>
+            <section class="sec_create_review_write">
+                <div class="create_good_review mb-3">
+                    <label for="exampleFormControlTextarea1" class="review_form form-label">😍 좋았던 점 (최소 20자 최대 5000자 이내)</label>
+                    <textarea id="good_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 좋았던 점을 작성해주세요." rows="7"></textarea>
                 </div>
+                <div class="create_bad_review mb-3">
+                    <label for="exampleFormControlTextarea1" class="review_form form-label">🤔 아쉬웠던 점 (최소 20자 최대 5000자 이내)</label>
+                    <textarea id="bad_content" class="form-control" placeholder="※ 사용하신 제품의 자세한 리뷰를 남겨주세요. &#13;&#10;&#13;&#10;사용하시면서 아쉬웠던 점을 작성해주세요." rows="7"></textarea>
+                </div>
+                <hr style="margin-top: 30px;"/>
                 <div>
-                    <p>사용하신 제품의 사진을 업로드해주세요 :)</p>
+                    <div class="review_image_upload_box">
+                        <h1>📷 제품 사진 등록(선택)</h1>
+                    </div>
+                    <div class="review_image_upload_box2">
+                        <input id="review_image" type="file">      
+                    </div>
+                    <div>
+                        <p>사용하신 제품의 사진을 업로드해주세요 :)</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <hr color="gray" size="8"/>
-        <section class="review_create_button">
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button id="btn_review_ok" class="btn_review_ok btn btn-dark" type="button">
-                    작성완료
-                </button>
-              </div>
-        </section>
+            </section>
+            <hr color="gray" size="8"/>
+            <section class="review_create_button">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button id="btn_review_ok" class="btn_review_ok btn btn-dark" type="button">
+                        작성완료
+                    </button>
+                </div>
+            </section>
+        </div>
     </div>
     <footer>
         <div class="container">

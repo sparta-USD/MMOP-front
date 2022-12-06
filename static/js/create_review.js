@@ -66,10 +66,12 @@ async function handleCreateReview() {
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
     const review_image = document.getElementById("review_image").files[0];
+    const grade = document.querySelector('input[name="starpoint"]:checked').value;
 
     review_formData.append("good_content", good_content);
     review_formData.append("bad_content", bad_content);
     review_formData.append("review_image", review_image);
+    review_formData.append("grade", grade);
 
     const response = await fetch('http://127.0.0.1:8000/perfume/3/reviews/', {
         method: 'POST',
@@ -86,39 +88,10 @@ async function handleCreateReview() {
     })
     .then(result => {
         alert("리뷰 작성에 성공했습니다!")
-        // location.href="/mypage.html?pefume=" + result["id"];
+        location.href="/mypage.html";
     })
     .catch(error => {
         alert("리뷰 작성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
 }
-
-// 4. 별점 체크 부분
-// (1) 별점 마킹 모듈 프로토타입으로 생성
-function Rating(){};
-Rating.prototype.rate = 0; // 선택한 별점 값을 저장하는 변수
-Rating.prototype.setRate = function(newrate){ // 클릭한 별점을 포함해 그 왼쪽에 있는 모든 별점의 체크박스를 체크하는 기능
-    // 별점 마킹 : 클릭한 별 이하 모든 별 체크 처리
-    this.rate = newrate;
-    document.querySelector('.starpoint_box').style.width = parseInt(newrate * 60) + 'px';
-    let items = document.querySelectorAll('.star_radio');
-    items.forEach(function(item, idx){
-        if(idx < newrate){
-            item.checked = true;
-        }else{
-            item.checked = false;
-        }
-    });
-}
-let rating = new Rating(); //별점 인스턴스 생성
-
-// (2) 별점을 클릭하면 별점 모듈의 setRate() 메소드 호출
-document.addEventListener('DOMContentLoaded', function(){
-    document.querySelector('.starpoint_box').addEventListener('click',function(e){
-        let elem = e.target;
-        if(elem.classList.contains('star_radio')){
-            rating.setRate(parseInt(elem.value));
-        }
-    })
-});
