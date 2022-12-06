@@ -7,11 +7,25 @@ document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeInfo()
 });
 
+// url을 불러오는 함수
+function getParams(params){
+    const url = window.location.href
+    const urlParams = new URL(url).searchParams;
+    const get_urlParams = urlParams.get(params);
+    return get_urlParams;
+}
+
 
 // 2. 제품 정보 불러오기
 async function handlePerfumeInfo(){
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/3', {
+    // url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력
+    url_detail_perfume = getParams("perfume");
+    if (url_detail_perfume == undefined){
+        url_detail_perfume = localStorage.getItem("perfume");
+    }
+
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         headers: {
             "Authorization":"Bearer" + localStorage.getItem("access"),
         },
@@ -65,6 +79,8 @@ async function handlePerfumeInfo(){
 // 3. 리뷰 작성하기
 async function handleCreateReview() {
 
+    url_detail_perfume = getParams("perfume");
+
     const review_formData = new FormData();
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
@@ -76,7 +92,7 @@ async function handleCreateReview() {
     review_formData.append("review_image", review_image);
     review_formData.append("grade", grade);
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/3/reviews/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
         method: 'POST',
         headers: {
             "Authorization":"Bearer" + localStorage.getItem("access"),
