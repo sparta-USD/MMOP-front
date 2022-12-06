@@ -281,6 +281,11 @@
     margin-top: 20px;
 }
 
+#emoji_good, #emoji_bad{
+    margin: 1rem 1rem 1rem 0.3rem;
+    font-size: 1.5rem;
+}
+
 .review_result_image_box{
     width: 110px;
     height: 110px;
