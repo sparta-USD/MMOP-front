@@ -139,10 +139,21 @@
     margin-bottom: 30px;
 }
 
-.review_create_button{
-    margin: 100px 0px 70px 0px;
+/* 작성완료 버튼 */
+.sec_btn_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 100px;
 }
 
-.btn_review_ok{
-    font-size: x-large;
+.sec_btn_wrap button{
+    width: 200px;
+    margin: 8px;
+}
+
+.sec_btn_wrap button.btn_review_ok:hover{
+    color: var(--main-black);
+    border: solid 1px var(--main-black);
+    background-color: var(--main-white);
 }
