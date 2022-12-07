@@ -69,7 +69,7 @@ async function handlePerfumeInfo(){
 
         perfume_detail(response_json)
         perfume_detail_tab(response_json)
-        pertume_review_tab_info(response_json)
+        perfume_review_tab_info(response_json)
 
     }).catch(error => {
         console.warn(error.message)
@@ -102,7 +102,7 @@ function perfume_detail_tab(data){
 }
 
 // 3-3. 리뷰 탭 - 리뷰 정보 불러오기
-function pertume_review_tab_info(data){
+function perfume_review_tab_info(data){
     const element = document.querySelector(".container_review_tab");
     element.querySelector(".tab_review_count").innerText = data['perfume_reviews'].length;
     element.querySelector(".review_avg_grade").innerText = data['avg_grade'];
