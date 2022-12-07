@@ -8,6 +8,13 @@ async function handleSignup(){
     const password = document.getElementById("password").value;
     const password2 = document.getElementById("password2").value;
     const phone_number = document.getElementById("phone_number").value;
+
+    if(!agree.checked){
+        alert("약관 동의 체크는 필수입니다!");
+        agree.focus();
+        return false;
+    }
+
     const response = await fetch("http://127.0.0.1:8000/users/signup/", {
         headers: {
             "content-type": "application/json",
