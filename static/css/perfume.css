@@ -151,9 +151,8 @@
 }
 
 .tab_name_box{
-    width: 600px;
-    height: 200px;
-    margin: 0px 340px 50px 340px;
+    width: 500px;
+    margin: 0px 380px 50px 380px;
     display: flex;
     justify-content: center;
     align-items: center;
