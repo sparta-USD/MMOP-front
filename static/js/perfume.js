@@ -68,6 +68,7 @@ async function handlePerfumeInfo(){
         let review = response_json['perfume_reviews']; 
 
         perfume_detail(response_json)
+        perfume_detail_tab(response_json)
 
     }).catch(error => {
         console.warn(error.message)
@@ -84,4 +85,20 @@ function perfume_detail(data){
     element.querySelector(".col_gender_1").innerText = data['gender'];
     element.querySelector(".col_price_1").innerText = data['price'];
     element.querySelector(".col_launch_1").innerText = data['launch_date'];
+}
+
+// 3-2. 제품정보 탭 불러오기
+function perfume_detail_tab(data){
+    console.log(data)
+    console.log(data['top_notes'][0]['name'])
+    
+    const element = document.querySelector(".perfume_detail_tab_content");
+    element.querySelector(".tab_perfume_brand").innerText = data['brand'];
+    element.querySelector(".tab_perfume_title").innerText = data['title'];
+    element.querySelector(".tab_perfume_image").setAttribute('src', data['image']);
+
+    element.querySelector(".col_top_note").innerText = data['top_notes'];
+    element.querySelector(".col_heart_note").innerText = data['heart_notes'];
+    element.querySelector(".col_base_note").innerText = data['base_notes'];
+    element.querySelector(".col_none_note").innerText = data['none_notes'];
 }

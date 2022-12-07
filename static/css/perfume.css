@@ -215,7 +215,7 @@
     font-weight: 600;
 }
 
-.col_note{
+.col_top_note, .col_heart_note, .col_base_note, .col_none_note{
     font-size: x-large;
     font-weight: 500;
 }
