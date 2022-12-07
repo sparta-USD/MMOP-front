@@ -76,7 +76,6 @@ async function handlePerfumeInfo(){
 
 // 3-1. 기본 향수제품정보 불러오기
 function perfume_detail(data){
-    console.log(data)
     const element = document.querySelector(".container_perfume_detail");
     element.querySelector(".perfume_image").setAttribute('src', data['image']);
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
