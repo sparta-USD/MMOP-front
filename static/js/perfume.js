@@ -69,6 +69,7 @@ async function handlePerfumeInfo(){
 
         perfume_detail(response_json)
         perfume_detail_tab(response_json)
+        pertume_review_tab_info(response_json)
 
     }).catch(error => {
         console.warn(error.message)
@@ -89,9 +90,6 @@ function perfume_detail(data){
 
 // 3-2. 제품정보 탭 불러오기
 function perfume_detail_tab(data){
-    console.log(data)
-    console.log(data['top_notes'][0]['name'])
-    
     const element = document.querySelector(".perfume_detail_tab_content");
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
@@ -101,4 +99,32 @@ function perfume_detail_tab(data){
     element.querySelector(".col_heart_note").innerText = data['heart_notes'];
     element.querySelector(".col_base_note").innerText = data['base_notes'];
     element.querySelector(".col_none_note").innerText = data['none_notes'];
+}
+
+// 3-3. 리뷰 탭 - 리뷰 정보 불러오기
+function pertume_review_tab_info(data){
+    const element = document.querySelector(".container_review_tab");
+    element.querySelector(".tab_review_count").innerText = data['perfume_reviews'].length;
+    element.querySelector(".review_avg_grade").innerText = data['avg_grade'];
+    
+    let avg_grade_star = document.getElementById("avg_grade_star");
+    avg_grade_star.innerHTML = '';
+    avg_grade = document.createElement("div");
+    avg_grade.className = "starpoint_wrap";
+    avg_grade.innerHTML = `
+                        <div class="starpoint_box star_${data['avg_grade']*20}">
+                        <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                        <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                        <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                        <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                        <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                        <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                        <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                        <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                        <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                        <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                        <span class="starpoint_bg"></span>
+                        </div>
+                         `;
+    avg_grade_star.append(avg_grade);
 }
