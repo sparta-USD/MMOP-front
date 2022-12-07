@@ -70,7 +70,76 @@ async function handlePerfumeInfo(){
         perfume_detail(response_json)
         perfume_detail_tab(response_json)
         perfume_review_tab_info(response_json)
+        
 
+        // 3-4. 리뷰 탭 - 이 제품에 작성된 리뷰 보여주기
+        let review_list_tab = document.getElementById("review_list_tab");
+        review_list_tab.innerHTML = '';
+        review.forEach(element => {
+            let review_list = document.createElement('div');
+            review_list.className = 'container_review_body';
+            review_list.id = 'review_'+element['id'];
+            review_list.innerHTML = `
+            <div class="sec_review_head">
+                <div class="sec_review_profile">
+                    <img class="review_profile_image" src="/static/images/perfume.png">
+                </div>
+                <div class="sec_review_userinfo">
+                    <div class="review_star_grade">
+                        <div class="starpoint_wrap">
+                            <div class="starpoint_box star_${element['grade']*20}">
+                            <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                            <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                            <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                            <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                            <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                            <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                            <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                            <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                            <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                            <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                            <span class="starpoint_bg"></span>
+                            </div>
+                        </div>
+                        <span class="review_user_grade">${element['grade']}</span>
+                    </div>
+                    <div class="review_user_info">
+                        <div class="review_username">
+                        ${element['user']}
+                        </div>
+                        <div class="review_created_time">${element['created_at']}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec_review_body">
+                <div class="review_body_content">
+                    <div class="review_good">
+                        <div class="review_good_image">
+                            <i id="emoji_good" class="bi bi-emoji-smile"></i>
+                        </div>
+                        <div class="review_good_content">
+                            ${element['good_content']}
+                        </div>
+                    </div>
+                    <div class="review_bad">
+                        <div class="review_bad_image">
+                            <i id="emoji_bad" class="bi bi-emoji-frown"></i>
+                        </div>
+                        <div class="review_bad_content">
+                            ${element['bad_content']}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="review_result_image_box">
+                        <img class="review_result_image" src="${element['image']}">
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            `;
+            review_list_tab.append(review_list);
+        });
     }).catch(error => {
         console.warn(error.message)
     });
