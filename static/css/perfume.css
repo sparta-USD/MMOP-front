@@ -275,7 +275,7 @@
     font-size: 1.2rem;
 }
 
-.review_username, .starpoint_wrap, .review_user_grade{
+.review_username, .review_user_grade{
     margin-right: 15px;
     font-weight: bold;
     font-size: 1.3rem;

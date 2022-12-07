@@ -86,7 +86,7 @@ async function handlePerfumeInfo(){
                         <div class="review_username">
                         ${element['user']}
                         </div>
-                        <div class="review_created_time">${element['created_at']}</div>
+                        <div class="review_created_time">${element['created_at'].split('T')[0]}</div>
                     </div>
                     <div class="review_star_grade">
                         <div class="starpoint_wrap">
@@ -171,7 +171,6 @@ function perfume_detail_tab(data){
 function perfume_review_tab_info(data){
     const element = document.querySelector(".container_review_tab");
     element.querySelector(".tab_review_count").innerText = data['perfume_reviews'].length;
-    // element.querySelector(".review_avg_grade").innerText = data['avg_grade'];
     
     let avg_grade_star = document.getElementById("avg_grade_star");
     avg_grade_star.innerHTML = '';
