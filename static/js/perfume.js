@@ -27,3 +27,49 @@ $('i').on('click',function(){
         i--;
     }
 });
+
+
+// handlePerfumeInfo() 함수 불러오기
+document.addEventListener("DOMContentLoaded", function(){
+    handlePerfumeInfo()
+});
+
+async function handlePerfumeInfo(){
+
+    // url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력
+    url_detail_perfume = getParams("perfume");
+    if (url_detail_perfume == undefined){
+        url_detail_perfume = localStorage.getItem("perfume");
+    }
+
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
+        headers: {
+            "Authorization":"Bearer" + localStorage.getItem("access"),
+        },
+        method: 'GET',
+    })
+    .then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
+                location.href="/signin.html";
+            }
+            else if(response.status==404){
+                alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+                location.href="/index.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        const response_json = result;
+        let perfume = response_json;
+        let review = response_json['perfume_reviews']; 
+
+        perfume_detail(response_json)
+
+    }).catch(error => {
+        console.warn(error.message)
+    });
+}
