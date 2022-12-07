@@ -1,0 +1,85 @@
+/* swiper */
+.swiper.main_banner .swiper-slide{
+    min-height: 5vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background: rgba(255,255,255,0.6);
+    
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+
+.swiper.main_banner .swiper-slide h1{
+    width: 100%;
+    font-weight: 500;
+    font-size: 2em;
+    margin-bottom: 24px;
+}
+.swiper.main_banner .swiper-slide p{
+    width: 100%;
+    line-height: 1.56;
+    font-size: 1em;
+    color: #999;
+}
+
+.item_image{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.item_image .package{
+    width: 400px;
+    position: absolute;
+}
+.item_image .logo{
+    width: 110px;
+    height: 100px;
+    margin: 200px 0 0 5px;
+    position: absolute;
+}
+
+.item_image .upload{
+    margin: 100px 0 0 800px;
+}
+
+.item_image .upload:hover{
+    color: #999;
+}
+
+.item_image .upload .bi-cloud-arrow-up{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.item_image .upload p{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* sec 하단 버튼 */
+.sec_btn_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 100px;
+}
+.sec_btn_wrap button{
+    width: 200px;
+    margin-top: 200px;
+}
+.sec_btn_wrap button.btn_custom_submit{
+    border: solid 1px var(--main-black);
+
+}
+.sec_btn_wrap button.btn_survey_skip:hover{
+    border: solid 1px var(--main-black);
+    background-color: var(--main-white);
+}
