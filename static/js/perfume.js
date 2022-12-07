@@ -81,10 +81,13 @@ async function handlePerfumeInfo(){
             review_list.id = 'review_'+element['id'];
             review_list.innerHTML = `
             <div class="sec_review_head">
-                <div class="sec_review_profile">
-                    <img class="review_profile_image" src="/static/images/perfume.png">
-                </div>
                 <div class="sec_review_userinfo">
+                    <div class="review_user_info">
+                        <div class="review_username">
+                        ${element['user']}
+                        </div>
+                        <div class="review_created_time">${element['created_at']}</div>
+                    </div>
                     <div class="review_star_grade">
                         <div class="starpoint_wrap">
                             <div class="starpoint_box star_${element['grade']*20}">
@@ -102,12 +105,6 @@ async function handlePerfumeInfo(){
                             </div>
                         </div>
                         <span class="review_user_grade">${element['grade']}</span>
-                    </div>
-                    <div class="review_user_info">
-                        <div class="review_username">
-                        ${element['user']}
-                        </div>
-                        <div class="review_created_time">${element['created_at']}</div>
                     </div>
                 </div>
             </div>
@@ -132,7 +129,7 @@ async function handlePerfumeInfo(){
                 </div>
                 <div>
                     <div class="review_result_image_box">
-                        <img class="review_result_image" src="${element['image']}">
+                        <img class="review_result_image" src="${element['image']}" alt="No Image">
                     </div>
                 </div>
             </div>
@@ -174,7 +171,7 @@ function perfume_detail_tab(data){
 function perfume_review_tab_info(data){
     const element = document.querySelector(".container_review_tab");
     element.querySelector(".tab_review_count").innerText = data['perfume_reviews'].length;
-    element.querySelector(".review_avg_grade").innerText = data['avg_grade'];
+    // element.querySelector(".review_avg_grade").innerText = data['avg_grade'];
     
     let avg_grade_star = document.getElementById("avg_grade_star");
     avg_grade_star.innerHTML = '';

@@ -1,7 +1,7 @@
 /* 제품 상세정보 부분 */
 .sec_perfume_detail{
     margin-top: 100px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 }
 
 .container_perfume_detail{
@@ -230,13 +230,18 @@
 }
 
 .review_tab_box, .review_tab_grade{
+    width: 150px;
     margin: 30px;
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
+}
+
+.review_avg_grade{
+    margin-bottom: 20px;
 }
 
 .review_tab_review_count, .grade {
-    font-size: xx-large;
+    font-size: xxx-large;
 }
 
 .review_tab_review, .grade{
@@ -244,19 +249,13 @@
 }
 
 .container_review_body{
-    margin: 20px 250px 20px 250px;
-}
-
-.review_profile_image{
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    overflow: hidden;
-    margin-right: 10px;
+    margin: 30px;
 }
 
 .review_user_info{
     display: flex;
+    margin: 0px 10px 18px 2px;
+    
 }
 
 .sec_review_head, .sec_review_body{
@@ -271,29 +270,42 @@
     margin-bottom: 10px;
 }
 
+.review_created_time{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
 .review_username, .starpoint_wrap, .review_user_grade{
-    margin-right: 10px;
+    margin-right: 15px;
     font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .review_good, .review_bad{
     display: flex;
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+.review_good_content, .review_bad_content{
+    margin-top: 2px;
+    font-size: 1.2rem;
 }
 
 #emoji_good, #emoji_bad{
-    margin: 1rem 1rem 1rem 0.3rem;
-    font-size: 1.5rem;
+    margin: 15px;
+    font-size: 1.6rem;
 }
 
 .review_result_image_box{
-    width: 110px;
-    height: 110px;
+    width: 200px;
+    height: 200px;
+    margin-right: 40px;
+    border: 1px dotted var(--second-black);
 }
 
 .review_result_image{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 
