@@ -38,11 +38,11 @@
     margin: 10px 0px 30px 10px;
 }
 
-.detail_like, .detail_gender, .detail_price{
+.detail_like, .detail_gender, .detail_price, .detail_launch{
     margin: 25px 0px 25px 10px;
 }
 
-.col_like, .col_gender, .col_price{
+.col_like, .col_gender, .col_gender_1, .col_price, .col_price_1, .col_launch, .col_launch_1{
     font-size: large;
     font-weight: 500;
 }

@@ -29,7 +29,7 @@ $('i').on('click',function(){
 });
 
 
-// handlePerfumeInfo() 함수 불러오기
+// 3. handlePerfumeInfo() 함수 불러오기
 document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeInfo()
 });
@@ -72,4 +72,17 @@ async function handlePerfumeInfo(){
     }).catch(error => {
         console.warn(error.message)
     });
+}
+
+// 3-1. 기본 향수제품정보 불러오기
+function perfume_detail(data){
+    console.log(data)
+    const element = document.querySelector(".container_perfume_detail");
+    element.querySelector(".perfume_image").setAttribute('src', data['image']);
+    element.querySelector(".perfume_id").innerText = "#"+data['id'];
+    element.querySelector(".perfume_brand").innerText = data['brand'];
+    element.querySelector(".perfume_title").innerText = data['title'];
+    element.querySelector(".col_gender_1").innerText = data['gender'];
+    element.querySelector(".col_price_1").innerText = data['price'];
+    element.querySelector(".col_launch_1").innerText = data['launch_date'];
 }
