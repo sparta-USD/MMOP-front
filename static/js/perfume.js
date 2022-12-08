@@ -232,3 +232,18 @@ async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태�
         perfumeLike()
     })
 }
+function perfumeLike() { // 5-2. 찜하기 버튼 클릭 시 하트 색상 변경
+    current_is_like = document.getElementById("btn_heart").classList.contains("bi-suit-heart-fill"); // 현재 찜상태
+    is_like = !current_is_like; // 찜 상태 변경
+    likes_count = document.querySelector(".likes_count").innerText;
+    if(is_like){ // 현재 찜 상태가 아니라면 빨간 하트로 변경(add('bi-suit-heart-fill')
+        document.getElementById("btn_heart").classList.remove('bi-suit-heart');
+        document.getElementById("btn_heart").classList.add('bi-suit-heart-fill');
+        likes_count++;  // 찜 상태이기 때문에 likes_count +1
+    }else { // 현재 찜 상태이면 빈 하트로 변경(add('bi-suit-heart')
+        document.getElementById("btn_heart").classList.remove('bi-suit-heart-fill');
+        document.getElementById("btn_heart").classList.add('bi-suit-heart');
+        likes_count--;  // 찜 해제이기 때문에 likes_count -1
+    }
+    document.querySelector(".likes_count").innerText = likes_count;  // 변경된 likes_count 반영해서 찜 갯수 출력
+}
