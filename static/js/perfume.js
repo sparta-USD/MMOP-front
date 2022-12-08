@@ -1,20 +1,16 @@
-// * url을 불러오는 함수 *
+document.addEventListener("DOMContentLoaded", function(){
+    handlePerfumeInfo()
+});
+
+
+// url을 불러오는 함수 *
 function getParams(params){
-    const url = window.location.href
+    const url = window.location.href;
     const urlParams = new URL(url).searchParams;
     const get_urlParams = urlParams.get(params);
     return get_urlParams;
 }
 
-// 1. detail tab jquery
-$('.tab_item').on("click",function(e){
-    e.preventDefault(); 
-    const target_content_id = $(this).find("a").attr("href");
-    $(".tab_item").removeClass('active');
-    $(this).addClass("active");
-    $(".tab_content").removeClass("active");
-    $(target_content_id).addClass("active");
-})
 
 // 2. 찜하기 버튼 클릭 시 하트 변경
 var i = 0;
@@ -29,10 +25,6 @@ $('i').on('click',function(){
 });
 
 
-// 3. handlePerfumeInfo() 함수 불러오기
-document.addEventListener("DOMContentLoaded", function(){
-    handlePerfumeInfo()
-});
 
 async function handlePerfumeInfo(){
 
