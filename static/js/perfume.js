@@ -58,6 +58,14 @@ function perfume_info(data){
     element.querySelector(".col_gender_1").innerText = data['gender'];
     element.querySelector(".col_price_1").innerText = data['price'];
     element.querySelector(".col_launch_1").innerText = data['launch_date'];
+
+    // 찜 상태 표시
+    const user_email = localStorage.getItem("email"); // 
+    let is_like = user_email in data['likes']; // 현재 로그인한 유저의 이메일이 likes에 있는지 체크/ 찜 상태 : T/F
+    document.getElementById("btn_heart").classList.add(is_like ? "bi-suit-heart-fill" : "bi-suit-heart"); // 삼항연산자 사용!
+
+    // 리뷰작성 버튼 링크 수정 : 현재 보고있는 제품(perfume_id)의 리뷰작성 페이지로 이동
+    document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
 }
 
 // 2. 제품정보 탭 불러오기
