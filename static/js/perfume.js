@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeInfo()
 });
 
-
-// url을 불러오는 함수 *
+// url을 불러오는 함수 
 function getParams(params){
-    const url = window.location.href;
+    const url = window.location.href
     const urlParams = new URL(url).searchParams;
     const get_urlParams = urlParams.get(params);
     return get_urlParams;
@@ -41,19 +40,15 @@ async function handlePerfumeInfo(){
     })
     .then(result => {
         const response_json = result;
-        let perfume = response_json;
-        let review = response_json['perfume_reviews']; 
-        let like = response_json['likes'];
-
-        perfume_detail(response_json)
-        perfume_detail_tab(response_json)
-        perfume_review_tab_info(response_json)
-        
+        perfume_info(response_json);  // 1. 기본 향수제품정보
+        perfume_detail_tab(response_json); // 2. 제품정보 탭
+        perfume_review_tab(response_json); // 3. 리뷰 탭
+        perfume_recommend_tab(response_json); // 3. 추천 탭
     })
 }
 
-// 3-1. 기본 향수제품정보 불러오기
-function perfume_detail(data){
+// 1. 기본 향수제품정보 불러오기
+function perfume_info(data){
     const element = document.querySelector(".container_perfume_detail");
     element.querySelector(".perfume_image").setAttribute('src', data['image']);
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
@@ -65,7 +60,7 @@ function perfume_detail(data){
     element.querySelector(".col_launch_1").innerText = data['launch_date'];
 }
 
-// 3-2. 제품정보 탭 불러오기
+// 2. 제품정보 탭 불러오기
 function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
@@ -74,8 +69,7 @@ function perfume_detail_tab(data){
     // note 이름 불러오기
     append_notes(data);
 }
-
-// * note 의 name 불러오는 함수 * 
+// 2-1. note 의 name 불러오는 함수 * 
 function append_notes(data){
     note_type_list = ["top", 'heart', 'base', 'none']
     note_type_list.forEach(note_type => {
@@ -87,11 +81,13 @@ function append_notes(data){
             note_html += note['name']+', ';
         });
         note_el.innerHTML = note_html;
-    })
+    });
 }
 
-// 3-3. 리뷰 탭 - 리뷰 정보 불러오기
-function perfume_review_tab_info(data){
+
+
+// 3-1. 리뷰 탭 - 리뷰 정보 불러오기
+function perfume_review_tab(data){
     const element = document.querySelector(".container_review_tab");
     element.querySelector(".tab_review_count").innerText = data['perfume_reviews'].length;
     
@@ -117,8 +113,7 @@ function perfume_review_tab_info(data){
     avg_grade_star.append(avg_grade);
     perfume_review_tab_review_list(data['perfume_reviews']);
 }
-
-// 3-4. 리뷰 탭 - 이 제품에 작성된 리뷰 보여주기
+// 3-2. 리뷰 탭 - 이 제품에 작성된 리뷰 보여주기
 function perfume_review_tab_review_list(review_data){
     let review_list_tab = document.getElementById("review_list_tab");
     review_list_tab.innerHTML = '';
@@ -184,4 +179,10 @@ function perfume_review_tab_review_list(review_data){
         `;
         review_list_tab.append(review_list);
     });
+}
+
+
+// 4. 추천탭
+function perfume_recommend_tab(response_json){
+    console.log("추천탭")
 }
