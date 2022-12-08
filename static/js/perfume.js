@@ -66,6 +66,7 @@ async function handlePerfumeInfo(){
         const response_json = result;
         let perfume = response_json;
         let review = response_json['perfume_reviews']; 
+        let like = response_json['likes'];
 
         perfume_detail(response_json)
         perfume_detail_tab(response_json)
@@ -137,9 +138,7 @@ async function handlePerfumeInfo(){
             `;
             review_list_tab.append(review_list);
         });
-    }).catch(error => {
-        console.warn(error.message)
-    });
+    })
 }
 
 // 3-1. 기본 향수제품정보 불러오기
@@ -149,6 +148,7 @@ function perfume_detail(data){
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
     element.querySelector(".perfume_brand").innerText = data['brand'];
     element.querySelector(".perfume_title").innerText = data['title'];
+    element.querySelector(".btn_like").innerText = "  " +data['likes_count'];
     element.querySelector(".col_gender_1").innerText = data['gender'];
     element.querySelector(".col_price_1").innerText = data['price'];
     element.querySelector(".col_launch_1").innerText = data['launch_date'];
