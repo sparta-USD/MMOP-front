@@ -68,6 +68,7 @@ function perfume_info(data){
     document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
 }
 
+
 // 2. 제품정보 탭 불러오기
 function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
@@ -193,4 +194,41 @@ function perfume_review_tab_review_list(review_data){
 // 4. 추천탭
 function perfume_recommend_tab(response_json){
     console.log("추천탭")
+}
+
+
+// 5. 찜하기 버튼 클릭 시 handlePerfumeLike() 호출
+document.getElementById("btn_heart").addEventListener("click",function(){
+    handlePerfumeLike()
+});
+async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태변경 API 통신
+    // * url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력 *
+    url_detail_perfume = getParams("perfume");
+    if (url_detail_perfume == undefined){
+       alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+       location.href="/index.html";
+    }
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/like/', {
+        headers: {
+            "Authorization":"Bearer" + localStorage.getItem("access"),
+        },
+        method: 'POST',
+    })
+    .then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
+                // location.href="/signin.html";
+            }
+            else if(response.status==404){
+                alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+                location.href="/index.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        perfumeLike()
+    })
 }
