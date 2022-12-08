@@ -160,11 +160,23 @@ function perfume_detail_tab(data){
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
     element.querySelector(".tab_perfume_image").setAttribute('src', data['image']);
+    // note 이름 불러오기
+    append_notes(data);
+}
 
-    element.querySelector(".col_top_note").innerText = data['top_notes'];
-    element.querySelector(".col_heart_note").innerText = data['heart_notes'];
-    element.querySelector(".col_base_note").innerText = data['base_notes'];
-    element.querySelector(".col_none_note").innerText = data['none_notes'];
+// * note 의 name 불러오는 함수 * 
+function append_notes(data){
+    note_type_list = ["top", 'heart', 'base', 'none']
+    note_type_list.forEach(note_type => {
+        const note_data = data[note_type+'_notes'];
+        const note_el =  document.querySelector(`.col_${note_type}_note`);
+
+        let note_html = ''
+        note_data.forEach(note => {
+            note_html += note['name']+', ';
+        });
+        note_el.innerHTML = note_html;
+    })
 }
 
 // 3-3. 리뷰 탭 - 리뷰 정보 불러오기
