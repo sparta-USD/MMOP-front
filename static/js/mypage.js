@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 async function handleMock() {
     const response = await fetch('http://127.0.0.1:8000/users/', {
         headers: {
-            "Authorization":"Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMzI0NTc3LCJpYXQiOjE2NzAyODEzNzcsImp0aSI6ImRhZTQyN2VhNjMxMDQ4ODFhY2YyOGFhM2UxNDRjZTIzIiwidXNlcl9pZCI6MSwiaWQiOjEsImVtYWlsIjoicmt0bnRuZGxzQG5hdmVyLmNvbSIsInVzZXJuYW1lIjoic3VpbiJ9.4QpextC5-XAVwnfValiXPgxTsPuXvTXRIIQA7oi7cnM"
+            "Authorization":"Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNTQ3MDMwLCJpYXQiOjE2NzA1MDM4MzAsImp0aSI6IjE4ZDVkZDQzMzFmYjRjYzc5M2I0NDI0NTYxYWE1ZGY1IiwidXNlcl9pZCI6MSwiaWQiOjEsImVtYWlsIjoicmt0bnRuZGxzQG5hdmVyLmNvbSIsInVzZXJuYW1lIjoic3VpbiJ9.ib1SDslqEOx385wqf41vRzYT5djq69Qwl-lkyVqomgE"
         },
         method: 'GET',
     }).then(response => {
