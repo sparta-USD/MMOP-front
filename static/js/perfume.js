@@ -11,29 +11,14 @@ function getParams(params){
     return get_urlParams;
 }
 
-
-// 2. 찜하기 버튼 클릭 시 하트 변경
-var i = 0;
-$('i').on('click',function(){
-    if(i==0){
-        $(this).attr('class','bi-suit-heart-fill');
-        i++;
-    }else if(i==1){
-        $(this).attr('class','bi-suit-heart');
-        i--;
-    }
-});
-
-
-
+// 향수 정보 불러오기
 async function handlePerfumeInfo(){
-
     // url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력
     url_detail_perfume = getParams("perfume");
     if (url_detail_perfume == undefined){
-        url_detail_perfume = localStorage.getItem("perfume");
+        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+        location.href="/index.html";
     }
-
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         headers: {
             "Authorization":"Bearer" + localStorage.getItem("access"),
@@ -64,72 +49,6 @@ async function handlePerfumeInfo(){
         perfume_detail_tab(response_json)
         perfume_review_tab_info(response_json)
         
-
-        // 3-4. 리뷰 탭 - 이 제품에 작성된 리뷰 보여주기
-        let review_list_tab = document.getElementById("review_list_tab");
-        review_list_tab.innerHTML = '';
-        review.forEach(element => {
-            let review_list = document.createElement('div');
-            review_list.className = 'container_review_body';
-            review_list.id = 'review_'+element['id'];
-            review_list.innerHTML = `
-            <div class="sec_review_head">
-                <div class="sec_review_userinfo">
-                    <div class="review_user_info">
-                        <div class="review_username">
-                        ${element['user']}
-                        </div>
-                        <div class="review_created_time">${element['created_at'].split('T')[0]}</div>
-                    </div>
-                    <div class="review_star_grade">
-                        <div class="starpoint_wrap">
-                            <div class="starpoint_box star_${element['grade']*20}">
-                            <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                            <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                            <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                            <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                            <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                            <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                            <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                            <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                            <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                            <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                            <span class="starpoint_bg"></span>
-                            </div>
-                        </div>
-                        <span class="review_user_grade">${element['grade']}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="sec_review_body">
-                <div class="review_body_content">
-                    <div class="review_good">
-                        <div class="review_good_image">
-                            <i id="emoji_good" class="bi bi-emoji-smile"></i>
-                        </div>
-                        <div class="review_good_content">
-                            ${element['good_content']}
-                        </div>
-                    </div>
-                    <div class="review_bad">
-                        <div class="review_bad_image">
-                            <i id="emoji_bad" class="bi bi-emoji-frown"></i>
-                        </div>
-                        <div class="review_bad_content">
-                            ${element['bad_content']}
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="review_result_image_box">
-                        <img class="review_result_image" src="${element['image']}" alt="No Image">
-                    </div>
-                </div>
-            </div>
-            <hr/>
-            `;
-            review_list_tab.append(review_list);
-        });
     })
 }
 
@@ -196,4 +115,73 @@ function perfume_review_tab_info(data){
                         </div>
                          `;
     avg_grade_star.append(avg_grade);
+    perfume_review_tab_review_list(data['perfume_reviews']);
+}
+
+// 3-4. 리뷰 탭 - 이 제품에 작성된 리뷰 보여주기
+function perfume_review_tab_review_list(review_data){
+    let review_list_tab = document.getElementById("review_list_tab");
+    review_list_tab.innerHTML = '';
+    review_data.forEach(data => {
+        let review_list = document.createElement('div');
+        review_list.className = 'container_review_body';
+        review_list.id = 'review_'+data['id'];
+        review_list.innerHTML = `
+            <div class="sec_review_head">
+                <div class="sec_review_userinfo">
+                    <div class="review_user_info">
+                        <div class="review_username">
+                        ${data['user']}
+                        </div>
+                        <div class="review_created_time">${data['created_at'].split('T')[0]}</div>
+                    </div>
+                    <div class="review_star_grade">
+                        <div class="starpoint_wrap">
+                            <div class="starpoint_box star_${data['grade']*20}">
+                            <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                            <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                            <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                            <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                            <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                            <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                            <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                            <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                            <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                            <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                            <span class="starpoint_bg"></span>
+                            </div>
+                        </div>
+                        <span class="review_user_grade">${data['grade']}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sec_review_body">
+                <div class="review_body_content">
+                    <div class="review_good">
+                        <div class="review_good_image">
+                            <i id="emoji_good" class="bi bi-emoji-smile"></i>
+                        </div>
+                        <div class="review_good_content">
+                            ${data['good_content']}
+                        </div>
+                    </div>
+                    <div class="review_bad">
+                        <div class="review_bad_image">
+                            <i id="emoji_bad" class="bi bi-emoji-frown"></i>
+                        </div>
+                        <div class="review_bad_content">
+                            ${data['bad_content']}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="review_result_image_box">
+                        <img class="review_result_image" src="${data['image']}" alt="No Image">
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        `;
+        review_list_tab.append(review_list);
+    });
 }
