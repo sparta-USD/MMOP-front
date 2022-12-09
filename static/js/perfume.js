@@ -210,7 +210,7 @@ async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태�
     }
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/like/', {
         headers: {
-            "Authorization":"Bearer" + localStorage.getItem("access"),
+            "Authorization":"Bearer " + localStorage.getItem("access"),
         },
         method: 'POST',
     })
