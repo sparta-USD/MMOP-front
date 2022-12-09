@@ -237,7 +237,6 @@ function perfume_recommend_tab(recommend_data){
                         <div class="item_image">
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
                         </div>
-                        <i class="bi bi-suit-heart-fill none_link"></i>
                     </div>
                     <div class="card_body">
                         <div class="card_content">
