@@ -21,6 +21,9 @@ async function handleSignin(){
         }
         return response.json()
     }).then(result => {
+        localStorage.setItem("refresh", result.refresh);
+        localStorage.setItem("access", result.access);
+
         const base64Url = result.access.split(".")[1];
         const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
         const jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
@@ -66,6 +69,9 @@ window.onload = async () => {
             }
             return response.json()
         }).then(result => {
+            localStorage.setItem("refresh", result.refresh);
+            localStorage.setItem("access", result.access);
+    
             const base64Url = result.access.split(".")[1];
             const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
             const jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
