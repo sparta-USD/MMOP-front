@@ -42,7 +42,7 @@
 }
 #kakao_btn{
     background-color: #FEE500;
-    color: var(--main-black);
+    color: rgba(0, 0, 0, 0.85);
 }
 .btn_wrap .btn:hover{
     background-color: var(--main-black);
