@@ -50,7 +50,7 @@ async function handleMock() {
         if(!response.ok){
             if(response.status==401){
                 alert("로그인 유저만 접근 가능합니다.")
-                // location.href="/signin.html";
+                location.href="/signin.html";
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
