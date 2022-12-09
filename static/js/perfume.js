@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeInfo()
+    handleRecommend()
 });
 
 // url을 불러오는 함수 
@@ -20,7 +21,7 @@ async function handlePerfumeInfo(){
     }
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         headers: {
-            "Authorization":"Bearer" + localStorage.getItem("access"),
+            "Authorization":"Bearer " + localStorage.getItem("access"),
         },
         method: 'GET',
     })
@@ -43,7 +44,7 @@ async function handlePerfumeInfo(){
         perfume_info(response_json);  // 1. 기본 향수제품정보
         perfume_detail_tab(response_json); // 2. 제품정보 탭
         perfume_review_tab(response_json); // 3. 리뷰 탭
-        perfume_recommend_tab(response_json); // 3. 추천 탭
+        // perfume_recommend_tab(response_json); // 3. 추천 탭
     })
 }
 
@@ -80,6 +81,7 @@ function perfume_detail_tab(data){
 }
 // 2-1. note 의 name 불러오는 함수 * 
 function append_notes(data){
+    console.log(data)
     note_type_list = ["top", 'heart', 'base', 'none']
     note_type_list.forEach(note_type => {
         const note_data = data[note_type+'_notes'];
@@ -191,10 +193,36 @@ function perfume_review_tab_review_list(review_data){
 }
 
 
-// 4. 추천탭
-function perfume_recommend_tab(response_json){
-    console.log("추천탭")
+// 4. 추천탭 - 추천제품 불러오기 API 통신
+async function handleRecommend() {
+    const response = await fetch('http://127.0.0.1:8000/perfume/recommend/', {
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+        },
+        method: 'GET',
+        body: JSON.stringify({
+            "perfume_id" : id,
+        })
+    })
+    .then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인 유저만 접근 가능합니다.")
+                location.href="/signin.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        const response_json = result;
+        
+    })
+    .catch(error => {
+        console.warn(error.message)
+    });
 }
+
 
 
 // 5. 찜하기 버튼 클릭 시 handlePerfumeLike() 호출
