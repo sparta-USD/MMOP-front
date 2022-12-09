@@ -317,6 +317,33 @@
     margin: 60px 120px 30px 120px;
 }
 
+.item_card .card_footer{
+    padding-top: 0;
+}
+.item_card .card_footer .btn{
+    background-color: #202020;
+    color: #f5f5f5;
+    font-size: 1em;
+    width: 45px;
+    height: 28px;
+    padding: unset;
+    border-radius: unset;
+    margin:auto;
+    display: block;
+}
+
+.item_card .bi-suit-heart-fill{
+    color:red;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    right:13px;
+}
 
 /* ********* */
 /* item_card */
