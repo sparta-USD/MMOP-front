@@ -81,7 +81,6 @@ function perfume_detail_tab(data){
 }
 // 2-1. note 의 name 불러오는 함수 * 
 function append_notes(data){
-    console.log(data)
     note_type_list = ["top", 'heart', 'base', 'none']
     note_type_list.forEach(note_type => {
         const note_data = data[note_type+'_notes'];
@@ -198,11 +197,12 @@ async function handleRecommend() {
     const response = await fetch('http://127.0.0.1:8000/perfume/recommend/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type": "application/json",
         },
         method: 'GET',
-        body: JSON.stringify({
-            "perfume_id" : id,
-        })
+        // body: JSON.stringify({
+        //     'perfume': perfume.id,
+        // })
     })
     .then(response => {
         if(!response.ok){
@@ -216,10 +216,50 @@ async function handleRecommend() {
     })
     .then(result => {
         const response_json = result;
-        
+        perfume_recommend_tab(response_json); 
     })
     .catch(error => {
         console.warn(error.message)
+    });
+}
+// 4-1. 추천제품 card 뿌려주기
+function perfume_recommend_tab(recommend_data){
+    let recommend_list = document.getElementById("recommend_list");
+    recommend_list.innerHTML = '';
+    recommend_data.forEach(data => {
+        let new_recommend_list = document.createElement('div');
+        new_recommend_list.className = 'col-lg-4 col-md-4 col-6';
+        new_recommend_list.id = 'perfume_'+data['id'];
+        new_recommend_list.innerHTML = `
+            <a href="/perfume.html">
+                <div class='item_card check_card'>
+                    <div class="card_header list_profile">
+                        <div class="item_image">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                        </div>
+                        <i class="bi bi-suit-heart-fill none_link"></i>
+                    </div>
+                    <div class="card_body">
+                        <div class="card_content">
+                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                            <p class="item_card_tag">
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+        recommend_list.append(new_recommend_list);
     });
 }
 
