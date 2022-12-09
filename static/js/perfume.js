@@ -54,7 +54,7 @@ function perfume_info(data){
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
     element.querySelector(".perfume_brand").innerText = data['brand'];
     element.querySelector(".perfume_title").innerText = data['title'];
-    element.querySelector(".btn_like").innerText = "  " +data['likes_count'];
+    element.querySelector(".likes_count").innerText = "  " +data['likes_count'];
     element.querySelector(".col_gender_1").innerText = data['gender'];
     element.querySelector(".col_price_1").innerText = data['price'];
     element.querySelector(".col_launch_1").innerText = data['launch_date'];
