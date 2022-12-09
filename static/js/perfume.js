@@ -231,7 +231,7 @@ function perfume_recommend_tab(recommend_data){
         new_recommend_list.className = 'col-lg-4 col-md-4 col-6';
         new_recommend_list.id = 'perfume_'+data['id'];
         new_recommend_list.innerHTML = `
-            <a href="/perfume.html">
+            <a href="/perfume.html?perfume=${data['id']}">
                 <div class='item_card check_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
