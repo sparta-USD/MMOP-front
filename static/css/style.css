@@ -165,7 +165,7 @@ a, a:hover{
 .area_container{
     display: flex;
     position: relative;
-    margin-top: 120px;
+    /* margin-top: 120px; */
     margin-bottom: 100px;
 }
 .sidenav{
