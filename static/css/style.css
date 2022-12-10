@@ -230,12 +230,17 @@ a, a:hover{
 }
 .item_card .perfume_card_heart{
     position: absolute;
-    z-index: 10;
+    z-index: 100;
+    cursor: pointer;
     top: 16px;
-    width: 24px;
-    height: 24px;
+    /* width: 24px; */
+    /* height: 24px; */
     object-fit: cover;
-    right:13px;
+    right:16px;
+    font-size: 2em;
+}
+.item_card .bi-suit-heart-fill{
+    color:var(--main-red);
 }
 /* card_content */
 .item_card .card_content{
@@ -272,6 +277,9 @@ a, a:hover{
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+}
+.item_card .card_content .item_card_tag .tag{
+    margin-right: 4px;
 }
 /* card_footer */
 .item_card .card_footer{
