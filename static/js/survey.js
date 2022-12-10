@@ -56,3 +56,49 @@ function append_perfume_card_list(dataset,element){
         element.append(new_item);
     });
 }
+
+// 2. 설문조사하기
+document.getElementById("btn_survey_skip").addEventListener("click",function(){
+    location.href="/recommend.html";
+});
+document.getElementById("btn_survey_submit").addEventListener("click",function(){
+    handleSurveySubmit()
+});
+async function handleSurveySubmit(){
+    let survey = []
+    const survey_checked_perfume = document.querySelectorAll("input[type=checkbox][name=survey_perfume]:checked")
+    for(var i=0; i<survey_checked_perfume.length; i++){
+        survey.push(Number(survey_checked_perfume[i].value));
+    }
+    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "Content-Type": "application/json",
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            "perfume_id" : survey
+        }),
+    }).then(response => {
+        if(!response.ok){
+            if(response.status==401){
+                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
+                location.href="/signin.html";
+            }
+            else if(response.status==404){
+                alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+                location.href="/index.html";
+            }
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        if(response_json.length == survey.length){
+            location.href="/recommend.html";
+        }
+       
+    }).catch(error => {
+        console.warn(error.message)
+    });
+}
