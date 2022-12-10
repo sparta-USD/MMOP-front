@@ -4,8 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 카테고리 및 목록 띄우기
 async function handleCategory() {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
+        // headers: {
+        //     "Authorization": "Bearer " + localStorage.getItem("access"),
+        // },
     }).then(response => {
         if(!response.ok){
             if(response.status==401){
@@ -115,11 +118,40 @@ function append_note_list(dataset, element) {
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data['kor_name']}</span></p>
-                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+</span></p>     
                     </div>
                 </div>
             </div>
         `;
         element.append(new_item);
     });
+}
+
+var custom_perfume_data = {}
+
+async function handlePick(clicked_id) {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        if (Object.keys(custom_perfume_data).length == 0) {
+            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
+            custom_perfume_data['note01'] = clicked_id
+        } else if (Object.keys(custom_perfume_data).length == 1) {
+            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
+            custom_perfume_data['note02'] = clicked_id
+        } else {
+            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
+            custom_perfume_data['note03'] = clicked_id
+        }
+        sessionStorage.setItem("custom_perfume_data", JSON.stringify(custom_perfume_data));
+    })
+}
+
+function handleNext(){
+    location.href="/custom_perfume_package.html"
 }

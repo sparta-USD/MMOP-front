@@ -71,7 +71,7 @@
     width: 98px;
     height: 98px;
     border-radius: 50%;
-    margin-top: -19px;
+    margin-top: -20px;
 }
 .swiper.main_banner .swiper-slide2 button{
     padding: 20px 80px 20px 80px;
@@ -149,11 +149,9 @@
     border: 1px solid #999;
     border-radius: 50%;
     margin: auto;
-}
+    background-color: #ffffff;
 
-.circle_pick_plus{
     color: #999;
     position: relative;
     font-size: 30px;
-    top: 15%;
 }

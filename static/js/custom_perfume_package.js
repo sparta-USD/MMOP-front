@@ -77,7 +77,7 @@ function append_note_list(dataset, element) {
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data['name']}</span></p>
-                        <p class="item_card_editor"><span class="brand"><div class="circle_pick" id="circle_pick"><a href="#" class="circle_pick_plus" id="${data['id']}" onClick="handlePick(this.id)">+</a></div></span></p>     
+                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+</span></p>  
                     </div>
                 </div>
             </div>
@@ -85,6 +85,7 @@ function append_note_list(dataset, element) {
         element.append(new_item);
     });
 }
+var custom_perfume_data = JSON.parse(sessionStorage.getItem("custom_perfume_data"));
 
 async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
@@ -96,6 +97,11 @@ async function handlePick(clicked_id) {
     }).then(result => {
         const response_json = result;
         document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '">'
-    
+        custom_perfume_data['package'] = clicked_id
+        sessionStorage.setItem("custom_perfume_data", JSON.stringify(custom_perfume_data));
     })
+}
+
+function handleNext(){
+    location.href="/custom_perfume_logo.html"
 }
