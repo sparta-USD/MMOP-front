@@ -195,22 +195,15 @@ function perfume_review_tab_review_list(review_data){
 // 4. 추천탭 - 추천제품 불러오기 API 통신
 async function handleRecommend() {
     url_detail_perfume = getParams("perfume");
-    const response = await fetch('http://127.0.0.1:8000/perfume/recommend/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/recommend/', {
         headers: {
-            // "Authorization":"Bearer " + localStorage.getItem("access"),
+            "Authorization":"Bearer " + localStorage.getItem("access"),
             "content-type": "application/json",
         },
-        method: 'POST',
-        body: JSON.stringify({
-            "perfume_id": url_detail_perfume,
-        })
+        method: 'GET',
     })
     .then(response => {
         if(!response.ok){
-            // if(response.status==401){
-            //     alert("로그인 유저만 접근 가능합니다.")
-            //     location.href="/signin.html";
-            // }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
         return response.json()
