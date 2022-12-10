@@ -42,3 +42,13 @@
     border: solid 1px var(--main-black);
     background-color: var(--main-white);
 }
+
+
+/* top 20 */
+.main_top_name{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    font-size: xxx-large;
+    font-weight: bold;
+    text-align: center;
+}
