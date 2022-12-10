@@ -63,6 +63,10 @@ header nav ul.navbar_menu button{
     background: transparent;
     border:0;
 }
+header nav ul.navbar_menu > li > button{
+    font-weight: 700;
+    color: var(--main-black);
+}
 header nav ul.navbar_menu > li > a, header nav ul.navbar_menu > li > button, header nav ul.navbar_menu > li .dropdown>button{
     display: block;
     line-height: 20px;
@@ -189,9 +193,14 @@ a, a:hover{
     text-align: center;
 }
 .sec .section_title{
-    font-size: 1.5em;
+    font-size: 1.75em;
     font-weight: 700;
     display: inline-block;
+}
+.sec .section_desc{
+    line-height: 1.56;
+    margin-top: 24px;
+    color: var(--base-gray-999)
 }
 
 /*********************/

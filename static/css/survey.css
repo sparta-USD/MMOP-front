@@ -24,6 +24,8 @@
     font-size: 1.25em;
 }
 
+
+
 /* sec 하단 버튼 */
 .btn_wrap{
     display: flex;
@@ -89,4 +91,55 @@
     color: var(--main-red);
     opacity:1;
     box-shadow: 1px 1px 10px #efefef;
+}
+
+/* sec_perfume_recommend_list */
+.sec_perfume_recommend_list{
+    margin-top: 150px;
+}
+.section_title strong{
+    font-weight: 900;
+    margin: 0 8px;
+    position: relative;
+}
+.section_title strong::after{
+    content: "";
+    width: 104%;
+    height: 2.5px;
+    position: absolute;
+    bottom: -2px;
+    left:-2%;
+    background-color: var(--main-black);
+}
+
+
+
+#recommend_perfume_list{
+    margin-top: 100px;
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(1) .item_card::before,
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(2) .item_card::before,
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(3) .item_card::before {
+    content: " ";
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top:10px;
+    left:10px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-white);
+    font-size: 1.5em;
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(1) .item_card::before{
+    background-image: url("/static/images/rank_1.png");
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(2) .item_card::before{
+    background-image: url("/static/images/rank_2.png");
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(3) .item_card::before{
+    background-image: url("/static/images/rank_3.png");
 }
