@@ -24,4 +24,21 @@
     font-size: 1.25em;
 }
 
+/* start 버튼 */
+.sec_btn_wrap button{
+    width: 200px;
+    margin: 8px;
+    font-size: large;
+    border-radius: 0%;
+}
 
+.sec_btn_wrap button.btn_survey_start{
+    background-color: var(--main-black);
+    color: var(--main-white);
+}
+
+.sec_btn_wrap button.btn_survey_start:hover{
+    color: var(--main-black);
+    border: solid 1px var(--main-black);
+    background-color: var(--main-white);
+}
