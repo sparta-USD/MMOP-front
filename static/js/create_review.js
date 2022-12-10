@@ -84,15 +84,15 @@ async function handleCreateReview() {
     const review_formData = new FormData();
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
-    const review_image = document.getElementById("review_image").files[0];
+    const image = document.getElementById("review_image").files[0];
     const grade = document.querySelector('input[name="starpoint"]:checked').value;
 
     review_formData.append("good_content", good_content);
     review_formData.append("bad_content", bad_content);
-    review_formData.append("review_image", review_image);
+    review_formData.append("image", image);
     review_formData.append("grade", grade);
 
-    if (good_content == "" || bad_content == "" || review_image == "" || grade == ""){
+    if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }
     else{
