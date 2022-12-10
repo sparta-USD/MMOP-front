@@ -4,11 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 카테고리 및 목록 띄우기
 async function handleCategory() {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
-        // headers: {
-        //     "Authorization": "Bearer " + localStorage.getItem("access"),
-        // },
+        headers: {
+            // "Authorization": "Bearer " + eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNzE1OTQyLCJpYXQiOjE2NzA2NzI3NDIsImp0aSI6IjUwYjgxYjEwNmY2MDQ4OTM5MzNjOWIxZGNiZWRkNDhhIiwidXNlcl9pZCI6MSwiaWQiOjEsImVtYWlsIjoiYUBhLmNvbSIsInVzZXJuYW1lIjoiYSJ9.n5bJVbA10RICEsoffoT2mNvTOllJqjCYPbilVCjEfFk,
+            // "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
     }).then(response => {
         if(!response.ok){
             if(response.status==401){
@@ -76,7 +77,7 @@ function append_note_list(dataset, element) {
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data['name']}</span></p>
-                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                        <p class="item_card_editor"><span class="brand"><div class="circle_pick" id="circle_pick"><a href="#" class="circle_pick_plus" id="${data['id']}" onClick="handlePick(this.id)">+</a></div></span></p>     
                     </div>
                 </div>
             </div>
@@ -85,57 +86,16 @@ function append_note_list(dataset, element) {
     });
 }
 
-document.getElementById("create_button").addEventListener("click",function(){
-    a();
-});
-
-async function a() {
-    console.log("1")
-    console.log(document.getElementById("create_button"))
-    console.log(document.getElementById("circle_pick"))
-}
-
-async function handleNote() {
+async function handlePick(clicked_id) {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '">'
     
-    const note_formData = new FormData();
-
-    const note01 = document.getElementById("note01").value;
-    const note02 = document.getElementById("note02").value;
-    const note03 = document.getElementById("note03").value;
-    
-    note_formData.append("note01", note01);
-    note_formData.append("note02", note02);
-    note_formData.append("note03", note03);
-
-    console.log(note_formData)
-    console.log(document.getElementById("note01"))
-
-    if (note01 == "" || note02 == "" || note03 == "") {
-        alert("향 3가지를 모두 골라주세요!")
-    }
-    else {
-
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/', {
-            method: 'POST',
-            // headers: {
-            //     "Authorization": "Bearer " + localStorage.getItem("access"),
-            // },
-            body: note_formData,
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`${response.status} 에러가 발생했습니다.`);
-                }
-                return response.json()
-            })
-            .then(result => {
-                alert("U-NFT 생성에 성공했습니다!")
-                // location.href="/unft.html?unft=" + result["id"];
-            })
-            .catch(error => {
-                alert("U-NFT 생성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
-                console.warn(error.message);
-                loader.classList.remove('show');
-            });
-    }
+    })
 }
