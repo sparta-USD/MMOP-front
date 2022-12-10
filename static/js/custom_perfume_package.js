@@ -85,7 +85,6 @@ function append_note_list(dataset, element) {
         element.append(new_item);
     });
 }
-var custom_perfume_data = JSON.parse(sessionStorage.getItem("custom_perfume_data"));
 
 async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
@@ -96,10 +95,26 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '">'
-        custom_perfume_data['package'] = clicked_id
-        sessionStorage.setItem("custom_perfume_data", JSON.stringify(custom_perfume_data));
+        document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+        // custom_perfume_data['package'] = clicked_id
+        package_ = clicked_id
+        sessionStorage.setItem("package_", JSON.stringify(package_));
     })
+}
+async function handlePickDelete(){
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        document.getElementById("circle_image").innerText = "+"
+        delete package_
+        sessionStorage.removeItem("package_")
+    })
+    
 }
 
 function handleNext(){

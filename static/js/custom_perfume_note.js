@@ -127,8 +127,6 @@ function append_note_list(dataset, element) {
     });
 }
 
-var custom_perfume_data = {}
-
 async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -138,18 +136,67 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        if (Object.keys(custom_perfume_data).length == 0) {
-            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
-            custom_perfume_data['note01'] = clicked_id
-        } else if (Object.keys(custom_perfume_data).length == 1) {
-            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
-            custom_perfume_data['note02'] = clicked_id
+        if (Object.keys(note01).length == 0) {
+            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete1()">x'
+            note01 = clicked_id
+            sessionStorage.setItem("note01", JSON.stringify(note01));
+        } else if (Object.keys(note02).length == 0) {
+            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
+            note02 = clicked_id
+            sessionStorage.setItem("note02", JSON.stringify(note02));
         } else {
-            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '">'
-            custom_perfume_data['note03'] = clicked_id
+            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
+            note03 = clicked_id
+            sessionStorage.setItem("note03", JSON.stringify(note03));
         }
-        sessionStorage.setItem("custom_perfume_data", JSON.stringify(custom_perfume_data));
+        
     })
+}
+
+async function handlePickDelete1(){
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        document.getElementById("note01").innerText = "+"
+        delete note01
+        sessionStorage.removeItem("note01")
+    })
+    
+}
+async function handlePickDelete2(){
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        document.getElementById("note02").innerText = "+"
+        delete note02
+        sessionStorage.removeItem("note02")
+    })
+    
+}
+async function handlePickDelete3(){
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        method: 'GET',
+        headers: {
+        },
+    }).then(response => {
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        document.getElementById("note03").innerText = "+"
+        delete note03
+        sessionStorage.removeItem("note03")
+    })
+    
 }
 
 function handleNext(){

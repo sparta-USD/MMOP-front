@@ -72,8 +72,17 @@
     height: 98px;
     border-radius: 50%;
     margin-top: -20px;
+    margin-left: -49px;
+    position: absolute;
 }
-.swiper.main_banner .swiper-slide2 button{
+.swiper.main_banner .swiper-slide2 .circle_plus .delete_button{
+    margin-left: -18px;
+    border: 0;
+    background-color: transparent;
+    color: #999;
+    position: absolute;
+}
+.swiper.main_banner .swiper-slide2 .next_button{
     padding: 20px 80px 20px 80px;
     background-color:#2c2c2c;
     color: #ffffff;
