@@ -87,6 +87,26 @@
     padding: unset;
     margin-left: 20px;
 }
+.my_review_list .review-delete-button{
+    background-color: #202020;
+    color: #f5f5f5;
+    border-radius: unset;
+    font-size: 0.8em;
+    width: 45px;
+    height: 28px;
+    padding: unset;
+    margin-left: 20px;
+}
+.my_review_list .review-delete-button:hover{
+    background-color: #202020;
+    color: #f5f5f5;
+    border-radius: unset;
+    font-size: 0.8em;
+    width: 45px;
+    height: 28px;
+    padding: unset;
+    margin-left: 20px;
+}
 /* my review */
 .container_review_tab{
     justify-content: center;
@@ -187,21 +207,14 @@
     margin:auto;
     display: block;
 }
-
-.item_card .bi-suit-heart-fill{
-    color:red;
+.perfume_card_heart.btn_like{
+    background: transparent;
+    border: 0;
+}
+.item_card .logo_image >img{
     width: 50px;
     height: 50px;
-    position: absolute;
-    z-index: 10;
-    top: 16px;
-    width: 24px;
-    height: 24px;
-    object-fit: cover;
-    right:13px;
-
 }
-
 /* profile_edit */
 .sec_profile_edit {
     border: 1px solid #e4e4e4;
@@ -261,6 +274,111 @@
     display: block;
     background-color: #202020;
     width: 130px;
+    height: 50px;
+    color: #f5f5f5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1em;
+    border-radius: unset;
+}
+/* Delete Modal */
+.moreModel .modal-body{
+    text-align: center;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 32px 0;
+    display: flex;
+    justify-content: center;
+}
+.moreModel .modal_title{
+    font-size: 1.25em;
+    font-weight: 600;
+}
+.moreModel .modal-footer{
+    border:0;
+}
+.moreModel button.btn_modal_feedmore, .moreModel button.btn_modal_feedmore:hover{
+    width: 100%;
+    border-top: 1px solid rgb(219,219,219);
+    line-height: 1.5;
+    min-height: 56px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0;
+    margin:0;
+}
+.moreModel button.btn_modal_feedmore:first-child{
+    border-top:0;
+}
+.moreModel button.btn_modal_feedmore.red{
+    color: #ed4956;
+    font-weight: 600;
+}
+
+/* Edit Modal */
+.editModal .modal-title{
+    font-size: 1.25em;
+    font-weight: 600;
+}
+.editModal .grade_content, .editModal .good_content ,.editModal .bad_content {
+    margin-top: 15px;
+}
+.editModal .image_upload_text{
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+.editModal .form-control{
+    margin-bottom: 10px;
+}
+.editModal .form-control:focus{
+    border-color: #999;
+    box-shadow: unset;
+}
+.editModal .review_star_grade, .editModal .review_image_upload_box2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+.editModal .btn_edit{
+    margin:auto;
+    display: block;
+    background-color: #202020;
+    width: 150px;
+    height: 50px;
+    color: #f5f5f5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1em;
+    border-radius: unset;
+}
+.editModal .btn_edit:hover{
+    margin:auto;
+    display: block;
+    background-color: #202020;
+    width: 150px;
+    height: 50px;
+    color: #f5f5f5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1em;
+    border-radius: unset;
+}
+.editModal .btn_edit_complete{
+    margin:auto;
+    display: block;
+    background-color: #999;
+    width: 150px;
+    height: 50px;
+    color: #f5f5f5;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1em;
+    border-radius: unset;
+}
+.editModal .btn_edit_complete:hover{
+    margin:auto;
+    display: block;
+    background-color: #999;
+    width: 150px;
     height: 50px;
     color: #f5f5f5;
     margin-top: 30px;
