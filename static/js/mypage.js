@@ -103,7 +103,10 @@ function appendMyCustomList(dataset, element){
             <a href="/perfume.html?perfume=${data['id']}">
                 <div class="card_header list_profile" >
                     <div class="item_image">
-                        <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                        <img aria-hidden="false" draggable="false" loading="lazy" src="${data["package"]["image"]}">
+                    </div>
+                    <div class="logo_image">
+                        <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data["logo"]}">
                     </div>
                     <div class="perfume_images material">
                         <img
@@ -242,7 +245,7 @@ function appendMyReviewList(dataset, element) {
                         </div>
                         <div>
                             <div class="review_result_image_box">
-                                ${data["image"] ? ` <img class="review_result_image" src="${data["image"]}"}` : ``}
+                                ${data["image"] ? ` <img class="review_result_image" src="http://127.0.0.1:8000${data["image"]}"}` : ``}
                             </div>
                         </div>
                     </div>
@@ -263,13 +266,13 @@ async function EditReview(review_id) {
     
     let good_content = document.getElementById("good_content").value;
     let bad_content = document.getElementById("bad_content").value;
-    let review_image = document.getElementById("review_image").files[0];
+    let image = document.getElementById("review_image").files[0];
     let grade = document.querySelector('input[name="starpoint"]:checked').value;
 
     const review_formData = new FormData();
     review_formData.append("good_content",good_content);
     review_formData.append("bad_content",bad_content);
-    review_formData.append("review_image", review_image);
+    review_formData.append("image", image);
     review_formData.append("grade", grade);
 
     if (good_content == "" || bad_content == "" || grade == ""){
@@ -305,8 +308,9 @@ async function EditReview(review_id) {
         document.getElementById("review_"+review_id).querySelector(".review_good_content").innerText = result['good_content']
         document.getElementById("review_"+review_id).querySelector(".review_bad_content").innerText = result['bad_content']
         document.getElementById("review_"+review_id).querySelector(".review_result_image_box").innerHTML =`
-            ${result["image"] ? `<img class="review_result_image" src="http://127.0.0.1:8000/${result["image"]}"}` : ``}
+            ${result["image"] ? `<img class="review_result_image" src="http://127.0.0.1:8000${result["image"]}">` : ``}
         ` 
+
     }).catch(error => {
         alert("수정에 실패하였습니다. \n자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
