@@ -64,106 +64,36 @@
         </div>
     </header>
     <div class="wrap">
-        <section class="sec sec_main_banner">
-            <div class="swiper main_banner">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                  <!-- Slides -->
-                    <div class="swiper-slide" style="background-image:url('/static/images/main_banner.jpg')">
-                        <p>MMOP가 지금까지 찾아드린 취향,<br>
-                            1,986,488회!</p>
-                        
-                        <h1>What’s Your Favorite Perfume?</h1>
-                        <p>내가 좋아하는 향수를 선택해 주세요!</p>
-
-                        <div class="btn_wrap">
-                            <button type="button" class="btn btn_default btn_survey_skip" id="btn_survey_skip">SKIP</button>
-                            <button type="button" class="btn btn_default btn_survey_submit" id="btn_survey_submit">NEXT</button>
-                        </div>
-                    </div>
-                </div>
-              </div>
-        </section>
-        <section class="sec sec_perfume_list">
+        <section class="sec sec_perfume_recommend_list">
             <div class="container">
-                <div class="item_list" id='survey_perfume_list'>
+                <div class="section_header">
+                    <h2 class="section_title"><strong class="username">USERNAME</strong>님을 위한 추천 향수</h2>
+                    <p class="section_desc">당신을 위해, 당신이 선호하는 향수를 찾기위한 완벽한 추천 공식.<br>
+                        나에게 맞는 향수를 즐겨보세요.</p>
+                </div>
+                <div class="item_list" id='recommend_perfume_list'>
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                        <a href="#">
+                            <div class="col-lg-3 col-md-4 col-6">
+                                <div class='item_card check_card'>
+                                    <div class="card_header list_profile">
+                                        <div class="item_image">
+                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                    <div class="card_body">
+                                        <div class="card_content">
+                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card_footer">
-                                    <input class="form-check-input mt-0" type="checkbox" id="perfume_1" value="1" name="survey_perfume">
-                                    <label for="perfume_1"><span class="btn_check"><i class="bi bi-check-lg"></i></span></label>
+                                    <div class="card_footer">
+                                        <input class="form-check-input mt-0" type="checkbox" id="perfume_1" value="1" name="survey_perfume">
+                                        <label for="perfume_1"><span class="btn_check"><i class="bi bi-check-lg"></i></span></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                    </div>
-                                </div>
-                                <div class="card_footer">
-                                    <input class="form-check-input mt-0" type="checkbox" id="perfume_2" value="1" name="survey_perfume">
-                                    <label for="perfume_2"><span class="btn_check"><i class="bi bi-check-lg"></i></span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                    </div>
-                                </div>
-                                <div class="card_footer">
-                                    <input class="form-check-input mt-0" type="checkbox" id="perfume_3" value="1" name="survey_perfume">
-                                    <label for="perfume_3"><span class="btn_check"><i class="bi bi-check-lg"></i></span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                    </div>
-                                </div>
-                                <div class="card_footer">
-                                    <input class="form-check-input mt-0" type="checkbox" id="perfume_4" value="1" name="survey_perfume">
-                                    <label for="perfume_4"><span class="btn_check"><i class="bi bi-check-lg"></i></span></label>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -224,5 +154,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/static/js/main.js"></script>
-    <script src="/static/js/survey.js"></script>
+    <script src="/static/js/recommend.js"></script>
 </body>
