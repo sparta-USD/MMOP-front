@@ -25,25 +25,24 @@
 }
 
 /* sec 하단 버튼 */
-.sec_btn_wrap{
+.btn_wrap{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 100px;
 }
-.sec_btn_wrap button{
+.btn_wrap button{
     width: 200px;
     margin: 8px;
 }
-.sec_btn_wrap button.btn_survey_skip{
+.btn_wrap button.btn_survey_skip{
     border: solid 1px var(--main-black);
-    background-color: var(--main-white);
+    background-color: transparent;
     color: var(--main-black);
 }
-.sec_btn_wrap button.btn_survey_skip:hover{
+.btn_wrap button.btn_survey_skip:hover{
     color: var(--main-black);
     border: solid 1px var(--main-black);
-    background-color: var(--main-white);
+    background-color: rgba(255,255,255,0.3)
 }
 
 
@@ -72,7 +71,7 @@
     height: 100%;
     border-radius: 0;
     color: var(--base-gray-999);
-    font-size: 6em;
+    font-size: 7em;
     font-weight: 900;
     opacity: 0;
 }
@@ -85,8 +84,9 @@
     height: 100%;
 }
 .item_card.check_card input[type=checkbox]:checked +label .btn_check{
-    background-color: rgba(0,0,0,0.05);
+    /* background-color: rgba(0,0,0,0.05); */
     border-color: var(--main-black);
     color: var(--main-red);
     opacity:1;
+    box-shadow: 1px 1px 10px #efefef;
 }

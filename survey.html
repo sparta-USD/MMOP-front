@@ -75,13 +75,18 @@
                         
                         <h1>What’s Your Favorite Perfume?</h1>
                         <p>내가 좋아하는 향수를 선택해 주세요!</p>
+
+                        <div class="btn_wrap">
+                            <button type="button" class="btn btn_default btn_survey_skip" id="btn_survey_skip">SKIP</button>
+                            <button type="button" class="btn btn_default btn_survey_submit" id="btn_survey_submit">NEXT</button>
+                        </div>
                     </div>
                 </div>
               </div>
         </section>
         <section class="sec sec_perfume_list">
             <div class="container">
-                <div class="item_list">
+                <div class="item_list" id='survey_perfume_list'>
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-6">
                             <div class='item_card check_card'>
@@ -161,10 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="sec_btn_wrap">
-                    <button type="button" class="btn btn_default btn_survey_skip">SKIP</button>
-                    <button type="button" class="btn btn_default btn_survey_submit">NEXT</button>
-                </div>
             </div>
         </section>
     </div>
@@ -223,4 +224,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/static/js/main.js"></script>
+    <script src="/static/js/survey.js"></script>
 </body>
