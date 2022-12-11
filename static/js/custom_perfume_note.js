@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 async function handleCategory() {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
-        // headers: {
-        //     "Authorization": "Bearer " + localStorage.getItem("access"),
-        // },
+        headers: {
+            // "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
     }).then(response => {
         if(!response.ok){
             if(response.status==401){
                 alert("로그인 유저만 접근 가능합니다.")
+                history.back()
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
@@ -131,6 +132,7 @@ async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
@@ -157,6 +159,7 @@ async function handlePickDelete1(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
@@ -172,6 +175,7 @@ async function handlePickDelete2(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
@@ -187,6 +191,7 @@ async function handlePickDelete3(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
@@ -200,5 +205,9 @@ async function handlePickDelete3(){
 }
 
 function handleNext(){
-    location.href="/custom_perfume_package.html"
+    if(Object.keys(note01).length == 0 || Object.keys(note02).length == 0 || Object.keys(note03).length == 0){
+        alert("향 3가지를 모두 골라주세요!")
+    }else{
+        location.href="/custom_perfume_package.html"
+    }
 }
