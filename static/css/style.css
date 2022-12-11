@@ -12,7 +12,9 @@
     --second-black: #2c2c2c;
     --main-white: #ffffff;
     --second-white: #f5f5f5;
+    --base-gray-dark: #444;
     --base-gray-999: #999;
+    --base-gray-ccc: #ccc;
     --base-gray-e4: #e4e4e4;
     --base-gray-ef :#efefef;
 
@@ -131,13 +133,23 @@ a, a:hover{
     color: var(--main-white);
     border-radius: 0;
     padding: 0.5em 1rem;
-    min-width: 150px;
+    min-width: 200px;
     transition: 0.4s;
 }
 .btn.btn_default:hover{
     background-color: var(--strong-black);
     color: var(--main-white);
     transition: 0.4s;
+}
+.btn.btn_border{
+    border: solid 1px var(--main-black);
+    background-color: transparent;
+    color: var(--main-black);
+}
+.btn.btn_border:hover{
+    color: var(--main-black);
+    border: solid 1px var(--main-black);
+    background-color: rgba(255,255,255,0.3)
 }
 
 .flex{
@@ -155,6 +167,28 @@ a, a:hover{
 }
 .flex-justify-between{
     justify-content: space-between;
+}
+
+input.form-control{
+    border-radius: 0;
+    padding: 0.5em 0.75em;
+    border: solid 1px var(--base-gray-ccc);
+}
+input.form-control:focus{
+    border-radius: 0;
+    border: solid 1px var(--base-gray-dark);
+    box-shadow:unset;
+}
+input.form-control::placeholder{
+    color: var(--base-gray-999);
+    font-weight: 300;
+}
+
+.divider{
+    margin: 16px 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--base-gray-e4);
 }
 
 
@@ -186,14 +220,18 @@ a, a:hover{
 }
 /* section */
 .sec{
+    margin-top:100px;
     margin-bottom: 50px;
 }
+.sec:first-child{
+    margin-top:150px;
+}
 .sec .section_header{
-    margin-bottom: 32px;
+    margin-bottom: 64px;
     text-align: center;
 }
 .sec .section_title{
-    font-size: 1.75em;
+    font-size: 2.5em;
     font-weight: 700;
     display: inline-block;
 }
@@ -201,6 +239,45 @@ a, a:hover{
     line-height: 1.56;
     margin-top: 24px;
     color: var(--base-gray-999)
+}
+
+/* main-banner - swiper */
+.sec.sec_main_banner{
+    margin-top:0;
+}
+.swiper.main_banner .swiper-slide{
+    min-height: 65vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.swiper.main_banner .swiper-slide h1{
+    width: 100%;
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 24px;
+}
+.swiper.main_banner .swiper-slide p{
+    width: 100%;
+    margin-bottom: 50px;
+    line-height: 1.56;
+    font-size: 1.25em;
+}
+/* sec 하단 버튼 */
+.btn_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_wrap button{
+    width: 200px;
+    margin: 8px;
 }
 
 /*********************/
@@ -242,11 +319,11 @@ a, a:hover{
     z-index: 100;
     cursor: pointer;
     top: 16px;
-    /* width: 24px; */
-    /* height: 24px; */
     object-fit: cover;
     right:16px;
     font-size: 2em;
+    background: transparent;
+    border: 0;
 }
 .item_card .bi-suit-heart-fill{
     color:var(--main-red);
@@ -260,7 +337,7 @@ a, a:hover{
 .item_card .card_content p{
     margin-bottom: 8px;
 }
-.item_card .card_content p.item_card_title{
+.item_card .card_content .item_card_title{
     overflow: hidden;
     white-space: normal;
     word-break: keep-all;
@@ -268,28 +345,42 @@ a, a:hover{
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    /* word-break: keep-all; */
-}
-.item_card .card_content .item_card_title{
+    min-height: 2em;
+
     font-weight: 600;
-    font-size : 1em;
+    font-size : 1.2em;
+    margin-bottom:0;
 }
 .item_card .card_content .item_card_editor{
-    font-size: 0.75em;
+    font-size: 1em;
+    color: var(--second-black);
 }
 .item_card .card_content .item_card_tag{
-    font-size: 0.65em;
-    color: #999;
+    font-size: 0.9em;
+    color: var(--base-gray-999);
     overflow: hidden;
     white-space: normal;
+    word-break:keep-all;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    margin-top: 8px;
+    
+    max-height: 2.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .item_card .card_content .item_card_tag .tag{
-    margin-right: 4px;
+    padding: 2px 4px;
+    text-transform: capitalize;
 }
+.item_card .card_content .item_card_tag .tag:hover{
+    color: var(--second-black);
+}
+
 /* card_footer */
 .item_card .card_footer{
     padding: 16px;
@@ -299,6 +390,53 @@ a, a:hover{
     position: relative;
     font-size: 0.75em;
 }
+/* check_card의 card-footer*/
+.item_card.check_card .card_footer{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    padding:0;
+} 
+.item_card.check_card .card_footer input[type=checkbox]{
+    display: none;
+}
+.item_card.check_card .card_footer label{
+    width: 100%;
+    height:100%;
+}
+.item_card.check_card .card_footer label .btn_check{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    color: var(--base-gray-dark);
+    font-size: 10em;
+    font-weight: 900;
+    opacity: 0;
+}
+.item_card.check_card:hover .card_footer label .btn_check{ /* check_card를 hover 했을때 */
+    background-color: rgba(0,0,0,0.03);
+    color: var(--main-red);
+    opacity: 0.7;
+    transition: 0.4s;
+    width: 100%;
+    height: 100%;
+}
+.item_card.check_card input[type=checkbox]:checked +label .btn_check{ /* check_card를 :checked 했을때 */
+    /* background-color: rgba(0,0,0,0.05); */
+    border-color: var(--main-black);
+    color: var(--main-red);
+    opacity:1;
+    box-shadow: 1px 1px 10px #efefef;
+}
+
+
+
 
 /* 아이템 material */
 .item_card .material{
