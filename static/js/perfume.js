@@ -181,7 +181,7 @@ function perfume_review_tab_review_list(review_data){
                 </div>
                 <div>
                     <div class="review_result_image_box">
-                        <img class="review_result_image" src="${data['image']}" alt="No Image">
+                        <img class="review_result_image" src="http://127.0.0.1:8000${data['image']}" alt="No Image">
                     </div>
                 </div>
             </div>
