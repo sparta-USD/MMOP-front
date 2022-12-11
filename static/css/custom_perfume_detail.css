@@ -10,9 +10,21 @@
     max-width: 100%;
 }
 
+.perfume_image_box{
+    position: relative;
+}
+
 .perfume_image_box, .perfume_image{
     width: 500px;
     height: 500px;
+}
+
+.perfume_image_box .logo_image{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    left: calc(50% - 65px);
 }
 
 .perfume_desc_box{
