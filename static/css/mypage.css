@@ -87,6 +87,26 @@
     padding: unset;
     margin-left: 20px;
 }
+.my_review_list .review-delete-button{
+    background-color: #202020;
+    color: #f5f5f5;
+    border-radius: unset;
+    font-size: 0.8em;
+    width: 45px;
+    height: 28px;
+    padding: unset;
+    margin-left: 20px;
+}
+.my_review_list .review-delete-button:hover{
+    background-color: #202020;
+    color: #f5f5f5;
+    border-radius: unset;
+    font-size: 0.8em;
+    width: 45px;
+    height: 28px;
+    padding: unset;
+    margin-left: 20px;
+}
 /* my review */
 .container_review_tab{
     justify-content: center;

@@ -217,6 +217,7 @@ function appendMyReviewList(dataset, element) {
                                 </div>
                                 <div class="review_created_time">${changeDateTimeFormat(data["created_at"])}</div>
                                 <button class="btn review-edit-button" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo">수정</button>
+                                <button class="btn review-delete-button" type="button" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal" data-bs-whatever="@mdo">삭제</button>
                             </div>
                         </div>
                     </div>
@@ -271,6 +272,16 @@ async function EditReview(review_id) {
     review_formData.append("review_image", review_image);
     review_formData.append("grade", grade);
 
+    if (good_content == "" || bad_content == "" || grade == ""){
+        alert("빈칸을 채워주세요!")
+    }
+    else if (good_content.length <= 20 || good_content.length > 5000) {
+        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
+    }
+    else if (bad_content.length <= 20 || bad_content.length > 5000) {
+        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
+    }
+    else{
     const response = await fetch('http://127.0.0.1:8000/perfume/reviews/'+review_id+'/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
@@ -278,6 +289,7 @@ async function EditReview(review_id) {
         method:'PUT',
         body: review_formData,
     })
+    
     .then(response => {
         if(!response.ok){
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
@@ -293,14 +305,41 @@ async function EditReview(review_id) {
         document.getElementById("review_"+review_id).querySelector(".review_good_content").innerText = result['good_content']
         document.getElementById("review_"+review_id).querySelector(".review_bad_content").innerText = result['bad_content']
         document.getElementById("review_"+review_id).querySelector(".review_result_image_box").innerHTML =`
-            ${result["image"] ? ` <img class="review_result_image" src="${result["image"]}"}` : ``}
+            ${result["image"] ? `<img class="review_result_image" src="http://127.0.0.1:8000/${result["image"]}"}` : ``}
         ` 
     }).catch(error => {
         alert("수정에 실패하였습니다. \n자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
+    }
 }
 
+// 2-2. 리뷰 탭 - 리뷰 삭제 모달
+$('#reviewDeleteModal').on('show.bs.modal', function(event) {
+    target_id = $(event.relatedTarget).closest(".accordion-item").attr('id').split("_")[1]
+    console.log(target_id)
+    $(this).find(".btn_delete").attr("onclick","DeleteReviewPerfume("+target_id+")");
+});
+// 2-2. 리뷰 탭 - 리뷰 삭제
+async function DeleteReviewPerfume(review_id) {
+    const response = await fetch('http://127.0.0.1:8000/perfume/reviews/'+review_id+'/',{
+        method:'DELETE',
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+        },
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response;
+    }).then(async result => {
+        alert("삭제에 성공했습니다!");
+        document.getElementById("review_"+review_id).remove();
+    }).catch(async error => {
+        alert("삭제에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+        console.warn(error.message);
+    });
+}
 
 // 3. 찜 탭 - 찜한 향수 리스트 삽입
 function appendLikePerfumeList(dataset, element) {

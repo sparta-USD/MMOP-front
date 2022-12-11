@@ -223,6 +223,7 @@
                                                     
                                                     <div class="review_created_time">22. 11. 19</div>
                                                     <button class="btn review-edit-button" type="button">수정</button>
+                                                    <button class="btn review-delete-button" type="button">삭제</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,6 +304,7 @@
                                                     
                                                     <div class="review_created_time">22. 11. 19</div>
                                                     <button class="btn review-edit-button" type="button">수정</button>
+                                                    <button class="btn review-delete-button" type="button">삭제</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -383,6 +385,7 @@
                                                     
                                                     <div class="review_created_time">22. 11. 19</div>
                                                     <button class="btn review-edit-button" type="button">수정</button>
+                                                    <button class="btn review-delete-button" type="button">삭제</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -529,7 +532,7 @@
             </div>
         </div>
     </div>
-    <!-- Delete Modal -->
+    <!-- Custom Delete Modal -->
     <div class="modal fade moreModel" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -539,6 +542,20 @@
                 <div class="modal-footer flex flex_column p-0">
                     <button type="button" class="btn btn_modal_feedmore btn_delete red" data-bs-dismiss="modal" aria-label="Delete" id="delete_unft">Delete</button>
                     <button type="button" class="btn btn_modal_feedmore btn_close" data-bs-dismiss="modal" aria-label="Cancel" id="delete">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Review Delete Modal -->
+    <div class="modal fade moreModel" id="reviewDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body flex flex_column">
+                    <h5 class="modal_title">정말 삭제하시겠습니까?</h5>
+                </div>
+                <div class="modal-footer flex flex_column p-0">
+                    <button type="button" class="btn btn_modal_feedmore btn_delete red" data-bs-dismiss="modal" aria-label="Delete" id="delete_review">Delete</button>
+                    <button type="button" class="btn btn_modal_feedmore btn_close" data-bs-dismiss="modal" aria-label="Cancel" id="delete_cancel">Cancel</button>
                 </div>
             </div>
         </div>
