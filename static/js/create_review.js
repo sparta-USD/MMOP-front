@@ -22,7 +22,8 @@ async function handlePerfumeInfo(){
     // url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력
     url_detail_perfume = getParams("perfume");
     if (url_detail_perfume == undefined){
-        url_detail_perfume = localStorage.getItem("perfume");
+        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+        location.href="/index.html";
     }
 
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
@@ -92,7 +93,7 @@ async function handleCreateReview() {
     review_formData.append("review_image", review_image);
     review_formData.append("grade", grade);
 
-    if (good_content == "" || bad_content == "" || review_image == "" || grade == ""){
+    if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }
     else{

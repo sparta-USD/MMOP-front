@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeInfo()
+    handleRecommend()
 });
 
 // url을 불러오는 함수 
@@ -20,7 +21,7 @@ async function handlePerfumeInfo(){
     }
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         headers: {
-            "Authorization":"Bearer" + localStorage.getItem("access"),
+            "Authorization":"Bearer " + localStorage.getItem("access"),
         },
         method: 'GET',
     })
@@ -43,7 +44,7 @@ async function handlePerfumeInfo(){
         perfume_info(response_json);  // 1. 기본 향수제품정보
         perfume_detail_tab(response_json); // 2. 제품정보 탭
         perfume_review_tab(response_json); // 3. 리뷰 탭
-        perfume_recommend_tab(response_json); // 3. 추천 탭
+        // perfume_recommend_tab(response_json); // 3. 추천 탭
     })
 }
 
@@ -191,10 +192,70 @@ function perfume_review_tab_review_list(review_data){
 }
 
 
-// 4. 추천탭
-function perfume_recommend_tab(response_json){
-    console.log("추천탭")
+// 4. 추천탭 - 추천제품 불러오기 API 통신
+async function handleRecommend() {
+    url_detail_perfume = getParams("perfume");
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/recommend/', {
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+            "content-type": "application/json",
+        },
+        method: 'GET',
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        const response_json = result;
+        perfume_recommend_tab(response_json); 
+    })
+    .catch(error => {
+        console.warn(error.message)
+    });
 }
+// 4-1. 추천제품 card 뿌려주기
+function perfume_recommend_tab(recommend_data){
+    let recommend_list = document.getElementById("recommend_list");
+    recommend_list.innerHTML = '';
+    recommend_data.forEach(data => {
+        let new_recommend_list = document.createElement('div');
+        new_recommend_list.className = 'col-lg-4 col-md-4 col-6';
+        new_recommend_list.id = 'perfume_'+data['id'];
+        new_recommend_list.innerHTML = `
+            <a href="/perfume.html?perfume=${data['id']}">
+                <div class='item_card check_card'>
+                    <div class="card_header list_profile">
+                        <div class="item_image">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                        </div>
+                    </div>
+                    <div class="card_body">
+                        <div class="card_content">
+                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                            <p class="item_card_tag">
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                                <span class="tag">#시트러스</span>
+                                <span class="tag">#백합</span>
+                                <span class="tag">#솔방울</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+        recommend_list.append(new_recommend_list);
+    });
+}
+
 
 
 // 5. 찜하기 버튼 클릭 시 handlePerfumeLike() 호출
