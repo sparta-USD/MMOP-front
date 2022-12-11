@@ -87,7 +87,10 @@ function append_custom_perfume_list(custom_data){
                 <div class='item_card check_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
+                        </div>
+                        <div class="logo_image">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">
                         </div>
                         <div class="perfume_images material">
                             <img
