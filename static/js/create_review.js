@@ -96,10 +96,10 @@ async function handleCreateReview() {
     if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }
-    else if (good_content.length >= 20 || good_content.length < 5000) {
+    else if (good_content.length <= 20 || good_content.length > 5000) {
         alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
     }
-    else if (bad_content.length >= 20 || bad_content.length < 5000) {
+    else if (bad_content.length <= 20 || bad_content.length > 5000) {
         alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
     }
     else{
