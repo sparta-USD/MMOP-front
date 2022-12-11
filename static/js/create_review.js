@@ -87,12 +87,16 @@ async function handleCreateReview() {
     const bad_content = document.getElementById("bad_content").value;
     const image = document.getElementById("review_image").files[0];
     const grade = document.querySelector('input[name="starpoint"]:checked').value;
-
+    
+    // 이미지 업로드를 선택했을 때만 image값 넘겨짐.
+    if (image != undefined){
+        review_formData.append("image", image);
+    }
     review_formData.append("good_content", good_content);
     review_formData.append("bad_content", bad_content);
-    review_formData.append("image", image);
     review_formData.append("grade", grade);
 
+    // 리뷰 작성 시 에러 처리
     if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }

@@ -83,38 +83,39 @@ function append_custom_perfume_list(custom_data){
         let custom_list = document.createElement('div');
         custom_list.className = 'col-lg-3 col-md-4 col-6';
         custom_list.innerHTML = `
-            <a href=""/perfume.html?perfume=${data['id']}"">
-                <div class='item_card check_card'>
-                    <div class="card_header list_profile">
-                        <div class="item_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
-                        </div>
-                        <div class="perfume_images material">
-                            <img
-                                src="${data["note01"]["image"]}">
-                        </div>
-                        <div class="perfume_images material">
-                            <img
-                                src="${data["note02"]["image"]}">
-                        </div>
-                        <div class="perfume_images material">
-                            <img
-                                src="${data["note03"]["image"]}">
-                        </div>
+            <div class='item_card check_card'>
+                <div class="card_header list_profile">
+                    <div class="item_image">
+                        <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                     </div>
-                    <div class="card_body">
-                        <div class="card_content">
-                            <p class="item_card_editor"><span class="username">${data['creator']}</span></p>
-                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
-                            <p class="item_card_tag">
-                                <span class="tag">#${data["note01"]["name"]}</span>
-                                <span class="tag">#${data["note02"]["name"]}</span>
-                                <span class="tag">#${data["note03"]["name"]}</span>
-                            </p>
-                        </div>
+                    <div class="logo_image">
+                        <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">
+                    </div>
+                    <div class="perfume_images material">
+                        <img
+                            src="${data["note01"]["image"]}">
+                    </div>
+                    <div class="perfume_images material">
+                        <img
+                            src="${data["note02"]["image"]}">
+                    </div>
+                    <div class="perfume_images material">
+                        <img
+                            src="${data["note03"]["image"]}">
                     </div>
                 </div>
-            </a>
+                <div class="card_body">
+                    <div class="card_content">
+                        <p class="item_card_editor"><span class="username">${data['creator']}</span></p>
+                        <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                        <p class="item_card_tag">
+                            <span class="tag">#${data["note01"]["name"]}</span>
+                            <span class="tag">#${data["note02"]["name"]}</span>
+                            <span class="tag">#${data["note03"]["name"]}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         `;
         custom_perfume_list.append(custom_list);
     });
