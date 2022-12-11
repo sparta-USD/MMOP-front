@@ -17,3 +17,26 @@ $('.tab_item').on("click",function(e){
 $(".none_link").on("click",function(e){
     e.preventDefault();
 });
+
+async function handleSurveyCheck(){
+    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+        },
+        method: 'GET',
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        if(response_json.length){
+            location.href="/recommend.html"
+        }else{
+            location.href="/survey.html"
+        }
+    }).catch(error => {
+        console.warn(error.message)
+    });
+}

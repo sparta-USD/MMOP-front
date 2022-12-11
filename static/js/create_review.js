@@ -22,7 +22,8 @@ async function handlePerfumeInfo(){
     // url이 ?perfume="perfume_id" 형태로 입력되지 않았을 때 에러메세지 출력
     url_detail_perfume = getParams("perfume");
     if (url_detail_perfume == undefined){
-        url_detail_perfume = localStorage.getItem("perfume");
+        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+        location.href="/index.html";
     }
 
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
@@ -84,16 +85,22 @@ async function handleCreateReview() {
     const review_formData = new FormData();
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
-    const review_image = document.getElementById("review_image").files[0];
+    const image = document.getElementById("review_image").files[0];
     const grade = document.querySelector('input[name="starpoint"]:checked').value;
 
     review_formData.append("good_content", good_content);
     review_formData.append("bad_content", bad_content);
-    review_formData.append("review_image", review_image);
+    review_formData.append("image", image);
     review_formData.append("grade", grade);
 
-    if (good_content == "" || bad_content == "" || review_image == "" || grade == ""){
+    if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
+    }
+    else if (good_content.length >= 20 || good_content.length < 5000) {
+        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
+    }
+    else if (bad_content.length >= 20 || bad_content.length < 5000) {
+        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
     }
     else{
         const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
