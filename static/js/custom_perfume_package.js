@@ -4,16 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 카테고리 및 목록 띄우기
 async function handleCategory() {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    if(sessionStorage.length < 4){
+        alert("이전 step을 완료 해야됩니다!")
+        location.href="/custom_perfume_note.html"
+    }else{
+        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
-            // "Authorization": "Bearer " + eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNzE1OTQyLCJpYXQiOjE2NzA2NzI3NDIsImp0aSI6IjUwYjgxYjEwNmY2MDQ4OTM5MzNjOWIxZGNiZWRkNDhhIiwidXNlcl9pZCI6MSwiaWQiOjEsImVtYWlsIjoiYUBhLmNvbSIsInVzZXJuYW1lIjoiYSJ9.n5bJVbA10RICEsoffoT2mNvTOllJqjCYPbilVCjEfFk,
             // "Authorization": "Bearer " + localStorage.getItem("access"),
         },
     }).then(response => {
         if(!response.ok){
             if(response.status==401){
                 alert("로그인 유저만 접근 가능합니다.")
+                history.back()
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
@@ -60,6 +64,8 @@ async function handleCategory() {
     }).catch(error => {
         console.warn(error.message)
     });
+    }
+    
 }
 
 function append_note_list(dataset, element) {
@@ -90,21 +96,23 @@ async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
     }).then(result => {
         const response_json = result;
         document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
-        // custom_perfume_data['package'] = clicked_id
         package_ = clicked_id
-        sessionStorage.setItem("package_", JSON.stringify(package_));
+        sessionStorage.setItem("package", JSON.stringify(package_));
+        console.log(sessionStorage.length)
     })
 }
 async function handlePickDelete(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
+            "content-type": "application/json",
         },
     }).then(response => {
         return response.json()
@@ -112,11 +120,15 @@ async function handlePickDelete(){
         const response_json = result;
         document.getElementById("circle_image").innerText = "+"
         delete package_
-        sessionStorage.removeItem("package_")
+        sessionStorage.removeItem("package")
     })
     
 }
 
 function handleNext(){
-    location.href="/custom_perfume_logo.html"
+    if(sessionStorage.length == 4){
+        alert("용기를 골라주세요!")
+    }else{
+        location.href="/custom_perfume_logo.html"  
+    }
 }
