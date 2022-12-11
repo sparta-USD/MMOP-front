@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/random/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -19,26 +19,28 @@ async function handleTopPerfume(){
     }).then(result => {
         const response_json = result;
         append_top_perfume_list(response_json)
-        
     }).catch(error => {
         console.warn(error.message)
     });
 }
 // 1-1. top20 향수 불러오기
 function append_top_perfume_list(top_data,element){
+    let user_email = localStorage.getItem("email");
     let top_perfume_list = document.getElementById("top_item_list");
     top_perfume_list.innerHTML = '';
     top_data.forEach(data => {
         let top_list = document.createElement('div');
         top_list.className = 'col-lg-3 col-md-4 col-6';
-        top_list.id = 'custom_perfume_'+data['id'];
         top_list.innerHTML = `
             <a href="/perfume.html?perfume=${data['id']}">
-                <div class='item_card check_card'>
+                <div class='item_card' id='perfume_${data['id']}'>
                     <div class="card_header list_profile">
                         <div class="item_image">
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
                         </div>
+                        <button type="button" class="perfume_card_heart none_link btn_like" onclick="clickLike(event,this);">
+                            <i class="bi ${data['likes'].includes(user_email) ? "bi-suit-heart-fill" : "bi-suit-heart" } none_link btn_like"></i>
+                        </button>
                     </div>
                     <div class="card_body">
                         <div class="card_content">
@@ -52,7 +54,6 @@ function append_top_perfume_list(top_data,element){
         top_perfume_list.append(top_list);
     });
 }
-
 
 
 // 2. 최근 제작한 커스텀 향수 불러오기 API 통신

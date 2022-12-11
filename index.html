@@ -41,19 +41,19 @@
                     <div class="navbar_nav flex w-100">
                         <ul class="navbar_menu nav-left">
                             <li class="navbar_item">
-                                <a href="#">
+                                <button type=button class="nav_link" onclick="handleSurveyCheck()">
                                     향수 추천
-                                </a>
+                                </button>
                             </li>
                             <li class="navbar_item">
-                                <a href="#">
+                                <a href="/custom_perfume_note.html">
                                     향수 제작
                                 </a>
                             </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
-                                <a href="/users/sign-in.html">
+                                <a href="/users/signin.html">
                                     SIGN IN
                                 </a>
                             </li>
@@ -74,10 +74,10 @@
                             1,986,488회!</p>
                         <h1>마음에 쏙 드는 향수를 찾고 싶으신가요?</h1>
                         <p>쉽고 간단한 취향 테스트로 <br>실패 없는 취향저격 향기들을 만나보세요!</p>
-                        <div class="sec_btn_wrap">
-                            <button type="button" class="btn btn_survey_start"><a href="/survey.html">
+                        <div class="btn_wrap">
+                            <a href="/survey.html" class="btn btn_default btn_survey_start">
                                 START
-                            </a></button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -85,17 +85,20 @@
         </section>
         <section class="sec sec_perfume_hot_list">
             <div class="container">
-                <div class="main_top_name">
-                    <h1>TOP 20</h1>
+                <div class="section_header">
+                    <h2 class="section_title">TOP 20</h2>
                 </div>
                 <div class="top_item_list">
                     <div class="row" id="top_item_list">
                         <div class="col-lg-3 col-md-4 col-6">
-                            <a href="perfume.html">
+                            <a href="/perfume.html">
                                 <div class='item_card check_card'>
                                     <div class="card_header list_profile">
                                         <div class="item_image">
                                             <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                                        </div>
+                                        <div class="perfume_card_heart">
+                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -108,11 +111,34 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6">
-                            <a href="perfume.html">
+                            <a href="/perfume.html">
                                 <div class='item_card check_card'>
                                     <div class="card_header list_profile">
                                         <div class="item_image">
                                             <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                                        </div>
+                                        <button type="button" class="perfume_card_heart btn_like" onclick="clickLike(event,this);">
+                                            <i class="bi bi-suit-heart"></i>
+                                        </button>
+                                    </div>
+                                    <div class="card_body">
+                                        <div class="card_content">
+                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="/perfume.html">
+                                <div class='item_card check_card'>
+                                    <div class="card_header list_profile">
+                                        <div class="item_image">
+                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                                        </div>
+                                        <div class="perfume_card_heart">
+                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -125,28 +151,14 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6">
-                            <a href="perfume.html">
+                            <a href="/perfume.html">
                                 <div class='item_card check_card'>
                                     <div class="card_header list_profile">
                                         <div class="item_image">
                                             <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
                                         </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="perfume.html">
-                                <div class='item_card check_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="item_image">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
+                                        <div class="perfume_card_heart">
+                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
                                         </div>
                                     </div>
                                     <div class="card_body">
@@ -164,8 +176,8 @@
         </section>
         <section class="sec sec_customperfume_list">
             <div class="container">
-                <div class="main_customperfume_name">
-                    <h1>Recently Customed Perfume</h1>
+                <div class="section_header">
+                    <h2 class="section_title">Recently Customed Perfume</h2>
                 </div>
                 <div class="customperfume_list">
                     <div class="row" id="custom_perfume_list">
