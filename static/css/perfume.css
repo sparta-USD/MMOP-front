@@ -80,12 +80,6 @@ hr{
     background-color: var(--main-white);
 }
 
-.btn_create_group button.btn_create_customperfume:hover{
-    color: var(--main-black);
-    border: solid 1px var(--main-black);
-    background-color: var(--main-white);
-}
-
 #btn_heart{
     margin-right: 16px;
     font-size: 38px;

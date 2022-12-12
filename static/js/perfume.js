@@ -65,10 +65,30 @@ function perfume_info(data){
     const user_email = localStorage.getItem("email");
     let is_like = user_email in data['likes']; // 현재 로그인한 유저의 이메일이 likes에 있는지 체크/ 찜 상태 : T/F
     document.getElementById("btn_heart").classList.add(is_like ? "bi-suit-heart-fill" : "bi-suit-heart"); // 삼항연산자 사용!
-
-    // 리뷰작성 버튼 링크 수정 : 현재 보고있는 제품(perfume_id)의 리뷰작성 페이지로 이동
-    document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
+    
+    // 리뷰 작성하기 버튼 활성화/비활성화(작성 여부에 따라)
+    review_create_go(data);
 }
+// * 1-2. 지금 로그인한 유저가 리뷰를 작성했는지 여부에 따라 리뷰작성하기 버튼 활성화/비활성화하는 함수 *
+function review_create_go(data){
+    const user = localStorage.getItem("username")
+    // 이 제품에 리뷰를 작성한 사용자 리스트 불러오기
+    let reviewer = []
+    for(var i=0; i<data['perfume_reviews'].length; i++){
+        reviewer.push(data['perfume_reviews'][i]['user'])
+    }
+
+    // 지금 로그인한 유저가 리뷰 작성자 리스트에 있으면 
+    if (reviewer.includes(user)) {
+        document.querySelector(".btn_create_review").innerText = "리뷰 작성 완료";
+        document.querySelector(".btn_create_review").style.backgroundColor = "var(--base-gray-999)";
+        document.querySelector(".btn_create_review").setAttribute("href","#");
+    }
+    else { // 없으면 현재 보고있는 제품(perfume_id)의 리뷰작성 페이지로 이동
+        document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
+    }
+}
+
 
 
 // 2. 제품정보 탭 불러오기

@@ -82,8 +82,6 @@ async function handleCreateReview() {
 
     url_detail_perfume = getParams("perfume");
 
-    console.log(url_detail_perfume)
-
     const review_formData = new FormData();
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
