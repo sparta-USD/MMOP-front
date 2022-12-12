@@ -302,7 +302,6 @@ async function EditReview(review_id) {
     }).then(result => {
         alert("수정에 성공했습니다!");
         $('#editModal').modal("hide");
-        console.log(result);
 
         document.getElementById("review_"+review_id).querySelector("h2 .review_star_grade .review_user_grade").innerText = result['grade']
         document.getElementById("review_"+review_id).querySelector("h2 .review_star_grade .starpoint_box").className = `starpoint_box star_${result['grade']*20}`
@@ -322,7 +321,6 @@ async function EditReview(review_id) {
 // 2-2. 리뷰 탭 - 리뷰 삭제 모달
 $('#reviewDeleteModal').on('show.bs.modal', function(event) {
     target_id = $(event.relatedTarget).closest(".accordion-item").attr('id').split("_")[1]
-    console.log(target_id)
     $(this).find(".btn_delete").attr("onclick","DeleteReviewPerfume("+target_id+")");
 });
 // 2-2. 리뷰 탭 - 리뷰 삭제
@@ -397,8 +395,6 @@ function append_notes(data){
 // 3-2. 찜 버튼 클릭 - 찜 해제 
 async function clickLike(e,el){
     e.preventDefault();
-    alert("찜 해제");
-
     perfume_id = target = el.closest(".item_card").getAttribute("id").replace("like_perfume_","");
 
     const response = await fetch('http://127.0.0.1:8000/perfume/'+perfume_id+'/like/', {
