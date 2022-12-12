@@ -99,7 +99,7 @@ function appendMyCustomList(dataset, element){
         new_item.className = 'col-lg-4 col-md-4 col-6';
         new_item.id = `custom_${data["id"]}`;
         new_item.innerHTML = `
-        <div class='item_card check_card' id="custom_${data["id"]}">
+        <div class='item_card custom_perfume_card' id="custom_${data["id"]}">
             <a href="/perfume.html?perfume=${data['id']}">
                 <div class="card_header list_profile" >
                     <div class="item_image">
@@ -108,17 +108,16 @@ function appendMyCustomList(dataset, element){
                     <div class="logo_image">
                         <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data["logo"]}">
                     </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note01"]["image"]}">
-                    </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note02"]["image"]}">
-                    </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note03"]["image"]}">
+                    <div class="materials">
+                        <div class="perfume_images material">
+                            <img src="${data["note01"]["image"]}">
+                        </div>
+                        <div class="perfume_images material">
+                            <img src="${data["note02"]["image"]}">
+                        </div>
+                        <div class="perfume_images material">
+                            <img src="${data["note03"]["image"]}">
+                        </div>
                     </div>
                 </div>
                 <div class="card_body">
@@ -132,9 +131,9 @@ function appendMyCustomList(dataset, element){
                     </div>
                 </div>
             </a>
-            <div class="card_footer">
-                <button type="button" class="btn perfume_card_edit none_link" data-bs-toggle="modal" data-bs-target="#deleteModal" >삭제</button>
-            </div>
+        </div>
+        <div class="card_btn_wrap">
+            <button type="button" class="btn btn_default btn_custom_perfume_delete" data-bs-toggle="modal" data-bs-target="#deleteModal" >삭제</button>
         </div>
         `;
         element.append(new_item);
@@ -219,9 +218,11 @@ function appendMyReviewList(dataset, element) {
                                 ${data["user"]}
                                 </div>
                                 <div class="review_created_time">${changeDateTimeFormat(data["created_at"])}</div>
-                                <button class="btn review-edit-button" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo">수정</button>
-                                <button class="btn review-delete-button" type="button" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal" data-bs-whatever="@mdo">삭제</button>
                             </div>
+                        </div>
+                        <div class="review_btn_wrap">
+                            <button class="btn btn_default btn_border review-edit-button" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo">수정</button>
+                            <button class="btn btn_default review-delete-button" type="button" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal" data-bs-whatever="@mdo">삭제</button>
                         </div>
                     </div>
                     <div class="sec_review_body">
