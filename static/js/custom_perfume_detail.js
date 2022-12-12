@@ -18,6 +18,10 @@ function getParams(params){
 
 async function handleCustomDetail(){
     get_custom_perfume = getParams("custom_perfume");
+    if (get_custom_perfume == undefined){
+        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
+        history.back();
+    }
     const response = await fetch(`http://127.0.0.1:8000/custom_perfume/${get_custom_perfume}/`, {
         headers: {
             "content-type": "application/json",
