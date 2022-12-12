@@ -146,10 +146,12 @@ async function handlePick(clicked_id) {
             document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
             note02 = clicked_id
             sessionStorage.setItem("note02", JSON.stringify(note02));
-        } else {
+        } else if (Object.keys(note03).length == 0) {
             document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
             note03 = clicked_id
             sessionStorage.setItem("note03", JSON.stringify(note03));
+        } else {
+            alert("더이상 추가할 수 없습니다.")
         }
         
     })

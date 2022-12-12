@@ -102,10 +102,13 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
-        package_ = clicked_id
-        sessionStorage.setItem("package", JSON.stringify(package_));
-        console.log(sessionStorage.length)
+        if (sessionStorage.length == 4){
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+            package_ = clicked_id
+            sessionStorage.setItem("package", JSON.stringify(package_));
+        } else{
+            alert("더이상 추가할 수 없습니다.")
+        }
     })
 }
 async function handlePickDelete(){
