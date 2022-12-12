@@ -77,11 +77,12 @@
 .item_image .package{
     width: 400px;
     position: absolute;
+    margin-left: -200px;
 }
 .item_image .logo{
     width: 110px;
     height: 100px;
-    margin: 200px 0 0 5px;
+    margin: 100px 0 0 0;
     position: absolute;
 }
 
@@ -105,22 +106,24 @@
     font-weight: bold;
 }
 
+.name{
+    color: #999;
+    font-size: 30px;
+    margin-top: 400px;
+    text-align : center;
+}
 /* sec 하단 버튼 */
 .sec_btn_wrap{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 450px 0 100px;
+    margin: 50px 0 100px;
     position: relative;
-}
-.sec_btn_wrap input{
-    width: 200px;
-    margin-top: 10px;
 }
 .sec_btn_wrap button{
     width: 200px;
-    margin: 350px 0 200px 0;
+    margin: 200px 0 200px 0;
     position: absolute;
 }
 .sec_btn_wrap button.btn_custom_submit{

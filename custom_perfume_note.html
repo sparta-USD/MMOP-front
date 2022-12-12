@@ -74,29 +74,29 @@
                         <p>3가지 향을 선택하여 나만의 향수를 만들어 보세요</p>
                     </div>
                     <div class="swiper-slide2">
-                        <div class="circle"><div class="circle_plus">+</div></div>
-                        <div class="circle"><div class="circle_plus">+</div></div>
-                        <div class="circle"><div class="circle_plus">+</div></div>
+                        <div class="circle"><div class="circle_plus" id="note01">+</div></div>
+                        <div class="circle"><div class="circle_plus" id="note02">+</div></div>
+                        <div class="circle"><div class="circle_plus" id="note03">+</div></div>
                         <p></p>
-                        <button>나만의 향수 만들기</button>
+                        <button class="next_button" id="next_button" onclick="handleNext()">나만의 향수 만들기</button>
                     </div>
                 </div>
               </div>
         </section>
         <section style="margin:auto; width:1400px;">
             <ul class="category">
-                <li class="tab_item active" id="tab_menu_01" ><a href="#tab_01">시트러스</a></li>
-                <li class="tab_item" id="tab_menu_02"><a href="#tab_02">과일, 야채 및 견과류</a></li>
-                <li class="tab_item" id="tab_menu_03"><a href="#tab_03">꽃</a></li>
-                <li class="tab_item" id="tab_menu_04"><a href="#tab_04">흰 꽃</a></li>
-                <li class="tab_item" id="tab_menu_05"><a href="#tab_05">채소, 허브 및 푸제</a></li>
-                <li class="tab_item" id="tab_menu_06"><a href="#tab_06">향료</a></li>
-                <li class="tab_item" id="tab_menu_07"><a href="#tab_07">과자와 미식가</a></li>
-                <li class="tab_item" id="tab_menu_08"><a href="#tab_08">숲과 이끼</a></li>
-                <li class="tab_item" id="tab_menu_09"><a href="#tab_09">수지와 발삼</a></li>
-                <li class="tab_item" id="tab_menu_010"><a href="#tab_010">머스크, 앰버, 동물 냄새</a></li>
-                <li class="tab_item" id="tab_menu_011"><a href="#tab_011">음료수</a></li>
-                <li class="tab_item" id="tab_menu_012"><a href="#tab_012">천연 및 합성, 인기 및 이상한</a></li>
+                <li class="tab_item active"><a href="#tab_01" id="tab_menu_01"></a></li>
+                <li class="tab_item"><a href="#tab_02" id="tab_menu_02"></a></li>
+                <li class="tab_item"><a href="#tab_03" id="tab_menu_03"></a></li>
+                <li class="tab_item"><a href="#tab_04" id="tab_menu_04"></a></li>
+                <li class="tab_item"><a href="#tab_05" id="tab_menu_05"></a></li>
+                <li class="tab_item"><a href="#tab_06" id="tab_menu_06"></a></li>
+                <li class="tab_item"><a href="#tab_07" id="tab_menu_07"></a></li>
+                <li class="tab_item"><a href="#tab_08" id="tab_menu_08"></a></li>
+                <li class="tab_item"><a href="#tab_09" id="tab_menu_09"></a></li>
+                <li class="tab_item"><a href="#tab_010" id="tab_menu_010"></a></li>
+                <li class="tab_item"><a href="#tab_011" id="tab_menu_011"></a></li>
+                <li class="tab_item"><a href="#tab_012" id="tab_menu_012"></a></li>
             </ul>
         </section>
         <hr>
@@ -114,7 +114,7 @@
                                 <div class="card_body">
                                     <div class="card_content">
                                         <p class="item_card_title"><span class="title">귤</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
+                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick">+</div></span></p>     
                                     </div>
                                 </div>
                             </div>
@@ -302,172 +302,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>   
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
                         </div>      
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.596.jpg?1466291951">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아사이 베리</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>          
                     </div>
                 </div>
                 <div class="tab_content" id="tab_03">
@@ -486,7 +321,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_04">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -501,7 +340,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_05">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -516,7 +359,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_06">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -531,7 +378,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_07">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -546,7 +397,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_08">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -561,7 +416,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_09">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -576,7 +435,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_010">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -591,7 +454,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_011">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -606,7 +473,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div>     
+                    </div>
+                </div>
+                <div class="tab_content" id="tab_012">
+                    <div class="row">
                         <div class="col-lg-1 col-md-4 col-6">
                             <div class='item_card check_card'>
                                 <div class="card_header list_profile">
@@ -621,37 +492,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아카시아</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>       
-                        <div class="col-lg-1 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://fimgs.net/mdimg/sastojci/m.730.jpg?1541088201">
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_title"><span class="title">아카시아</span></p>
-                                        <p class="item_card_editor"><span class="brand"><div class="circle_pick"><a href="#" class="circle_pick_plus">+</a></div></span></p>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>      
+                        </div>     
                     </div>
                 </div>
             </div>
