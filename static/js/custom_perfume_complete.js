@@ -41,6 +41,4 @@ async function handleCustomPerfume() {
         document.getElementById("logo").innerHTML = '<img class="logo"aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000'+response_json['logo']+'">'
         document.getElementById("name").innerText = response_json['title']
     })
-
-
 }

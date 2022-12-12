@@ -85,12 +85,6 @@
     margin: 100px 0 0 0;
     position: absolute;
 }
-.item_image .name{
-    font-size: 30px;
-    margin: 230px 0 0 3px;
-    color: #ffffff;
-    position: absolute;
-}
 
 .item_image .upload{
     margin: 100px 0 0 800px;
@@ -112,13 +106,19 @@
     font-weight: bold;
 }
 
+.name{
+    color: #999;
+    font-size: 30px;
+    margin-top: 400px;
+    text-align : center;
+}
 /* sec 하단 버튼 */
 .sec_btn_wrap{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 450px 0 100px;
+    margin: 50px 0 100px;
     position: relative;
 }
 .sec_btn_wrap button{
