@@ -3,15 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function handlePackage() {
-    if(JSON.parse(sessionStorage.getItem("package"))==null){
-        alert("용기를 선택하셔야 됩니다!")
-        location.href="/custom_perfume_package.html"
-    }
-    else if(JSON.parse(sessionStorage.getItem("note01"))==null&&JSON.parse(sessionStorage.getItem("note02"))==null&&JSON.parse(sessionStorage.getItem("note03"))==null){
+    if(JSON.parse(sessionStorage.getItem("note01"))==null&&JSON.parse(sessionStorage.getItem("note02"))==null&&JSON.parse(sessionStorage.getItem("note03"))==null){
         alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
-    }
-    else{
+    }else if(JSON.parse(sessionStorage.getItem("package"))==null){
+        alert("용기를 선택하셔야 됩니다!")
+        location.href="/custom_perfume_package.html"
+    }else{
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
             method: 'GET',
             headers: {
