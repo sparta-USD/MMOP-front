@@ -8,8 +8,17 @@ function changeDateTimeFormat(datetime){
     return new Date(+date + TIME_ZONE).toISOString().replace('T', ' ').replace(/\..*/, '');
 }
 
+// url을 불러오는 함수
+function getParams(params){
+    const url = window.location.href
+    const urlParams = new URL(url).searchParams;
+    const get_urlParams = urlParams.get(params);
+    return get_urlParams;
+}
+
 async function handleCustomDetail(){
-    const response = await fetch(`http://127.0.0.1:8000/custom_perfume/1`, {
+    get_custom_perfume = getParams("custom_perfume");
+    const response = await fetch(`http://127.0.0.1:8000/custom_perfume/${get_custom_perfume}/`, {
         headers: {
             "content-type": "application/json",
         },
