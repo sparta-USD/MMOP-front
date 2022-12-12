@@ -79,6 +79,7 @@ async function handleCreateUnft() {
             return response.json()
         }).then(result => {
             alert("향수 생성에 성공했습니다!")
+            sessionStorage.clear()
             location.href="/custom_perfume_complete.html?custom_perfume="+result.id
         }).catch(error => {
             alert("향수 생성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
