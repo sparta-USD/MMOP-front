@@ -82,6 +82,12 @@
     margin: 200px 0 0 325px;
     position: absolute;
 }
+.item_image .logo_default{
+    width: 110px;
+    height: 100px;
+    margin: 200px 0 0 325px;
+    position: absolute;
+}
 
 .item_image .upload{
     margin: 150px 0 0 700px;

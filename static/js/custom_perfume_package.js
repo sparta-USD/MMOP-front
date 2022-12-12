@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 카테고리 및 목록 띄우기
 async function handleCategory() {
-    if(sessionStorage.length < 4){
-        alert("이전 step을 완료 해야됩니다!")
+    if(sessionStorage.length==1){
+        alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
     }else{
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
@@ -17,7 +17,6 @@ async function handleCategory() {
         if(!response.ok){
             if(response.status==401){
                 alert("로그인 유저만 접근 가능합니다.")
-                history.back()
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
@@ -102,7 +101,7 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        if (sessionStorage.length == 4){
+        if (JSON.parse(sessionStorage.getItem("package"))==null){
             document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
             package_ = clicked_id
             sessionStorage.setItem("package", JSON.stringify(package_));
@@ -129,7 +128,7 @@ async function handlePickDelete(){
 }
 
 function handleNext(){
-    if(sessionStorage.length == 4){
+    if(JSON.parse(sessionStorage.getItem("package"))==null){
         alert("용기를 골라주세요!")
     }else{
         location.href="/custom_perfume_logo.html"  

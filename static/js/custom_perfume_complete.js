@@ -27,7 +27,6 @@ async function handleCustomPerfume() {
         if (!response.ok) {
             if (response.status == 401) {
                 alert("로그인 유저만 접근 가능합니다.")
-                history.back()
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);
         }
