@@ -44,7 +44,7 @@ async function handleSignin(){
 };
 
 const REST_API_KEY = "0240e7e88dd3a8d26072a3070fda2b02";
-const REDIRECT_URI = "http://127.0.0.1:5500/signin.html";
+const REDIRECT_URI = "http://127.0.0.1:5500/users/signin.html";
 
 function kakaoSignin(){
     location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
