@@ -36,7 +36,7 @@ async function handlePerfumeInfo(){
         if(!response.ok){
             if(response.status==401){
                 alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
-                location.href="/signin.html";
+                location.href="/users/signin.html";
             }
             else if(response.status==404){
                 alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
