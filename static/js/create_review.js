@@ -82,6 +82,8 @@ async function handleCreateReview() {
 
     url_detail_perfume = getParams("perfume");
 
+    console.log(url_detail_perfume)
+
     const review_formData = new FormData();
     const good_content = document.getElementById("good_content").value;
     const bad_content = document.getElementById("bad_content").value;
@@ -122,7 +124,7 @@ async function handleCreateReview() {
     })
     .then(result => {
         alert("리뷰 작성에 성공했습니다!")
-        location.href="/mypage.html";
+        location.href="/mypage.html#my_review";
     })
     .catch(error => {
         alert("리뷰 작성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
