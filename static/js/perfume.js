@@ -56,16 +56,30 @@ function perfume_info(data){
     element.querySelector(".perfume_brand").innerText = data['brand'];
     element.querySelector(".perfume_title").innerText = data['title'];
     element.querySelector(".likes_count").innerText = "  " +data['likes_count'];
-    element.querySelector(".col_gender_1").innerText = data['gender'];
     element.querySelector(".col_price_1").innerText = data['price'];
-    element.querySelector(".col_launch_1").innerText = data['launch_date'];
+    
+    // 출시일자
+    if(data['launch_date']){
+        element.querySelector(".col_launch_1").innerText = data['launch_date'].split("-")[0];
+    }else{
+        element.querySelector(".detail_launch").remove();
+    }
+    // 성별
+    gender = "UNISEX";
+    if(data['gender']=="F"){
+        gender = "FEMALE";
+    }else if(data['gender']=="M"){
+        gender = "MALE";
+    }
+    element.querySelector(".col_gender_1").innerText  = gender;
 
     // 찜 상태 표시
-    const user_email = localStorage.getItem("email"); // 
+    const user_email = localStorage.getItem("email");
     let is_like = user_email in data['likes']; // 현재 로그인한 유저의 이메일이 likes에 있는지 체크/ 찜 상태 : T/F
     document.getElementById("btn_heart").classList.add(is_like ? "bi-suit-heart-fill" : "bi-suit-heart"); // 삼항연산자 사용!
 
     // 리뷰작성 버튼 링크 수정 : 현재 보고있는 제품(perfume_id)의 리뷰작성 페이지로 이동
+    console.log(document.querySelector(".btn_create_review"));
     document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
 }
 
@@ -75,7 +89,7 @@ function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
-    element.querySelector(".tab_perfume_image").setAttribute('src', data['image']);
+    // element.querySelector(".tab_perfume_image").setAttribute('src', data['image']);
     // note 이름 불러오기
     append_notes(data);
 }
