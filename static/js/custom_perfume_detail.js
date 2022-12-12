@@ -9,7 +9,6 @@ function changeDateTimeFormat(datetime){
 }
 
 async function handleCustomDetail(){
-    console.log(document.querySelector(".perfume_creator").innerText)
     const response = await fetch(`http://127.0.0.1:8000/custom_perfume/1`, {
         headers: {
             "content-type": "application/json",
@@ -21,8 +20,6 @@ async function handleCustomDetail(){
         }
         return response.json()
     }).then(result => {
-        console.log(result)
-        console.log(document.querySelectorAll(".material img"))
         document.querySelector(".perfume_image").src = result.package.image
         document.querySelector(".logo_image").src = `http://127.0.0.1:8000/${result.logo}`
         document.querySelector(".perfume_creator").innerText = result.creator_username
