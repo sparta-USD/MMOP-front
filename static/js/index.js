@@ -92,17 +92,16 @@ function append_custom_perfume_list(custom_data){
                     <div class="logo_image">
                         <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">
                     </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note01"]["image"]}">
-                    </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note02"]["image"]}">
-                    </div>
-                    <div class="perfume_images material">
-                        <img
-                            src="${data["note03"]["image"]}">
+                    <div class="materials">
+                        <div class="perfume_images material">
+                            <img src="${data["note01"]["image"]}">
+                        </div>
+                        <div class="perfume_images material">
+                            <img src="${data["note02"]["image"]}">
+                        </div>
+                        <div class="perfume_images material">
+                            <img src="${data["note03"]["image"]}">
+                        </div>
                     </div>
                 </div>
                 <div class="card_body">
