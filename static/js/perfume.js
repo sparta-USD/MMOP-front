@@ -20,21 +20,10 @@ async function handlePerfumeInfo(){
         location.href="/index.html";
     }
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
-        headers: {
-            "Authorization":"Bearer " + localStorage.getItem("access"),
-        },
         method: 'GET',
     })
     .then(response => {
         if(!response.ok){
-            if(response.status==401){
-                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
-                location.href="/users/signin.html";
-            }
-            else if(response.status==404){
-                alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
-                location.href="/index.html";
-            }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
         return response.json()
@@ -208,7 +197,6 @@ async function handleRecommend() {
     url_detail_perfume = getParams("perfume");
     const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/recommend/', {
         headers: {
-            "Authorization":"Bearer " + localStorage.getItem("access"),
             "content-type": "application/json",
         },
         method: 'GET',
@@ -289,8 +277,7 @@ async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태�
     .then(response => {
         if(!response.ok){
             if(response.status==401){
-                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
-                // location.href="/users/signin.html";
+                alert("로그인한 유저만 접근 가능합니다! 로그인 후 이용해주세요 :)")
             }
             else if(response.status==404){
                 alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
