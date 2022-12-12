@@ -68,7 +68,6 @@ async function handleMypage() {
         return response.json()
     }).then(result => {
         const response_json = result;
-        console.log(response_json)
 
         // 1. 커스텀 탭 - 커스텀 향수 리스트 삽입
         let element_my_custom_perfume_list = document.getElementById("my_custom_perfume_list").querySelector(".row")
@@ -130,10 +129,12 @@ function appendMyCustomList(dataset, element){
                         </p>
                     </div>
                 </div>
+                <div class="card_footer">
+                    <div class="card_btn_wrap">
+                        <button type="button" class="btn btn_default btn_custom_perfume_delete" onclick="openModal(event,this)"data-bs-toggle="modal" data-bs-target="#deleteModal" >삭제</button>
+                    </div>
+                </div>
             </a>
-        </div>
-        <div class="card_btn_wrap">
-            <button type="button" class="btn btn_default btn_custom_perfume_delete" data-bs-toggle="modal" data-bs-target="#deleteModal" >삭제</button>
         </div>
         `;
         element.append(new_item);
@@ -142,7 +143,6 @@ function appendMyCustomList(dataset, element){
 // 1-1. 커스텀 탭 - 삭제 모달
 $('#deleteModal').on('show.bs.modal', function(event) {
     target_id = $(event.relatedTarget).closest(".item_card").attr('id').split("_")[1]
-    console.log(target_id)
     $(this).find(".btn_delete").attr("onclick","DeleteCustomPerfume("+target_id+")");
 });
 // 1-1. 커스텀 탭 - 커스텀 퍼퓸 삭제
@@ -468,3 +468,6 @@ async function handleUpdateProfile() {
 }
 
 
+function openModal(e, el){
+    e.preventDefault();
+}

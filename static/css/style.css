@@ -169,17 +169,18 @@ a, a:hover{
     justify-content: space-between;
 }
 
-input.form-control{
+input.form-control, textarea.form-control{
     border-radius: 0;
     padding: 0.5em 0.75em;
     border: solid 1px var(--base-gray-ccc);
+    resize: none;
 }
-input.form-control:focus{
+input.form-control:focus, textarea.form-control:focus{
     border-radius: 0;
     border: solid 1px var(--base-gray-dark);
     box-shadow:unset;
 }
-input.form-control::placeholder{
+input.form-control::placeholder, textarea.form-control::placeholder{
     color: var(--base-gray-999);
     font-weight: 300;
 }
@@ -504,6 +505,15 @@ input.form-control::placeholder{
 .star_100 .starpoint_bg,.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
 .starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
 .blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
+
+
+
+/* modal */
+.modal .modal-content{
+    border-radius: 0;
+}
+
+
 
 
 @media (max-width: 991px){
