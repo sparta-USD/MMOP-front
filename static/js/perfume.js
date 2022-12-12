@@ -44,7 +44,6 @@ async function handlePerfumeInfo(){
         perfume_info(response_json);  // 1. 기본 향수제품정보
         perfume_detail_tab(response_json); // 2. 제품정보 탭
         perfume_review_tab(response_json); // 3. 리뷰 탭
-        // perfume_recommend_tab(response_json); // 3. 추천 탭
     })
 }
 
@@ -79,7 +78,6 @@ function perfume_info(data){
     document.getElementById("btn_heart").classList.add(is_like ? "bi-suit-heart-fill" : "bi-suit-heart"); // 삼항연산자 사용!
 
     // 리뷰작성 버튼 링크 수정 : 현재 보고있는 제품(perfume_id)의 리뷰작성 페이지로 이동
-    console.log(document.querySelector(".btn_create_review"));
     document.querySelector(".btn_create_review").setAttribute("href","/create_review.html?perfume="+data['id']);
 }
 
@@ -89,7 +87,6 @@ function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
-    // element.querySelector(".tab_perfume_image").setAttribute('src', data['image']);
     // note 이름 불러오기
     append_notes(data);
 }
