@@ -19,12 +19,13 @@
     height: 500px;
 }
 
-.perfume_image_box .logo_image{
-    position: absolute;
+.item_card .logo_image{
     width: 140px;
     height: 140px;
-    top: 50%;
-    left: calc(50% - 65px);
+}
+.logo_image img{
+    width: 100%;
+    height: 100%;
 }
 
 .perfume_desc_box{
@@ -92,4 +93,9 @@
 .custom_pakage_name_box > p{
     font-size: large;
     line-height: 1.5em;
+}
+
+/* 아이템 카드 호버 삭제 */
+.item_card{
+    pointer-events: none;
 }
