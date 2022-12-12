@@ -273,7 +273,9 @@ async function EditReview(review_id) {
     const review_formData = new FormData();
     review_formData.append("good_content",good_content);
     review_formData.append("bad_content",bad_content);
-    review_formData.append("image", image);
+    if(image){
+        review_formData.append("image", image);
+    }
     review_formData.append("grade", grade);
 
     if (good_content == "" || bad_content == "" || grade == ""){
