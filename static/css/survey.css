@@ -1,92 +1,43 @@
-/* swiper */
-.swiper.main_banner .swiper-slide{
-    min-height: 65vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-}
-.swiper.main_banner .swiper-slide h1{
-    width: 100%;
-    font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 24px;
-}
-.swiper.main_banner .swiper-slide p{
-    width: 100%;
-    margin-bottom: 50px;
-    line-height: 1.56;
-    font-size: 1.25em;
-}
-
-/* sec 하단 버튼 */
-.sec_btn_wrap{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0 100px;
-}
-.sec_btn_wrap button{
-    width: 200px;
-    margin: 8px;
-}
-.sec_btn_wrap button.btn_survey_skip{
-    border: solid 1px var(--main-black);
-    background-color: var(--main-white);
-    color: var(--main-black);
-}
-.sec_btn_wrap button.btn_survey_skip:hover{
-    color: var(--main-black);
-    border: solid 1px var(--main-black);
-    background-color: var(--main-white);
-}
-
-
-/* check_card */
-.item_card.check_card .card_footer{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height:100%;
-    padding:0;
-} 
-.item_card.check_card input[type=checkbox]{
-    display: none;
-}
-.item_card.check_card label{
-    width: 100%;
-    height:100%;
-}
-.item_card.check_card label .btn_check{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    color: var(--base-gray-999);
-    font-size: 6em;
+/* sec_perfume_recommend_list */
+.section_title strong{
     font-weight: 900;
-    opacity: 0;
+    margin: 0 8px;
+    position: relative;
 }
-.item_card.check_card:hover label .btn_check{
-    background-color: rgba(0,0,0,0.03);
-    color: var(--main-red);
-    opacity: 0.7;
-    transition: 0.4s;
-    width: 100%;
-    height: 100%;
+.section_title strong::after{
+    content: "";
+    width: 104%;
+    height: 2.5px;
+    position: absolute;
+    bottom: -2px;
+    left:-2%;
+    background-color: var(--main-black);
 }
-.item_card.check_card input[type=checkbox]:checked +label .btn_check{
-    background-color: rgba(0,0,0,0.05);
-    border-color: var(--main-black);
-    color: var(--main-red);
-    opacity:1;
+
+
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(1) .item_card::before,
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(2) .item_card::before,
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(3) .item_card::before {
+    content: " ";
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top:10px;
+    left:10px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-white);
+    font-size: 1.5em;
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(1) .item_card::before{
+    background-image: url("/static/images/rank_1.png");
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(2) .item_card::before{
+    background-image: url("/static/images/rank_2.png");
+}
+#recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(3) .item_card::before{
+    background-image: url("/static/images/rank_3.png");
 }

@@ -31,6 +31,7 @@ async function handleSignup(){
     let response_json = await response.json();
     if(response.ok){
         alert("회원가입이 완료되었습니다.");
+        alert("이메일이 발송되었습니다. 확인해주세요!")
         return location.href = "signin.html";
     }else{
         if(response_json.email){

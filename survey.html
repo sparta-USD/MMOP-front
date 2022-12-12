@@ -35,25 +35,25 @@
                 <div class="flex">
                     <div class="navbar_logo">
                         <a href="/">
-                            <img src="/static/images/logo.png" alt="unftlogo" />
+                            <img src="/static/images/logo.png" alt="mmop_logo" />
                         </a>
                     </div>
                     <div class="navbar_nav flex w-100">
                         <ul class="navbar_menu nav-left">
                             <li class="navbar_item">
-                                <a href="#">
+                                <button type=button class="nav_link" onclick="handleSurveyCheck()">
                                     향수 추천
-                                </a>
+                                </button>
                             </li>
                             <li class="navbar_item">
-                                <a href="#">
+                                <a href="/custom_perfume_note.html">
                                     향수 제작
                                 </a>
                             </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
-                                <a href="/users/sign-in.html">
+                                <a href="/users/signin.html">
                                     SIGN IN
                                 </a>
                             </li>
@@ -75,13 +75,18 @@
                         
                         <h1>What’s Your Favorite Perfume?</h1>
                         <p>내가 좋아하는 향수를 선택해 주세요!</p>
+
+                        <div class="btn_wrap">
+                            <button type="button" class="btn btn_default btn_border btn_survey_skip" id="btn_survey_skip">SKIP</button>
+                            <button type="button" class="btn btn_default btn_survey_submit" id="btn_survey_submit">NEXT</button>
+                        </div>
                     </div>
                 </div>
               </div>
         </section>
         <section class="sec sec_perfume_list">
             <div class="container">
-                <div class="item_list">
+                <div class="item_list" id='survey_perfume_list'>
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-6">
                             <div class='item_card check_card'>
@@ -161,10 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="sec_btn_wrap">
-                    <button type="button" class="btn btn_default btn_survey_skip">SKIP</button>
-                    <button type="button" class="btn btn_default btn_survey_submit">NEXT</button>
-                </div>
             </div>
         </section>
     </div>
@@ -223,4 +224,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/static/js/main.js"></script>
+    <script src="/static/js/survey.js"></script>
 </body>

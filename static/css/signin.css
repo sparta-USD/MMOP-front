@@ -1,33 +1,48 @@
-/* 로그인 타이틀 */
-.sec_signin .signin_title{
-    text-align: center;
-    font-size: 2.5em;
-    margin: 1em 0;
-    font-weight: bold;
+.sec_signinup{
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
+.signinup_box{
+    max-width: 400px;
+    width: 100%;
+}
+
 
 /* input단위 div */
-.signin_content{
+.signin_content, .signup_content{
     width: 100%;
     margin-bottom: 1em;
-    min-width: 300px;
 }
-.signin_content > h3 {
+.signin_content > h3, .signup_content > h3 {
     margin-bottom: 0.5em;
     font-weight: bold;
+    display: flex;
+}
+input.form-check-input[type=checkbox]{
+    margin-top:0;
+    border-radius: 0;
+    border-color: var(--base-gray-ccc);
+}
+input.form-check-input:focus{
+    box-shadow:unset;
+    border-radius: 0;
+    border-color: var(--base-gray-ccc);
+}
+.signin_agree{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--base-gray-999);
+}
+.signin_agree a{
+    color: var(--main-black);
+    text-decoration: underline;
+}
+.point{
+    color: var(--main-red);
+    margin-left: 4px;
 }
 
-/* input관련 */
-.input_txt{
-    width: 100%;
-    height: 2.5em;
-    border: 1px solid var(--main-black);
-    padding: 1em;
-    margin-bottom: 1em;
-}
-.input_txt:focus{
-    outline-color: var(--base-gray-999);
-}
 
 /* 버튼 */
 .btn_wrap{
@@ -36,17 +51,24 @@
     flex-direction: column;
 }
 .btn_wrap .btn{
-    background-color: var(--base-gray-999);
-    color: var(--main-white);
-    margin-bottom: 1em;
+    width: 100%;
+}
+.btn_wrap .btn.btn_submit{
+    background-color: var(--base-gray-dark);
+}
+.btn_wrap .btn.btn_submit:hover{
+    background-color: var(--strong-black);
 }
 #kakao_btn{
     background-color: #FEE500;
-    color: var(--main-black);
+    color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
 }
-.btn_wrap .btn:hover{
-    background-color: var(--main-black);
-    color: var(--main-white);
+#kakao_btn svg{
+    width: auto;
+    height: calc(42px - 20px);
+    margin-right: 0.5em;
 }
 
 /* a태그 관련 */
@@ -55,5 +77,6 @@
     color: var(--base-gray-999);
 }
 .signin_content .link_wrap a:hover{
-    color: var(--main-black);
+    color: var(--base-gray-dark);
 }
+
