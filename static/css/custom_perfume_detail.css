@@ -1,0 +1,101 @@
+/* 제품 상세정보 부분 */
+.sec_perfume_detail{
+    margin-top: 100px;
+    margin-bottom: 120px;
+}
+
+.container_perfume_detail{
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.perfume_image_box{
+    position: relative;
+}
+
+.perfume_image_box, .perfume_image{
+    width: 500px;
+    height: 500px;
+}
+
+.item_card .logo_image{
+    width: 140px;
+    height: 140px;
+}
+.logo_image img{
+    width: 100%;
+    height: 100%;
+}
+
+.perfume_desc_box{
+    padding: 10px;
+    width: 500px;
+    height: 500px;
+}
+
+.creator_name{
+    font-size: large;
+    font-weight: bold;
+    margin: 10px 0px 20px 12px;
+}
+
+.perfume_name{
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 10px 0px 30px 10px;
+}
+
+.create_date{
+    font-size: medium;
+    font-weight: bold;
+    margin: 10px 0px 30px 10px;
+}
+
+/* 커스텀 향수 상세내용 */
+.custom_detail_box{
+    border: 0.5rem double var(--second-black);
+    padding: 1em;
+}
+
+.custom_scent_box{
+    border-bottom: 1px solid var(--base-gray-999);
+    margin: 1em;
+}
+
+.custom_class_box{
+    padding: 1em;
+}
+.custom_class_box > p{
+    font-size: x-large;
+}
+
+.custom_note_box{
+    border-bottom: 1px solid var(--base-gray-999);
+    padding: 1em 0;
+}
+
+.custom_note_box:last-child{
+    border-bottom: none;
+}
+
+.custom_note_box .custom_note{
+    font-size: large;
+}
+
+.custom_pakage_box{
+    margin: 1em;
+}
+
+.custom_pakage_name_box{
+    padding: 1em 0;
+}
+.custom_pakage_name_box > p{
+    font-size: large;
+    line-height: 1.5em;
+}
+
+/* 아이템 카드 호버 삭제 */
+.item_card{
+    pointer-events: none;
+}
