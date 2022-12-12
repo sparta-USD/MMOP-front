@@ -28,7 +28,9 @@
     color: #999;
 }
 
-
+.sec.sec_perfume_list{
+    margin-top:0px
+}
 
 .item_image{
     display: flex;
@@ -126,9 +128,13 @@
     margin: 200px 0 200px 0;
     position: absolute;
 }
+.submit_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 .sec_btn_wrap button.btn_custom_submit{
     border: solid 1px var(--main-black);
-
 }
 .sec_btn_wrap button.btn_survey_skip:hover{
     border: solid 1px var(--main-black);

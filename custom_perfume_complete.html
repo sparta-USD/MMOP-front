@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- 페이지별 css 추가 -->
-    <link rel="stylesheet" href="/static/css/custom_perfume_name.css">
+    <link rel="stylesheet" href="/static/css/custom_perfume_complete.css">
 </head>
 <body>
     <header>
@@ -78,19 +78,28 @@
         </section>
         <section class="sec sec_perfume_list">
             <div class="container">
-                
                 <div class="item_image">
-                    <div class="circle1"><img class="note"src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368"></div>
-                    <div class="circle2"><img class="note"src="https://fimgs.net/mdimg/sastojci/m.821.jpg?1505577670"></div>
-                    <div class="circle3"><img class="note"src="https://fimgs.net/mdimg/sastojci/m.362.jpg?1441489150"></div>
-                    <img class="package" aria-hidden="false" draggable="false" loading="lazy" src="https://degrasse.co.kr/web/product/big/202211/b799d4c30aa72f0d3c82e449fed92425.png">
-                    <img class="logo" aria-hidden="false" draggable="false" loading="lazy" src="https://degrasse.co.kr/web/product/big/202211/b799d4c30aa72f0d3c82e449fed92425.png">
-                    <input type="file" id="input-file" style="display:none">
+                    <div class="circle1" id="note01">
+                        <img class="note">
+                    </div>
+                    <div class="circle2" id="note02">
+                        <img class="note">
+                    </div>
+                    <div class="circle3" id="note03">
+                        <img class="note">
+                    </div>
+                    <div id="package">
+                        <img class="package" aria-hidden="false" draggable="false" loading="lazy">
+                    </div>
+                    <div id="logo" class="logo">
+                        <img aria-hidden="false" draggable="false" loading="lazy">
+                    </div>
                 </div>
-                <div class="sec_btn_wrap">
-                    <div>회원님의 향수 이름을 정해주세요!</div>
-                    <input>
-                    <button type="button" class="btn btn_default btn_custom_submit">완료</button>
+                <div id="name" class="name">
+                    향수이름
+                </div>
+                <div class="submit_button">
+                    <button type="button" class="btn btn_default btn_custom_submit" id="complete_button">완료</button>
                 </div>
             </div>
         </section>
@@ -150,5 +159,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/static/js/main.js"></script>
-    <script src="/static/js/custom_perfume_name.js"></script>
+    <script src="/static/js/custom_perfume_complete.js"></script>
 </body>
