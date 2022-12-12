@@ -79,6 +79,15 @@
         <section class="sec sec_perfume_list">
             <div class="container">
                 <div class="item_image">
+                    <div class="circle1" id="note01">
+                        <img class="note" src="https://fimgs.net/mdimg/sastojci/m.85.jpg?1440738368">
+                    </div>
+                    <div class="circle2" id="note02">
+                        <img class="note" src="https://fimgs.net/mdimg/sastojci/m.821.jpg?1505577670">
+                    </div>
+                    <div class="circle3" id="note03">
+                        <img class="note" src="https://fimgs.net/mdimg/sastojci/m.362.jpg?1441489150">
+                    </div>
                     <div id="package">
                         <img class="package" aria-hidden="false" draggable="false" loading="lazy" src="https://degrasse.co.kr/web/product/big/202211/b799d4c30aa72f0d3c82e449fed92425.png">
                     </div>
@@ -94,7 +103,9 @@
                     </div>
                 </div>
                 <div class="sec_btn_wrap">
-                    <button type="button" class="btn btn_default btn_custom_submit" onclick="handleNext()">제품 만들기</button>
+                    <div>회원님의 향수 이름을 정해주세요!</div>
+                    <input id="title" type="text">
+                    <button id="create_button" type="button" class="btn btn_default btn_custom_submit">제품 만들기</button>
                 </div>
             </div>
         </section>

@@ -27,11 +27,49 @@
     font-size: 1em;
     color: #999;
 }
-
 .item_image{
     display: flex;
     justify-content: center;
     position: relative;
+}
+.item_image .circle1 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: absolute;
+    margin: 50px 510px 0 0; 
+}
+.item_image .circle1 .note{
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+}
+.item_image .circle2 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: absolute;
+    margin: 150px 510px 0 0; 
+}
+.item_image .circle2 .note{
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+}
+.item_image .circle3 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: absolute;
+    margin: 250px 510px 0 0; 
+}
+.item_image .circle3 .note{
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
 }
 .item_image .package{
     width: 400px;
@@ -70,11 +108,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 100px;
+    flex-direction: column;
+    margin: 250px 0 100px;
+    position: relative;
+}
+.sec_btn_wrap input{
+    width: 200px;
+    margin-top: 10px;
 }
 .sec_btn_wrap button{
     width: 200px;
-    margin-top: 200px;
+    margin: 350px 0 200px 0;
+    position: absolute;
 }
 .sec_btn_wrap button.btn_custom_submit{
     border: solid 1px var(--main-black);
