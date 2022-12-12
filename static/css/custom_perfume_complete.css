@@ -82,7 +82,7 @@
 .item_image .logo{
     width: 110px;
     height: 100px;
-    margin: 100px 0 0 3px;
+    margin: 100px 0 0 0;
     position: absolute;
 }
 .item_image .name{
