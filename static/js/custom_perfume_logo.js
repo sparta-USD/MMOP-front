@@ -47,7 +47,7 @@ inputImage.addEventListener("change", e => {
   readImage(e.target)
 })
 
-async function handleCreateUnft() {
+async function handleCreateMmop() {
 
     const custom_perfume_formData = new FormData();
 
@@ -88,6 +88,6 @@ async function handleCreateUnft() {
 }
 
 document.getElementById("create_button").addEventListener("click", function () {
-    handleCreateUnft();
+    handleCreateMmop();
 });
 
