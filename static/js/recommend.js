@@ -25,27 +25,48 @@ async function handlePerfumeRecommend(){
     });
 }
 function append_perfume_card_list(dataset,element){
+    let user_email = localStorage.getItem("email");
     element.innerHTML='';
     dataset.forEach(data => {
         let new_item = document.createElement('div');
         new_item.className = 'col-lg-3 col-md-4 col-6';
         new_item.innerHTML = `
-            <a href="/perfume.html?perfume=${data['id']}">
-                <div class='item_card check_card'>
-                    <div class="card_header list_profile">
-                        <div class="item_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                <a href="/perfume.html?perfume=${data['id']}">
+                    <div class='item_card' id='perfume_${data['id']}'>
+
+                        <div class="card_header list_profile">
+                            <div class="item_image">
+                                <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                            </div>
+                            <button type="button" class="perfume_card_heart none_link btn_like" onclick="clickLike(event,this);">
+                                <i class="bi ${data['likes'].includes(user_email) ? "bi-suit-heart-fill" : "bi-suit-heart" } none_link btn_like"></i>
+                            </button>
+                        </div>
+                        <div class="card_body">
+                            <div class="card_content">
+                                <p class="item_card_editor"><span class="brand">${data['brand'] ? data['brand'] : "" }</span></p>
+                                <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                                <p class="item_card_tag">
+                                    ${append_notes(data)}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card_body">
-                        <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand'] ? data['brand'] : "" }</span></p>
-                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                </a>
         `;
         element.append(new_item);
     });
+}
+
+function append_notes(data){
+    note_type_list = ["top", 'heart', 'base', 'none']
+    let note_html = ``
+    let count =0;
+    note_type_list.forEach(note_type => {
+        const note_data = data[note_type+'_notes'];
+        note_data.forEach(note => {
+            note_html +=`<span class="tag">#${note['name']}</span>`;
+        });
+    });
+    return note_html
 }
