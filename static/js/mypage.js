@@ -99,7 +99,7 @@ function appendMyCustomList(dataset, element){
         new_item.id = `custom_${data["id"]}`;
         new_item.innerHTML = `
         <div class='item_card custom_perfume_card' id="custom_${data["id"]}">
-            <a href="/perfume.html?perfume=${data['id']}">
+            <a href="/custom_perfume_detail.html?custom_perfume=${data['id']}">
                 <div class="card_header list_profile" >
                     <div class="item_image">
                         <img aria-hidden="false" draggable="false" loading="lazy" src="${data["package"]["image"]}">

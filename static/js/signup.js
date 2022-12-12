@@ -14,7 +14,8 @@ async function handleSignup(){
         agree.focus();
         return false;
     }
-
+    const loader = document.getElementById("page-loader")
+    loader.className += 'show';
     const response = await fetch("http://127.0.0.1:8000/users/signup/", {
         headers: {
             "content-type": "application/json",
@@ -31,7 +32,7 @@ async function handleSignup(){
     let response_json = await response.json();
     if(response.ok){
         alert("회원가입이 완료되었습니다.");
-        alert("이메일이 발송되었습니다. 확인해주세요!")
+        alert("이메일 인증 메일이 발송되었습니다. 이메일 인증 후 로그인을 시도해주세요. \n 이메일이 도착하지 않았을 경우 스팸함을 확인해주세요")
         return location.href = "signin.html";
     }else{
         if(response_json.email){
@@ -46,4 +47,5 @@ async function handleSignup(){
             return alert(response_json.password2)
         }
     }
+    loader.classList.remove('show');
 };
