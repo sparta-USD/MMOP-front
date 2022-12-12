@@ -7,7 +7,7 @@ async function handleCategory() {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
-            // "Authorization": "Bearer " + localStorage.getItem("access"),
+            "Authorization": "Bearer " + localStorage.getItem("access"),
         },
     }).then(response => {
         if(!response.ok){

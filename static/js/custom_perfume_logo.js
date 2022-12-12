@@ -10,7 +10,7 @@ async function handlePackage() {
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
             method: 'GET',
             headers: {
-                // "Authorization": "Bearer " + localStorage.getItem("access"),
+                "Authorization": "Bearer " + localStorage.getItem("access"),
             },
         }).then(response => {
             if(!response.ok){
@@ -68,8 +68,7 @@ async function handleCreateUnft() {
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/',{
             method: 'POST',
             headers: {
-                // "Authorization":"Bearer " + localStorage.getItem("access"),
-                "Authorization":"Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwODUxMDgzLCJpYXQiOjE2NzA4MDc4ODMsImp0aSI6Ijg5MWFhZWU2YmQ4ZTQ4ZThiNmFmNTJlMjBlNWExNGNmIiwidXNlcl9pZCI6MSwiaWQiOjEsImVtYWlsIjoiYUBhLmNvbSIsInVzZXJuYW1lIjoiYSJ9.bVuGKK4LITnhPrxf-4OAE7lzObArYrQXIuTvxbh2Uf0",
+                "Authorization":"Bearer " + localStorage.getItem("access"),
             },
             body: custom_perfume_formData,
         }).then(response => {
