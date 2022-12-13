@@ -17,7 +17,10 @@ async function handleSignin(){
         })
     }).then(response => {
         if(!response.ok){
-            throw new Error(`${response.status} 에러가 발생했습니다.`)
+            return response.json().then(res => {
+                alert(res.detail)
+                throw new Error(`${response.status}에러 발생했습니다.`)
+            })
         }
         return response.json()
     }).then(result => {
@@ -37,9 +40,7 @@ async function handleSignin(){
         alert("로그인 되었습니다!");
         location.href = "/";
     }).catch(error => {
-        alert("로그인에 실패하였습니다. 이메일과 비밀번호를 확인해주세요.")
-        alert("발송된 이메일을 확인해주세요!")
-        console.error(error.message)
+        console.warn(error.message)
     })
 };
 
