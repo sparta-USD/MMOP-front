@@ -71,10 +71,11 @@
     width: 98px;
     height: 98px;
     border-radius: 50%;
-    margin-top: -20px;
+    margin: -20px -49px;
+    position: absolute;
 }
 .swiper.main_banner .swiper-slide2 .circle_plus .delete_button{
-    margin-left: -65px;
+    margin-left: -18px;
     border: 0;
     background-color: transparent;
     color: #999;
