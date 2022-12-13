@@ -432,8 +432,6 @@ function appendUserProfile(response_json){
     document.getElementById("profile_phone_number").value = response_json['phone_number']
     document.getElementById("profile_username").value = response_json['username']
     document.getElementById("profile_email").value = response_json['email']
-    // document.getElementById("profile_password").value = response_json['password']
-    // document.getElementById("profile_password2").value = response_json['password2']
 }
 // 4. 프로필 탭 - 프로필 업데이트
 document.getElementById("btn_update_profile").addEventListener("click",function(){
@@ -442,7 +440,7 @@ document.getElementById("btn_update_profile").addEventListener("click",function(
 async function handleUpdateProfile() {
     const username = document.getElementById("profile_username").value;
     const phone_number = document.getElementById("profile_phone_number").value;
-
+    
     const profile_formData = new FormData();
     profile_formData.append("username",username);
     profile_formData.append("phone_number",phone_number);
@@ -456,14 +454,22 @@ async function handleUpdateProfile() {
     })
     .then(response => {
         if(!response.ok){
-            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+            if(response.status == 500){
+                alert("프로필 변경에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+                throw new Error(`${response.status} 에러가 발생했습니다.`);
+            }
+            return response.json().then(result => {
+                for(key in result) {
+                    alert(result[key]);
+                }
+                throw new Error(`${response.status} 에러가 발생했습니다.`);
+            })
         }
         return response.json()
     }).then(result => {
             alert("수정에 성공했습니다!")
 
     }).catch(error => {
-        alert("수정에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
 }
@@ -497,11 +503,13 @@ async function handlePasswordReset() {
     })
     .then(response => {
         if(!response.ok){
+            if(response.status == 500){
+                alert("비밀번호 변경에 실패하였습니다. \n자세한 내용은 관리자에게 문의해주세요!");
+                throw new Error(`${response.status} 에러가 발생했습니다.`);
+            }
             return response.json().then(result => {
-                if(result['password']['message']){
-                    alert(result['password']['message']);
-                }else{
-                    alert("비밀번호 변경에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+                for(key in result) {
+                    alert(result[key]);
                 }
                 throw new Error(`${response.status} 에러가 발생했습니다.`);
             })
@@ -509,7 +517,6 @@ async function handlePasswordReset() {
         return response.json()
     }).then(result => {
         alert("비밀번호가 변경되었습니다.")
-        // console.log(document.getElementById("profile_password").value)
         document.getElementById("profile_password").value ='';
         document.getElementById("profile_password2").value ='';
     }).catch(error => {
