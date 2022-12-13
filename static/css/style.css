@@ -237,6 +237,7 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     display: inline-block;
 }
 .sec .section_desc{
+    font-size: 1.1em;
     line-height: 1.56;
     margin-top: 24px;
     color: var(--base-gray-999)

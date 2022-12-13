@@ -59,7 +59,7 @@ async function handleSurveyCheck(){
     }).then(response => {
         if(!response.ok){
             if(response.status==401){
-                alert("로그인한 유저만 접근 가능합니다! 로그인해주세요 :)")
+                location.href="/survey.html"
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }

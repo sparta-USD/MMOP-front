@@ -5,10 +5,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // 1. 향수 추천 목록 불러오기
 async function handlePerfumeRecommend(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/recommend/',{
-        headers: {
+    let header={};
+    if(localStorage.getItem("access")){
+        header = {
             "Authorization":"Bearer " + localStorage.getItem("access"),
-        },
+        }
+    }
+    const response = await fetch('http://127.0.0.1:8000/perfume/recommend/',{
+        headers: header,
         method: 'GET',
     }).then(response => {
         if(!response.ok){
@@ -17,7 +21,17 @@ async function handlePerfumeRecommend(){
         return response.json()
     }).then(result => {
         const response_json = result;
-        document.querySelector(".section_title .username").innerText = localStorage.getItem("username");
+        const username = localStorage.getItem("username")
+        if(username){
+            document.querySelector(".section_title .username").innerText = localStorage.getItem("username")
+        }else{
+            document.querySelector(".section_title .username").innerText = "비회원"
+            document.querySelector(".section_desc").innerHTML = `
+                당신을 위해, 당신이 선호하는 향수를 찾기위한 완벽한 추천 공식.<br>
+                MMOP 회원이 되어서 나에게 맞는 향수를 찾아보세요.
+            ` 
+        }
+        
         let element_perfume_list = document.getElementById("recommend_perfume_list").querySelector(".row")
         append_perfume_card_list(response_json, element_perfume_list)
     }).catch(error => {
