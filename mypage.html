@@ -118,6 +118,16 @@
                             </svg>
                         </a>
                     </li>
+                    <li class="tab_item" id="tab_menu_password_reset">
+                        <a href="#password_reset">
+                            <span>비밀번호 변경</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="main tab_body">
@@ -519,23 +529,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <div class="edit_line">
-                                    <label for="password" class="col-sm-3 col-form-label">비밀번호</label>
-                                    <div class="col-sm-9 profile_edit_input">
-                                        <input class="form-control " type='password' placeholder="*************" id="profile_password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <div class="edit_line">
-                                    <label for="password" class="col-sm-3 col-form-label">비밀번호 확인</label>
-                                    <div class="col-sm-9 profile_edit_input">
-                                        <input class="form-control " type='password' placeholder="*************" id="profile_password2">
-                                    </div>
-                                </div>
-                            </div>
                             <button class="btn btn_default btn_edit_complete" id="btn_update_profile" submit="button">수정완료</button>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab_content password_reset" id="tab_password_reset">
+                    <section class="sec form-control sec_profile_edit">
+                        <div class="profile_edit_data">
+                            <p class="profile_title">비밀번호 변경하기</p>
+                            <div class="mb-3 row">
+                                <div class="edit_line">
+                                    <label for="password" class="col-sm-3 col-form-label">새 비밀번호</label>
+                                    <div class="col-sm-9 profile_edit_input">
+                                        <input class="form-control " type='password' placeholder="" id="profile_password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="edit_line">
+                                    <label for="password" class="col-sm-3 col-form-label">새 비밀번호 확인</label>
+                                    <div class="col-sm-9 profile_edit_input">
+                                        <input class="form-control " type='password' placeholder="" id="profile_password2">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn_default btn_edit_complete" id="btn_password_reset" submit="button">비밀번호 변경하기</button>
                         </div>
                     </section>
                 </div>

@@ -34,7 +34,7 @@ function getParamsSharp(){
     return get_url;
 }
 function tabChange(tab_menu){
-    if(["my_perfume","my_review","like_perfume","profile_edit"].includes(tab_menu)){
+    if(["my_perfume","my_review","like_perfume","profile_edit","password_reset"].includes(tab_menu)){
         // tab_menu에 active 추가
         $(".tab_item").removeClass('active');
         $("#tab_menu_"+tab_menu).addClass("active");
@@ -432,6 +432,8 @@ function appendUserProfile(response_json){
     document.getElementById("profile_phone_number").value = response_json['phone_number']
     document.getElementById("profile_username").value = response_json['username']
     document.getElementById("profile_email").value = response_json['email']
+    // document.getElementById("profile_password").value = response_json['password']
+    // document.getElementById("profile_password2").value = response_json['password2']
 }
 // 4. 프로필 탭 - 프로필 업데이트
 document.getElementById("btn_update_profile").addEventListener("click",function(){
@@ -440,14 +442,10 @@ document.getElementById("btn_update_profile").addEventListener("click",function(
 async function handleUpdateProfile() {
     const username = document.getElementById("profile_username").value;
     const phone_number = document.getElementById("profile_phone_number").value;
-    const password = document.getElementById("profile_password").value;
-    const password2 = document.getElementById("profile_password2").value;
 
     const profile_formData = new FormData();
     profile_formData.append("username",username);
     profile_formData.append("phone_number",phone_number);
-    profile_formData.append("password",password);
-    profile_formData.append("password2",password2);
 
     const response = await fetch('http://127.0.0.1:8000/users/',{
         headers: {
@@ -463,8 +461,58 @@ async function handleUpdateProfile() {
         return response.json()
     }).then(result => {
             alert("수정에 성공했습니다!")
+
     }).catch(error => {
         alert("수정에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+        console.warn(error.message);
+    });
+}
+
+
+// 5. 비밀번호 재설정 탭 - 비밀번호 재설정
+document.getElementById("btn_password_reset").addEventListener("click",function(){
+    handlePasswordReset(); 
+});
+
+async function handlePasswordReset() {
+    const password = document.getElementById("profile_password").value;
+    const password2 = document.getElementById("profile_password2").value;
+
+    if(password=="" || password2==""){
+        alert("변경하실 비밀번호 및 비밀번호 확인을 입력해주세요.");
+        return false;
+    }
+    const profile_formData = new FormData();
+    if(password){
+        profile_formData.append("password",password);
+        profile_formData.append("password2",password2);
+    }
+    
+    const response = await fetch('http://127.0.0.1:8000/users/',{
+        headers: {
+            "Authorization":"Bearer " + localStorage.getItem("access"),
+        },
+        method:'PUT',
+        body: profile_formData,
+    })
+    .then(response => {
+        if(!response.ok){
+            return response.json().then(result => {
+                if(result['password']['message']){
+                    alert(result['password']['message']);
+                }else{
+                    alert("비밀번호 변경에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+                }
+                throw new Error(`${response.status} 에러가 발생했습니다.`);
+            })
+        }
+        return response.json()
+    }).then(result => {
+        alert("비밀번호가 변경되었습니다.")
+        // console.log(document.getElementById("profile_password").value)
+        document.getElementById("profile_password").value ='';
+        document.getElementById("profile_password2").value ='';
+    }).catch(error => {
         console.warn(error.message);
     });
 }
