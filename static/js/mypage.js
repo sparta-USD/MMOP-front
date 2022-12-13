@@ -440,10 +440,14 @@ document.getElementById("btn_update_profile").addEventListener("click",function(
 async function handleUpdateProfile() {
     const username = document.getElementById("profile_username").value;
     const phone_number = document.getElementById("profile_phone_number").value;
+    const password = document.getElementById("profile_password").value;
+    const password2 = document.getElementById("profile_password2").value;
 
     const profile_formData = new FormData();
     profile_formData.append("username",username);
     profile_formData.append("phone_number",phone_number);
+    profile_formData.append("password",password);
+    profile_formData.append("password2",password2);
 
     const response = await fetch('http://127.0.0.1:8000/users/',{
         headers: {
