@@ -511,15 +511,15 @@ input.form-control::placeholder, textarea.form-control::placeholder{
 }
 .starpoint_box.medium .label_star {
     display: inline-block;
-    width: 20px;
-    height: 40px;
+    width: 18px;
+    height: 36px;
     box-sizing: border-box;
 }
 .starpoint_box.medium .starpoint_bg{
-    background-size: 200px auto;
-    width: 200px;
-    height: 50px;
-    background-position: 0 -41px;
+    background-size: 180px auto;
+    width: 180px;
+    height: 36px;
+    background-position: 0 -37px;
 }
 .starpoint_box.large{
     background-size: cover;
