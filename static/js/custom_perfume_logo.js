@@ -27,19 +27,19 @@ async function handlePackage() {
             const response_json = result;
             document.getElementById("package").innerHTML = '<img class="package" id="package" aria-hidden="false" draggable="false" loading="lazy" src="'+response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image']+'">'
             if(JSON.parse(sessionStorage.getItem("note01"))!=null){
-                document.getElementById("note01").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note01"))-1]['image']+'">'
+                document.getElementById("note01").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note01"))-1]['image']+'"></div>'
             }else{
                 document.getElementById("note01").innerHTML = '<div></div>'
             }
             if(JSON.parse(sessionStorage.getItem("note02"))!=null){
-                document.getElementById("note02").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'">'
+                document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
             }else{
-                document.getElementById("note02").innerHTML = '<img>'
+                document.getElementById("note02").innerHTML = '<div></div>'
             }
             if(JSON.parse(sessionStorage.getItem("note03"))!=null){
-                document.getElementById("note03").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'">'
+                document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
             }else{
-                document.getElementById("note03").innerHTML = '<img>'
+                document.getElementById("note03").innerHTML = '<div></div>'
             }
         })
     }
