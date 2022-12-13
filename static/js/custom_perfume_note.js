@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     handleCategory()
 });
 
-// 카테고리 및 목록 띄우기
+// 향 카테고리 , 선택한 향 띄우기
 async function handleCategory() {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -114,6 +114,7 @@ async function handleCategory() {
     });
 }
 
+// 향 리스트
 function append_note_list(dataset, element) {
     element.innerHTML = '';
     dataset.forEach(data => {
@@ -138,6 +139,7 @@ function append_note_list(dataset, element) {
     });
 }
 
+// 향 선택
 async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -179,6 +181,7 @@ async function handlePick(clicked_id) {
     })
 }
 
+// 향1 삭제
 async function handlePickDelete1(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -195,6 +198,8 @@ async function handlePickDelete1(){
     })
     
 }
+
+// 향2 삭제
 async function handlePickDelete2(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -211,6 +216,8 @@ async function handlePickDelete2(){
     })
     
 }
+
+// 향3 삭제
 async function handlePickDelete3(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -228,6 +235,7 @@ async function handlePickDelete3(){
     
 }
 
+// 다음 step 버튼
 function handleNext(){
     if( JSON.parse(sessionStorage.getItem("note01")) == null && JSON.parse(sessionStorage.getItem("note02")) == null && JSON.parse(sessionStorage.getItem("note03")) == null ){
         document.getElementById("Modal").innerHTML = `
@@ -297,6 +305,7 @@ function handleNext(){
     }
 }
 
+// 모달창에서 다음 step 버튼 
 function handleOk(){
     location.href="/custom_perfume_package.html"
 }

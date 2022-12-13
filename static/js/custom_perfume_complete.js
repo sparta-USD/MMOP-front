@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     handleCustomPerfume()
 });
 
-document.getElementById("complete_button").addEventListener("click", function () {
-    location.href="/custom_perfume_detail.html?custom_perfume="+url_param
-});
-
+// url을 불러오는 함수
 function getParams(params){
     const url = window.location.href
     const urlParams = new URL(url).searchParams;
@@ -13,6 +10,7 @@ function getParams(params){
     return get_urlParams;
 }
 
+// 생성된 향수 띄우기
 async function handleCustomPerfume() {
     url_param = getParams("custom_perfume");
     if (url_param == undefined){
@@ -70,3 +68,8 @@ async function handleCustomPerfume() {
         document.getElementById("name").innerText = response_json['title']
     })
 }
+
+// 완료 버튼
+document.getElementById("complete_button").addEventListener("click", function () {
+    location.href="/custom_perfume_detail.html?custom_perfume="+url_param
+});

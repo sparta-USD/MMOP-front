@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     handlePackage()
 });
 
+// 선택한 향, 용기 띄우기
 async function handlePackage() {
     if(JSON.parse(sessionStorage.getItem("note01"))==null&&JSON.parse(sessionStorage.getItem("note02"))==null&&JSON.parse(sessionStorage.getItem("note03"))==null){
         alert("향을 선택하셔야 됩니다!")
@@ -63,6 +64,7 @@ async function handlePackage() {
     
 }
 
+// 로고 미리보기
 function readImage(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader()
@@ -78,6 +80,7 @@ inputImage.addEventListener("change", e => {
   readImage(e.target)
 })
 
+// 향수 제작 하기
 async function handleCreateMmop() {
 
     const custom_perfume_formData = new FormData();
@@ -124,6 +127,7 @@ async function handleCreateMmop() {
     }
 }
 
+// 향수 제작하기 버튼
 document.getElementById("create_button").addEventListener("click", function () {
     handleCreateMmop();
 });
