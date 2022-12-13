@@ -100,11 +100,11 @@ async function handleCreateReview() {
     if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }
-    else if (good_content.length <= 20 || good_content.length > 5000) {
-        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
+    else if (good_content.length <= 10 || good_content.length > 500) {
+        alert("최소 10자 이상 - 500자 이내로 작성해주세요!")
     }
-    else if (bad_content.length <= 20 || bad_content.length > 5000) {
-        alert("최소 20자 이상 - 5000자 이내로 작성해주세요!")
+    else if (bad_content.length <= 10 || bad_content.length > 500) {
+        alert("최소 10자 이상 - 500자 이내로 작성해주세요!")
     }
     else{
         const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
@@ -122,7 +122,7 @@ async function handleCreateReview() {
     })
     .then(result => {
         alert("리뷰 작성에 성공했습니다!")
-        location.href="/mypage.html";
+        location.href="/mypage.html#my_review";
     })
     .catch(error => {
         alert("리뷰 작성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
