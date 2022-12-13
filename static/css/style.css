@@ -200,6 +200,10 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     padding-top: 0px;
     min-height: calc(100vh - 351.4px) ;
 }
+.container_1000{
+    max-width: 1000px;
+    margin:auto;
+}
 /* sidenav */
 .area_container{
     display: flex;
