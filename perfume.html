@@ -64,51 +64,47 @@
         </div>
     </header>
     <div class="wrap">
-        <div class="container">
-            <section class="sec sec_perfume_detail">
+        <section class="sec sec_perfume_detail">
+            <div class="container">
                 <div class="container_perfume_detail">
                     <div class="perfume_image_box">
-                        <img class="perfume_image" src="/static/images/perfume.png">
                     </div>
                     <div class="perfume_desc_box">
                         <div class="perfume_desc">
                             <div class="perfume_desc_header">
                                 <div class="perfume_origin_id">
-                                    <h1 class="perfume_id">#2</h1>
+                                    <h1 class="perfume_id"></h1>
                                 </div>
                                 <div class="brand_name">
-                                    <h1 class="perfume_brand">Diptyque</h1>
+                                    <h1 class="perfume_brand"></h1>
                                 </div>
                                 <div class="perfume_name">
-                                    <h1 class="perfume_title">Diptyque DOSON</h1>
+                                    <h1 class="perfume_title"></h1>
                                 </div>
                             </div>
                             <div class="perfume_desc_body perfume_detail_top">
                                 <hr/>
                                 <div class="row detail_like">
                                     <div class="col_like col-3">찜</div>
-                                    <div class="col_like col-9"><i class="bi bi-suit-heart-fill"></i><span class="likes_count"> </span></div>
+                                    <div class="col_like col-9"><i class="bi bi-suit-heart-fill"></i><span class="likes_count">0</span></div>
                                 </div>
-                                <!-- <hr style="color:var(--base-gray-999);"/> -->
                                 <div class="row detail_gender">
                                     <div class="col_gender col-3">성별</div>
-                                    <div class="col_gender_1 col-9">Female</div>
+                                    <div class="col_gender_1 col-9"></div>
                                 </div>
-                                <!-- <hr style="color:var(--base-gray-999);"/> -->
                                 <div class="row detail_price">
                                     <div class="col_price col-3">가격</div>
-                                    <div class="col_price_1 col-9">200 $</div>
+                                    <div class="col_price_1 col-9"></div>
                                 </div>
-                                <!-- <hr style="color:var(--base-gray-999);"/> -->
                                 <div class="row detail_launch">
                                     <div class="col_launch col-3">출시일자</div>
-                                    <div class="col_launch_1 col-9">2022</div>
+                                    <div class="col_launch_1 col-9"></div>
                                 </div>
                                 <hr/>
 
                                 <div class="btn_create_group">
                                     <div class="perfume_card_heart">
-                                        <i class="bi none_link btn_like" id="btn_heart"></i>
+                                        <i class="bi" id="btn_heart"></i>
                                     </div>
                                     <a class="btn btn_default btn_create_review w-100" href="/create_review.html">
                                         리뷰 작성하기
@@ -119,9 +115,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
             
-            <section class="sec sec_perfume_detail_tab">
+            
+        <section class="sec sec_perfume_detail_tab">
+            <div class="container">
                 <div class="tab_menu">
                     <ul class="tab_list">
                         <li class="tab_item active"><a href="#tab_01">제품정보</a></li>
@@ -131,11 +130,11 @@
                 </div>
                 <div class="tab_body">
                     <div class="tab_content perfume_detail_tab_content active" id="tab_01">
-                        <div class="container_desc_tab">
+                        <div class="container_desc_tab container_1000">
                             <div class="tab_name_box">
                                 <div class="perfume_desc tab_perfume_name">
-                                    <h1 class="tab_perfume_brand">Diptyque</h1>
-                                    <h1 class="tab_perfume_title" style="margin-bottom: 20px;">Diptyque DOSON</h1>
+                                    <h1 class="tab_perfume_brand"></h1>
+                                    <h1 class="tab_perfume_title" style="margin-bottom: 20px;"></h1>
                                 </div>
                             </div>
                             <div class="tab_detail_content">
@@ -147,69 +146,42 @@
                                     <hr style="color:var(--strong--black);"/>
                                     <div class="row detail_top_note">
                                         <div class="col_title col-3">Top Notes</div>
-                                        <div class="col_top_note col-9">그린노트, 자몽</div>
+                                        <div class="col_top_note col-9"></div>
                                     </div>
                                     <hr style="color:var(--base-gray-999);"/>
                                     <div class="row detail_heart_note">
                                         <div class="col_title col-3">Heart Notes</div>
-                                        <div class="col_heart_note col-9">아이리스, 불가리안 로즈</div>
+                                        <div class="col_heart_note col-9"></div>
                                     </div>
                                     <hr style="color:var(--base-gray-999);"/>
                                     <div class="row detail_base_note">
                                         <div class="col_title col-3">Base Notes</div>
-                                        <div class="col_base_note col-9">헬리오트로프, 우디노트</div>
+                                        <div class="col_base_note col-9"></div>
                                     </div>
                                     <hr style="color:var(--base-gray-999);"/>
                                     <div class="row detail_none_note">
                                         <div class="col_title col-3">None Notes</div>
-                                        <div class="col_none_note col-9">'patchouli', 'lavender', 'citrus', 'warm spices'</div>
+                                        <div class="col_none_note col-9"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab_content perfume_detail_tab_content" id="tab_02">
-                        <div class="container_review_tab">
-                            <div class="review_tab_box">
-                                <div class="review_tab_review">
-                                    <p>리뷰</p>
-                                </div>
-                                <div class="review_tab_review_count">
-                                    <p class="tab_review_count">1,418</p>
-                                </div> 
-                            </div>
-                            <div class="review_tab_grade">
-                                <div class="review_avg_grade">평점</div>
-                                <div class="starpoint_wrap" id="avg_grade_star">
-                                    <div class="starpoint_box star_70">
-                                    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-                                    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-                                    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-                                    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-                                    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-                                    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-                                    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-                                    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-                                    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-                                    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-                                    <span class="starpoint_bg"></span>
+                        <div class="container_1000">
+                            <div class="container_review_tab">
+                                <div class="review_tab_box">
+                                    <div class="review_tab_review">
+                                        <p>리뷰수</p>
                                     </div>
+                                    <div class="review_tab_review_count">
+                                        <p class="tab_review_count">1,418</p>
+                                    </div> 
                                 </div>
-                            </div>
-                        </div>
-                        <hr style="margin: 0px 30px 0px 30px;"/>
-                        <div class="container_review_body" id="review_list_tab">
-                            <div class="sec_review_head">
-                                <div class="sec_review_userinfo">
-                                    <div class="review_user_info">
-                                        <div class="review_username">
-                                            username
-                                        </div>
-                                        <div class="review_created_time">22.11.19</div>
-                                    </div>
-                                    <div class="review_star_grade">
-                                        <div class="starpoint_wrap">
-                                            <div class="starpoint_box star_70">
+                                <div class="review_tab_grade">
+                                    <div class="review_avg_grade">평점</div>
+                                    <div class="starpoint_wrap" id="avg_grade_star">
+                                        <div class="starpoint_box medium star_70">
                                             <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
                                             <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
                                             <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
@@ -221,150 +193,176 @@
                                             <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
                                             <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
                                             <span class="starpoint_bg"></span>
+                                        </div>
+                                        <p class="starpoint_avg_grade_text"><span class="review_avg_grade_star">3.5</span> / 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container_review_body" id="review_list_tab">
+                                <div class="review_card">
+                                    <div class="review_card_head">
+                                        <div class="review_head_userinfo">
+                                            <div class="review_user_info">
+                                                <div class="review_username">
+                                                    username
+                                                </div>
+                                                <div class="review_created_time">22.11.19</div>
+                                            </div>
+                                            <div class="review_star_grade">
+                                                <div class="starpoint_wrap">
+                                                    <div class="starpoint_box star_70">
+                                                    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                                    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                                                    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                                    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                                                    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                                    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                                                    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                                    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                                                    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                                    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                                                    <span class="starpoint_bg"></span>
+                                                    </div>
+                                                </div>
+                                                <span class="review_user_grade">3.5</span>
+                                            </div>                                    
+                                        </div>
+                                    </div>
+                                    <div class="review_card_body">
+                                        <div class="review_body_content">
+                                            <div class="review_good">
+                                                <div class="review_good_image">
+                                                    <i id="emoji_good" class="bi bi-emoji-smile"></i>
+                                                </div>
+                                                <div class="review_good_content">
+                                                    이 향수 향 너무 맘에 들어요!!! :)
+                                                    <br>
+                                                    이 향수 향 너무 맘에 들어요!!! :)
+                                                </div>
+                                            </div>
+                                            <div class="review_bad">
+                                                <div class="review_bad_image">
+                                                    <i id="emoji_bad" class="bi bi-emoji-frown"></i>
+                                                </div>
+                                                <div class="review_bad_content">
+                                                    이 향수 향 너무 맘에 들어요!!! :)
+                                                    <br>
+                                                    이 향수 향 너무 맘에 들어요!!! :)
+                                                </div>
                                             </div>
                                         </div>
-                                        <span class="review_user_grade">3.5</span>
-                                    </div>                                    
-                                </div>
-                            </div>
-                            <div class="sec_review_body">
-                                <div class="review_body_content">
-                                    <div class="review_good">
-                                        <div class="review_good_image">
-                                            <i id="emoji_good" class="bi bi-emoji-smile"></i>
+                                        <div>
+                                            <div class="review_result_image_box">
+                                                <img class="review_result_image" src="/static/images/perfume.png" alt="No Image">
+                                            </div>
                                         </div>
-                                        <div class="review_good_content">
-                                            이 향수 향 너무 맘에 들어요!!! :)
-                                            <br>
-                                            이 향수 향 너무 맘에 들어요!!! :)
-                                        </div>
-                                    </div>
-                                    <div class="review_bad">
-                                        <div class="review_bad_image">
-                                            <i id="emoji_bad" class="bi bi-emoji-frown"></i>
-                                        </div>
-                                        <div class="review_bad_content">
-                                            이 향수 향 너무 맘에 들어요!!! :)
-                                            <br>
-                                            이 향수 향 너무 맘에 들어요!!! :)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="review_result_image_box">
-                                        <img class="review_result_image" src="/static/images/perfume.png" alt="No Image">
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
-                            
                         </div>
                     </div>
-
-                    <div class="tab_body">
-                        <div class="tab_content perfume_detail_tab_content" id="tab_03">
-                            <div class="sec sec_recommend_tab">
-                                <div class="perfume_desc tab_recommend_name">
-                                    <h1 style="margin-bottom: 30px;">추천 제품</h1>
-                                    <p style="font-size:large;">이 제품과 유사한 향을 가진 제품입니다. </p>
-                                </div>
-                                <div class="perfume_recommend_list">
-                                    <div class='perfume_card_list item_card_list' id="perfume_card_list">
-                                        <div class="row" id="recommend_list">
-                                            <!-- card start -->
-                                            <div class="col-lg-4 col-md-4 col-6">
-                                                <a href="/perfume.html">
-                                                    <div class='item_card check_card'>
-                                                        <div class="card_header list_profile">
-                                                            <div class="item_image">
-                                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="card_content">
-                                                                <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                                                <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                                                <p class="item_card_tag">
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                </p>
-                                                            </div>
+                    <div class="tab_content perfume_detail_tab_content" id="tab_03">
+                        <div class="sec sec_recommend_tab">
+                            <div class="section_header perfume_desc tab_recommend_name">
+                                <h2 class="section_title">추천 제품</h2>
+                                <p class="section_desc">이 제품과 유사한 향을 가진 제품입니다. </p>
+                            </div>
+                            <div class="perfume_recommend_list">
+                                <div class='perfume_card_list item_card_list' id="perfume_card_list">
+                                    <div class="row" id="recommend_list">
+                                        <!-- card start -->
+                                        <div class="col-lg-4 col-md-4 col-6">
+                                            <a href="/perfume.html">
+                                                <div class='item_card check_card'>
+                                                    <div class="card_header list_profile">
+                                                        <div class="item_image">
+                                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-6">
-                                                <a href="/perfume.html">
-                                                    <div class='item_card check_card'>
-                                                        <div class="card_header list_profile">
-                                                            <div class="item_image">
-                                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="card_content">
-                                                                <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                                                <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                                                <p class="item_card_tag">
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                </p>
-                                                            </div>
+                                                    <div class="card_body">
+                                                        <div class="card_content">
+                                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                                            <p class="item_card_tag">
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                            </p>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-6">
-                                                <a href="/perfume.html">
-                                                    <div class='item_card check_card'>
-                                                        <div class="card_header list_profile">
-                                                            <div class="item_image">
-                                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
-                                                            </div>
-                                                        </div>
-                                                        <div class="card_body">
-                                                            <div class="card_content">
-                                                                <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                                                <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                                                <p class="item_card_tag">
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                    <span class="tag">#시트러스</span>
-                                                                    <span class="tag">#백합</span>
-                                                                    <span class="tag">#솔방울</span>
-                                                                </p>
-                                                            </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-6">
+                                            <a href="/perfume.html">
+                                                <div class='item_card check_card'>
+                                                    <div class="card_header list_profile">
+                                                        <div class="item_image">
+                                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
+                                                    <div class="card_body">
+                                                        <div class="card_content">
+                                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                                            <p class="item_card_tag">
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-6">
+                                            <a href="/perfume.html">
+                                                <div class='item_card check_card'>
+                                                    <div class="card_header list_profile">
+                                                        <div class="item_image">
+                                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card_body">
+                                                        <div class="card_content">
+                                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                                            <p class="item_card_tag">
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                                <span class="tag">#시트러스</span>
+                                                                <span class="tag">#백합</span>
+                                                                <span class="tag">#솔방울</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
     <footer>
         <div class="container">

@@ -1,29 +1,39 @@
+hr{
+    color: var(--base-gray-dark);
+    margin:0;
+}
 /* 제품 상세정보 부분 */
-.container_perfume_detail{
+.sec_perfume_detail .container_perfume_detail{
     display: flex;
     justify-content: center;
     max-width: 100%;
 }
-.perfume_image_box, .perfume_image{
+.sec_perfume_detail .perfume_image_box{
     width: 500px;
     height: 500px;
 }
-.perfume_desc{
+.sec_perfume_detail .perfume_image_box >img.perfume_image{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.sec_perfume_detail .perfume_desc_box{
+    padding-left: 32px;
+    width: 500px;
+}
+.sec_perfume_detail .perfume_desc{
     display: flex;
     height:100%;
     flex-direction: column;
     justify-content: space-between;
 }
-.perfume_desc_box{
-    padding-left: 32px;
-    width: 500px;
-    height: 500px;
-}
 .perfume_desc_header .perfume_origin_id{
     margin-bottom: 16px;
+    color: var(--second-black);
 }
 .perfume_desc_header .brand_name{
     font-weight: 700;
+    font-size: 1em;
     margin-bottom: 16px;
 }
 .perfume_desc_header .perfume_name{
@@ -31,56 +41,25 @@
     font-weight: 700;
     margin-bottom: 16px;
 }
-
-hr{
-    color: var(--base-gray-dark);
-    margin:0;
-}
-
-.detail_like, .detail_gender, .detail_price, .detail_launch{
+.perfume_desc_body .detail_like, .detail_gender, .detail_price, .detail_launch{
     margin: 0;
     padding: 20px 8px;
     font-size: 1rem;
-    border-top: solid 1px var(--base-gray-e4)
+    border-top: solid 1px var(--base-gray-e4);
+    font-weight: 400;
 }
 .perfume_desc_body .detail_like{
     border-top:0 !important;
 }
-.col_like, .col_gender, .col_gender_1, .col_price, .col_price_1, .col_launch, .col_launch_1{
-    font-weight: 400;
-}
-
-#btn_like{
-    color: var(--main-black);
-    font-size: 1.2rem;
-    pointer-events : none; /* 클릭 이벤트 막음 */
-}
-
-.likes_count{
+.perfume_desc_body .likes_count{
     margin-left: 4px;
 }
-
-/* 버튼 */
-.btn_create_group{
+.sec_perfume_detail .btn_create_group{
     display: flex;
-    margin: 50px 0 0;
+    margin-top: 50px;
     align-items: center;
 }
-
-.btn_create_group button{
-    width: 200px;
-    margin: 8px;
-    font-size: large;
-    border-radius: 0;
-}
-
-.btn_create_group button.btn_create_review:hover{
-    color: var(--main-black);
-    border: solid 1px var(--main-black);
-    background-color: var(--main-white);
-}
-
-#btn_heart{
+.sec_perfume_detail #btn_heart{
     margin-right: 16px;
     font-size: 38px;
     color: var(--main-red);
@@ -119,38 +98,27 @@ hr{
     height: 3px;
     background-color: var(--main-black);
 }
-
-
-/* sec_perfume_detail_tab */
 .tab_list{
     display: flex;
     margin-top: 10px;
     justify-content: center;
 }
-
 .tab_item{
     margin-left: 25px;
     margin-right: 25px;
     font-size: large;
     font-weight: 600;
 }
-
 .tab_content{
     display: none;
-    margin-top: 30px;
+    margin-top: 100px;
 }
-
 .tab_content.active{
     display: block;
 }
 
 
 /* 제품정보 탭 */
-.container_desc_tab{
-    margin:100px 0;
-    justify-content: center;
-    align-items: center;
-}
 .tab_name_box{
     margin: auto;
     display: flex;
@@ -168,6 +136,7 @@ hr{
     text-align: center;
     margin-bottom: 2rem;
 }
+/* 향 테이블 */
 .tab_detail_content{
     max-width: 700px;
     width: 100%;
@@ -177,21 +146,18 @@ hr{
     border: double 0.5rem var(--second-black);
     padding: 0rem 1rem 1rem 1rem;
 }
-
-
-/* 향 테이블 */
-.col_scent{
+.tab_perfume_detail .col_scent{
     font-size: 1.5em;
     font-weight: 600;
 }
-.col_scent_note{
+.tab_perfume_detail .col_scent_note{
     font-size: 1.5em;
     font-weight: 500;
 }
 .detail_scent, .detail_top_note, .detail_heart_note, .detail_base_note, .detail_none_note{
     margin: 24px 0;
 }
-.col_title{
+.tab_perfume_detail .col_title{
     font-size: 1.2em;
     font-weight: 700;
 }
@@ -202,121 +168,114 @@ hr{
 
 
 
-/* 리뷰 탭 */
+/* 2. 리뷰 탭 */
 .container_review_tab{
+    display: flex;
     justify-content: center;
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.review_tab_box, .review_tab_grade{
-    width: 150px;
-    margin: 30px;
     text-align: center;
-    font-size: xx-large;
+    margin-bottom: 50px;
+}
+.review_tab_review, .review_avg_grade{
+    width: 250px;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.container_review_tab .tab_review_count, .container_review_tab .starpoint_wrap{
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container_review_tab .tab_review_count{
+    font-size: 3em;
+    font-weight: 700;
+}
+.container_review_tab .starpoint_box{
+    margin-bottom: 16px;
+}
+.container_review_tab .starpoint_avg_grade_text{
+    color: var(--base-gray-ccc);
+    font-weight: 400;
+    font-size: 2em;
+}
+.container_review_tab .review_avg_grade_star{
+    color: var(--main-black);
+    font-weight: 700;
 }
 
-.review_avg_grade{
-    margin-bottom: 20px;
+.none_result_list{
+    text-align: center;
+    padding: 150px 0;
+    border-bottom: solid 1px var(--base-gray-e4);
+    color: var(--base-gray-999);
 }
-
-.review_tab_review_count, .grade {
-    font-size: xxx-large;
-}
-
-.review_tab_review, .grade{
-    margin-bottom: 20px;
-}
-
+/* 리뷰 목록 */
 .container_review_body{
-    margin: 30px;
+    margin: 75px auto 100px;
+    border-top: solid 1px var(--base-gray-e4);
 }
-
-.review_user_info{
+.review_card{
+    padding: 32px 16px;
+    border-bottom: solid 1px var(--base-gray-e4);
+}
+.review_card .review_card_head{
+    margin-bottom: 16px;
+}
+.review_card .review_user_info,.review_card .review_star_grade{
     display: flex;
-    margin: 0px 10px 18px 2px;
-    
+    margin-bottom: 8px;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.review_card .review_star_grade .starpoint_box{
+    margin-left: -4px;
+}
+.review_user_grade{
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+.review_card .review_created_time{
+    color: var(--base-gray-999);
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-left: 16px;
 }
 
-.sec_review_head, .sec_review_body{
+.review_card .review_card_body{
     display: flex;
-}
-
-.sec_review_body{
     justify-content: space-between;
+    align-items: flex-start;
 }
-
-.review_star_grade{
-    margin-bottom: 10px;
-}
-
-.review_created_time{
-    font-weight: 500;
-    font-size: 1.2rem;
-}
-
-.review_username, .review_user_grade{
-    margin-right: 15px;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.review_good, .review_bad{
+.review_card .review_card_body .review_good,.review_card .review_card_body .review_bad{
     display: flex;
-    margin-top: 25px;
-}
-
-.review_good_content, .review_bad_content{
-    margin-top: 2px;
-    font-size: 1.2rem;
-}
-
-#emoji_good, #emoji_bad{
-    margin: 15px;
-    font-size: 1.6rem;
-}
-
-.review_result_image_box{
-    width: 200px;
-    height: 200px;
-    margin-right: 40px;
-    border: 1px dotted var(--second-black);
-}
-
-.review_result_image{
-    width: 200px;
-    height: 200px;
-}
-
-
-/* 추천제품 탭 */
-.container_recommend_tab{
-    margin-top: 80px;
-}
-
-.perfume_recommend_list{
-    margin: 60px 120px 30px 120px;
-}
-
-.tab_recommend_name{
-    margin-top: 120px;
-    margin-bottom: 20px;
-    font-size: xxx-large;
-    font-weight: bold;
-    text-align: center;
-}
-
-.item_card .card_footer{
-    padding-top: 0;
-}
-.item_card .card_footer .btn{
-    background-color: #202020;
-    color: #f5f5f5;
+    min-height: 75px;
     font-size: 1em;
-    width: 45px;
-    height: 28px;
-    padding: unset;
-    border-radius: unset;
-    margin:auto;
-    display: block;
+    margin-top: 24px;
+}
+#emoji_good, #emoji_bad{
+    margin-right: 16px;
+    font-size: 1.75em;
+}
+.review_card .review_card_body .review_good_content,
+.review_card .review_card_body .review_bad_content{
+    line-height: 1.36;
+}
+.review_result_image_box{
+    width: 180px;
+    height: 180px;
+    margin-left: 32px;
+}
+.review_result_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 3. 추천제품 탭 */
+.perfume_recommend_list{
+    margin: 75px 0 100px;
 }
