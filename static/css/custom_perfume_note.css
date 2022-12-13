@@ -87,7 +87,10 @@
     color: #ffffff;
     font-size: 13px;
 }
-
+.title{
+    font-size: 15px;
+    word-break: normal;
+}
 /* sec 하단 버튼 */
 .sec_btn_wrap{
     display: flex;
