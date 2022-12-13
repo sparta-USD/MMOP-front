@@ -59,6 +59,10 @@ async function handleCategory() {
         append_note_list(category4,package_list_4)
         let package_list_5 = document.getElementById("tab_05").querySelector(".row")
         append_note_list(category5,package_list_5)
+
+        if ( JSON.parse(sessionStorage.getItem("package")) != null ){
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+        }
     
     }).catch(error => {
         console.warn(error.message)
