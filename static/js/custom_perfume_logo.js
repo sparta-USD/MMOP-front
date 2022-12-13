@@ -31,13 +31,30 @@ async function handlePackage() {
             }else{
                 document.getElementById("note01").innerHTML = '<div></div>'
             }
+
             if(JSON.parse(sessionStorage.getItem("note02"))!=null){
-                document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null){
+                    document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null){
+                    document.getElementById("note02").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                }
             }else{
                 document.getElementById("note02").innerHTML = '<div></div>'
             }
             if(JSON.parse(sessionStorage.getItem("note03"))!=null){
-                document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))!=null){
+                    document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))==null){
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))!=null){
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))==null){
+                    document.getElementById("note03").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
             }else{
                 document.getElementById("note03").innerHTML = '<div></div>'
             }

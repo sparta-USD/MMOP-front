@@ -27,7 +27,12 @@
     font-size: 1em;
     color: #999;
 }
+.sec_perfume_list{
+    margin-top: -50px;
+}
 .item_image{
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 .item_image .circle1 {
@@ -35,7 +40,8 @@
     height: 100px;
     border: 1px solid #999;
     border-radius: 50%;
-    margin-left: 200px;
+    position: absolute;
+    margin: 50px 0 0 80px; 
 }
 .item_image .circle1 .note{
     width: 98px;
@@ -47,7 +53,8 @@
     height: 100px;
     border: 1px solid #999;
     border-radius: 50%;
-    margin-left: 200px;
+    position: absolute;
+    margin: 150px 0 0 80px; 
 }
 .item_image .circle2 .note{
     width: 98px;
@@ -59,7 +66,8 @@
     height: 100px;
     border: 1px solid #999;
     border-radius: 50%;
-    margin-left: 200px;
+    position: absolute;
+    margin: 250px 0 0 80px;
 }
 .item_image .circle3 .note{
     width: 98px;
@@ -69,7 +77,7 @@
 .item_image .package{
     width: 400px;
     position: absolute;
-    margin: -350px 0 0 350px;
+    margin-left: 180px;
 }
 .item_image .logo{
     width: 110px;
@@ -80,12 +88,12 @@
 .item_image .logo_default{
     width: 110px;
     height: 100px;
-    margin: -170px 0 0 495px;
+    margin: 200px 0 0 325px;
     position: absolute;
 }
 
 .item_image .upload{
-    margin: -200px 0 0 790px;
+    margin: 150px 0 0 700px;
 }
 
 .item_image .upload:hover{

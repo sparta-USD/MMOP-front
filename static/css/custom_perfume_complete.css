@@ -27,11 +27,9 @@
     font-size: 1em;
     color: #999;
 }
-
-.sec.sec_perfume_list{
-    margin-top:0px
+.sec_perfume_list{
+    margin-top: -50px;
 }
-
 .item_image{
     display: flex;
     justify-content: center;
@@ -43,7 +41,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 50px 500px 0 0; 
+    margin: 50px 0 0 -300px; 
 }
 .item_image .circle1 .note{
     width: 98px;
@@ -56,7 +54,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 150px 500px 0 0; 
+    margin: 150px 0 0 -300px; 
 }
 .item_image .circle2 .note{
     width: 98px;
@@ -69,7 +67,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 250px 500px 0 0; 
+    margin: 250px 0 0 -300px;
 }
 .item_image .circle3 .note{
     width: 98px;
@@ -84,28 +82,8 @@
 .item_image .logo{
     width: 110px;
     height: 100px;
-    margin: 100px 0 0 0;
+    margin: 200px 0 0 -55px;
     position: absolute;
-}
-
-.item_image .upload{
-    margin: 100px 0 0 800px;
-}
-
-.item_image .upload:hover{
-    color: #999;
-}
-
-.item_image .upload .bi-cloud-arrow-up{
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.item_image .upload p{
-    font-size: 10px;
-    font-weight: bold;
 }
 
 .name{
@@ -120,13 +98,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 50px 0 100px;
-    position: relative;
+    margin: 50px 0 100px 0;
 }
 .sec_btn_wrap button{
     width: 200px;
     margin: 200px 0 200px 0;
-    position: absolute;
 }
 .submit_button{
     display: flex;
