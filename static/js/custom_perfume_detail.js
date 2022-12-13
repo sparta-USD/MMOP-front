@@ -38,15 +38,30 @@ async function handleCustomDetail(){
         document.querySelector(".perfume_creator").innerText = result.creator_username
         document.querySelector(".perfume_title").innerText = result.title
         document.querySelector(".perfume_create").innerText = changeDateTimeFormat(result.created_at)
-        document.querySelector(".note1").innerText = result.note01.kor_name
-        document.querySelector(".note2").innerText = result.note02.kor_name
-        document.querySelector(".note3").innerText = result.note03.kor_name
-        document.querySelector(".note3").innerText = result.note03.kor_name
         document.querySelector(".pakage_name").innerText = result.package.name
-        document.querySelector(".note_img1 img").src = result.note01.image
-        document.querySelector(".note_img2 img").src = result.note02.image
-        document.querySelector(".note_img3 img").src = result.note03.image
+
+        // 노트 이미지 넣기
+        let materials_box = document.querySelector(".materials");
+        materials_box.innerHTML = ""
+        let material = document.createElement("div");
+        material.innerHTML = `
+        ${result["note01"]? `<div class="perfume_images material"><img src="${result["note01"]["image"]}"></div>` : ``}
+        ${result["note02"]? `<div class="perfume_images material"><img src="${result["note02"]["image"]}"></div>` : ``}
+        ${result["note03"]? `<div class="perfume_images material"><img src="${result["note03"]["image"]}"></div>` : ``}
+        `
+        materials_box.append(material);
+
+        // 노트 이름 넣기
+        let note_name_box = document.querySelector(".custom_note_name_box");
+        note_name_box.innerHTML = "";
+        let note_name = document.createElement("div");
+        note_name.innerHTML = `
+        ${result["note01"]? `<div class="row custom_note_box"><p class="custom_note">${result["note01"]["kor_name"]}</p></div>` : `<div class="row custom_note_box"><p class="custom_note">&nbsp</p></div>`}
+        ${result["note02"]? `<div class="row custom_note_box"><p class="custom_note">${result["note02"]["kor_name"]}</p></div>` : `<div class="row custom_note_box"><p class="custom_note">&nbsp</p></div>`}
+        ${result["note03"]? `<div class="row custom_note_box"><p class="custom_note">${result["note03"]["kor_name"]}</p></div>` : `<div class="row custom_note_box"><p class="custom_note">&nbsp</p></div>`}
+        `
+        note_name_box.append(note_name);
     }).catch(error => {
-        console.error(error.message)
+        console.error(error)
     })
 };
