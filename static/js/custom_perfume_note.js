@@ -98,6 +98,16 @@ async function handleCategory() {
         append_note_list(category11,note_list_11)
         let note_list_12 = document.getElementById("tab_012").querySelector(".row")
         append_note_list(category12,note_list_12)
+
+        if ( JSON.parse(sessionStorage.getItem("note01")) != null ){
+            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note01")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note01")) + '"><button class="delete_button" onclick="handlePickDelete1()">x'
+        }
+        if ( JSON.parse(sessionStorage.getItem("note02")) != null ){
+            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note02")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note02")) + '"><button class="delete_button" onclick="handlePickDelete2()">x'
+        }
+        if ( JSON.parse(sessionStorage.getItem("note03")) != null ){
+            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note03")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note03")) + '"><button class="delete_button" onclick="handlePickDelete3()">x'
+        }
     
     }).catch(error => {
         console.warn(error.message)
