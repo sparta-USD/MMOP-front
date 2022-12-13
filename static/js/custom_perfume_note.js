@@ -207,9 +207,52 @@ async function handlePickDelete3(){
 }
 
 function handleNext(){
-    if(Object.keys(note01).length == 0 || Object.keys(note02).length == 0 || Object.keys(note03).length == 0){
-        alert("향 3가지를 모두 골라주세요!")
+    if(sessionStorage.length==1){
+        document.getElementById("Modal").innerHTML = `
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            향을 한가지 이상 선택해주세요.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    else if(sessionStorage.length==2||sessionStorage.length==3){
+        console.log(sessionStorage.length)
+        document.getElementById("Modal").innerHTML = `
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            향을 ${sessionStorage.length-1}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
     }else{
         location.href="/custom_perfume_package.html"
     }
+}
+
+function handleOk(){
+    location.href="/custom_perfume_package.html"
 }
