@@ -42,6 +42,7 @@ async function handleSignup(){
         })
     });
     let response_json = await response.json();
+    loader.classList.remove('show');
     if(response.ok){
         alert("회원가입이 완료되었습니다.\n이메일 인증 메일이 발송되었습니다. 이메일 인증 후 로그인을 시도해주세요. \n‼️이메일이 도착하지 않았을 경우 스팸함을 확인해주세요")
         return location.href = "signin.html";
@@ -58,7 +59,6 @@ async function handleSignup(){
             return alert(response_json.password2)
         }
     }
-    loader.classList.remove('show');
 
 };
 
