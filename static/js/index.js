@@ -18,6 +18,7 @@ async function handleTopPerfume(){
         return response.json()
     }).then(result => {
         const response_json = result;
+        console.log(response_json)
         append_top_perfume_list(response_json)
     }).catch(error => {
         console.warn(error.message)
