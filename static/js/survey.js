@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
 async function handlePerfumeRandom(){
     const response = await fetch('http://127.0.0.1:8000/perfume/random/',{
         headers: {
-            "Authorization":"Bearer " + localStorage.getItem("access"),
+            
         },
         method: 'GET',
     }).then(response => {
