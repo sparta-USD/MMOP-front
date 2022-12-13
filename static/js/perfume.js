@@ -63,7 +63,7 @@ function perfume_info(data){
 
     // 찜 상태 표시
     const user_email = localStorage.getItem("email");
-    let is_like = user_email in data['likes']; // 현재 로그인한 유저의 이메일이 likes에 있는지 체크/ 찜 상태 : T/F
+    let is_like = data['likes'].includes(user_email); // 현재 로그인한 유저의 이메일이 likes에 있는지 체크/ 찜 상태 : T/F
     document.getElementById("btn_heart").classList.add(is_like ? "bi-suit-heart-fill" : "bi-suit-heart"); // 삼항연산자 사용!
     
     // 리뷰 작성하기 버튼 활성화/비활성화(작성 여부에 따라)
