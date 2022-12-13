@@ -229,7 +229,7 @@ async function handlePickDelete3(){
 }
 
 function handleNext(){
-    if(sessionStorage.length==1){
+    if( JSON.parse(sessionStorage.getItem("note01")) == null && JSON.parse(sessionStorage.getItem("note02")) == null && JSON.parse(sessionStorage.getItem("note03")) == null ){
         document.getElementById("Modal").innerHTML = `
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -249,9 +249,9 @@ function handleNext(){
             </div>
         `;
     }
-    else if(sessionStorage.length==2||sessionStorage.length==3){
-        console.log(sessionStorage.length)
-        document.getElementById("Modal").innerHTML = `
+    else if( JSON.parse(sessionStorage.getItem("note01")) == null || JSON.parse(sessionStorage.getItem("note02")) == null || JSON.parse(sessionStorage.getItem("note03")) == null ){
+        if( JSON.parse(sessionStorage.getItem("package")) == null ){
+            document.getElementById("Modal").innerHTML = `
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -270,6 +270,28 @@ function handleNext(){
                 </div>
             </div>
         `;
+        }
+        else{
+            document.getElementById("Modal").innerHTML = `
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            향을 ${sessionStorage.length-2}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
     }else{
         location.href="/custom_perfume_package.html"
     }
