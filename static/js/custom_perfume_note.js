@@ -237,68 +237,34 @@ async function handlePickDelete3(){
 
 // 다음 step 버튼
 function handleNext(){
+
+    // 하나도 없을 때
     if( JSON.parse(sessionStorage.getItem("note01")) == null && JSON.parse(sessionStorage.getItem("note02")) == null && JSON.parse(sessionStorage.getItem("note03")) == null ){
-        document.getElementById("Modal").innerHTML = `
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            향을 한가지 이상 선택해주세요.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        $("#Modal").modal("show");
+        document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 한가지 이상 선택해주세요.`;
+        document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
         `;
     }
+    // 한개나 두개 골랐을때,
     else if( JSON.parse(sessionStorage.getItem("note01")) == null || JSON.parse(sessionStorage.getItem("note02")) == null || JSON.parse(sessionStorage.getItem("note03")) == null ){
+        // 용기가 없을때,
         if( JSON.parse(sessionStorage.getItem("package")) == null ){
-            document.getElementById("Modal").innerHTML = `
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            향을 ${sessionStorage.length-1}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+            $("#Modal").modal("show");
+            document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sessionStorage.length-1}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
+            document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+                <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+            `;
         }
+        // 용기가 있을때,
         else{
-            document.getElementById("Modal").innerHTML = `
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">확인</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            향을 ${sessionStorage.length-2}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+            $("#Modal").modal("show");
+            document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sessionStorage.length-2}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
+            document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+                <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+            `;
         }
     }else{
         location.href="/custom_perfume_package.html"
