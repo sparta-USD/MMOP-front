@@ -248,7 +248,7 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     margin-top:0;
 }
 .swiper.main_banner .swiper-slide{
-    min-height: 65vh;
+    min-height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -270,6 +270,21 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     margin-bottom: 50px;
     line-height: 1.56;
     font-size: 1.25em;
+}
+.swiper.main_banner .banner_image{
+    width: 50%;
+    min-height: 60vh;
+}
+.swiper.main_banner .banner_content{
+    width: 50%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    background-color: #f0eeed;
+    padding: 0 50px;
 }
 /* sec 하단 버튼 */
 .btn_wrap{
@@ -452,6 +467,7 @@ input.form-control::placeholder, textarea.form-control::placeholder{
 .item_card .logo_image >img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 .item_card .material{
     position: absolute;
