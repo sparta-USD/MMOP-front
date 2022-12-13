@@ -9,7 +9,19 @@ async function handleSignup(){
     const password2 = document.getElementById("password2").value;
     const phone_number = document.getElementById("phone_number").value;
 
-    if(!agree.checked){
+    if(!email){
+        alert("이메일 필드는 빈칸일 수 없습니다.");
+        return false;
+    }else if(!username){
+        alert("닉네임 필드는 빈칸일 수 없습니다.");
+        return false;
+    }else if(!password){
+        alert("비밀번호 필드는 빈칸일 수 없습니다.");
+        return false;
+    }else if(!password2){
+        alert("비밀번호 확인 필드는 빈칸일 수 없습니다.");
+        return false;
+    }else if(!agree.checked){
         alert("약관 동의 체크는 필수입니다!");
         agree.focus();
         return false;
@@ -30,9 +42,9 @@ async function handleSignup(){
         })
     });
     let response_json = await response.json();
+    loader.classList.remove('show');
     if(response.ok){
-        alert("회원가입이 완료되었습니다.");
-        alert("이메일 인증 메일이 발송되었습니다. 이메일 인증 후 로그인을 시도해주세요. \n 이메일이 도착하지 않았을 경우 스팸함을 확인해주세요")
+        alert("회원가입이 완료되었습니다.\n이메일 인증 메일이 발송되었습니다. 이메일 인증 후 로그인을 시도해주세요. \n‼️이메일이 도착하지 않았을 경우 스팸함을 확인해주세요")
         return location.href = "signin.html";
     }else{
         if(response_json.email){
@@ -40,14 +52,13 @@ async function handleSignup(){
         }else if(response_json.username){
             return alert(response_json.username)
         }else if(response_json.phone_number){
-            return alert(response_json.phone_number.message)
+            return alert(response_json.phone_number)
         }else if(response_json.password){
-            return alert(response_json.password.message)
+            return alert(response_json.password)
         }else if(response_json.password2){
             return alert(response_json.password2)
         }
     }
-    loader.classList.remove('show');
 
 };
 
