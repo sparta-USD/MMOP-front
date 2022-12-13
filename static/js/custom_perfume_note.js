@@ -148,7 +148,7 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        if (Object.keys(note01).length == 0) {
+        if ( JSON.parse(sessionStorage.getItem("note01")) == null ) {
             if ( JSON.parse(sessionStorage.getItem("note02")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
@@ -156,7 +156,7 @@ async function handlePick(clicked_id) {
                 note01 = clicked_id
                 sessionStorage.setItem("note01", JSON.stringify(note01));
             }
-        } else if (Object.keys(note02).length == 0) {
+        } else if ( JSON.parse(sessionStorage.getItem("note02")) == null ) {
             if ( JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
@@ -164,7 +164,7 @@ async function handlePick(clicked_id) {
                 note02 = clicked_id
                 sessionStorage.setItem("note02", JSON.stringify(note02));
             }
-        } else if (Object.keys(note03).length == 0) {
+        } else if ( JSON.parse(sessionStorage.getItem("note03")) == null ) {
             if (JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note02")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
