@@ -91,7 +91,7 @@ function append_custom_perfume_list(custom_data){
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                         </div>
                         <div class="logo_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">` : ``}
                         </div>
                         <div class="materials">
                             ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
