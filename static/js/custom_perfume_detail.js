@@ -34,7 +34,7 @@ async function handleCustomDetail(){
         return response.json()
     }).then(result => {
         document.querySelector(".perfume_image").src = result.package.image
-        document.querySelector(".logo_image img").src = `http://127.0.0.1:8000/${result.logo}`
+        document.querySelector(".logo_image img").src = `http://127.0.0.1:8000${result.logo}`
         document.querySelector(".perfume_creator").innerText = result.creator_username
         document.querySelector(".perfume_title").innerText = result.title
         document.querySelector(".perfume_create").innerText = changeDateTimeFormat(result.created_at)
