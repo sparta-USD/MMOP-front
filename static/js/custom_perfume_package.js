@@ -8,7 +8,7 @@ async function handleCategory() {
         alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
     }else{
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -60,8 +60,14 @@ async function handleCategory() {
         let package_list_5 = document.getElementById("tab_05").querySelector(".row")
         append_package_list(category5,package_list_5)
 
+        // 용기 이미지
         if ( JSON.parse(sessionStorage.getItem("package")) != null ){
-            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+            $.each(response_json['packages'],function(idx,row){
+                if(response_json['packages'][idx].id==JSON.parse(sessionStorage.getItem("package"))){
+                    package_pick = response_json['packages'][idx]['image']
+                }
+            })
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
         }
     
     }).catch(error => {
@@ -98,7 +104,7 @@ function append_package_list(dataset, element) {
 
 // 용기 선택
 async function handlePick(clicked_id) {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -107,8 +113,14 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
+
+        $.each(response_json['packages'],function(idx,row){
+            if(response_json['packages'][idx].id==clicked_id){
+                package_pick = response_json['packages'][idx]['image']
+            }
+        })
         if (JSON.parse(sessionStorage.getItem("package"))==null){
-            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
             package_ = clicked_id
             sessionStorage.setItem("package", JSON.stringify(package_));
         } else{
@@ -119,7 +131,7 @@ async function handlePick(clicked_id) {
 
 // 용기 삭제
 async function handlePickDelete(){
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
