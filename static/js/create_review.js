@@ -51,29 +51,16 @@ async function handlePerfumeInfo(){
         let perfume = response_json;
 
         let review_perfume_detail = document.getElementById("review_perfume_detail");
-        review_perfume_detail.innerHTML= '';
-
-        let perfume_detail = document.createElement('div');
-        perfume_detail.className = 'sec_create_review_body';
-        perfume_detail.innerHTML = `
-        <div class="create_review_body_title">
-            <div class="review_image_box">
-                <img class="review_image" src="${perfume['image']}">
-            </div>
-            <div class="review_body_desc_box">
-                <div class="desc_box_id">
-                    <p>#${perfume['id']}</p>
-                </div>
-                <div class="desc_box_brand">
-                    <p>${perfume['brand']}</p>
-                </div>
-                <div class="desc_box_name">
-                    <p>${perfume['title']}</p>
-                </div>
-            </div>
-        </div>
-        `;
-        review_perfume_detail.append(perfume_detail);
+        review_perfume_detail.querySelector(".review_image_box").innerHTML = `
+            <a href="/perfume.html?perfume=${perfume['id']}">
+                <img class="review_image" src="${perfume['image']}"/>
+            </a>`;
+        review_perfume_detail.querySelector(".desc_box_id p").innerText = `#${perfume['id']}`;
+        review_perfume_detail.querySelector(".desc_box_brand p").innerText = `${perfume['brand']}`;
+        review_perfume_detail.querySelector(".desc_box_name p").innerHTML = `
+            <a href="/perfume.html?perfume=${perfume['id']}">
+                ${perfume['title']}
+            </a>`;
     })
 }
 
