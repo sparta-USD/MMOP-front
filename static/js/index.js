@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", function(){
     handleCustomPerfume()
 });
 
+// 뒤로가기 클릭 시 새로고침 되도록 이벤트 처리
+window.onpageshow = function(event) {
+    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        location.href = document.referrer;
+    }
+}
+
+
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
