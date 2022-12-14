@@ -27,6 +27,9 @@
     font-size: 1em;
     color: #999;
 }
+.sec_perfume_list{
+    margin-top: -50px;
+}
 .item_image{
     display: flex;
     justify-content: center;
@@ -38,7 +41,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 50px 510px 0 0; 
+    margin: 50px 0 0 80px; 
 }
 .item_image .circle1 .note{
     width: 98px;
@@ -51,7 +54,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 150px 510px 0 0; 
+    margin: 150px 0 0 80px; 
 }
 .item_image .circle2 .note{
     width: 98px;
@@ -64,7 +67,7 @@
     border: 1px solid #999;
     border-radius: 50%;
     position: absolute;
-    margin: 250px 510px 0 0; 
+    margin: 250px 0 0 80px;
 }
 .item_image .circle3 .note{
     width: 98px;
@@ -77,6 +80,12 @@
     margin-left: 180px;
 }
 .item_image .logo{
+    width: 110px;
+    height: 100px;
+    margin: 200px 0 0 325px;
+    position: absolute;
+}
+.item_image .logo_default{
     width: 110px;
     height: 100px;
     margin: 200px 0 0 325px;
@@ -110,7 +119,6 @@
     align-items: center;
     flex-direction: column;
     margin: 250px 0 100px;
-    position: relative;
 }
 .sec_btn_wrap input{
     width: 200px;
@@ -118,8 +126,8 @@
 }
 .sec_btn_wrap button{
     width: 200px;
-    margin: 350px 0 200px 0;
-    position: absolute;
+    margin-top: 15px;
+
 }
 .sec_btn_wrap button.btn_custom_submit{
     border: solid 1px var(--main-black);

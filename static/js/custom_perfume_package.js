@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     handleCategory()
 });
 
-// 카테고리 및 목록 띄우기
+// 용기 카테고리 , 선택한 용기 띄우기
 async function handleCategory() {
-    if(sessionStorage.length < 4){
-        alert("이전 step을 완료 해야됩니다!")
+    if(sessionStorage.length==1){
+        alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
     }else{
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
@@ -17,7 +17,6 @@ async function handleCategory() {
         if(!response.ok){
             if(response.status==401){
                 alert("로그인 유저만 접근 가능합니다.")
-                history.back()
             }
             throw new Error(`${response.status} 에러가 발생했습니다.`);    
         }
@@ -51,15 +50,19 @@ async function handleCategory() {
 
 
         let package_list_1 = document.getElementById("tab_01").querySelector(".row")
-        append_note_list(category1,package_list_1)
+        append_package_list(category1,package_list_1)
         let package_list_2 = document.getElementById("tab_02").querySelector(".row")
-        append_note_list(category2,package_list_2)
+        append_package_list(category2,package_list_2)
         let package_list_3 = document.getElementById("tab_03").querySelector(".row")
-        append_note_list(category3,package_list_3)
+        append_package_list(category3,package_list_3)
         let package_list_4 = document.getElementById("tab_04").querySelector(".row")
-        append_note_list(category4,package_list_4)
+        append_package_list(category4,package_list_4)
         let package_list_5 = document.getElementById("tab_05").querySelector(".row")
-        append_note_list(category5,package_list_5)
+        append_package_list(category5,package_list_5)
+
+        if ( JSON.parse(sessionStorage.getItem("package")) != null ){
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+        }
     
     }).catch(error => {
         console.warn(error.message)
@@ -68,7 +71,8 @@ async function handleCategory() {
     
 }
 
-function append_note_list(dataset, element) {
+// 용기 리스트
+function append_package_list(dataset, element) {
     element.innerHTML = '';
     dataset.forEach(data => {
         let new_item = document.createElement('div');
@@ -92,6 +96,7 @@ function append_note_list(dataset, element) {
     });
 }
 
+// 용기 선택
 async function handlePick(clicked_id) {
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -102,7 +107,7 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
-        if (sessionStorage.length == 4){
+        if (JSON.parse(sessionStorage.getItem("package"))==null){
             document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
             package_ = clicked_id
             sessionStorage.setItem("package", JSON.stringify(package_));
@@ -111,6 +116,8 @@ async function handlePick(clicked_id) {
         }
     })
 }
+
+// 용기 삭제
 async function handlePickDelete(){
     const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
@@ -128,8 +135,9 @@ async function handlePickDelete(){
     
 }
 
+// 다음 step 버튼
 function handleNext(){
-    if(sessionStorage.length == 4){
+    if(JSON.parse(sessionStorage.getItem("package"))==null){
         alert("용기를 골라주세요!")
     }else{
         location.href="/custom_perfume_logo.html"  

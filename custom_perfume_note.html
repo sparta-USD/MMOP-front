@@ -78,8 +78,9 @@
                         <div class="circle"><div class="circle_plus" id="note02">+</div></div>
                         <div class="circle"><div class="circle_plus" id="note03">+</div></div>
                         <p></p>
-                        <button class="next_button" id="next_button" onclick="handleNext()">나만의 향수 만들기</button>
+                        <button class="next_button" id="next_button" onclick="handleNext()" data-bs-toggle="modal" data-bs-target="#exampleModal">나만의 향수 만들기</button>
                     </div>
+                    
                 </div>
               </div>
         </section>
@@ -497,6 +498,25 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="next_guide">
+                        0가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="container">

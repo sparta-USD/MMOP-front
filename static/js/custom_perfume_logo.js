@@ -2,9 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     handlePackage()
 });
 
+// 선택한 향, 용기 띄우기
 async function handlePackage() {
-    if(sessionStorage.length < 5){
-        alert("이전 step을 완료 해야됩니다!")
+    if(JSON.parse(sessionStorage.getItem("note01"))==null&&JSON.parse(sessionStorage.getItem("note02"))==null&&JSON.parse(sessionStorage.getItem("note03"))==null){
+        alert("향을 선택하셔야 됩니다!")
+        location.href="/custom_perfume_note.html"
+    }else if(JSON.parse(sessionStorage.getItem("package"))==null){
+        alert("용기를 선택하셔야 됩니다!")
         location.href="/custom_perfume_package.html"
     }else{
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
@@ -16,7 +20,6 @@ async function handlePackage() {
             if(!response.ok){
                 if(response.status==401){
                     alert("로그인 유저만 접근 가능합니다.")
-                    history.back()
                 }
                 throw new Error(`${response.status} 에러가 발생했습니다.`);    
             }
@@ -24,14 +27,44 @@ async function handlePackage() {
         }).then(result => {
             const response_json = result;
             document.getElementById("package").innerHTML = '<img class="package" id="package" aria-hidden="false" draggable="false" loading="lazy" src="'+response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image']+'">'
-            document.getElementById("note01").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note01"))-1]['image']+'">'
-            document.getElementById("note02").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'">'
-            document.getElementById("note03").innerHTML = '<img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'">'
+            if(JSON.parse(sessionStorage.getItem("note01"))!=null){
+                document.getElementById("note01").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note01"))-1]['image']+'"></div>'
+            }else{
+                document.getElementById("note01").innerHTML = '<div></div>'
+            }
+
+            if(JSON.parse(sessionStorage.getItem("note02"))!=null){
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null){
+                    document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null){
+                    document.getElementById("note02").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                }
+            }else{
+                document.getElementById("note02").innerHTML = '<div></div>'
+            }
+            if(JSON.parse(sessionStorage.getItem("note03"))!=null){
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))!=null){
+                    document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))==null){
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))!=null){
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+                if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))==null){
+                    document.getElementById("note03").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                }
+            }else{
+                document.getElementById("note03").innerHTML = '<div></div>'
+            }
         })
     }
     
 }
 
+// 로고 미리보기
 function readImage(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader()
@@ -47,6 +80,7 @@ inputImage.addEventListener("change", e => {
   readImage(e.target)
 })
 
+// 향수 제작 하기
 async function handleCreateMmop() {
 
     const custom_perfume_formData = new FormData();
@@ -55,9 +89,15 @@ async function handleCreateMmop() {
     const logo = document.getElementById("input-file").files[0];
 
     custom_perfume_formData.append("title", title);
-    custom_perfume_formData.append("note01", JSON.parse(sessionStorage.getItem("note01")));
-    custom_perfume_formData.append("note02", JSON.parse(sessionStorage.getItem("note02")));
-    custom_perfume_formData.append("note03", JSON.parse(sessionStorage.getItem("note03")));
+    if (JSON.parse(sessionStorage.getItem("note01"))!=null){
+        custom_perfume_formData.append("note01", JSON.parse(sessionStorage.getItem("note01")));
+    }
+    if (JSON.parse(sessionStorage.getItem("note02"))!=null){
+        custom_perfume_formData.append("note02", JSON.parse(sessionStorage.getItem("note02")));
+    }
+    if (JSON.parse(sessionStorage.getItem("note03"))!=null){
+        custom_perfume_formData.append("note03", JSON.parse(sessionStorage.getItem("note03")));
+    }
     custom_perfume_formData.append("package", JSON.parse(sessionStorage.getItem("package")));
     custom_perfume_formData.append("logo", logo);
 
@@ -87,6 +127,7 @@ async function handleCreateMmop() {
     }
 }
 
+// 향수 제작하기 버튼
 document.getElementById("create_button").addEventListener("click", function () {
     handleCreateMmop();
 });
