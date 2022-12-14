@@ -196,7 +196,10 @@ function perfume_review_tab_review_list(review_data){
         });
     }else{
         review_list_tab.innerHTML =`
-            <p class="none_result_list">아직 작성된 리뷰가 없습니다.</p>
+
+        <div class="none_result_list">
+            <h3>아직 작성된 리뷰가 없습니다.</h3>
+        </div>
         `
     }
 }

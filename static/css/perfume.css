@@ -205,11 +205,11 @@ hr{
     font-weight: 700;
 }
 
-.none_result_list{
+.none_result_list h3{
     text-align: center;
-    padding: 150px 0;
-    border-bottom: solid 1px var(--base-gray-e4);
     color: var(--base-gray-999);
+    font-size: 1em;
+    font-weight: 400;
 }
 /* 리뷰 목록 */
 .container_review_body{
