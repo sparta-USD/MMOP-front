@@ -84,33 +84,78 @@ inputImage.addEventListener("change", e => {
 async function handleCreateMmop() {
 
     const custom_perfume_formData = new FormData();
+    const custom_perfume_json = new Object();
 
     const title = document.getElementById("title").value;
     const logo = document.getElementById("input-file").files[0];
 
-    custom_perfume_formData.append("title", title);
-    if (JSON.parse(sessionStorage.getItem("note01"))!=null){
-        custom_perfume_formData.append("note01", JSON.parse(sessionStorage.getItem("note01")));
+    // 로고가 있을때
+    if(logo!=undefined){
+        if (JSON.parse(sessionStorage.getItem("note01"))!=null){
+            custom_perfume_formData.append("note01", JSON.parse(sessionStorage.getItem("note01")));
+        }
+        if (JSON.parse(sessionStorage.getItem("note02"))!=null){
+            custom_perfume_formData.append("note02", JSON.parse(sessionStorage.getItem("note02")));
+        }
+        if (JSON.parse(sessionStorage.getItem("note03"))!=null){
+            custom_perfume_formData.append("note03", JSON.parse(sessionStorage.getItem("note03")));
+        }
+        custom_perfume_formData.append("title", title);
+        custom_perfume_formData.append("package", JSON.parse(sessionStorage.getItem("package")));
+        custom_perfume_formData.append("logo", logo);
     }
-    if (JSON.parse(sessionStorage.getItem("note02"))!=null){
-        custom_perfume_formData.append("note02", JSON.parse(sessionStorage.getItem("note02")));
-    }
-    if (JSON.parse(sessionStorage.getItem("note03"))!=null){
-        custom_perfume_formData.append("note03", JSON.parse(sessionStorage.getItem("note03")));
-    }
-    custom_perfume_formData.append("package", JSON.parse(sessionStorage.getItem("package")));
-    custom_perfume_formData.append("logo", logo);
 
-    if (title == "" || logo == "") {
+    // 로고가 없을때 
+    else{
+        if (JSON.parse(sessionStorage.getItem("note01"))!=null){
+            custom_perfume_json.note01=JSON.parse(sessionStorage.getItem("note01"));
+        }
+        if (JSON.parse(sessionStorage.getItem("note02"))!=null){
+            custom_perfume_json.note02=JSON.parse(sessionStorage.getItem("note02"));
+        }
+        if (JSON.parse(sessionStorage.getItem("note03"))!=null){
+            custom_perfume_json.note03=JSON.parse(sessionStorage.getItem("note03"));
+        }
+        custom_perfume_json.title=title;
+        custom_perfume_json.package=JSON.parse(sessionStorage.getItem("package"));
+    }
+
+    if (title == "") {
         alert("빈칸을 채워주세요!")
     }
-    else {
+
+    // 로고가 있을때 POST (FormData 형태)
+    else if(logo!=undefined){
         const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/',{
             method: 'POST',
             headers: {
                 "Authorization":"Bearer " + localStorage.getItem("access"),
             },
             body: custom_perfume_formData,
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`${response.status} 에러가 발생했습니다.`);
+            }
+            return response.json()
+        }).then(result => {
+            alert("향수 생성에 성공했습니다!")
+            sessionStorage.clear()
+            location.href="/custom_perfume_complete.html?custom_perfume="+result.id
+        }).catch(error => {
+            alert("향수 생성에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
+            console.warn(error.message);
+        });
+    }
+
+    // 로고가 없을때 POST (JSON 형태)
+    else {        
+        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/',{
+            method: 'POST',
+            headers: {
+                "Authorization":"Bearer " + localStorage.getItem("access"),
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(custom_perfume_json),
         }).then(response => {
             if (!response.ok) {
                 throw new Error(`${response.status} 에러가 발생했습니다.`);

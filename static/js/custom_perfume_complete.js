@@ -64,7 +64,12 @@ async function handleCustomPerfume() {
         }else{
             document.getElementById("note03").innerHTML = '<div></div>'
         }
-        document.getElementById("logo").innerHTML = '<img class="logo" aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000'+response_json['logo']+'">'
+        if (response_json['logo']!=null){
+            document.getElementById("logo").innerHTML = '<img class="logo" aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000'+response_json['logo']+'">'
+        }
+        else{
+            document.getElementById("logo").innerHTML = '<div></div>'
+        }
         document.getElementById("name").innerText = response_json['title']
     })
 }
