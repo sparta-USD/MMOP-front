@@ -115,6 +115,7 @@ function appendMyCustomList(dataset, element){
                 </div>
                 <div class="card_body">
                     <div class="card_content">
+                        <p class="item_card_editor"><span class="username">${data['creator_username']}</span></p>
                         <p class="item_card_title"><span class="title">${data["title"]}</span></p>
                         <p class="item_card_tag">
                             ${data["note01"]? `<span class="tag">#${data["note01"]["name"]}</span>` : ``}
