@@ -104,9 +104,9 @@ function append_custom_perfume_list(custom_data){
                             <p class="item_card_editor"><span class="username">${data['creator']}</span></p>
                             <p class="item_card_title"><span class="title">${data['title']}</span></p>
                             <p class="item_card_tag">
-                                <span class="tag">#${data["note01"]["name"]}</span>
-                                <span class="tag">#${data["note02"]["name"]}</span>
-                                <span class="tag">#${data["note03"]["name"]}</span>
+                                ${data["note01"]? `<span class="tag">#${data["note01"]["name"]}</span>` : ``}
+                                ${data["note02"]? `<span class="tag">#${data["note02"]["name"]}</span>` : ``}
+                                ${data["note03"]? `<span class="tag">#${data["note03"]["name"]}</span>` : ``}
                             </p>
                         </div>
                     </div>

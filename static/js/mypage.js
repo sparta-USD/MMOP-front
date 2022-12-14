@@ -108,18 +108,18 @@ function appendMyCustomList(dataset, element){
                         <img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data["logo"]}">
                     </div>
                     <div class="materials">
-                        ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
-                        ${data["note02"]? `<div class="perfume_images material"><img src="${data["note02"]["image"]}"></div>` : ``}
-                        ${data["note03"]? `<div class="perfume_images material"><img src="${data["note03"]["image"]}"></div>` : ``}
+                    ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
+                    ${data["note02"]? `<div class="perfume_images material"><img src="${data["note02"]["image"]}"></div>` : ``}
+                    ${data["note03"]? `<div class="perfume_images material"><img src="${data["note03"]["image"]}"></div>` : ``}
                     </div>
                 </div>
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data["title"]}</span></p>
                         <p class="item_card_tag">
-                            <span class="tag">#${data["note01"]["name"]}</span>
-                            <span class="tag">#${data["note02"]["name"]}</span>
-                            <span class="tag">#${data["note03"]["name"]}</span>
+                            ${data["note01"]? `<span class="tag">#${data["note01"]["name"]}</span>` : ``}
+                            ${data["note02"]? `<span class="tag">#${data["note02"]["name"]}</span>` : ``}
+                            ${data["note03"]? `<span class="tag">#${data["note03"]["name"]}</span>` : ``}
                         </p>
                     </div>
                 </div>
