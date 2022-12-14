@@ -300,6 +300,35 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     width: 200px;
     margin: 8px;
 }
+/*  */
+.none_result_list{
+    text-align: center;
+    min-height: 350px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 5px var(--base-gray-ef);
+    border-bottom: solid 5px var(--base-gray-ef);
+}
+.none_result_list h3{
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.none_result_list p{
+    width: 100%;
+    color: var(--base-gray-999);
+    line-height: 1.36;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+.none_result_list .btn_wrap{
+    width: 100%;
+    margin-top: 32px;
+}
 
 /*********************/
 /*     item_card     */
