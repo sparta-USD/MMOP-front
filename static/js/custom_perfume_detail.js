@@ -22,7 +22,7 @@ async function handleCustomDetail(){
         alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
         history.back();
     }
-    const response = await fetch(`http://127.0.0.1:8000/custom_perfume/${get_custom_perfume}/`, {
+    const response = await fetch(`http://3.39.240.251/custom_perfume/${get_custom_perfume}/`, {
         headers: {
             "content-type": "application/json",
         },
@@ -36,7 +36,7 @@ async function handleCustomDetail(){
         const response_json = result;
         document.querySelector(".perfume_image").src = result.package.image
         if(response_json['logo']!=null){
-            document.querySelector(".logo_image img").src = `http://127.0.0.1:8000${result.logo}`
+            document.querySelector(".logo_image img").src = `http://3.39.240.251${result.logo}`
         }
         else{
             document.querySelector(".logo_image").innerHTML = `<div></div>`

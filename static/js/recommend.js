@@ -11,7 +11,7 @@ async function handlePerfumeRecommend(){
             "Authorization":"Bearer " + localStorage.getItem("access"),
         }
     }
-    const response = await fetch('http://127.0.0.1:8000/perfume/recommend/',{
+    const response = await fetch('http://3.39.240.251/perfume/recommend/',{
         headers: header,
         method: 'GET',
     }).then(response => {

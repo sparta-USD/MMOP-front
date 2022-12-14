@@ -11,7 +11,7 @@ async function handlePackage() {
         alert("용기를 선택하셔야 됩니다!")
         location.href="/custom_perfume_package.html"
     }else{
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
             method: 'GET',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -126,7 +126,7 @@ async function handleCreateMmop() {
 
     // 로고가 있을때 POST (FormData 형태)
     else if(logo!=undefined){
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/',{
+        const response = await fetch('http://3.39.240.251/custom_perfume/custom/',{
             method: 'POST',
             headers: {
                 "Authorization":"Bearer " + localStorage.getItem("access"),
@@ -149,7 +149,7 @@ async function handleCreateMmop() {
 
     // 로고가 없을때 POST (JSON 형태)
     else {        
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/',{
+        const response = await fetch('http://3.39.240.251/custom_perfume/custom/',{
             method: 'POST',
             headers: {
                 "Authorization":"Bearer " + localStorage.getItem("access"),

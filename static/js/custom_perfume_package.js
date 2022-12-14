@@ -8,7 +8,7 @@ async function handleCategory() {
         alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
     }else{
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -98,7 +98,7 @@ function append_package_list(dataset, element) {
 
 // 용기 선택
 async function handlePick(clicked_id) {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -119,7 +119,7 @@ async function handlePick(clicked_id) {
 
 // 용기 삭제
 async function handlePickDelete(){
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    const response = await fetch('http://3.39.240.251/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",

@@ -14,7 +14,7 @@ window.onpageshow = function(event) {
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/',{
+    const response = await fetch('http://3.39.240.251/perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -66,7 +66,7 @@ function append_top_perfume_list(top_data,element){
 
 // 2. 최근 제작한 커스텀 향수 불러오기 API 통신
 async function handleCustomPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/',{
+    const response = await fetch('http://3.39.240.251/custom_perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -99,7 +99,7 @@ function append_custom_perfume_list(custom_data){
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                         </div>
                         <div class="logo_image">
-                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">` : ``}
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://3.39.240.251${data['logo']}">` : ``}
                         </div>
                         <div class="materials">
                             ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}

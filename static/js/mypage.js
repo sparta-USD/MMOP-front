@@ -52,7 +52,7 @@ function tabChange(tab_menu){
 
 // Mypage 연결 
 async function handleMypage() {
-    const response = await fetch('http://127.0.0.1:8000/users/', {
+    const response = await fetch('http://3.39.240.251/users/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -105,7 +105,7 @@ function appendMyCustomList(dataset, element){
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data["package"]["image"]}">
                         </div>
                         <div class="logo_image">
-                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data["logo"]}">` : ``}
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://3.39.240.251${data["logo"]}">` : ``}
                         </div>
                         <div class="materials">
                         ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
@@ -153,7 +153,7 @@ $('#deleteModal').on('show.bs.modal', function(event) {
 });
 // 1-1. 커스텀 탭 - 커스텀 퍼퓸 삭제
 async function DeleteCustomPerfume(custom_perfume_id) {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/'+custom_perfume_id+'/',{
+    const response = await fetch('http://3.39.240.251/custom_perfume/'+custom_perfume_id+'/',{
         method:'DELETE',
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
@@ -265,7 +265,7 @@ function appendMyReviewList(dataset, element) {
                             </div>
                             <div>
                                 <div class="review_result_image_box">
-                                    ${data["image"] ? ` <img class="review_result_image" src="http://127.0.0.1:8000${data["image"]}"}` : ``}
+                                    ${data["image"] ? ` <img class="review_result_image" src="http://3.39.240.251${data["image"]}"}` : ``}
                                 </div>
                             </div>
                         </div>
@@ -319,7 +319,7 @@ async function EditReview(review_id) {
         alert("최소 10자 이상 - 500자 이내로 작성해주세요!")
     }
     else{
-    const response = await fetch('http://127.0.0.1:8000/perfume/reviews/'+review_id+'/',{
+    const response = await fetch('http://3.39.240.251/perfume/reviews/'+review_id+'/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -341,7 +341,7 @@ async function EditReview(review_id) {
         document.getElementById("review_"+review_id).querySelector(".review_good_content").innerText = result['good_content']
         document.getElementById("review_"+review_id).querySelector(".review_bad_content").innerText = result['bad_content']
         document.getElementById("review_"+review_id).querySelector(".review_result_image_box").innerHTML =`
-            ${result["image"] ? `<img class="review_result_image" src="http://127.0.0.1:8000${result["image"]}">` : ``}
+            ${result["image"] ? `<img class="review_result_image" src="http://3.39.240.251${result["image"]}">` : ``}
         ` 
 
     }).catch(error => {
@@ -358,7 +358,7 @@ $('#reviewDeleteModal').on('show.bs.modal', function(event) {
 });
 // 2-2. 리뷰 탭 - 리뷰 삭제
 async function DeleteReviewPerfume(review_id) {
-    const response = await fetch('http://127.0.0.1:8000/perfume/reviews/'+review_id+'/',{
+    const response = await fetch('http://3.39.240.251/perfume/reviews/'+review_id+'/',{
         method:'DELETE',
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
@@ -456,7 +456,7 @@ async function clickLike(e,el){
     e.preventDefault();
     perfume_id = target = el.closest(".item_card").getAttribute("id").replace("like_perfume_","");
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/'+perfume_id+'/like/', {
+    const response = await fetch('http://3.39.240.251/perfume/'+perfume_id+'/like/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -515,7 +515,7 @@ async function handleUpdateProfile() {
     profile_formData.append("username",username);
     profile_formData.append("phone_number",phone_number);
 
-    const response = await fetch('http://127.0.0.1:8000/users/',{
+    const response = await fetch('http://3.39.240.251/users/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -564,7 +564,7 @@ async function handlePasswordReset() {
         profile_formData.append("password2",password2);
     }
     
-    const response = await fetch('http://127.0.0.1:8000/users/',{
+    const response = await fetch('http://3.39.240.251/users/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
