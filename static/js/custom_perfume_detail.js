@@ -33,8 +33,14 @@ async function handleCustomDetail(){
         }
         return response.json()
     }).then(result => {
+        const response_json = result;
         document.querySelector(".perfume_image").src = result.package.image
-        document.querySelector(".logo_image img").src = `http://127.0.0.1:8000${result.logo}`
+        if(response_json['logo']!=null){
+            document.querySelector(".logo_image img").src = `http://127.0.0.1:8000${result.logo}`
+        }
+        else{
+            document.querySelector(".logo_image").innerHTML = `<div></div>`
+        }
         document.querySelector(".perfume_creator").innerText = result.creator_username
         document.querySelector(".perfume_title").innerText = result.title
         document.querySelector(".perfume_create").innerText = changeDateTimeFormat(result.created_at)
