@@ -60,8 +60,14 @@ async function handleCategory() {
         let package_list_5 = document.getElementById("tab_05").querySelector(".row")
         append_package_list(category5,package_list_5)
 
+        // 용기 이미지
         if ( JSON.parse(sessionStorage.getItem("package")) != null ){
-            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+            $.each(response_json['packages'],function(idx,row){
+                if(response_json['packages'][idx].id==JSON.parse(sessionStorage.getItem("package"))){
+                    package_pick = response_json['packages'][idx]['image']
+                }
+            })
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
         }
     
     }).catch(error => {
@@ -107,8 +113,14 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
+
+        $.each(response_json['packages'],function(idx,row){
+            if(response_json['packages'][idx].id==clicked_id){
+                package_pick = response_json['packages'][idx]['image']
+            }
+        })
         if (JSON.parse(sessionStorage.getItem("package"))==null){
-            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['packages'][clicked_id-1]['image'] + '"><button class="delete_button" onclick="handlePickDelete()">x'
+            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
             package_ = clicked_id
             sessionStorage.setItem("package", JSON.stringify(package_));
         } else{

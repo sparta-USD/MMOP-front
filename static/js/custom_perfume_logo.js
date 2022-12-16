@@ -26,35 +26,65 @@ async function handlePackage() {
             return response.json()
         }).then(result => {
             const response_json = result;
-            document.getElementById("package").innerHTML = '<img class="package" id="package" aria-hidden="false" draggable="false" loading="lazy" src="'+response_json['packages'][JSON.parse(sessionStorage.getItem("package"))-1]['image']+'">'
+
+            // 용기 이미지
+            $.each(response_json['packages'],function(idx,row){
+                if(response_json['packages'][idx].id==JSON.parse(sessionStorage.getItem("package"))){
+                    package_pick = response_json['packages'][idx]['image']
+                }
+            })
+
+            // 향1 이미지 
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
+                    note01_pick = response_json['notes'][idx]['image']
+                }
+            })
+
+            // 향2 이미지 
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
+                    note02_pick = response_json['notes'][idx]['image']
+                }
+            })
+
+            // 향3 이미지 
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
+                    note03_pick = response_json['notes'][idx]['image']
+                }
+            })
+
+            document.getElementById("package").innerHTML = '<img class="package" id="package" aria-hidden="false" draggable="false" loading="lazy" src="' + package_pick + '">'
+            
             if(JSON.parse(sessionStorage.getItem("note01"))!=null){
-                document.getElementById("note01").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note01"))-1]['image']+'"></div>'
+                document.getElementById("note01").innerHTML = '<div class="circle1"><img class="note" src="' + note01_pick + '"></div>'
             }else{
                 document.getElementById("note01").innerHTML = '<div></div>'
             }
 
             if(JSON.parse(sessionStorage.getItem("note02"))!=null){
                 if (JSON.parse(sessionStorage.getItem("note01"))!=null){
-                    document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                    document.getElementById("note02").innerHTML = '<div class="circle2"><img class="note" src="' + note02_pick + '"></div>'
                 }
                 if (JSON.parse(sessionStorage.getItem("note01"))==null){
-                    document.getElementById("note02").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note02"))-1]['image']+'"></div>'
+                    document.getElementById("note02").innerHTML = '<div class="circle1"><img class="note" src="' + note02_pick + '"></div>'
                 }
             }else{
                 document.getElementById("note02").innerHTML = '<div></div>'
             }
             if(JSON.parse(sessionStorage.getItem("note03"))!=null){
                 if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))!=null){
-                    document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                    document.getElementById("note03").innerHTML = '<div class="circle3"><img class="note" src="' + note03_pick + '"></div>'
                 }
                 if (JSON.parse(sessionStorage.getItem("note01"))!=null && JSON.parse(sessionStorage.getItem("note02"))==null){
-                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="' + note03_pick + '"></div>'
                 }
                 if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))!=null){
-                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                    document.getElementById("note03").innerHTML = '<div class="circle2"><img class="note" src="' + note03_pick + '"></div>'
                 }
                 if (JSON.parse(sessionStorage.getItem("note01"))==null && JSON.parse(sessionStorage.getItem("note02"))==null){
-                    document.getElementById("note03").innerHTML = '<div class="circle1"><img class="note" src="'+response_json['notes'][JSON.parse(sessionStorage.getItem("note03"))-1]['image']+'"></div>'
+                    document.getElementById("note03").innerHTML = '<div class="circle1"><img class="note" src="' + note03_pick + '"></div>'
                 }
             }else{
                 document.getElementById("note03").innerHTML = '<div></div>'

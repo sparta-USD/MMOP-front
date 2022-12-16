@@ -98,15 +98,36 @@ async function handleCategory() {
         append_note_list(category11,note_list_11)
         let note_list_12 = document.getElementById("tab_012").querySelector(".row")
         append_note_list(category12,note_list_12)
+        
+        // 향1 이미지
+        $.each(response_json['notes'],function(idx,row){
+            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
+                note01_pick = response_json['notes'][idx]['image']
+            }
+        })
 
+        // 향2 이미지
+        $.each(response_json['notes'],function(idx,row){
+            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
+                note02_pick = response_json['notes'][idx]['image']
+            }
+        })
+
+        // 향3 이미지
+        $.each(response_json['notes'],function(idx,row){
+            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
+                note03_pick = response_json['notes'][idx]['image']
+            }
+        })
+        
         if ( JSON.parse(sessionStorage.getItem("note01")) != null ){
-            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note01")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note01")) + '"><button class="delete_button" onclick="handlePickDelete1()">x'
+            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note01_pick + '" id="' + JSON.parse(sessionStorage.getItem("note01")) + '"><button class="delete_button" onclick="handlePickDelete1()">x'
         }
         if ( JSON.parse(sessionStorage.getItem("note02")) != null ){
-            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note02")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note02")) + '"><button class="delete_button" onclick="handlePickDelete2()">x'
+            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note02_pick + '" id="' + JSON.parse(sessionStorage.getItem("note02")) + '"><button class="delete_button" onclick="handlePickDelete2()">x'
         }
         if ( JSON.parse(sessionStorage.getItem("note03")) != null ){
-            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][JSON.parse(sessionStorage.getItem("note03")) - 1]['image'] + '" id="' + JSON.parse(sessionStorage.getItem("note03")) + '"><button class="delete_button" onclick="handlePickDelete3()">x'
+            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note03_pick + '" id="' + JSON.parse(sessionStorage.getItem("note03")) + '"><button class="delete_button" onclick="handlePickDelete3()">x'
         }
     
     }).catch(error => {
@@ -150,11 +171,19 @@ async function handlePick(clicked_id) {
         return response.json()
     }).then(result => {
         const response_json = result;
+
+        // 선택한 id값과 같은 id값의 이미지 불러오기
+        $.each(response_json['notes'],function(idx,row){
+            if(response_json['notes'][idx].id==clicked_id){
+                note_pick = response_json['notes'][idx]['image']
+            }
+        })
+
         if ( JSON.parse(sessionStorage.getItem("note01")) == null ) {
             if ( JSON.parse(sessionStorage.getItem("note02")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
-                document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete1()">x'
+                document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete1()">x'
                 note01 = clicked_id
                 sessionStorage.setItem("note01", JSON.stringify(note01));
             }
@@ -162,7 +191,7 @@ async function handlePick(clicked_id) {
             if ( JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
-                document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
+                document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
                 note02 = clicked_id
                 sessionStorage.setItem("note02", JSON.stringify(note02));
             }
@@ -170,7 +199,7 @@ async function handlePick(clicked_id) {
             if (JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note02")) == clicked_id ){
                 alert("동일한 향은 선택하실 수 없습니다.")
             }else{
-                document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + response_json['notes'][clicked_id - 1]['image'] + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
+                document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
                 note03 = clicked_id
                 sessionStorage.setItem("note03", JSON.stringify(note03));
             }
@@ -238,36 +267,30 @@ async function handlePickDelete3(){
 // 다음 step 버튼
 function handleNext(){
 
+    var sum = !!JSON.parse(sessionStorage.getItem("note01")) + !!JSON.parse(sessionStorage.getItem("note02")) + !!JSON.parse(sessionStorage.getItem("note03"))
+
     // 하나도 없을 때
-    if( JSON.parse(sessionStorage.getItem("note01")) == null && JSON.parse(sessionStorage.getItem("note02")) == null && JSON.parse(sessionStorage.getItem("note03")) == null ){
+    if (sum == 0) {
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 한가지 이상 선택해주세요.`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
         `;
     }
-    // 한개나 두개 골랐을때,
-    else if( JSON.parse(sessionStorage.getItem("note01")) == null || JSON.parse(sessionStorage.getItem("note02")) == null || JSON.parse(sessionStorage.getItem("note03")) == null ){
-        // 용기가 없을때,
-        if( JSON.parse(sessionStorage.getItem("package")) == null ){
-            $("#Modal").modal("show");
-            document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sessionStorage.length-1}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
-            document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+
+    // 한개나 두개 골랐을 때,
+    if (0 < sum <= 2) {
+        $("#Modal").modal("show");
+        document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sum}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
+        document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
                 <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
             `;
-        }
-        // 용기가 있을때,
-        else{
-            $("#Modal").modal("show");
-            document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sessionStorage.length-2}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
-            document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
-                <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-            `;
-        }
-    }else{
-        location.href="/custom_perfume_package.html"
+    }
+    
+    // 다 골랐을 때
+    if (sum == 3) {
+        location.href = "/custom_perfume_package.html"
     }
 }
 
