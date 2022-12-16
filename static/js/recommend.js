@@ -11,7 +11,7 @@ async function handlePerfumeRecommend(){
             "Authorization":"Bearer " + localStorage.getItem("access"),
         }
     }
-    const response = await fetch('http://3.39.240.251/perfume/recommend/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/recommend/',{
         headers: header,
         method: 'GET',
     }).then(response => {

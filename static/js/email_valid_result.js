@@ -13,7 +13,7 @@ async function handleEmailValid(){
     let url_uidb64 = getParams("uidb64");
     let url_token = getParams("token");
 
-    const response = await fetch('http://3.39.240.251/users/activate/'+ url_uidb64 +'/'+url_token,{
+    const response = await fetch('https://api.mmop-perfume.com/users/activate/'+ url_uidb64 +'/'+url_token,{
         headers: {
             "content-type": "application/json",
         },

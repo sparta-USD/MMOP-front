@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 // 1. 랜덤 추천 목록 불러오기
 async function handlePerfumeRandom(){
-    const response = await fetch('http://3.39.240.251/perfume/random/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/random/',{
         headers: {
             
         },
@@ -70,7 +70,7 @@ async function handleSurveySubmit(){
     for(var i=0; i<survey_checked_perfume.length; i++){
         survey.push(Number(survey_checked_perfume[i].value));
     }
-    const response = await fetch('http://3.39.240.251/perfume/survey/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/survey/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
             "Content-Type": "application/json",
