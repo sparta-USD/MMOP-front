@@ -67,7 +67,6 @@ async function handleMypage() {
         return response.json()
     }).then(result => {
         const response_json = result;
-
         // 1. 커스텀 탭 - 커스텀 향수 리스트 삽입
         let element_my_custom_perfume_list = document.getElementById("my_custom_perfume_list").querySelector(".row")
         appendMyCustomList(response_json['custom_perfume'], element_my_custom_perfume_list)
@@ -185,94 +184,108 @@ async function DeleteCustomPerfume(custom_perfume_id) {
 }
 
 
-
 // 2. 리뷰 탭 - 리뷰 리스트 삽입
 function appendMyReviewList(dataset, element) {
     if(dataset.length){
         element.innerHTML = '';
         dataset.forEach(data => {
-            let new_item = document.createElement('div');
-            new_item.className = 'accordion-item';
-            new_item.id = `review_${data["id"]}`;
-            new_item.innerHTML = `
-                <h2 class="accordion-header" id="flush-heading${data["id"]}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${data["id"]}" aria-expanded="false" aria-controls="flush-collapse${data["id"]}">
-                        <p>${data["perfume"]["title"]}</p>
-                        <div class="review_star_grade">
-                            <div class="starpoint_wrap">
-                                <div class="starpoint_box star_${data["grade"]*20}">
-                                    <label for="starpoint_1" class="label_star" title="0.5"><span
-                                            class="blind">0.5점</span></label>
-                                    <label for="starpoint_2" class="label_star" title="1"><span
-                                            class="blind">1점</span></label>
-                                    <label for="starpoint_3" class="label_star" title="1.5"><span
-                                            class="blind">1.5점</span></label>
-                                    <label for="starpoint_4" class="label_star" title="2"><span
-                                            class="blind">2점</span></label>
-                                    <label for="starpoint_5" class="label_star" title="2.5"><span
-                                            class="blind">2.5점</span></label>
-                                    <label for="starpoint_6" class="label_star" title="3"><span
-                                            class="blind">3점</span></label>
-                                    <label for="starpoint_7" class="label_star" title="3.5"><span
-                                            class="blind">3.5점</span></label>
-                                    <label for="starpoint_8" class="label_star" title="4"><span
-                                            class="blind">4점</span></label>
-                                    <label for="starpoint_9" class="label_star" title="4.5"><span
-                                            class="blind">4.5점</span></label>
-                                    <label for="starpoint_10" class="label_star" title="5"><span
-                                            class="blind">5점</span></label>
-                                    <span class="starpoint_bg"></span>
+                let new_item = document.createElement('div');
+                new_item.className = 'accordion-item';
+                new_item.id = `review_${data["id"]}`;
+                new_item.innerHTML = `
+                    <h2 class="accordion-header" id="flush-heading${data["id"]}">
+                        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${data["id"]}" aria-expanded="false" aria-controls="flush-collapse${data["id"]}">
+                            <div class="review_header_box">
+                                <div class="review_header_first">
+                                    <div>
+                                        <a href="/perfume.html?perfume=${data["perfume"]['id']}">
+                                            <div class="review_perfume_image_box">
+                                                <img class="review_perfume_result_image" src="${data["perfume"]["image"]}">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="review_header">
+                                        <div class="review_header_title">
+                                            <a href="/perfume.html?perfume=${data["perfume"]['id']}">
+                                                <p>${data["perfume"]["title"]}</p>
+                                            </a>
+                                            <div class="review_star_grade">
+                                                <div class="starpoint_wrap">
+                                                    <div class="starpoint_box star_${data["grade"]*20}">
+                                                        <label for="starpoint_1" class="label_star" title="0.5"><span
+                                                                class="blind">0.5점</span></label>
+                                                        <label for="starpoint_2" class="label_star" title="1"><span
+                                                                class="blind">1점</span></label>
+                                                        <label for="starpoint_3" class="label_star" title="1.5"><span
+                                                                class="blind">1.5점</span></label>
+                                                        <label for="starpoint_4" class="label_star" title="2"><span
+                                                                class="blind">2점</span></label>
+                                                        <label for="starpoint_5" class="label_star" title="2.5"><span
+                                                                class="blind">2.5점</span></label>
+                                                        <label for="starpoint_6" class="label_star" title="3"><span
+                                                                class="blind">3점</span></label>
+                                                        <label for="starpoint_7" class="label_star" title="3.5"><span
+                                                                class="blind">3.5점</span></label>
+                                                        <label for="starpoint_8" class="label_star" title="4"><span
+                                                                class="blind">4점</span></label>
+                                                        <label for="starpoint_9" class="label_star" title="4.5"><span
+                                                                class="blind">4.5점</span></label>
+                                                        <label for="starpoint_10" class="label_star" title="5"><span
+                                                                class="blind">5점</span></label>
+                                                        <span class="starpoint_bg"></span>
+                                                    </div>
+                                                </div>
+                                                <span class="review_user_grade">${data["grade"]}</span>
+                                            </div>
+                                        </div>
+                                        <div class="sec_review_userinfo">
+                                            <div class="review_user_info">
+                                                <div class="review_username">
+                                                ${data["user"]}
+                                                </div>
+                                                <div class="review_created_time">${changeDateTimeFormat(data["created_at"])}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sec_review_head">
+                                    <div class="review_btn_wrap">
+                                        <button class="btn btn_default btn_border review-edit-button" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo">수정</button>
+                                        <button class="btn btn_default review-delete-button" type="button" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal" data-bs-whatever="@mdo">삭제</button>
+                                    </div>
                                 </div>
                             </div>
-                            <span class="review_user_grade">${data["grade"]}</span>
                         </div>
-                    </button>
-                </h2>
-                <div id="flush-collapse${data["id"]}" class="accordion-collapse collapse" aria-labelledby="flush-heading${data["id"]}" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="sec_review_head">
-                            <div class="sec_review_userinfo">
-                                <div class="review_user_info">
-                                    <div class="review_username">
-                                    ${data["user"]}
+                    </h2>
+                    <div id="flush-collapse${data["id"]}" class="accordion-collapse collapse" aria-labelledby="flush-heading${data["id"]}" data-bs-parent="#accordionFlushExample" >
+                        <div class="accordion-body" ${data["good_content"]=='' && data["bad_content"]=='' ? `style="display:none"` : ``}>
+                            <div class="sec_review_body">
+                                <div class="review_body_content">
+                                    <div class="review_good">
+                                        <div class="review_good_image">
+                                            <i class="bi bi-emoji-smile"></i>
+                                        </div>
+                                        <div class="review_good_content">
+                                            ${data["good_content"]}
+                                        </div>
                                     </div>
-                                    <div class="review_created_time">${changeDateTimeFormat(data["created_at"])}</div>
-                                </div>
-                            </div>
-                            <div class="review_btn_wrap">
-                                <button class="btn btn_default btn_border review-edit-button" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo">수정</button>
-                                <button class="btn btn_default review-delete-button" type="button" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal" data-bs-whatever="@mdo">삭제</button>
-                            </div>
-                        </div>
-                        <div class="sec_review_body">
-                            <div class="review_body_content">
-                                <div class="review_good">
-                                    <div class="review_good_image">
-                                        <i class="bi bi-emoji-smile"></i>
-                                    </div>
-                                    <div class="review_good_content">
-                                        ${data["good_content"]}
+                                    <div class="review_bad">
+                                        <div class="review_bad_image">
+                                            <i class="bi bi-emoji-frown"></i>
+                                        </div>
+                                        <div class="review_bad_content">
+                                            ${data["bad_content"]}
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="review_bad">
-                                    <div class="review_bad_image">
-                                        <i class="bi bi-emoji-frown"></i>
-                                    </div>
-                                    <div class="review_bad_content">
-                                        ${data["bad_content"]}
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
+                            <div class="review_image_box">
                                 <div class="review_result_image_box">
                                     ${data["image"] ? ` <img class="review_result_image" src="https://api.mmop-perfume.com${data["image"]}"}` : ``}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-            `;
+                `;
             element.append(new_item);
         });
     }else{
@@ -338,8 +351,11 @@ async function EditReview(review_id) {
 
         document.getElementById("review_"+review_id).querySelector("h2 .review_star_grade .review_user_grade").innerText = result['grade']
         document.getElementById("review_"+review_id).querySelector("h2 .review_star_grade .starpoint_box").className = `starpoint_box star_${result['grade']*20}`
-        document.getElementById("review_"+review_id).querySelector(".review_good_content").innerText = result['good_content']
+        document.getElementById("review_"+review_id).querySelector(".review_good_content").innerText = result["good_content"]
+        const element = document.getElementById("review_"+review_id).querySelector(".accordion-body");
+        element.style.display = 'block';
         document.getElementById("review_"+review_id).querySelector(".review_bad_content").innerText = result['bad_content']
+
         document.getElementById("review_"+review_id).querySelector(".review_result_image_box").innerHTML =`
             ${result["image"] ? `<img class="review_result_image" src="https://api.mmop-perfume.com${result["image"]}">` : ``}
         ` 
@@ -388,6 +404,10 @@ async function DeleteReviewPerfume(review_id) {
         alert("삭제에 실패하였습니다. \n 자세한 내용은 관리자에게 문의해주세요!");
         console.warn(error.message);
     });
+}
+// 2-3 설문조사 리뷰 내용 삭제
+function appendSurveyReviewList(dataset, element){
+
 }
 
 // 3. 찜 탭 - 찜한 향수 리스트 삽입
