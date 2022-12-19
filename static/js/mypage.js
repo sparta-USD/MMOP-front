@@ -405,10 +405,6 @@ async function DeleteReviewPerfume(review_id) {
         console.warn(error.message);
     });
 }
-// 2-3 설문조사 리뷰 내용 삭제
-function appendSurveyReviewList(dataset, element){
-
-}
 
 // 3. 찜 탭 - 찜한 향수 리스트 삽입
 function appendLikePerfumeList(dataset, element) {
