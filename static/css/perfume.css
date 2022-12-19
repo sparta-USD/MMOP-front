@@ -134,7 +134,20 @@ hr{
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
+}
+.tab_name_box .tab_perfume_desc{
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: 6rem;
+    text-align: center;
+}
+.tab_name_box .tab_perfume_desc_ko{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--base-gray-999);
 }
 /* 향 테이블 */
 .tab_detail_content{
