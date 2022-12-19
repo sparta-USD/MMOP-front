@@ -6,7 +6,7 @@
     background-position: center;
     background: rgba(255,255,255,0.6);
     
-    margin-top: 15vh;
+    margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -32,6 +32,9 @@
     opacity: 0.9;
     backdrop-filter: blur(30px); */
 
+}
+.swiper.main_banner .swiper-slide img{
+    width: 250px;
 }
 .swiper.main_banner .swiper-slide h1{
     width: 100%;
