@@ -236,7 +236,7 @@ function perfume_recommend_tab(recommend_data){
     recommend_list.innerHTML = '';
     recommend_data.forEach(data => {
         let new_recommend_list = document.createElement('div');
-        new_recommend_list.className = 'col-lg-3 col-md-4 col-6';
+        new_recommend_list.className = 'col-lg-2 col-md-2 col-6';
         new_recommend_list.id = 'perfume_'+data['id'];
         new_recommend_list.innerHTML = `
             <a href="/perfume.html?perfume=${data['id']}">

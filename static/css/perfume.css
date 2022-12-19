@@ -141,6 +141,8 @@ hr{
     font-weight: 500;
     margin-top: 6rem;
     text-align: center;
+    line-height: 3rem;
+    word-break: keep-all;
 }
 .tab_name_box .tab_perfume_desc_ko{
     font-size: 1.2rem;
@@ -148,6 +150,8 @@ hr{
     margin-top: 4rem;
     text-align: center;
     color: var(--base-gray-999);
+    line-height: 3rem;
+    word-break: keep-all;
 }
 /* 향 테이블 */
 .tab_detail_content{
@@ -291,4 +295,7 @@ hr{
 /* 3. 추천제품 탭 */
 .perfume_recommend_list{
     margin: 75px 0 100px;
+}
+.sec .section_header{
+    margin-top: 200px;
 }
