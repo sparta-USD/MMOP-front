@@ -568,7 +568,6 @@ document.getElementById("btn_password_reset").addEventListener("click",function(
 });
 
 async function handlePasswordReset() {
-    const origin_password = document.getElementById("profile_origin_password").value;
     const password = document.getElementById("profile_password").value;
     const password2 = document.getElementById("profile_password2").value;
 
