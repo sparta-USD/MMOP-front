@@ -37,6 +37,7 @@ async function handleBrandInfo(){
 // 1. 기본 향수제품정보 불러오기
 function brand_info(data){
     const element = document.querySelector(".container_brand_detail");
+    const element2 = document.querySelector(".brand_desc_box");
     element.querySelector(".brand_image_box").innerHTML=`
         <img class="brand_image" src="${data['image']? data['image']: "/static/images/perfume.png"}">
     `;
@@ -52,16 +53,16 @@ function brand_info(data){
     
     // 설명
     if(data['brand_desc']){
-        element.querySelector(".col_desc_1").innerText = data['brand_desc'];
+        element2.querySelector(".tab_brand_desc").innerText = data['brand_desc'];
     }else{
-        element.querySelector(".brand_desc_2").remove();
+        element2.querySelector(".tab_brand_desc").remove();
     }
 
     // 영문설명
     if(data['brand_desc_ko']){
-        element.querySelector(".col_desc_ko_1").innerText = data['brand_desc_ko'];
+        element2.querySelector(".tab_brand_desc_ko").innerText = data['brand_desc_ko'];
     }else{
-        element.querySelector(".brand_desc_ko").remove();
+        element2.querySelector(".tab_brand_desc_ko").remove();
     }
 }
 
