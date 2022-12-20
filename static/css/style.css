@@ -169,20 +169,34 @@ a, a:hover{
     justify-content: space-between;
 }
 
-input.form-control, textarea.form-control{
+input.form-control, textarea.form-control,.search_row{
     border-radius: 0;
     padding: 0.5em 0.75em;
     border: solid 1px var(--base-gray-ccc);
     resize: none;
 }
-input.form-control:focus, textarea.form-control:focus{
+input.form-control:focus, textarea.form-control:focus, .search_row:focus{
     border-radius: 0;
     border: solid 1px var(--base-gray-dark);
     box-shadow:unset;
 }
-input.form-control::placeholder, textarea.form-control::placeholder{
+input.form-control::placeholder, textarea.form-control::placeholder, .search_row input::placeholder{
     color: var(--base-gray-999);
     font-weight: 300;
+}
+.search_row{
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+}
+.search_row input{
+    border: 0;
+    outline: 0;
+    width:100%;
+    font-size: 1rem;
+    padding: 0px 16px;
+    height: 24px;
 }
 
 .divider{
@@ -526,6 +540,73 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     border-radius: 100%;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
+
+/* 리스트 정렬 */
+.search_sorting{
+    display: flex;
+    margin: 32px 0;
+}
+.search_sorting .search_sorting_order{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right:0;
+}
+.search_sorting .search_sorting_order input[type=radio]{
+    display: none;
+}
+.search_sorting .search_sorting_order label{
+    padding: 0 8px;
+    position: relative;
+    color: var(--base-gray-dark)
+}
+.search_sorting .search_sorting_order input[type=radio]:checked +label{
+    font-weight: 700;
+}
+.search_sorting .search_sorting_order label::after{
+    position: absolute;
+    content:"";
+    right: 0;
+    width: 1px;
+    height: 16px;
+    background-color: var(--base-gray-ccc);
+    top:50%;
+    transform: translateY(-50%);
+}
+.search_sorting .search_sorting_order > li:last-child label:after{
+    display: none;
+}
+
+/* 페이지네이션 */
+.pagination{
+    justify-content: center;
+    margin: 50px auto 100px;
+}
+.pagination .page-item .page-link,.pagination .page-item .page-link:focus{
+    border-radius: 0;
+    border : 1px solid var(--base-gray-e4);
+    color: var(--main-black);
+    box-shadow: unset;
+    padding: 8px 12px;
+    height:34px;
+}
+.pagination .page-item .page-link:hover{
+    background-color: var(--base-gray-ef);
+    color: var(--main-black);
+    box-shadow: 0;
+}
+.pagination .page-item.leftdots_page .page-link:hover,.pagination .page-item.rightdots_page .page-link:hover{
+    background-color: var(--main-white);
+}
+
+.pagination .page-item.active .page-link{
+    border : 1px solid var(--base-gray-dark);
+    background-color: var(--base-gray-dark);
+    color: var(--second-white);
+    box-shadow: 0;
+}
+
+
 
 
 /* 별점 */

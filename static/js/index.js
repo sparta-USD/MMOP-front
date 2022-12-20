@@ -13,7 +13,7 @@ window.onpageshow = function(event) {
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('https://api.mmop-perfume.com/perfume/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/?ordering=-likes_count',{
         headers: {
             "content-type": "application/json",
         },
@@ -25,7 +25,7 @@ async function handleTopPerfume(){
         return response.json()
     }).then(result => {
         const response_json = result;
-        append_top_perfume_list(response_json)
+        append_top_perfume_list(response_json['results'])
     }).catch(error => {
         console.warn(error.message)
     });
@@ -98,7 +98,7 @@ function append_custom_perfume_list(custom_data){
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                         </div>
                         <div class="logo_image">
-                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="https://api.mmop-perfume.com${data['logo']}">` : ``}
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">` : ``}
                         </div>
                         <div class="materials">
                             ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
