@@ -256,12 +256,22 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    text-align: center;
 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
     align-content: center;
     flex-wrap: wrap;
-    text-align: center;
 }
 .swiper.main_banner .swiper-slide h1{
     width: 100%;
@@ -289,6 +299,15 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     text-align: left;
     background-color: #f0eeed;
     padding: 0 50px;
+}
+.swiper.main_banner .swiper-button-next{
+    color: #202020;
+}
+.swiper.main_banner .swiper-button-prev{
+    color: #202020;
+}
+.swiper.main_banner .swiper-pagination-bullet-active{
+    background-color: #202020;
 }
 /* sec 하단 버튼 */
 .btn_wrap{

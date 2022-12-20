@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     handleTopPerfume()
     handleCustomPerfume()
+    swiper()
 });
 
 // 뒤로가기 클릭 시 새로고침 되도록 이벤트 처리
@@ -124,4 +125,22 @@ function append_custom_perfume_list(custom_data){
     });
 }
 
-
+// swiper
+function swiper(){
+    var swiper = new Swiper(".main_banner", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+}
