@@ -189,6 +189,7 @@ function appendMyReviewList(dataset, element) {
     if(dataset.length){
         element.innerHTML = '';
         dataset.forEach(data => {
+            console.log(data.survey)
                 let new_item = document.createElement('div');
                 new_item.className = 'accordion-item';
                 new_item.id = `review_${data["id"]}`;
@@ -202,6 +203,7 @@ function appendMyReviewList(dataset, element) {
                                             <div class="review_perfume_image_box">
                                                 <img class="review_perfume_result_image" src="${data["perfume"]["image"]}">
                                             </div>
+                                            ${data['survey']==true ? `<span class="review_survey">설문</span>` : ``}
                                         </a>
                                     </div>
                                     <div class="review_header">
