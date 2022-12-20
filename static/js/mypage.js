@@ -202,6 +202,7 @@ function appendMyReviewList(dataset, element) {
                                             <div class="review_perfume_image_box">
                                                 <img class="review_perfume_result_image" src="${data["perfume"]["image"]}">
                                             </div>
+                                            ${data['survey']==true ? `<span class="review_survey">설문</span>` : ``}
                                         </a>
                                     </div>
                                     <div class="review_header">
@@ -567,15 +568,16 @@ document.getElementById("btn_password_reset").addEventListener("click",function(
 });
 
 async function handlePasswordReset() {
+    const origin_password = document.getElementById("origin_password").value;
     const password = document.getElementById("profile_password").value;
     const password2 = document.getElementById("profile_password2").value;
-
     if(password=="" || password2==""){
         alert("변경하실 비밀번호 및 비밀번호 확인을 입력해주세요.");
         return false;
     }
     const profile_formData = new FormData();
     if(password){
+        profile_formData.append("origin_password",origin_password);
         profile_formData.append("password",password);
         profile_formData.append("password2",password2);
     }
@@ -601,8 +603,10 @@ async function handlePasswordReset() {
             })
         }
         return response.json()
+        
     }).then(result => {
         alert("비밀번호가 변경되었습니다.")
+        document.getElementById("origin_password").value ='';
         document.getElementById("profile_password").value ='';
         document.getElementById("profile_password2").value ='';
     }).catch(error => {
