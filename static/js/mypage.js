@@ -189,7 +189,6 @@ function appendMyReviewList(dataset, element) {
     if(dataset.length){
         element.innerHTML = '';
         dataset.forEach(data => {
-            console.log(data.survey)
                 let new_item = document.createElement('div');
                 new_item.className = 'accordion-item';
                 new_item.id = `review_${data["id"]}`;
@@ -569,6 +568,7 @@ document.getElementById("btn_password_reset").addEventListener("click",function(
 });
 
 async function handlePasswordReset() {
+    const origin_password = document.getElementById("profile_origin_password").value;
     const password = document.getElementById("profile_password").value;
     const password2 = document.getElementById("profile_password2").value;
 
