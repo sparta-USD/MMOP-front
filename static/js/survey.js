@@ -1,9 +1,16 @@
+let page=1;
+let show_perfume_random_list=[]
+
 document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeRandom()
 });
+document.querySelector(".btn_infinite_scroll").addEventListener("click", function(){
+    handlePerfumeRandom();
+});
+
 // 1. 랜덤 추천 목록 불러오기
 async function handlePerfumeRandom(){
-    const response = await fetch('https://api.mmop-perfume.com/perfume/random/',{
+    const response = await fetch(`http://127.0.0.1:8000/perfume/?ordering=?&page=${page}`,{
         headers: {
             
         },
@@ -24,14 +31,27 @@ async function handlePerfumeRandom(){
     }).then(result => {
         const response_json = result;
         let element_perfume_list = document.getElementById("survey_perfume_list").querySelector(".row")
-        append_perfume_card_list(response_json, element_perfume_list)
+        append_perfume_card_list(response_json['results'], element_perfume_list);
+
+        // 페이지네이션
+        page = response_json['next']
+        if(!page){
+            document.querySelector('.pagination').style.display="none"
+        }else{
+            document.querySelector('.pagination').style.display="flex"
+        }
+
     }).catch(error => {
         console.warn(error.message)
     });
 }
 function append_perfume_card_list(dataset,element){
-    element.innerHTML='';
     dataset.forEach(data => {
+        if(show_perfume_random_list.includes(data['id'])){
+            return;
+        }
+        show_perfume_random_list.push(data['id']);
+
         let new_item = document.createElement('div');
         new_item.className = 'col-lg-3 col-md-4 col-6';
         new_item.innerHTML = `
@@ -70,7 +90,7 @@ async function handleSurveySubmit(){
     for(var i=0; i<survey_checked_perfume.length; i++){
         survey.push(Number(survey_checked_perfume[i].value));
     }
-    const response = await fetch('https://api.mmop-perfume.com/perfume/survey/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
             "Content-Type": "application/json",
