@@ -45,7 +45,6 @@ async function searchPerfume(){
     if(getParams("search")){
         search = getParams("search")
     }
-    console.log(`http://127.0.0.1:8000/perfume/?search=${search}&ordering=${ordering}&page=${page}`);
     const response = await fetch(`http://127.0.0.1:8000/perfume/?search=${search}&ordering=${ordering}&page=${page}`,{
         headers: {
         },
