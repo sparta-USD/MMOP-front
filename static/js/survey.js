@@ -1,11 +1,15 @@
 let page=1;
 let show_perfume_random_list=[]
-
+let search_keyword="";
 document.addEventListener("DOMContentLoaded", function(){
     handlePerfumeRandom()
 });
 document.querySelector(".btn_infinite_scroll").addEventListener("click", function(){
-    handlePerfumeRandom();
+    if(search_keyword&&page){
+        handlePerfumeSearch();
+    }else{
+        handlePerfumeRandom();
+    }
 });
 
 // 1. 랜덤 추천 목록 불러오기
@@ -45,6 +49,56 @@ async function handlePerfumeRandom(){
         console.warn(error.message)
     });
 }
+
+
+// 2. 향수 검색 불러오기
+document.querySelector(".search-input").addEventListener("keyup",function(e){
+    search_keyword = this.value
+    page=1
+
+    let not_checked_perfume = document.querySelectorAll("input[type=checkbox][name=survey_perfume]:not(:checked)")
+    not_checked_perfume.forEach(not_checked => {
+        not_checked.closest(".check_card").parentNode.remove();
+        show_perfume_random_list.pop(Number(not_checked.value));
+    })
+    show_perfume_random_list=[]
+    let checked_perfume = document.querySelectorAll("input[type=checkbox][name=survey_perfume]:checked");
+    checked_perfume.forEach(checked => {
+        show_perfume_random_list.push(Number(checked.value));
+    })
+    if(search_keyword&&page){
+        handlePerfumeSearch();
+    }else{
+        handlePerfumeRandom();
+    }
+});
+async function handlePerfumeSearch(){
+    const response = await fetch(`http://127.0.0.1:8000/perfume/simple/?search=${search_keyword}&page=${page}`,{
+        headers: {
+            
+        },
+        method: 'GET',
+    }).then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    }).then(result => {
+        const response_json = result;
+        let element_perfume_list = document.getElementById("survey_perfume_list").querySelector(".row");
+        append_perfume_card_list(response_json['results'], element_perfume_list);
+
+        // 페이지네이션
+        page =response_json['next'];
+        if(!page){
+            document.querySelector('.pagination').style.display="none"
+        }else{
+            document.querySelector('.pagination').style.display="flex"
+        }
+    }).catch(error => {
+        console.warn(error.message)
+    });
+}
 function append_perfume_card_list(dataset,element){
     dataset.forEach(data => {
         if(show_perfume_random_list.includes(data['id'])){
@@ -76,6 +130,9 @@ function append_perfume_card_list(dataset,element){
         element.append(new_item);
     });
 }
+
+
+
 
 // 2. 설문조사하기
 document.getElementById("btn_survey_skip").addEventListener("click",function(){
