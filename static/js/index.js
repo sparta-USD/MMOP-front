@@ -129,7 +129,7 @@ function append_custom_perfume_list(custom_data){
 // 3. 브랜드 리스트 불러오기 API통신
 async function handleBrandList(){
     
-    const response = await fetch('http://127.0.0.1:8000/perfume/brand/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/brand/random/',{
         method: 'GET',
     })
     .then(response => {
