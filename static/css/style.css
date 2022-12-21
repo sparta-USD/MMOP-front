@@ -151,6 +151,10 @@ a, a:hover{
     border: solid 1px var(--main-black);
     background-color: rgba(255,255,255,0.3)
 }
+.btn_more_brand{
+    text-align: center;
+    margin-top: 3rem;
+}
 
 .flex{
     display: flex;
