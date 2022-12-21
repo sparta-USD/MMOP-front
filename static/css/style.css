@@ -300,15 +300,43 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     background-color: #f0eeed;
     padding: 0 50px;
 }
-.swiper.main_banner .swiper-button-next{
-    color: #202020;
-}
-.swiper.main_banner .swiper-button-prev{
-    color: #202020;
-}
 .swiper.main_banner .swiper-pagination-bullet-active{
     background-color: #202020;
 }
+
+/* custom_perfume_card */
+.custom_perfume_swiper{
+    width:80%;
+}
+.custom_perfume_swiper .section_header {
+    margin-bottom: 64px;
+    text-align: center;
+}
+.custom_perfume_swiper .section_title {
+    font-size: 2.5em;
+    font-weight: 700;
+    display: inline-block;
+}
+.custom_perfume_swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 430px;
+}
+.custom_perfume_swiper .swiper-slide img {
+    display: block;
+    width: 100%;
+}
+.custom_perfume_swiper .swiper-button-next{
+    color: #202020;
+}
+.custom_perfume_swiper .swiper-button-prev{
+    color: #202020;
+}
+.custom_perfume_swiper .swiper-pagination-bullet-active{
+    background-color: #202020;
+}
+
 /* sec 하단 버튼 */
 .btn_wrap{
     display: flex;
