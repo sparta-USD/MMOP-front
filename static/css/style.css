@@ -237,6 +237,18 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
     padding: 0 16px 0 72px;
     width: 100%;
 }
+.top_button{
+    position: fixed;
+    right:5vw;
+    bottom: 10vh;
+    font-size: 60px;
+    z-index: 100;
+}
+.top_button i::before{
+    background-color: var(--main-white);
+    border-radius: 50%;
+    border:solid 3px var(--main-black);
+}
 /* section */
 .sec{
     margin-top:100px;
