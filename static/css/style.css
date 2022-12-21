@@ -151,6 +151,10 @@ a, a:hover{
     border: solid 1px var(--main-black);
     background-color: rgba(255,255,255,0.3)
 }
+.btn.btn_border.btn_color_change:hover{
+    color: var(--main-white);
+    background-color: var(--main-black);
+}
 
 .flex{
     display: flex;

@@ -3,6 +3,8 @@
     font-weight: 900;
     margin: 0 8px;
     position: relative;
+    min-width: 120px;
+    display: inline-block;
 }
 .section_title strong::after{
     content: "";
