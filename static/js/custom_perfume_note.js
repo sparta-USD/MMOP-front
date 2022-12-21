@@ -258,6 +258,7 @@ function handleNext(){
 
     // 하나도 없을 때
     if (sum == 0) {
+        console.log(sum)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 한가지 이상 선택해주세요.`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
@@ -266,7 +267,8 @@ function handleNext(){
     }
 
     // 한개나 두개 골랐을 때,
-    if (0 < sum <= 2) {
+    if (sum > 0 && sum <= 2) {
+        console.log(sum,1)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sum}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
