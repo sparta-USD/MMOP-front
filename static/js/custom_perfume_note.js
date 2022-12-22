@@ -24,16 +24,16 @@ async function handleCategory() {
         // 비슷한 향수 만들기
         if (location.href.split('?')[1] != null){
 
+            
             // url로 전송된 향 id값
             var url_data = location.href.split('?')[1].split(',')
-
             var note_data = response_json['notes'].filter(function(item){
                 return item
             });
 
             // url로 전송된 추천 향수 이름
-            document.getElementById('recommend_name').innerText = location.href.split('?')[2].replace(/%20/g, ' ')+' 향수와 같은 향';
-
+            document.getElementById('recommend_name').innerText = decodeURI(location.href.split('?')[2])+' 향수와 같은 향';
+            
             // 추천 향 리스트
             let recommend_note_list = document.getElementById("card")
             append_recommend_note_list(note_data, url_data, recommend_note_list)
@@ -97,7 +97,7 @@ async function handleCategory() {
 // 추천 향 리스트
 function append_recommend_note_list(dataset, url_data, element) {
     var recommend = []
-    for (let i = 0; i < 973; i++) {
+    for (let i = 0; i < 313; i++) {
         for (let j = 0; j < url_data.length; j++) {
             if (String(dataset[i]['id']) == url_data[j]) {
                 recommend.push(dataset[i])
@@ -114,7 +114,6 @@ function append_recommend_note_list(dataset, url_data, element) {
             </div>
             <div class="title">
                 <div class="name">${data['kor_name']}</div>
-                <div class="keyword">#상큼함</div>
             </div>
             <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+
         `;
@@ -258,7 +257,6 @@ function handleNext(){
 
     // 하나도 없을 때
     if (sum == 0) {
-        console.log(sum)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 한가지 이상 선택해주세요.`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
@@ -268,13 +266,12 @@ function handleNext(){
 
     // 한개나 두개 골랐을 때,
     if (sum > 0 && sum <= 2) {
-        console.log(sum,1)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sum}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
-                <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
-            `;
+            <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+        `;
     }
     
     // 다 골랐을 때

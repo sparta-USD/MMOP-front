@@ -87,17 +87,16 @@
 .swiper.main_banner .recommend_name{
     display: flex;
     width: 80%;
-    margin: 2vh auto 0 auto;
+    margin: 32px auto 0 auto;
     font-size: 25px;
+    justify-content: center;
 }
 .swiper.main_banner .swiper-slide3{
     display: flex;
-    margin: 2vh auto 0 auto;
+    flex-wrap: wrap;
+    margin: 16px auto;
     width: 80%;
-    overflow-x: scroll;
-}
-.swiper.main_banner .swiper-slide3::-webkit-scrollbar {
-    display: none;
+    justify-content: center;
 }
 .swiper.main_banner .swiper-slide3 .card{
     display: flex;
@@ -107,7 +106,7 @@
     height: 80px;
     border-radius: 0;
     border-color: #999;
-    margin: 0 5px 0 5px;
+    margin: 8px 8px;
 }
 .swiper.main_banner .swiper-slide3 .card .image{
     display: flex;
@@ -123,7 +122,8 @@
     height: 50px;
 }
 .swiper.main_banner .swiper-slide3 .card .title{
-
+    display: flex;
+    align-items: center;
     width: 100px;
     height: 50px;
 }
