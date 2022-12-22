@@ -44,9 +44,10 @@ function brand_info(data){
     element.querySelector(".brand_id").innerText = "#"+data['id'];
     element.querySelector(".brand_title").innerText = data['title'];
 
+    console.log(data['website']);
     // 웹사이트
     if(data['website']){
-        element.querySelector(".col_website_1").innerHTML = `<a href=${data['website']}" target="_blank">${data['website']}</a>`
+        element.querySelector(".col_website_1").innerHTML = `<a href="${data['website']}" target="_blank">${data['website']}</a>`
     }else{
         element.querySelector(".brand_website").remove();
     }
