@@ -57,10 +57,19 @@ async function handlePerfumeInfo(){
                 notes_id.push(response_json['none_notes'][i]['id'])
             } 
         }
+
         // url로 향 id값 전송
-        document.getElementById("custom_perfume").addEventListener('click', () => {
-            location.href = `custom_perfume_note.html?${notes_id}?${response_json['title']}`;
-        })
+        if(notes_id.length != 0){
+            document.getElementById("custom_perfume").addEventListener('click', () => {
+                location.href = `custom_perfume_note.html?${notes_id}?${response_json['title']}`;
+            })
+        }
+        else{
+            document.getElementById("custom_perfume").addEventListener('click', () => {
+                location.href = 'custom_perfume_note.html';
+            })
+        }
+        
     })
 }
 
