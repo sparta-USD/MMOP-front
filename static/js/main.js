@@ -7,7 +7,7 @@ window.addEventListener('scroll', function() {
 document.addEventListener("DOMContentLoaded", function(){
     user_email = localStorage.getItem("email")
     if(user_email){
-        document.querySelector("header .navbar_menu.nav-right").innerHTML = `
+        document.querySelector("header .nav-right.navbar_menu").innerHTML = `
             <li class="navbar_item">
                 <a href="/mypage.html">
                     MYPAGE
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </li>
             <li class="navbar_item">
                 <button type=button class="nav_link" onclick="handleLogout()">
-                    SIGNOUT
+                    SIGN OUT
                 </button>
             </li>
         `

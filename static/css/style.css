@@ -36,13 +36,16 @@ header{
 }
 header.header_sticky{
     background: rgba(255,255,255,0.6);
-    box-shadow: 0 0 8px rgb(255 255 255 / 5%);
+    box-shadow: 0 0 8px rgb(255 255 255 / 10%);
     color: var(--main-black);
     transition: 0.4s;
 }
 /* header nav{
     padding: 0 16px;
 } */
+header nav{
+    position: relative;
+}
 header nav .flex{
     display: flex;
     justify-content: space-between;
@@ -60,6 +63,8 @@ header nav ul.navbar_menu{
     -webkit-box-align: center;
     align-items: center;
     height: 60px;
+    min-width: 225px;
+
 }
 header nav ul.navbar_menu button{
     background: transparent;
@@ -91,7 +96,7 @@ header nav .my_profile img{
 }
 header nav .btn_gnb_search{
     padding: 0;
-    width: 100px;
+    /* width: 100px; */
 }
 
 /* footer */
@@ -159,10 +164,14 @@ a, a:hover{
     color: var(--main-white);
     background-color: var(--main-black);
 }
-.btn_more_brand{
+.btn.btn_more{
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
+    font-size: 1.1em;
+    padding: 0.75rem 1rem;
+    min-width: 300px;
 }
+
 
 .flex{
     display: flex;
@@ -183,11 +192,11 @@ a, a:hover{
 
 input.form-control, textarea.form-control,.search_row{
     border-radius: 0;
-    padding: 0.5em 0.75em;
-    border: solid 1px var(--base-gray-ccc);
+    padding: 0.5rem 0.75rem;
+    border:solid 1px var(--second-black);
     resize: none;
 }
-input.form-control:focus, textarea.form-control:focus, .search_row:focus{
+input.form-control:focus, textarea.form-control:focus{
     border-radius: 0;
     border: solid 1px var(--base-gray-dark);
     box-shadow:unset;
@@ -196,6 +205,7 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
     color: var(--base-gray-999);
     font-weight: 300;
 }
+/* search */
 .search_row{
     display: flex;
     align-items: center;
@@ -209,6 +219,19 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
     font-size: 1rem;
     padding: 0px 16px;
     height: 24px;
+}
+header .nav_search .search_row{
+    margin-left: 16px;
+}
+header .nav_search .search_row input{
+    background-color: transparent;
+    padding: 0;
+    padding-right: 16px;
+    min-width: 300px;
+}
+header .nav_search .search_row input::placeholder{
+    color: var(--base-gray-dark);
+    font-weight: 300;
 }
 
 .divider{
@@ -324,11 +347,12 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
     font-size: 1.25em;
 }
 .swiper.main_banner .banner_image{
-    width: 50%;
+    width: 55%;
     min-height: 60vh;
+    background-size: cover;
 }
 .swiper.main_banner .banner_content{
-    width: 50%;
+    width: 45%;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -444,6 +468,19 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
     /* width: 100%; */
     min-width: 100%;
     height: 100%;
+    object-fit: cover;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.brand_card.item_card .item_image {
+    border : 1px solid var(--base-gray-e4);
+}
+.brand_card.item_card .item_image >img{
+    position: absolute;
+    /* width: 100%; */
+    min-width: 90%;
+    height: 90%;
     object-fit: cover;
     top:50%;
     left:50%;
