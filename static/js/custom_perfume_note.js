@@ -21,83 +21,42 @@ async function handleCategory() {
     }).then(result => {
         const response_json = result;
 
-        
-        document.getElementById("tab_menu_01").innerText = response_json['note_category'][0]['kor_name']
-        document.getElementById("tab_menu_02").innerText = response_json['note_category'][1]['kor_name']
-        document.getElementById("tab_menu_03").innerText = response_json['note_category'][2]['kor_name']
-        document.getElementById("tab_menu_04").innerText = response_json['note_category'][3]['kor_name']
-        document.getElementById("tab_menu_05").innerText = response_json['note_category'][4]['kor_name']
-        document.getElementById("tab_menu_06").innerText = response_json['note_category'][5]['kor_name']
-        document.getElementById("tab_menu_07").innerText = response_json['note_category'][6]['kor_name']
-        document.getElementById("tab_menu_08").innerText = response_json['note_category'][7]['kor_name']
-        document.getElementById("tab_menu_09").innerText = response_json['note_category'][8]['kor_name']
-        document.getElementById("tab_menu_010").innerText = response_json['note_category'][9]['kor_name']
-        document.getElementById("tab_menu_011").innerText = response_json['note_category'][10]['kor_name']
-        document.getElementById("tab_menu_012").innerText = response_json['note_category'][11]['kor_name']
-        
-        
-        var category1 = response_json['notes'].filter(function(item){
-            return item.note_category == '1'
-        });
-        var category2 = response_json['notes'].filter(function(item){
-            return item.note_category == '2'
-        });
-        var category3 = response_json['notes'].filter(function(item){
-            return item.note_category == '3'
-        });
-        var category4 = response_json['notes'].filter(function(item){
-            return item.note_category == '4'
-        });
-        var category5 = response_json['notes'].filter(function(item){
-            return item.note_category == '5'
-        });
-        var category6 = response_json['notes'].filter(function(item){
-            return item.note_category == '6'
-        });
-        var category7 = response_json['notes'].filter(function(item){
-            return item.note_category == '7'
-        });
-        var category8 = response_json['notes'].filter(function(item){
-            return item.note_category == '8'
-        });
-        var category9 = response_json['notes'].filter(function(item){
-            return item.note_category == '9'
-        });
-        var category10 = response_json['notes'].filter(function(item){
-            return item.note_category == '10'
-        });
-        var category11 = response_json['notes'].filter(function(item){
-            return item.note_category == '11'
-        });
-        var category12 = response_json['notes'].filter(function(item){
-            return item.note_category == '12'
-        });
+        // 비슷한 향수 만들기
+        if (location.href.split('?')[1] != null){
 
+            // url로 전송된 향 id값
+            var url_data = location.href.split('?')[1].split(',')
 
-        let note_list_1 = document.getElementById("tab_01").querySelector(".row")
-        append_note_list(category1,note_list_1)
-        let note_list_2 = document.getElementById("tab_02").querySelector(".row")
-        append_note_list(category2,note_list_2)
-        let note_list_3 = document.getElementById("tab_03").querySelector(".row")
-        append_note_list(category3,note_list_3)
-        let note_list_4 = document.getElementById("tab_04").querySelector(".row")
-        append_note_list(category4,note_list_4)
-        let note_list_5 = document.getElementById("tab_05").querySelector(".row")
-        append_note_list(category5,note_list_5)
-        let note_list_6 = document.getElementById("tab_06").querySelector(".row")
-        append_note_list(category6,note_list_6)
-        let note_list_7 = document.getElementById("tab_07").querySelector(".row")
-        append_note_list(category7,note_list_7)
-        let note_list_8 = document.getElementById("tab_08").querySelector(".row")
-        append_note_list(category8,note_list_8)
-        let note_list_9 = document.getElementById("tab_09").querySelector(".row")
-        append_note_list(category9,note_list_9)
-        let note_list_10 = document.getElementById("tab_010").querySelector(".row")
-        append_note_list(category10,note_list_10)
-        let note_list_11 = document.getElementById("tab_011").querySelector(".row")
-        append_note_list(category11,note_list_11)
-        let note_list_12 = document.getElementById("tab_012").querySelector(".row")
-        append_note_list(category12,note_list_12)
+            var note_data = response_json['notes'].filter(function(item){
+                return item
+            });
+
+            // url로 전송된 추천 향수 이름
+            document.getElementById('recommend_name').innerText = location.href.split('?')[2].replace(/%20/g, ' ')+' 향수와 같은 향';
+
+            // 추천 향 리스트
+            let recommend_note_list = document.getElementById("card")
+            append_recommend_note_list(note_data, url_data, recommend_note_list)
+            
+        }
+
+        // 카테고리
+        for(let i = 0; i<12; i++){
+            document.getElementById(`tab_menu_0${i+1}`).innerText = response_json['note_category'][i]['kor_name']
+        }
+
+        // 카테고리 별 향 나누기
+        for(let i = 1; i<13; i++){
+            window['category'+i] = response_json['notes'].filter(function(item){
+                return item.note_category == i
+            });
+        }
+
+        // 카테고리 탭 선택시 향 띄우기
+        for(let i = 1; i<13; i++){
+            window['note_list_'+i] = document.getElementById(`tab_0${i}`).querySelector(".row")
+            append_note_list(window['category'+i],window['note_list_'+i])
+        };
         
         // 향1 이미지
         $.each(response_json['notes'],function(idx,row){
@@ -132,6 +91,34 @@ async function handleCategory() {
     
     }).catch(error => {
         console.warn(error.message)
+    });
+}
+
+// 추천 향 리스트
+function append_recommend_note_list(dataset, url_data, element) {
+    var recommend = []
+    for (let i = 0; i < 973; i++) {
+        for (let j = 0; j < url_data.length; j++) {
+            if (String(dataset[i]['id']) == url_data[j]) {
+                recommend.push(dataset[i])
+            }
+        }
+    }
+    element.innerHTML = '';
+    recommend.forEach(data => {
+        let new_item = document.createElement('div');
+        new_item.className = 'card';
+        new_item.innerHTML = `
+            <div class="image">
+                <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+            </div>
+            <div class="title">
+                <div class="name">${data['kor_name']}</div>
+                <div class="keyword">#상큼함</div>
+            </div>
+            <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+
+        `;
+        element.append(new_item);
     });
 }
 
@@ -271,6 +258,7 @@ function handleNext(){
 
     // 하나도 없을 때
     if (sum == 0) {
+        console.log(sum)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 한가지 이상 선택해주세요.`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
@@ -279,7 +267,8 @@ function handleNext(){
     }
 
     // 한개나 두개 골랐을 때,
-    if (0 < sum <= 2) {
+    if (sum > 0 && sum <= 2) {
+        console.log(sum,1)
         $("#Modal").modal("show");
         document.getElementById("Modal").querySelector(".next_guide").innerHTML = `향을 ${sum}가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?`;
         document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `

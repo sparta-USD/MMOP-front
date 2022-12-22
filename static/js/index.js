@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
     handleTopPerfume()
     handleCustomPerfume()
+    swiper()
+    handleCustomPerfumeSwiper()
     handleBrandList()
 });
 
@@ -66,7 +68,7 @@ function append_top_perfume_list(top_data,element){
 
 // 2. 최근 제작한 커스텀 향수 불러오기 API 통신
 async function handleCustomPerfume(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/',{
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -90,7 +92,7 @@ function append_custom_perfume_list(custom_data){
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
         let custom_list = document.createElement('div');
-        custom_list.className = 'col-lg-3 col-md-4 col-6';
+        custom_list.className = 'swiper-slide';
         custom_list.innerHTML = `
             <a href="/custom_perfume_detail.html?custom_perfume=${data['id']}">
                 <div class='item_card check_card'>
@@ -125,6 +127,47 @@ function append_custom_perfume_list(custom_data){
     });
 }
 
+// swiper
+function swiper(){
+    var swiper = new Swiper(".main_banner", {
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+}
+
+function handleCustomPerfumeSwiper(){
+    var swiper = new Swiper(".custom_perfume_swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 5,
+        
+        autoplay: {
+            delay: 1500,
+            disableOnInteraction: false,
+        },
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+}
 
 // 3. 브랜드 리스트 불러오기 API통신
 async function handleBrandList(){

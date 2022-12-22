@@ -30,9 +30,37 @@ async function handlePerfumeInfo(){
     })
     .then(result => {
         const response_json = result;
+        const notes_id = []
+
         perfume_info(response_json);  // 1. 기본 향수제품정보
         perfume_detail_tab(response_json); // 2. 제품정보 탭
         perfume_review_tab(response_json); // 3. 리뷰 탭
+        
+        // 향 id값 리스트에 담기
+        for(let i = 0; i<response_json['top_notes'].length; i++){
+            if(response_json['top_notes'][i]['id']<=973){
+                notes_id.push(response_json['top_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['heart_notes'].length; i++){
+            if(response_json['heart_notes'][i]['id']<=973){
+                notes_id.push(response_json['heart_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['base_notes'].length; i++){
+            if(response_json['base_notes'][i]['id']<=973){
+                notes_id.push(response_json['base_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['none_notes'].length; i++){
+            if(response_json['none_notes'][i]['id']<=973){
+                notes_id.push(response_json['none_notes'][i]['id'])
+            } 
+        }
+        // url로 향 id값 전송
+        document.getElementById("custom_perfume").addEventListener('click', () => {
+            location.href = `custom_perfume_note.html?${notes_id}?${response_json['title']}`;
+        })
     })
 }
 

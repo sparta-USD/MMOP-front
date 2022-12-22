@@ -65,7 +65,9 @@ hr{
     color: var(--main-red);
     cursor: pointer;
 }
-
+.sec_perfume_detail .btn_create_group .btn_create_custom_perfume{
+    margin-left: 10px;
+}
 
 /* ******** */
 /* tab_menu */

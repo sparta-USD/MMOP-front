@@ -6,7 +6,7 @@
     background-position: center;
     background: rgba(255,255,255,0.6);
     
-    margin-top: 15vh;
+    margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -25,13 +25,10 @@
     align-content: center;
     flex-wrap: wrap;
     text-align: center;
-    
-    /* position: sticky;
-    top: 10vh;
-    left: 60vh;
-    opacity: 0.9;
-    backdrop-filter: blur(30px); */
 
+}
+.swiper.main_banner .swiper-slide img{
+    width: 300px;
 }
 .swiper.main_banner .swiper-slide h1{
     width: 100%;
@@ -87,6 +84,60 @@
     color: #ffffff;
     font-size: 13px;
 }
+.swiper.main_banner .recommend_name{
+    display: flex;
+    width: 80%;
+    margin: 2vh auto 0 auto;
+    font-size: 25px;
+}
+.swiper.main_banner .swiper-slide3{
+    display: flex;
+    margin: 2vh auto 0 auto;
+    width: 80%;
+    overflow-x: scroll;
+}
+.swiper.main_banner .swiper-slide3::-webkit-scrollbar {
+    display: none;
+}
+.swiper.main_banner .swiper-slide3 .card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 200px;
+    height: 80px;
+    border-radius: 0;
+    border-color: #999;
+    margin: 0 5px 0 5px;
+}
+.swiper.main_banner .swiper-slide3 .card .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    margin: 0 5px 0 5px;
+}
+.swiper.main_banner .swiper-slide3 .card .image img{
+    width: 50px;
+    height: 50px;
+}
+.swiper.main_banner .swiper-slide3 .card .title{
+
+    width: 100px;
+    height: 50px;
+}
+.swiper.main_banner .swiper-slide3 .card .title .name{
+    font-size: 18px;
+}
+.swiper.main_banner .swiper-slide3 .card .title .keyword{
+    margin-top: 10px;
+    font-size: 10px;
+    color: #999;
+}
+.swiper.main_banner .swiper-slide3 .card .circle_pick{
+    text-align: center;
+}
 .title{
     font-size: 15px;
     word-break: normal;
@@ -115,7 +166,7 @@
 
 /* 카테고리 탭 */
 .category{
-    margin-top: 15vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

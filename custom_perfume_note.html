@@ -68,21 +68,32 @@
             <div class="swiper main_banner">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                  <!-- Slides -->
+                    <!-- Slides -->
                     <div class="swiper-slide">
+                        <img src="/static/images/step_1.png">
                         <h1>Pick Your Fragrance!</h1>
                         <p>3가지 향을 선택하여 나만의 향수를 만들어 보세요</p>
                     </div>
                     <div class="swiper-slide2">
-                        <div class="circle"><div class="circle_plus" id="note01">+</div></div>
-                        <div class="circle"><div class="circle_plus" id="note02">+</div></div>
-                        <div class="circle"><div class="circle_plus" id="note03">+</div></div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note01">+</div>
+                        </div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note02">+</div>
+                        </div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note03">+</div>
+                        </div>
                         <p></p>
-                        <button class="next_button" id="next_button" onclick="handleNext()" data-bs-toggle="modal" data-bs-target="#exampleModal">나만의 향수 만들기</button>
+                        <button class="next_button" id="next_button" onclick="handleNext()" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">나만의 향수 만들기</button>
                     </div>
-                    
+                    <div class="recommend_name" id="recommend_name">
+                    </div>
+                    <div class="swiper-slide3" id="card">
+                    </div>
                 </div>
-              </div>
+            </div>
         </section>
         <section style="margin:auto; width:1400px;">
             <ul class="category">
