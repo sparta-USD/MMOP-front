@@ -16,7 +16,7 @@ async function handleCustomPerfume() {
     if (url_param == undefined){
         url_param = localStorage.getItem("custom_perfume");
     }
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/'+url_param+'/', {
+    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/'+url_param+'/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -65,7 +65,7 @@ async function handleCustomPerfume() {
             document.getElementById("note03").innerHTML = '<div></div>'
         }
         if (response_json['logo']!=null){
-            document.getElementById("logo").innerHTML = '<img class="logo" aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000'+response_json['logo']+'">'
+            document.getElementById("logo").innerHTML = '<img class="logo" aria-hidden="false" draggable="false" loading="lazy" src="https://api.mmop-perfume.com'+response_json['logo']+'">'
         }
         else{
             document.getElementById("logo").innerHTML = '<div></div>'

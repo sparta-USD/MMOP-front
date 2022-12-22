@@ -6,7 +6,7 @@ async function handleSignin(){
         return alert("이메일 또는 비밀번호가 비어있습니다.")
     }
 
-    const response = await fetch("http://127.0.0.1:8000/users/signin/", {
+    const response = await fetch("https://api.mmop-perfume.com/users/signin/", {
         headers: {
             "content-type": "application/json",
         },
@@ -55,7 +55,7 @@ window.onload = async () => {
     let params = new URL(window.location.href).searchParams;
     // 인가코드 받아왔을 때
     if(params.has("code")){
-        const response = await fetch("http://127.0.0.1:8000/users/oauth/callback/kakao/", {
+        const response = await fetch("https://api.mmop-perfume.com/users/oauth/callback/kakao/", {
             headers: {
                 "content-type": "application/json",
             },

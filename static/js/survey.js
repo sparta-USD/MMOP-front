@@ -14,7 +14,7 @@ document.querySelector(".btn_infinite_scroll").addEventListener("click", functio
 
 // 1. 랜덤 추천 목록 불러오기
 async function handlePerfumeRandom(){
-    const response = await fetch(`http://127.0.0.1:8000/perfume/?ordering=?&page=${page}`,{
+    const response = await fetch(`https://api.mmop-perfume.com/perfume/?ordering=?&page=${page}`,{
         headers: {
             
         },
@@ -73,7 +73,7 @@ document.getElementById("survey-search-input").addEventListener("keyup",function
     }
 });
 async function handlePerfumeSearch(){
-    const response = await fetch(`http://127.0.0.1:8000/perfume/simple/?search=${search_keyword}&page=${page}`,{
+    const response = await fetch(`https://api.mmop-perfume.com/perfume/simple/?search=${search_keyword}&page=${page}`,{
         headers: {
             
         },
@@ -147,7 +147,7 @@ async function handleSurveySubmit(){
     for(var i=0; i<survey_checked_perfume.length; i++){
         survey.push(Number(survey_checked_perfume[i].value));
     }
-    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/survey/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
             "Content-Type": "application/json",

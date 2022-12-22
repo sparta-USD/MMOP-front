@@ -45,7 +45,7 @@ async function searchPerfume(){
     if(getParams("search")){
         search = getParams("search")
     }
-    const response = await fetch(`http://127.0.0.1:8000/perfume/?search=${search}&ordering=${ordering}&page=${page}`,{
+    const response = await fetch(`https://api.mmop-perfume.com/perfume/?search=${search}&ordering=${ordering}&page=${page}`,{
         headers: {
         },
         method: 'GET',

@@ -51,7 +51,7 @@ $(".none_link").on("click",function(e){
 });
 
 async function handleSurveyCheck(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/survey/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -81,7 +81,7 @@ async function clickLike(e, el){
     e.preventDefault(); 
 
     perfume_id = target = el.closest(".item_card").getAttribute("id").replace("perfume_","");
-    const response = await fetch('http://127.0.0.1:8000/perfume/'+perfume_id+'/like/', {
+    const response = await fetch('https://api.mmop-perfume.com/perfume/'+perfume_id+'/like/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },

@@ -26,7 +26,7 @@ async function handlePerfumeInfo(){
         location.href="/index.html";
     }
 
-    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume,{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -94,7 +94,7 @@ async function handleCreateReview() {
         alert("최소 10자 이상 - 500자 이내로 작성해주세요!")
     }
     else{
-        const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/reviews/', {
+        const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume+'/reviews/', {
         method: 'POST',
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),

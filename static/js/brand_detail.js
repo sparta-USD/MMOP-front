@@ -18,7 +18,7 @@ async function handleBrandInfo(){
         alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
         location.href="/index.html";
     }
-    const response = await fetch('http://127.0.0.1:8000/perfume/brand/'+url_detail_perfume,{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/brand/'+url_detail_perfume,{
         method: 'GET',
     })
     .then(response => {
