@@ -20,7 +20,6 @@ async function handleCategory() {
         return response.json()
     }).then(result => {
         const response_json = result;
-        console.log(response_json['notes'])
 
         // 비슷한 향수 만들기
         if (location.href.split('?')[1] != null){
@@ -115,7 +114,6 @@ function append_recommend_note_list(dataset, url_data, element) {
             </div>
             <div class="title">
                 <div class="name">${data['kor_name']}</div>
-                <div class="keyword">#상큼함</div>
             </div>
             <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+
         `;
