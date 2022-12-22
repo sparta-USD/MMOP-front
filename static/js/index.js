@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
-    handleTopPerfume()
-    handleCustomPerfume()
-    swiper()
-    handleCustomPerfumeSwiper()
-    handleBrandList()
+    handleTopPerfume();
+    handleCustomPerfume();
+    swiper();
+    custom_perfume_swiper();
+    handleBrandList();
 });
-
 // 뒤로가기 클릭 시 새로고침 되도록 이벤트 처리
 window.onpageshow = function(event) {
     if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
@@ -81,21 +80,23 @@ async function handleCustomPerfume(){
     }).then(result => {
         const response_json = result;
         append_custom_perfume_list(response_json)
-        
+        custom_perfume_swiper();
     }).catch(error => {
         console.warn(error.message)
     });
 }
 // 2-1. 최근 제작한 커스텀 향수 불러오기
 function append_custom_perfume_list(custom_data){
+    console.log(custom_data);
     let custom_perfume_list = document.getElementById("custom_perfume_list");
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
+        console.log(data);
         let custom_list = document.createElement('div');
         custom_list.className = 'swiper-slide';
         custom_list.innerHTML = `
             <a href="/custom_perfume_detail.html?custom_perfume=${data['id']}">
-                <div class='item_card check_card'>
+                <div class='item_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
@@ -126,7 +127,6 @@ function append_custom_perfume_list(custom_data){
         custom_perfume_list.append(custom_list);
     });
 }
-
 // swiper
 function swiper(){
     var swiper = new Swiper(".main_banner", {
@@ -143,28 +143,18 @@ function swiper(){
         },
     });
 }
-
-function handleCustomPerfumeSwiper(){
+function custom_perfume_swiper(){
     var swiper = new Swiper(".custom_perfume_swiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
         slidesPerView: 5,
-        
+        spaceBetween: 30,
+        loop:true,
         autoplay: {
-            delay: 1500,
-            disableOnInteraction: false,
-        },
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 0,
-            modifier: 1,
-            slideShadows: false,
+              delay: 2500,
+              disableOnInteraction: false,
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
     });
 }
