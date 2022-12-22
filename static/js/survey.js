@@ -52,7 +52,7 @@ async function handlePerfumeRandom(){
 
 
 // 2. 향수 검색 불러오기
-document.querySelector(".search-input").addEventListener("keyup",function(e){
+document.getElementById("survey-search-input").addEventListener("keyup",function(e){
     search_keyword = this.value
     page=1
 
