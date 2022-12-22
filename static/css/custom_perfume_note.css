@@ -122,7 +122,8 @@
     height: 50px;
 }
 .swiper.main_banner .swiper-slide3 .card .title{
-
+    display: flex;
+    align-items: center;
     width: 100px;
     height: 50px;
 }
