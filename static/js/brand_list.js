@@ -25,7 +25,7 @@ function brand_list(brand_data){
     perfume_list.innerHTML = '';
     brand_data.forEach(data => {
         let new_perfume_list = document.createElement('div');
-        new_perfume_list.className = "col-lg-2 col-md-2 col-6";
+        new_perfume_list.className = "col_20 col-lg-2 col-md-2 col-6";
         new_perfume_list.id = 'brand' + data['id'];
         new_perfume_list.innerHTML = `
             <a href="/brand.html?brand=${data['id']}">
