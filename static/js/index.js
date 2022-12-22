@@ -87,7 +87,6 @@ async function handleCustomPerfume(){
 }
 // 2-1. 최근 제작한 커스텀 향수 불러오기
 function append_custom_perfume_list(custom_data){
-    console.log(custom_data);
     let custom_perfume_list = document.getElementById("custom_perfume_list");
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
