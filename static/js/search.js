@@ -42,8 +42,13 @@ document.getElementById("sorting_option_reviews_count").addEventListener("change
 
 // 1. 검색 결과 목록 불러오기
 async function searchPerfume(){
+    
     if(getParams("search")){
-        search = getParams("search")
+        search = getParams("search")    
+    }else{
+        document.getElementById("search_title").innerText = `''의 검색결과가 없습니다`;
+        document.querySelector(".pagination_wrap").remove();
+        return false;
     }
     const response = await fetch(`http://127.0.0.1:8000/perfume/?search=${search}&ordering=${ordering}&page=${page}`,{
         headers: {
@@ -61,6 +66,7 @@ async function searchPerfume(){
 
         if(result.count==0){
             document.getElementById("search_title").innerText = `'${search}'의 검색결과가 없습니다`
+            document.querySelector(".pagination_wrap").remove();
         }else{
             document.getElementById("search_title").innerText = `'${search}'의 검색결과`
             
