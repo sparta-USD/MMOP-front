@@ -89,6 +89,10 @@ header nav .my_profile img{
     display: table;
     border-radius: 50%;
 }
+header nav .btn_gnb_search{
+    padding: 0;
+    width: 100px;
+}
 
 /* footer */
 footer{
