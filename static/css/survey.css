@@ -14,7 +14,12 @@
     background-color: var(--main-black);
 }
 
-
+.sec_perfume_list .search_row{
+    margin-bottom: 100px;
+}
+#survey_perfume_list{
+    min-height: 50vh;
+}
 #recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(1) .item_card::before,
 #recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(2) .item_card::before,
 #recommend_perfume_list> .row >.col-lg-3.col-md-4.col-6:nth-child(3) .item_card::before {
