@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 향 카테고리 , 선택한 향 띄우기
 async function handleCategory() {
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -149,7 +149,7 @@ function append_note_list(dataset, element) {
 
 // 향 선택
 async function handlePick(clicked_id) {
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -199,7 +199,7 @@ async function handlePick(clicked_id) {
 
 // 향1 삭제
 async function handlePickDelete1(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -217,7 +217,7 @@ async function handlePickDelete1(){
 
 // 향2 삭제
 async function handlePickDelete2(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -235,7 +235,7 @@ async function handlePickDelete2(){
 
 // 향3 삭제
 async function handlePickDelete3(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "content-type": "application/json",

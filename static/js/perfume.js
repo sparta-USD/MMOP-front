@@ -19,7 +19,7 @@ async function handlePerfumeInfo(){
         alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
         location.href="/index.html";
     }
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume,{
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         method: 'GET',
     })
     .then(response => {
@@ -219,7 +219,7 @@ function perfume_review_tab_review_list(review_data){
                             </div>
                         </div>
                     </div>
-                    ${data['image'] ? `<div class="review_result_image_box"><img class="review_result_image" src="https://api.mmop-perfume.com${data['image']}" alt="No Image"></div>` : ""}
+                    ${data['image'] ? `<div class="review_result_image_box"><img class="review_result_image" src="http://127.0.0.1:8000${data['image']}" alt="No Image"></div>` : ""}
                 </div>
             `;
             review_list_tab.append(review_list);
@@ -238,7 +238,7 @@ function perfume_review_tab_review_list(review_data){
 // 4. 추천탭 - 추천제품 불러오기 API 통신
 async function handleRecommend() {
     url_detail_perfume = getParams("perfume");
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume+'/recommend/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/recommend/', {
         headers: {
             "content-type": "application/json",
         },
@@ -315,7 +315,7 @@ async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태�
        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
        location.href="/index.html";
     }
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume+'/like/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/like/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
