@@ -48,6 +48,11 @@
     word-break: keep-all;
 }
 
+.brand_detail_top .brand_website .col_website_1 > a{
+    color: rgb(64, 64, 226);
+}
+
+
 .brand_desc_box{
     margin: auto;
     justify-content: center;

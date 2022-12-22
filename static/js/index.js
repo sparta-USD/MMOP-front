@@ -53,7 +53,7 @@ function append_top_perfume_list(top_data,element){
                     </div>
                     <div class="card_body">
                         <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
                             <p class="item_card_title"><span class="title">${data['title']}</span></p>
                         </div>
                     </div>
@@ -183,7 +183,7 @@ function brand_list(brand_data){
         new_perfume_list.className = "col-lg-3 col-md-4 col-6";
         new_perfume_list.id = 'brand' + data['id'];
         new_perfume_list.innerHTML = `
-            <a href="/brand_detail.html?brand=${data['id']}">
+            <a href="/brand.html?brand=${data['id']}">
                 <div class='item_card brand_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">

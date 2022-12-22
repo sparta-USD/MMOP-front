@@ -44,9 +44,10 @@ function brand_info(data){
     element.querySelector(".brand_id").innerText = "#"+data['id'];
     element.querySelector(".brand_title").innerText = data['title'];
 
+    console.log(data['website']);
     // 웹사이트
     if(data['website']){
-        element.querySelector(".col_website_1").innerText = data['website'];
+        element.querySelector(".col_website_1").innerHTML = `<a href="${data['website']}" target="_blank">${data['website']}</a>`
     }else{
         element.querySelector(".brand_website").remove();
     }
@@ -69,33 +70,37 @@ function brand_info(data){
 // 2. 브랜드의 향수 목록 불러오기
 function brand_perfume_list(brand_data){
     let perfume_list = document.getElementById("brand_perfume_list");
-    perfume_list.innerHTML = '';
-    brand_data['brand_perfume'].forEach(data => {
-        let new_perfume_list = document.createElement('div');
-        new_perfume_list.className = "col-lg-3 col-md-4 col-6";
-        new_perfume_list.id = 'brand' + data['id'];
-        new_perfume_list.innerHTML = `
-            <a href="/perfume.html?perfume=${data['id']}">
-                <div class='item_card check_card'>
-                    <div class="card_header list_profile">
-                        <div class="item_image">
-                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+    if(brand_data['brand_perfume'].length){
+        perfume_list.innerHTML = '';
+        brand_data['brand_perfume'].forEach(data => {
+            let new_perfume_list = document.createElement('div');
+            new_perfume_list.className = "col-lg-3 col-md-4 col-6";
+            new_perfume_list.id = 'brand' + data['id'];
+            new_perfume_list.innerHTML = `
+                <a href="/perfume.html?perfume=${data['id']}">
+                    <div class='item_card check_card'>
+                        <div class="card_header list_profile">
+                            <div class="item_image">
+                                <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                            </div>
+                        </div>
+                        <div class="card_body">
+                            <div class="card_content">
+                                <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
+                                <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                                <p class="item_card_tag">
+                                ${append_notes(data)}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card_body">
-                        <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
-                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
-                            <p class="item_card_tag">
-                            ${append_notes(data)}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        `;
-        perfume_list.append(new_perfume_list);
-    });
+                </a>
+            `;
+            perfume_list.append(new_perfume_list);
+        });
+    }else{
+        document.querySelector(".sec_brand_perfume").remove();
+    }
 }
 function append_notes(data){
     note_type_list = ["top", 'heart', 'base', 'none']

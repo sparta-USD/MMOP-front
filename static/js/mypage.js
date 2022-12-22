@@ -429,7 +429,7 @@ function appendLikePerfumeList(dataset, element) {
                         </div>
                         <div class="card_body">
                             <div class="card_content">
-                                <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                                <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
                                 <p class="item_card_title"><span class="title">${data['title']}</span></p>
                                 <p class="item_card_tag">
                                     ${note_html}

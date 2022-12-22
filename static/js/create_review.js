@@ -56,7 +56,7 @@ async function handlePerfumeInfo(){
                 <img class="review_image" src="${perfume['image']}"/>
             </a>`;
         review_perfume_detail.querySelector(".desc_box_id p").innerText = `#${perfume['id']}`;
-        review_perfume_detail.querySelector(".desc_box_brand p").innerText = `${perfume['brand']}`;
+        review_perfume_detail.querySelector(".desc_box_brand p").innerText = `${perfume['brand_title']}`;
         review_perfume_detail.querySelector(".desc_box_name p").innerHTML = `
             <a href="/perfume.html?perfume=${perfume['id']}">
                 ${perfume['title']}
