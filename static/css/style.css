@@ -170,6 +170,11 @@ a, a:hover{
     min-width: 300px;
 }
 
+.col_20{
+    flex: 0 0 auto;
+    width: 20%;
+}
+
 
 .flex{
     display: flex;
