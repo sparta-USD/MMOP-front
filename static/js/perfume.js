@@ -66,7 +66,7 @@ async function handlePerfumeInfo(){
         }
         else{
             document.getElementById("custom_perfume").addEventListener('click', () => {
-                location.href = 'custom_perfume_note.html';
+                handleCustom();
             })
         }
         
@@ -361,4 +361,20 @@ function perfumeLike() { // 5-2. 찜하기 버튼 클릭 시 하트 색상 변�
         likes_count--;  // 찜 해제이기 때문에 likes_count -1
     }
     document.querySelector(".likes_count").innerText = likes_count;  // 변경된 likes_count 반영해서 찜 갯수 출력
+}
+
+function handleCustom(){
+
+    $("#Modal").modal("show");
+    document.getElementById("Modal").querySelector(".next_guide").innerHTML = `현재 향수와 비슷한 향을 고를 수가 없습니다.<br><br>그래도 향수를 만드시겠습니까?`;
+    document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+        <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+    `;
+
+}
+
+// 모달창에서 다음 step 버튼 
+function handleOk(){
+    location.href="/custom_perfume_note.html"
 }
