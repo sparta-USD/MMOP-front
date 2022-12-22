@@ -63,8 +63,6 @@ header nav ul.navbar_menu{
     -webkit-box-align: center;
     align-items: center;
     height: 60px;
-    min-width: 225px;
-
 }
 header nav ul.navbar_menu button{
     background: transparent;
@@ -193,7 +191,7 @@ a, a:hover{
 input.form-control, textarea.form-control,.search_row{
     border-radius: 0;
     padding: 0.5rem 0.75rem;
-    border:solid 1px var(--second-black);
+    border:solid 1px var(--base-gray-ccc);
     resize: none;
 }
 input.form-control:focus, textarea.form-control:focus{
@@ -222,6 +220,7 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
 }
 header .nav_search .search_row{
     margin-left: 16px;
+    border:solid 1px var(--second-black);
 }
 header .nav_search .search_row input{
     background-color: transparent;
