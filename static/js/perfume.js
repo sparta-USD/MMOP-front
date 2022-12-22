@@ -80,7 +80,7 @@ function perfume_info(data){
         <img class="perfume_image" src="${data['image']? data['image']: "/static/images/perfume.png"}">
     `;
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
-    element.querySelector(".perfume_brand").innerText = data['brand'];
+    element.querySelector(".perfume_brand").innerText = data['brand_title'];
     element.querySelector(".perfume_title").innerText = data['title'];
     element.querySelector(".likes_count").innerText = "  " +data['likes_count'];
     if(data['price']){
@@ -137,7 +137,7 @@ function review_create_go(data){
 // 2. 제품정보 탭 불러오기
 function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
-    element.querySelector(".tab_perfume_brand").innerText = data['brand'];
+    element.querySelector(".tab_perfume_brand").innerText = data['brand_title'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
     element.querySelector(".tab_perfume_desc").innerText = data['desc'];
     element.querySelector(".tab_perfume_desc_ko").innerText = data['desc_ko'];
@@ -285,7 +285,7 @@ function perfume_recommend_tab(recommend_data){
                     </div>
                     <div class="card_body">
                         <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
                             <p class="item_card_title"><span class="title">${data['title']}</span></p>
                             <p class="item_card_tag">
                                 ${append_notes(data)}

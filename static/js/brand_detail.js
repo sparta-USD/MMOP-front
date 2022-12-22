@@ -84,7 +84,7 @@ function brand_perfume_list(brand_data){
                     </div>
                     <div class="card_body">
                         <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
                             <p class="item_card_title"><span class="title">${data['title']}</span></p>
                             <p class="item_card_tag">
                             ${append_notes(data)}
