@@ -196,7 +196,7 @@ function brand_list(brand_data){
         new_perfume_list.id = 'brand' + data['id'];
         new_perfume_list.innerHTML = `
             <a href="/brand_detail.html?brand=${data['id']}">
-                <div class='item_card check_card'>
+                <div class='item_card brand_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
