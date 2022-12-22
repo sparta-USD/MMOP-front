@@ -531,7 +531,7 @@ async function handleUpdateProfile() {
     const profile_formData = new FormData();
     profile_formData.append("username",username);
     profile_formData.append("phone_number",phone_number);
-
+    
     const response = await fetch('http://127.0.0.1:8000/users/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
@@ -571,7 +571,11 @@ async function handlePasswordReset() {
     const origin_password = document.getElementById("origin_password").value;
     const password = document.getElementById("profile_password").value;
     const password2 = document.getElementById("profile_password2").value;
-    if(password=="" || password2==""){
+    if(origin_password==''){
+        alert("기존 비밀번호를 입력해주세요.");
+        return false;
+    }
+    else if(password=="" || password2==""){
         alert("변경하실 비밀번호 및 비밀번호 확인을 입력해주세요.");
         return false;
     }
