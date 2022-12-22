@@ -80,7 +80,7 @@ function perfume_info(data){
         <img class="perfume_image" src="${data['image']? data['image']: "/static/images/perfume.png"}">
     `;
     element.querySelector(".perfume_id").innerText = "#"+data['id'];
-    element.querySelector(".perfume_brand").setAttribute("href","/brand_detail.html?brand="+data['brand'])
+    element.querySelector(".perfume_brand").setAttribute("href","/brand.html?brand="+data['brand'])
     element.querySelector(".perfume_brand").innerText = data['brand_title'];
     element.querySelector(".perfume_title").innerText = data['title'];
     element.querySelector(".likes_count").innerText = "  " +data['likes_count'];
