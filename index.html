@@ -8,6 +8,7 @@
     <!-- 페이지 meta태그 -->
     <meta name=”description” content="Make My Own Perfume. 당신만의 향수를 제작해보세요!">
     <meta name=”keywords” content="MMOP, perfume, 취향테스트, 향수추천, 나만의 향수, 수제향수, 향수커스텀제작">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <meta property="og:site_name" content="MMOP" />
     <meta property="og:title" content="MMOP" />
     <meta property="og:description" content="Make My Own Perfume. 당신만의 향수를 제작해보세요!" />	
@@ -16,7 +17,7 @@
     <meta property="og:image" content="https://assets.burberry.com/is/image/Burberryltd/FF7081DD-1E90-4399-A98D-B1C150B964A6?$BBY_V2_SL_1x1$&wid=1251&hei=1251" />
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -24,6 +25,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- 페이지별 css 추가 -->
 </head>
@@ -49,6 +51,19 @@
                                     향수 제작
                                 </a>
                             </li>
+                            <li class="navbar_item">
+                                <a href="/perfume_list.html">
+                                    All Perfumes
+                                </a>
+                            </li>
+                            <li class="nav_search">
+                                <div class="search_row">
+                                    <input class="search-input" aria-autocomplete="both" aria-labelledby="docsearch-label" id="gnb_searchinput" autocomplete="off" autocorrect="off" autocapitalize="off" enterkeyhint="go" spellcheck="false" autofocus="true" placeholder="Search Brand & Perfume" maxlength="64" type="search" aria-activedescendant="docsearch-item-0" aria-controls="docsearch-list">    
+                                    <button type="button" class="btn btn_gnb_search" onclick="gnbSearchPerfume()">
+                                        <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
@@ -65,24 +80,50 @@
     <div class="wrap">
         <section class="sec sec_main_banner">
             <div class="swiper main_banner">
-                <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                  <!-- Slides -->
                     <div class="swiper-slide">
-                        <div class="banner_image"  style="background-image:url('/static/images/main_banner.jpg')">
+                        <div class="banner_content" style="text-align: right;">
+                            <p>나만의 향수를 만들어보고 싶으신가요?</p>
+                            <h1>Make My Own Perfume!</h1>
+                            <p>원하는 향과 용기로 <br>나만의 시그니쳐 향수 직접 만나보세요!</p>
+                            <div class="btn_wrap" style="margin-right:0; margin-left:auto">
+                                <a href="/custom_perfume_note.html" class="btn btn_default btn_survey_start">
+                                    MAKE
+                                </a>
+                            </div>
+                        </div>
+                        <div class="banner_image" style="background-image:url('/static/images/main_banner.jpg')">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner_image" style="background-image:url('/static/images/chanel.jpg');background-size: contain;">
                         </div>
                         <div class="banner_content">
                             <p>MMOP가 지금까지 찾아드린 취향,<br>
                                 1,986,488회!</p>
-                            <h1>마음에 쏙 드는 향수를 찾고 싶으신가요?</h1>
+                            <h1>마음에 드는 향수를 찾고 싶으신가요?</h1>
                             <p>쉽고 간단한 취향 테스트로 <br>실패 없는 취향저격 향기들을 만나보세요!</p>
                             <div class="btn_wrap">
-                                <a href="/survey.html" class="btn btn_default btn_survey_start">
+                                <button type="button" class="btn btn_default btn_survey_start" onclick="handleSurveyCheck()">
                                     START
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <section class="sec sec_custom_perfume_list">
+            <div class="container">
+                <div class="section_header">
+                    <h2 class="section_title">Custom Perfume</h2>
+                </div>
+                <div class="swiper custom_perfume_swiper">
+                    <div class="swiper-wrapper" id="custom_perfume_list">
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -93,187 +134,38 @@
                 </div>
                 <div class="top_item_list">
                     <div class="row" id="top_item_list">
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="/perfume.html">
-                                <div class='item_card check_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="item_image">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                        </div>
-                                        <div class="perfume_card_heart">
-                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="/perfume.html">
-                                <div class='item_card check_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="item_image">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                        </div>
-                                        <button type="button" class="perfume_card_heart btn_like" onclick="clickLike(event,this);">
-                                            <i class="bi bi-suit-heart"></i>
-                                        </button>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="/perfume.html">
-                                <div class='item_card check_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="item_image">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                        </div>
-                                        <div class="perfume_card_heart">
-                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <a href="/perfume.html">
-                                <div class='item_card check_card'>
-                                    <div class="card_header list_profile">
-                                        <div class="item_image">
-                                            <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                        </div>
-                                        <div class="perfume_card_heart">
-                                            <i class="bi bi-suit-heart-fill none_link btn_like"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card_body">
-                                        <div class="card_content">
-                                            <p class="item_card_editor"><span class="brand">Chanel</span></p>
-                                            <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
+                </div>
+                <div class="btn_wrap">
+                    <a href="/perfume_list.html" class="btn btn_default btn_border btn_more">
+                        See More Perfumes
+                    </a>
                 </div>
             </div>
         </section>
-        <section class="sec sec_customperfume_list">
+        <section class="sec sec_brand_list">
             <div class="container">
                 <div class="section_header">
-                    <h2 class="section_title">Recently Customed Perfume</h2>
+                    <h2 class="section_title">Brand List</h2>
                 </div>
-                <div class="customperfume_list">
-                    <div class="row" id="custom_perfume_list">
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                    <div class="logo_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                    <div class="materials">
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://w.namu.la/s/79faad188a641486929396483770829847d5b8b2e42f7250863746bd5b43dec58494e4c51f181f92494375cb267d9b3760e76f078d8810a5ffbdb4a99454af99306beff5e5808511f81a92489a044f88c19bb18cecefc80e7e3f197127a4cdb3">
-                                        </div>
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://www.shutterstock.com/image-photo/pine-cones-needles-260nw-62295190.jpg">
-                                        </div>
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGPNRIaJt_WCOcAVPzfgGkGHRrgZHk-Q5DQ&usqp=CAU">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="username">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        <p class="item_card_tag">
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class='item_card check_card'>
-                                <div class="card_header list_profile">
-                                    <div class="item_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="https://basenotes.com/img/product/10210638-1985-j">
-                                    </div>
-                                    <div class="logo_image">
-                                        <img aria-hidden="false" draggable="false" loading="lazy" src="/static/images/logo.png">
-                                    </div>
-                                    <div class="materials">
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://w.namu.la/s/79faad188a641486929396483770829847d5b8b2e42f7250863746bd5b43dec58494e4c51f181f92494375cb267d9b3760e76f078d8810a5ffbdb4a99454af99306beff5e5808511f81a92489a044f88c19bb18cecefc80e7e3f197127a4cdb3">
-                                        </div>
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://www.shutterstock.com/image-photo/pine-cones-needles-260nw-62295190.jpg">
-                                        </div>
-                                        <div class="perfume_images material">
-                                            <img
-                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGPNRIaJt_WCOcAVPzfgGkGHRrgZHk-Q5DQ&usqp=CAU">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card_body">
-                                    <div class="card_content">
-                                        <p class="item_card_editor"><span class="username">Chanel</span></p>
-                                        <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
-                                        <p class="item_card_tag">
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                            <span class="tag">#시트러스</span>
-                                            <span class="tag">#백합</span>
-                                            <span class="tag">#솔방울</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="brand_perfume_list">
+                    <div class='perfume_card_list item_card_list' id="perfume_card_list">
+                        <div class="row" id="brand_perfume_list">
                         </div>
                     </div>
                 </div>
+                <div class="btn_wrap">
+                    <a href="/brand_list.html" class="btn btn_default btn_border btn_more">
+                        See More Brands
+                    </a>
+                </div>
             </div>
         </section>
+    </div>
+    <div class="top_button">
+        <a href="#top">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
     </div>
     <footer>
         <div class="container">
@@ -326,6 +218,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="/static/js/main.js"></script>
     <script src="/static/js/index.js"></script>
 </body>

@@ -50,6 +50,19 @@
                                     향수 제작
                                 </a>
                             </li>
+                            <li class="navbar_item">
+                                <a href="/perfume_list.html">
+                                    All Perfumes
+                                </a>
+                            </li>
+                            <li class="nav_search">
+                                <div class="search_row">
+                                    <input class="search-input" aria-autocomplete="both" aria-labelledby="docsearch-label" id="gnb_searchinput" autocomplete="off" autocorrect="off" autocapitalize="off" enterkeyhint="go" spellcheck="false" autofocus="true" placeholder="Search Brand & Perfume" maxlength="64" type="search" aria-activedescendant="docsearch-item-0" aria-controls="docsearch-list">    
+                                    <button type="button" class="btn btn_gnb_search" onclick="gnbSearchPerfume()">
+                                        <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
@@ -101,7 +114,6 @@
                                     <div class="col_launch_1 col-9"></div>
                                 </div>
                                 <hr/>
-
                                 <div class="btn_create_group">
                                     <div class="perfume_card_heart">
                                         <i class="bi" id="btn_heart"></i>
@@ -109,16 +121,16 @@
                                     <a class="btn btn_default btn_create_review w-100" href="/create_review.html">
                                         리뷰 작성하기
                                     </a>
+                                    <a class="btn btn_default btn_create_custom_perfume" id="custom_perfume" onclick="handleCustom()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        비슷한 향수 만들기
+                                    </a>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-            
-            
         <section class="sec sec_perfume_detail_tab">
             <div class="container">
                 <div class="tab_menu">
@@ -307,6 +319,30 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="next_guide">
+                        0가지만 선택하셨습니다<br><br>정말 다음 단계로 가시겠습니까?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top_button">
+        <a href="#top">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
     </div>
     <footer>
         <div class="container">

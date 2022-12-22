@@ -65,7 +65,9 @@ hr{
     color: var(--main-red);
     cursor: pointer;
 }
-
+.sec_perfume_detail .btn_create_group .btn_create_custom_perfume{
+    margin-left: 10px;
+}
 
 /* ******** */
 /* tab_menu */
@@ -173,6 +175,8 @@ hr{
 }
 .detail_scent, .detail_top_note, .detail_heart_note, .detail_base_note, .detail_none_note{
     margin: 24px 0;
+    line-height: 1.5rem;
+    word-break: keep-all;
 }
 .tab_perfume_detail .col_title{
     font-size: 1.2em;

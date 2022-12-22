@@ -50,6 +50,19 @@
                                     향수 제작
                                 </a>
                             </li>
+                            <li class="navbar_item">
+                                <a href="/perfume_list.html">
+                                    All Perfumes
+                                </a>
+                            </li>
+                            <li class="nav_search">
+                                <div class="search_row">
+                                    <input class="search-input" aria-autocomplete="both" aria-labelledby="docsearch-label" id="gnb_searchinput" autocomplete="off" autocorrect="off" autocapitalize="off" enterkeyhint="go" spellcheck="false" autofocus="true" placeholder="Search Brand & Perfume" maxlength="64" type="search" aria-activedescendant="docsearch-item-0" aria-controls="docsearch-list">    
+                                    <button type="button" class="btn btn_gnb_search" onclick="gnbSearchPerfume()">
+                                        <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
@@ -68,21 +81,32 @@
             <div class="swiper main_banner">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                  <!-- Slides -->
+                    <!-- Slides -->
                     <div class="swiper-slide">
+                        <img src="/static/images/step_1.png">
                         <h1>Pick Your Fragrance!</h1>
                         <p>3가지 향을 선택하여 나만의 향수를 만들어 보세요</p>
                     </div>
                     <div class="swiper-slide2">
-                        <div class="circle"><div class="circle_plus" id="note01">+</div></div>
-                        <div class="circle"><div class="circle_plus" id="note02">+</div></div>
-                        <div class="circle"><div class="circle_plus" id="note03">+</div></div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note01">+</div>
+                        </div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note02">+</div>
+                        </div>
+                        <div class="circle">
+                            <div class="circle_plus" id="note03">+</div>
+                        </div>
                         <p></p>
-                        <button class="next_button" id="next_button" onclick="handleNext()" data-bs-toggle="modal" data-bs-target="#exampleModal">나만의 향수 만들기</button>
+                        <button class="next_button" id="next_button" onclick="handleNext()" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">나만의 향수 만들기</button>
                     </div>
-                    
+                    <div class="recommend_name" id="recommend_name">
+                    </div>
+                    <div class="swiper-slide3" id="card">
+                    </div>
                 </div>
-              </div>
+            </div>
         </section>
         <section style="margin:auto; width:1400px;">
             <ul class="category">
@@ -517,6 +541,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="top_button">
+        <a href="#top">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
     </div>
     <footer>
         <div class="container">

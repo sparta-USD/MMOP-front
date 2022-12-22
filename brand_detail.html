@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- 페이지별 css 추가 -->
-    <link rel="stylesheet" href="/static/css/custom_perfume_detail.css">
+    <link rel="stylesheet" href="/static/css/brand_detail.css">
 </head>
 <body>
     <header>
@@ -77,73 +77,81 @@
         </div>
     </header>
     <div class="wrap">
-        <div class="container">
-            <section class="sec_perfume_detail">
-                <div class="container_perfume_detail">
-                    <div class="item_card perfume_image_box">
-                        <div class="item_image">
-                            <img class="perfume_image" src="/static/images/perfume.png">
-                        </div>
-                        <div class="logo_image">
-                            <img src="https://fimgs.net/mdimg/sastojci/m.717.jpg?1444420176">
-                        </div>
-                        <div class="materials">
-                            <div class="material note_img1">
-                                <img src="" alt="1">
-                            </div>
-                            <div class="material note_img2">
-                                <img src="" alt="2">
-                            </div>
-                            <div class="material note_img3">
-                                <img src="" alt="3">
-                            </div>
-                        </div>
+        <section class="sec sec_brand_detail">
+            <div class="container">
+                <div class="container_brand_detail">
+                    <div class="brand_image_box">
+                        <img src="static/images/perfume.png">
                     </div>
-                    <div class="perfume_desc_box">
-                        <div class="perfume_desc">
-                            <div>
-                                <div class="perfume_desc creator_name">
-                                    <h1 class="perfume_creator">Diptyque</h1>
+                    <div class="brand_info_box">
+                        <div class="brand_desc">
+                            <div class="brand_desc_header">
+                                <div class="brand_id">
+                                    <h1>#10</h1>
                                 </div>
-                                <div class="perfume_desc perfume_name">
-                                    <h1 class="perfume_title">Diptyque DOSON</h1>
-                                </div>
-                                <div class="perfume_desc create_date">
-                                    <h1 class="perfume_create">22.12.11</h1>
+                                <div class="brand_title">
+                                    <h1>CHANEL</h1>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="custom_detail_box">
-                                <div class="row custom_scent_box">
-                                    <div class="col-4 custom_class_box">
-                                        <p>Scent</p>
-                                    </div>
-                                    <div class="col-8 custom_note_name_box">
-                                        <div class="row custom_note_box">
-                                            <p class="custom_note note1">note</p>
-                                        </div>
-                                        <div class="row custom_note_box">
-                                            <p class="custom_note note2">note</p>
-                                        </div>
-                                        <div class="row custom_note_box">
-                                            <p class="custom_note note3">note</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row custom_pakage_box">
-                                    <div class="col-4 custom_class_box">
-                                        <p>Package</p>
-                                    </div>
-                                    <div class="col-8 custom_pakage_name_box">
-                                        <p class="pakage_name">pakage nuber_01</p>
-                                    </div>
+                            <div class="brand_desc_body brand_detail_top">
+                                <div class="row brand_website">
+                                    <div class="col_website col-3">웹사이트</div>
+                                    <div class="col_website_1 col-9"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="brand_desc_box">
+                    <p class="tab_brand_desc">설명</p>
+                    <p class="tab_brand_desc_ko">설명</p>
+                </div>
+            </div>
+        </section>
+            
+        <section class="sec sec_brand_perfume">
+            <div class="container">
+                <div class="section_header">
+                    <h2 class="section_title">향수목록</h2>
+                    <p class="section_desc">위 브랜드의 향수들입니다. </p>
+                </div>
+                <div class="brand_perfume_list">
+                    <div class='perfume_card_list item_card_list' id="perfume_card_list">
+                        <div class="row" id="brand_perfume_list">
+                            <!-- card start -->
+                            <div class="col-lg-3 col-md-4 col-6">
+                                <a href="/perfume.html">
+                                    <div class='item_card check_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="item_image">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="item_card_editor"><span class="brand">Chanel</span></p>
+                                                <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                                <p class="item_card_tag">
+                                                    <span class="tag">#시트러스</span>
+                                                    <span class="tag">#백합</span>
+                                                    <span class="tag">#솔방울</span>
+                                                    <span class="tag">#시트러스</span>
+                                                    <span class="tag">#백합</span>
+                                                    <span class="tag">#솔방울</span>
+                                                    <span class="tag">#시트러스</span>
+                                                    <span class="tag">#백합</span>
+                                                    <span class="tag">#솔방울</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <div class="top_button">
         <a href="#top">
@@ -202,6 +210,5 @@
         </div>
     </footer>
     <script src="/static/js/main.js"></script>
-    <script src="/static/js/custom_perfume_detail.js"></script>
-    
+    <script src="/static/js/brand_detail.js"></script>
 </body>

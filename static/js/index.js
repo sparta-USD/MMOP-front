@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
-    handleTopPerfume()
-    handleCustomPerfume()
+    handleTopPerfume();
+    handleCustomPerfume();
+    swiper();
+    custom_perfume_swiper();
+    handleBrandList();
 });
-
 // 뒤로가기 클릭 시 새로고침 되도록 이벤트 처리
 window.onpageshow = function(event) {
     if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
@@ -13,7 +15,7 @@ window.onpageshow = function(event) {
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('https://api.mmop-perfume.com/perfume/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/?ordering=-likes_count',{
         headers: {
             "content-type": "application/json",
         },
@@ -25,7 +27,7 @@ async function handleTopPerfume(){
         return response.json()
     }).then(result => {
         const response_json = result;
-        append_top_perfume_list(response_json)
+        append_top_perfume_list(response_json['results'])
     }).catch(error => {
         console.warn(error.message)
     });
@@ -65,7 +67,7 @@ function append_top_perfume_list(top_data,element){
 
 // 2. 최근 제작한 커스텀 향수 불러오기 API 통신
 async function handleCustomPerfume(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/',{
+    const response = await fetch('http://127.0.0.1:8000/custom_perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -78,27 +80,29 @@ async function handleCustomPerfume(){
     }).then(result => {
         const response_json = result;
         append_custom_perfume_list(response_json)
-        
+        custom_perfume_swiper();
     }).catch(error => {
         console.warn(error.message)
     });
 }
 // 2-1. 최근 제작한 커스텀 향수 불러오기
 function append_custom_perfume_list(custom_data){
+    console.log(custom_data);
     let custom_perfume_list = document.getElementById("custom_perfume_list");
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
+        console.log(data);
         let custom_list = document.createElement('div');
-        custom_list.className = 'col-lg-3 col-md-4 col-6';
+        custom_list.className = 'swiper-slide';
         custom_list.innerHTML = `
             <a href="/custom_perfume_detail.html?custom_perfume=${data['id']}">
-                <div class='item_card check_card'>
+                <div class='item_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                         </div>
                         <div class="logo_image">
-                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="https://api.mmop-perfume.com${data['logo']}">` : ``}
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">` : ``}
                         </div>
                         <div class="materials">
                             ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
@@ -123,5 +127,79 @@ function append_custom_perfume_list(custom_data){
         custom_perfume_list.append(custom_list);
     });
 }
+// swiper
+function swiper(){
+    var swiper = new Swiper(".main_banner", {
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+}
+function custom_perfume_swiper(){
+    var swiper = new Swiper(".custom_perfume_swiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        loop:true,
+        autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+    });
+}
 
-
+// 3. 브랜드 리스트 불러오기 API통신
+async function handleBrandList(){
+    
+    const response = await fetch('http://127.0.0.1:8000/perfume/brand/random/',{
+        method: 'GET',
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        const response_json = result;
+        brand_list(response_json) // 브랜드 리스트 불러오기
+    })
+}
+// 3-1. 브랜드 목록 불러오기
+function brand_list(brand_data){
+    let perfume_list = document.getElementById("brand_perfume_list");
+    perfume_list.innerHTML = '';
+    brand_data.forEach(data => {
+        let new_perfume_list = document.createElement('div');
+        new_perfume_list.className = "col-lg-3 col-md-4 col-6";
+        new_perfume_list.id = 'brand' + data['id'];
+        new_perfume_list.innerHTML = `
+            <a href="/brand_detail.html?brand=${data['id']}">
+                <div class='item_card brand_card'>
+                    <div class="card_header list_profile">
+                        <div class="item_image">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                        </div>
+                    </div>
+                    <div class="card_body">
+                        <div class="card_content">
+                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+        perfume_list.append(new_perfume_list);
+    });
+}

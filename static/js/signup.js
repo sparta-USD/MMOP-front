@@ -28,7 +28,7 @@ async function handleSignup(){
     }
     const loader = document.getElementById("page-loader")
     loader.className += 'show';
-    const response = await fetch("https://api.mmop-perfume.com/users/signup/", {
+    const response = await fetch("http://127.0.0.1:8000/users/signup/", {
         headers: {
             "content-type": "application/json",
         },

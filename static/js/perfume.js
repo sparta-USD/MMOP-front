@@ -19,7 +19,7 @@ async function handlePerfumeInfo(){
         alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
         location.href="/index.html";
     }
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume,{
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume,{
         method: 'GET',
     })
     .then(response => {
@@ -30,9 +30,46 @@ async function handlePerfumeInfo(){
     })
     .then(result => {
         const response_json = result;
+        const notes_id = []
+
         perfume_info(response_json);  // 1. 기본 향수제품정보
         perfume_detail_tab(response_json); // 2. 제품정보 탭
         perfume_review_tab(response_json); // 3. 리뷰 탭
+        
+        // 향 id값 리스트에 담기
+        for(let i = 0; i<response_json['top_notes'].length; i++){
+            if(response_json['top_notes'][i]['id']<=973){
+                notes_id.push(response_json['top_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['heart_notes'].length; i++){
+            if(response_json['heart_notes'][i]['id']<=973){
+                notes_id.push(response_json['heart_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['base_notes'].length; i++){
+            if(response_json['base_notes'][i]['id']<=973){
+                notes_id.push(response_json['base_notes'][i]['id'])
+            } 
+        }
+        for(let i = 0; i<response_json['none_notes'].length; i++){
+            if(response_json['none_notes'][i]['id']<=973){
+                notes_id.push(response_json['none_notes'][i]['id'])
+            } 
+        }
+
+        // url로 향 id값 전송
+        if(notes_id.length != 0){
+            document.getElementById("custom_perfume").addEventListener('click', () => {
+                location.href = `custom_perfume_note.html?${notes_id}?${response_json['title']}`;
+            })
+        }
+        else{
+            document.getElementById("custom_perfume").addEventListener('click', () => {
+                handleCustom();
+            })
+        }
+        
     })
 }
 
@@ -191,7 +228,7 @@ function perfume_review_tab_review_list(review_data){
                             </div>
                         </div>
                     </div>
-                    ${data['image'] ? `<div class="review_result_image_box"><img class="review_result_image" src="https://api.mmop-perfume.com${data['image']}" alt="No Image"></div>` : ""}
+                    ${data['image'] ? `<div class="review_result_image_box"><img class="review_result_image" src="http://127.0.0.1:8000${data['image']}" alt="No Image"></div>` : ""}
                 </div>
             `;
             review_list_tab.append(review_list);
@@ -210,7 +247,7 @@ function perfume_review_tab_review_list(review_data){
 // 4. 추천탭 - 추천제품 불러오기 API 통신
 async function handleRecommend() {
     url_detail_perfume = getParams("perfume");
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume+'/recommend/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/recommend/', {
         headers: {
             "content-type": "application/json",
         },
@@ -287,7 +324,7 @@ async function handlePerfumeLike() { // 5-1. 찜하기 버튼 클릭 시 상태�
        alert("경로가 잘못되었습니다! 다시 입력해주세요 :)")
        location.href="/index.html";
     }
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+url_detail_perfume+'/like/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+url_detail_perfume+'/like/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -324,4 +361,20 @@ function perfumeLike() { // 5-2. 찜하기 버튼 클릭 시 하트 색상 변�
         likes_count--;  // 찜 해제이기 때문에 likes_count -1
     }
     document.querySelector(".likes_count").innerText = likes_count;  // 변경된 likes_count 반영해서 찜 갯수 출력
+}
+
+function handleCustom(){
+
+    $("#Modal").modal("show");
+    document.getElementById("Modal").querySelector(".next_guide").innerHTML = `현재 향수와 비슷한 향을 고를 수가 없습니다.<br><br>그래도 향수를 만드시겠습니까?`;
+    document.getElementById("Modal").querySelector(".modal-footer").innerHTML = `
+        <button type="button" class="btn btn-primary" onclick="handleOk()">네</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+    `;
+
+}
+
+// 모달창에서 다음 step 버튼 
+function handleOk(){
+    location.href="/custom_perfume_note.html"
 }

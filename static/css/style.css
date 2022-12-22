@@ -36,13 +36,16 @@ header{
 }
 header.header_sticky{
     background: rgba(255,255,255,0.6);
-    box-shadow: 0 0 8px rgb(255 255 255 / 5%);
+    box-shadow: 0 0 8px rgb(255 255 255 / 10%);
     color: var(--main-black);
     transition: 0.4s;
 }
 /* header nav{
     padding: 0 16px;
 } */
+header nav{
+    position: relative;
+}
 header nav .flex{
     display: flex;
     justify-content: space-between;
@@ -88,6 +91,10 @@ header nav .my_profile img{
     height: 100%;
     display: table;
     border-radius: 50%;
+}
+header nav .btn_gnb_search{
+    padding: 0;
+    /* width: 100px; */
 }
 
 /* footer */
@@ -151,6 +158,18 @@ a, a:hover{
     border: solid 1px var(--main-black);
     background-color: rgba(255,255,255,0.3)
 }
+.btn.btn_border.btn_color_change:hover{
+    color: var(--main-white);
+    background-color: var(--main-black);
+}
+.btn.btn_more{
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 1.1em;
+    padding: 0.75rem 1rem;
+    min-width: 300px;
+}
+
 
 .flex{
     display: flex;
@@ -169,10 +188,10 @@ a, a:hover{
     justify-content: space-between;
 }
 
-input.form-control, textarea.form-control{
+input.form-control, textarea.form-control,.search_row{
     border-radius: 0;
-    padding: 0.5em 0.75em;
-    border: solid 1px var(--base-gray-ccc);
+    padding: 0.5rem 0.75rem;
+    border:solid 1px var(--base-gray-ccc);
     resize: none;
 }
 input.form-control:focus, textarea.form-control:focus{
@@ -180,8 +199,38 @@ input.form-control:focus, textarea.form-control:focus{
     border: solid 1px var(--base-gray-dark);
     box-shadow:unset;
 }
-input.form-control::placeholder, textarea.form-control::placeholder{
+input.form-control::placeholder, textarea.form-control::placeholder, .search_row input::placeholder{
     color: var(--base-gray-999);
+    font-weight: 300;
+}
+/* search */
+.search_row{
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+}
+.search_row input{
+    border: 0;
+    outline: 0;
+    width:100%;
+    font-size: 1rem;
+    padding: 0px 16px;
+    height: 24px;
+}
+header .nav_search .search_row{
+    margin-left: 16px;
+    border:solid 1px var(--second-black);
+    background-color: rgba(255,255,255,0.3);
+}
+header .nav_search .search_row input{
+    background-color: transparent;
+    padding: 0;
+    padding-right: 16px;
+    min-width: 300px;
+}
+header .nav_search .search_row input::placeholder{
+    color: var(--base-gray-dark);
     font-weight: 300;
 }
 
@@ -223,6 +272,18 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     padding: 0 16px 0 72px;
     width: 100%;
 }
+.top_button{
+    position: fixed;
+    right:5vw;
+    bottom: 10vh;
+    font-size: 60px;
+    z-index: 100;
+}
+.top_button i::before{
+    background-color: var(--main-white);
+    border-radius: 50%;
+    border:solid 3px var(--main-black);
+}
 /* section */
 .sec{
     margin-top:100px;
@@ -256,12 +317,22 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    text-align: center;
 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
     align-content: center;
     flex-wrap: wrap;
-    text-align: center;
 }
 .swiper.main_banner .swiper-slide h1{
     width: 100%;
@@ -276,11 +347,12 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     font-size: 1.25em;
 }
 .swiper.main_banner .banner_image{
-    width: 50%;
+    width: 55%;
     min-height: 60vh;
+    background-size: cover;
 }
 .swiper.main_banner .banner_content{
-    width: 50%;
+    width: 45%;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -290,6 +362,21 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     background-color: #f0eeed;
     padding: 0 50px;
 }
+.swiper.main_banner .swiper-pagination-bullet-active{
+    background-color: #202020;
+}
+
+/* custom_perfume_card */
+.custom_perfume_swiper .swiper-button-next{
+    color: #202020;
+}
+.custom_perfume_swiper .swiper-button-prev{
+    color: #202020;
+}
+.custom_perfume_swiper .swiper-pagination-bullet-active{
+    background-color: #202020;
+}
+
 /* sec 하단 버튼 */
 .btn_wrap{
     display: flex;
@@ -359,6 +446,19 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     /* width: 100%; */
     min-width: 100%;
     height: 100%;
+    object-fit: cover;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.brand_card.item_card .item_image {
+    border : 1px solid var(--base-gray-e4);
+}
+.brand_card.item_card .item_image >img{
+    position: absolute;
+    /* width: 100%; */
+    min-width: 90%;
+    height: 90%;
     object-fit: cover;
     top:50%;
     left:50%;
@@ -526,6 +626,73 @@ input.form-control::placeholder, textarea.form-control::placeholder{
     border-radius: 100%;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
+
+/* 리스트 정렬 */
+.search_sorting{
+    display: flex;
+    margin: 32px 0;
+}
+.search_sorting .search_sorting_order{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right:0;
+}
+.search_sorting .search_sorting_order input[type=radio]{
+    display: none;
+}
+.search_sorting .search_sorting_order label{
+    padding: 0 8px;
+    position: relative;
+    color: var(--base-gray-dark)
+}
+.search_sorting .search_sorting_order input[type=radio]:checked +label{
+    font-weight: 700;
+}
+.search_sorting .search_sorting_order label::after{
+    position: absolute;
+    content:"";
+    right: 0;
+    width: 1px;
+    height: 16px;
+    background-color: var(--base-gray-ccc);
+    top:50%;
+    transform: translateY(-50%);
+}
+.search_sorting .search_sorting_order > li:last-child label:after{
+    display: none;
+}
+
+/* 페이지네이션 */
+.pagination{
+    justify-content: center;
+    margin: 50px auto 100px;
+}
+.pagination .page-item .page-link,.pagination .page-item .page-link:focus{
+    border-radius: 0;
+    border : 1px solid var(--base-gray-e4);
+    color: var(--main-black);
+    box-shadow: unset;
+    padding: 8px 12px;
+    height:34px;
+}
+.pagination .page-item .page-link:hover{
+    background-color: var(--base-gray-ef);
+    color: var(--main-black);
+    box-shadow: 0;
+}
+.pagination .page-item.leftdots_page .page-link:hover,.pagination .page-item.rightdots_page .page-link:hover{
+    background-color: var(--main-white);
+}
+
+.pagination .page-item.active .page-link{
+    border : 1px solid var(--base-gray-dark);
+    background-color: var(--base-gray-dark);
+    color: var(--second-white);
+    box-shadow: 0;
+}
+
+
 
 
 /* 별점 */

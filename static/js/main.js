@@ -7,7 +7,7 @@ window.addEventListener('scroll', function() {
 document.addEventListener("DOMContentLoaded", function(){
     user_email = localStorage.getItem("email")
     if(user_email){
-        document.querySelector("header .navbar_menu.nav-right").innerHTML = `
+        document.querySelector("header .nav-right.navbar_menu").innerHTML = `
             <li class="navbar_item">
                 <a href="/mypage.html">
                     MYPAGE
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </li>
             <li class="navbar_item">
                 <button type=button class="nav_link" onclick="handleLogout()">
-                    SIGNOUT
+                    SIGN OUT
                 </button>
             </li>
         `
@@ -51,7 +51,7 @@ $(".none_link").on("click",function(e){
 });
 
 async function handleSurveyCheck(){
-    const response = await fetch('https://api.mmop-perfume.com/perfume/survey/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/survey/',{
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -81,7 +81,7 @@ async function clickLike(e, el){
     e.preventDefault(); 
 
     perfume_id = target = el.closest(".item_card").getAttribute("id").replace("perfume_","");
-    const response = await fetch('https://api.mmop-perfume.com/perfume/'+perfume_id+'/like/', {
+    const response = await fetch('http://127.0.0.1:8000/perfume/'+perfume_id+'/like/', {
         headers: {
             "Authorization":"Bearer " + localStorage.getItem("access"),
         },
@@ -113,3 +113,15 @@ function handleLogout(){
     alert("로그아웃 되었습니다.")
     location.reload()
 };
+
+function gnbSearchPerfume(){
+    const search_keyword = document.getElementById("gnb_searchinput").value;
+    const search_url = "/search.html?search="+search_keyword;
+    location.href = search_url;
+}
+
+document.getElementById("gnb_searchinput").addEventListener("keypress", function(event){
+    if(event.keyCode == 13){
+        gnbSearchPerfume();
+    }
+});
