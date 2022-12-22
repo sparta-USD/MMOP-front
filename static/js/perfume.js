@@ -210,7 +210,7 @@ function perfume_review_tab_review_list(review_data){
                     </div>
                 </div>
                 <div class="review_card_body">
-                    <div class="review_body_content">
+                    <div class="review_body_content" ${data["good_content"]=='' && data["bad_content"]=='' ? `style="display:none"` : ``}>
                         <div class="review_good">
                             <div class="review_good_image">
                                 <i id="emoji_good" class="bi bi-emoji-smile"></i>
