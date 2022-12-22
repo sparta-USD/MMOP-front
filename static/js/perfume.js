@@ -75,7 +75,7 @@ function perfume_info(data){
     element.querySelector(".perfume_title").innerText = data['title'];
     element.querySelector(".likes_count").innerText = "  " +data['likes_count'];
     if(data['price']){
-        element.querySelector(".col_price_1").innerText = "$ "+data['price'];
+        element.querySelector(".col_price_1").innerText = data['price'] + " " + data['price_unit'];
     }else{
         element.querySelector(".detail_price").remove();
     }
@@ -130,6 +130,8 @@ function perfume_detail_tab(data){
     const element = document.querySelector(".perfume_detail_tab_content");
     element.querySelector(".tab_perfume_brand").innerText = data['brand'];
     element.querySelector(".tab_perfume_title").innerText = data['title'];
+    element.querySelector(".tab_perfume_desc").innerText = data['desc'];
+    element.querySelector(".tab_perfume_desc_ko").innerText = data['desc_ko'];
     // note 이름 불러오기
     append_detail_notes(data);
 }
@@ -262,7 +264,7 @@ function perfume_recommend_tab(recommend_data){
     recommend_list.innerHTML = '';
     recommend_data.forEach(data => {
         let new_recommend_list = document.createElement('div');
-        new_recommend_list.className = 'col-lg-3 col-md-4 col-6';
+        new_recommend_list.className = 'col-lg-2 col-md-2 col-6';
         new_recommend_list.id = 'perfume_'+data['id'];
         new_recommend_list.innerHTML = `
             <a href="/perfume.html?perfume=${data['id']}">

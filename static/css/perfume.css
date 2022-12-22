@@ -136,7 +136,24 @@ hr{
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
+}
+.tab_name_box .tab_perfume_desc{
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: 6rem;
+    text-align: center;
+    line-height: 3rem;
+    word-break: keep-all;
+}
+.tab_name_box .tab_perfume_desc_ko{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--base-gray-999);
+    line-height: 3rem;
+    word-break: keep-all;
 }
 /* 향 테이블 */
 .tab_detail_content{
@@ -158,6 +175,8 @@ hr{
 }
 .detail_scent, .detail_top_note, .detail_heart_note, .detail_base_note, .detail_none_note{
     margin: 24px 0;
+    line-height: 1.5rem;
+    word-break: keep-all;
 }
 .tab_perfume_detail .col_title{
     font-size: 1.2em;
@@ -280,4 +299,7 @@ hr{
 /* 3. 추천제품 탭 */
 .perfume_recommend_list{
     margin: 75px 0 100px;
+}
+.sec .section_header{
+    margin-top: 200px;
 }

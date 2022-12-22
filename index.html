@@ -51,6 +51,19 @@
                                     향수 제작
                                 </a>
                             </li>
+                            <li class="navbar_item">
+                                <a href="/perfume_list.html">
+                                    All Perfumes
+                                </a>
+                            </li>
+                            <li class="navbar_item">
+                                <div class="search_row">
+                                    <input class="search-input" aria-autocomplete="both" aria-labelledby="docsearch-label" id="gnb_searchinput" autocomplete="off" autocorrect="off" autocapitalize="off" enterkeyhint="go" spellcheck="false" autofocus="true" placeholder="Search Brand & Perfume" maxlength="64" type="search" aria-activedescendant="docsearch-item-0" aria-controls="docsearch-list">    
+                                    <button type="button" class="btn btn_gnb_search" onclick="gnbSearchPerfume()">
+                                        <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
                         </ul>
                         <ul class="navbar_menu nav-right">
                             <li class="navbar_item">
@@ -92,9 +105,9 @@
                             <h1>마음에 쏙 드는 향수를 찾고 싶으신가요?</h1>
                             <p>쉽고 간단한 취향 테스트로 <br>실패 없는 취향저격 향기들을 만나보세요!</p>
                             <div class="btn_wrap">
-                                <a href="/survey.html" class="btn btn_default btn_survey_start">
+                                <button type="button" class="btn btn_default btn_survey_start" onclick="handleSurveyCheck()">
                                     START
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -249,6 +262,47 @@
                 </div>
             </div>
         </section>
+        <section class="sec sec_brand_list">
+            <div class="container">
+                <div class="section_header">
+                    <h2 class="section_title">Brand List</h2>
+                </div>
+                <div class="brand_perfume_list">
+                    <div class='perfume_card_list item_card_list' id="perfume_card_list">
+                        <div class="row" id="brand_perfume_list">
+                            <!-- card start -->
+                            <div class="col-lg-3 col-md-4 col-6">
+                                <a href="/brand_detail.html">
+                                    <div class='item_card check_card'>
+                                        <div class="card_header list_profile">
+                                            <div class="item_image">
+                                                <img aria-hidden="false" draggable="false" loading="lazy" src="https://kr.imboldn.com/wp-content/uploads/2021/12/image1.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="card_content">
+                                                <p class="item_card_title"><span class="title">Chance Eau de Toilette</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- card end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_more_brand">
+                    <a href="/brand_list.html" class="btn btn_default btn_border btn_brand_list">
+                        See More Brands
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="top_button">
+        <a href="#top">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
     </div>
     <footer>
         <div class="container">

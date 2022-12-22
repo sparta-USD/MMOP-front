@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
     handleCustomPerfume()
     swiper()
     handleCustomPerfumeSwiper()
+    handleBrandList()
 });
 
 // 뒤로가기 클릭 시 새로고침 되도록 이벤트 처리
@@ -15,7 +16,7 @@ window.onpageshow = function(event) {
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/',{
+    const response = await fetch('http://127.0.0.1:8000/perfume/?ordering=-likes_count',{
         headers: {
             "content-type": "application/json",
         },
@@ -27,7 +28,7 @@ async function handleTopPerfume(){
         return response.json()
     }).then(result => {
         const response_json = result;
-        append_top_perfume_list(response_json)
+        append_top_perfume_list(response_json['results'])
     }).catch(error => {
         console.warn(error.message)
     });
@@ -165,5 +166,50 @@ function handleCustomPerfumeSwiper(){
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+    });
+}
+
+// 3. 브랜드 리스트 불러오기 API통신
+async function handleBrandList(){
+    
+    const response = await fetch('http://127.0.0.1:8000/perfume/brand/random/',{
+        method: 'GET',
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error(`${response.status} 에러가 발생했습니다.`);    
+        }
+        return response.json()
+    })
+    .then(result => {
+        const response_json = result;
+        brand_list(response_json) // 브랜드 리스트 불러오기
+    })
+}
+// 3-1. 브랜드 목록 불러오기
+function brand_list(brand_data){
+    let perfume_list = document.getElementById("brand_perfume_list");
+    perfume_list.innerHTML = '';
+    brand_data.forEach(data => {
+        let new_perfume_list = document.createElement('div');
+        new_perfume_list.className = "col-lg-3 col-md-4 col-6";
+        new_perfume_list.id = 'brand' + data['id'];
+        new_perfume_list.innerHTML = `
+            <a href="/brand_detail.html?brand=${data['id']}">
+                <div class='item_card check_card'>
+                    <div class="card_header list_profile">
+                        <div class="item_image">
+                            <img aria-hidden="false" draggable="false" loading="lazy" src="${data['image']}">
+                        </div>
+                    </div>
+                    <div class="card_body">
+                        <div class="card_content">
+                            <p class="item_card_title"><span class="title">${data['title']}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+        perfume_list.append(new_perfume_list);
     });
 }
