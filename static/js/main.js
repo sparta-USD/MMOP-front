@@ -119,3 +119,9 @@ function gnbSearchPerfume(){
     const search_url = "/search.html?search="+search_keyword;
     location.href = search_url;
 }
+
+document.getElementById("gnb_searchinput").addEventListener("keypress", function(event){
+    if(event.keyCode == 13){
+        gnbSearchPerfume();
+    }
+});

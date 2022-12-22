@@ -221,6 +221,7 @@ input.form-control::placeholder, textarea.form-control::placeholder, .search_row
 header .nav_search .search_row{
     margin-left: 16px;
     border:solid 1px var(--second-black);
+    background-color: rgba(255,255,255,0.3);
 }
 header .nav_search .search_row input{
     background-color: transparent;
