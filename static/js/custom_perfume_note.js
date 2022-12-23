@@ -36,7 +36,7 @@ async function handleCategory() {
             
             // 추천 향 리스트
             let recommend_note_list = document.getElementById("card")
-            append_recommend_note_list(note_data, url_data, recommend_note_list)
+            append_recommend_note_list(note_data, url_data, recommend_note_list, response_json)
             
         }
 
@@ -94,7 +94,7 @@ async function handleCategory() {
 }
 
 // 추천 향 리스트
-function append_recommend_note_list(dataset, url_data, element) {
+function append_recommend_note_list(dataset, url_data, element, response_json) {
     var recommend = []
     for (let i = 0; i < 313; i++) {
         for (let j = 0; j < url_data.length; j++) {
@@ -103,6 +103,7 @@ function append_recommend_note_list(dataset, url_data, element) {
             }
         }
     }
+    data= response_json
     element.innerHTML = '';
     recommend.forEach(data => {
         let new_item = document.createElement('div');
@@ -114,7 +115,7 @@ function append_recommend_note_list(dataset, url_data, element) {
             <div class="title">
                 <div class="name">${data['kor_name']}</div>
             </div>
-            <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+
+            <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id, data)">+
         `;
         element.append(new_item);
     });
