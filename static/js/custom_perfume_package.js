@@ -24,41 +24,23 @@ async function handleCategory() {
     }).then(result => {
         const response_json = result;
 
+        // 카테고리
+        for(let i = 0; i<5; i++){
+            document.getElementById(`tab_menu_0${i+1}`).innerText = response_json['package_category'][i]['name']
+        }
         
-        document.getElementById("tab_menu_01").innerText = response_json['package_category'][0]['name']
-        document.getElementById("tab_menu_02").innerText = response_json['package_category'][1]['name']
-        document.getElementById("tab_menu_03").innerText = response_json['package_category'][2]['name']
-        document.getElementById("tab_menu_04").innerText = response_json['package_category'][3]['name']
-        document.getElementById("tab_menu_05").innerText = response_json['package_category'][4]['name']
-        
-        
-        var category1 = response_json['packages'].filter(function(item){
-            return item.package_category == '1'
-        });
-        var category2 = response_json['packages'].filter(function(item){
-            return item.package_category == '2'
-        });
-        var category3 = response_json['packages'].filter(function(item){
-            return item.package_category == '3'
-        });
-        var category4 = response_json['packages'].filter(function(item){
-            return item.package_category == '4'
-        });
-        var category5 = response_json['packages'].filter(function(item){
-            return item.package_category == '5'
-        });
+        // 카테고리 별 용기 나누기
+        for(let i = 1; i<6; i++){
+            window['category'+i] = response_json['packages'].filter(function(item){
+                return item.package_category == i
+            });
+        }
 
-
-        let package_list_1 = document.getElementById("tab_01").querySelector(".row")
-        append_package_list(category1,package_list_1)
-        let package_list_2 = document.getElementById("tab_02").querySelector(".row")
-        append_package_list(category2,package_list_2)
-        let package_list_3 = document.getElementById("tab_03").querySelector(".row")
-        append_package_list(category3,package_list_3)
-        let package_list_4 = document.getElementById("tab_04").querySelector(".row")
-        append_package_list(category4,package_list_4)
-        let package_list_5 = document.getElementById("tab_05").querySelector(".row")
-        append_package_list(category5,package_list_5)
+        // 카테고리 탭 선택시 용기 띄우기
+        for(let i = 1; i<6; i++){
+            window['package_list_'+i] = document.getElementById(`tab_0${i}`).querySelector(".row")
+            append_package_list(window['category'+i],window['package_list_'+i], response_json)
+        };
 
         // 용기 이미지
         if ( JSON.parse(sessionStorage.getItem("package")) != null ){
@@ -78,7 +60,8 @@ async function handleCategory() {
 }
 
 // 용기 리스트
-function append_package_list(dataset, element) {
+function append_package_list(dataset, element, response_json) {
+    data = response_json
     element.innerHTML = '';
     dataset.forEach(data => {
         let new_item = document.createElement('div');
@@ -93,7 +76,7 @@ function append_package_list(dataset, element) {
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data['name']}</span></p>
-                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+</span></p>  
+                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id, data)">+</span></p>  
                     </div>
                 </div>
             </div>
@@ -103,48 +86,26 @@ function append_package_list(dataset, element) {
 }
 
 // 용기 선택
-async function handlePick(clicked_id) {
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
-
-        $.each(response_json['packages'],function(idx,row){
-            if(response_json['packages'][idx].id==clicked_id){
-                package_pick = response_json['packages'][idx]['image']
-            }
-        })
-        if (JSON.parse(sessionStorage.getItem("package"))==null){
-            document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
-            package_ = clicked_id
-            sessionStorage.setItem("package", JSON.stringify(package_));
-        } else{
-            alert("더이상 추가할 수 없습니다.")
+async function handlePick(clicked_id, response_json) {
+    $.each(response_json['packages'],function(idx,row){
+        if(response_json['packages'][idx].id==clicked_id){
+            package_pick = response_json['packages'][idx]['image']
         }
     })
+    if (JSON.parse(sessionStorage.getItem("package"))==null){
+        document.getElementById("circle_image").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + package_pick + '"><button class="delete_button" onclick="handlePickDelete()">x'
+        package_ = clicked_id
+        sessionStorage.setItem("package", JSON.stringify(package_));
+    } else{
+        alert("더이상 추가할 수 없습니다.")
+    }
 }
 
 // 용기 삭제
 async function handlePickDelete(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
-        document.getElementById("circle_image").innerText = "+"
-        delete package_
-        sessionStorage.removeItem("package")
-    })
-    
+    document.getElementById("circle_image").innerText = "+"
+    delete package_
+    sessionStorage.removeItem("package")
 }
 
 // 다음 step 버튼

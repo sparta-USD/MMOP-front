@@ -56,36 +56,35 @@ async function handleCategory() {
         for(let i = 1; i<13; i++){
             window['note_list_'+i] = document.getElementById(`tab_0${i}`).querySelector(".row")
             append_note_list(window['category'+i],window['note_list_'+i], response_json)
-        };
-        
+        };    
+
         // 향1 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
-                note01_pick = response_json['notes'][idx]['image']
-            }
-        })
-
-        // 향2 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
-                note02_pick = response_json['notes'][idx]['image']
-            }
-        })
-
-        // 향3 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
-                note03_pick = response_json['notes'][idx]['image']
-            }
-        })
-        
         if ( JSON.parse(sessionStorage.getItem("note01")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
+                    note01_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note01_pick + '" id="' + JSON.parse(sessionStorage.getItem("note01")) + '"><button class="delete_button" onclick="handlePickDelete1()">x'
         }
+
+        // 향2 이미지
         if ( JSON.parse(sessionStorage.getItem("note02")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
+                    note02_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note02_pick + '" id="' + JSON.parse(sessionStorage.getItem("note02")) + '"><button class="delete_button" onclick="handlePickDelete2()">x'
         }
+
+        // 향3 이미지
         if ( JSON.parse(sessionStorage.getItem("note03")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
+                    note03_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note03_pick + '" id="' + JSON.parse(sessionStorage.getItem("note03")) + '"><button class="delete_button" onclick="handlePickDelete3()">x'
         }
     }).catch(error => {
@@ -103,7 +102,7 @@ function append_recommend_note_list(dataset, url_data, element, response_json) {
             }
         }
     }
-    data= response_json
+    data = response_json
     element.innerHTML = '';
     recommend.forEach(data => {
         let new_item = document.createElement('div');
