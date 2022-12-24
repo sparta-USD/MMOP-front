@@ -546,14 +546,15 @@
                     </section>
                 </div>
                 <div class="tab_content password_reset" id="tab_password_reset">
-                    <section class="sec form-control sec_profile_edit">
-                        <div class="profile_edit_data">
+                    <div id="password_reset_box">
+                        <section class="sec form-control sec_profile_edit" >
+                        <div class="profile_edit_data" >
                             <p class="profile_title">비밀번호 변경하기</p>
                             <div class="mb-3 row">
                                 <div class="edit_line">
                                     <label for="password" class="col-sm-3 col-form-label">기존 비밀번호</label>
                                     <div class="col-sm-9 profile_edit_input">
-                                        <input class="form-control " type='password' placeholder="" id="origin_password">
+                                        <input class="form-control " type='password' placeholder="기존 비밀번호를 입력해주세요" id="origin_password">
                                     </div>
                                 </div>
                             </div>
@@ -561,7 +562,7 @@
                                 <div class="edit_line">
                                     <label for="password" class="col-sm-3 col-form-label">새 비밀번호</label>
                                     <div class="col-sm-9 profile_edit_input">
-                                        <input class="form-control " type='password' placeholder="" id="profile_password">
+                                        <input class="form-control " type='password' placeholder="영문 대소문자, 숫자, 특수문자 조합 8-20자" id="profile_password">
                                     </div>
                                 </div>
                             </div>
@@ -569,13 +570,15 @@
                                 <div class="edit_line">
                                     <label for="password" class="col-sm-3 col-form-label">새 비밀번호 확인</label>
                                     <div class="col-sm-9 profile_edit_input">
-                                        <input class="form-control " type='password' placeholder="" id="profile_password2">
+                                        <input class="form-control " type='password' placeholder="비밀번호를 한번더 입력해주세요" id="profile_password2">
                                     </div>
                                 </div>
                             </div>
                             <button class="btn btn_default btn_edit_complete" id="btn_password_reset" submit="button">비밀번호 변경하기</button>
                         </div>
                     </section>
+                    </div>
+                    
                 </div>
             </div>
         </div>
