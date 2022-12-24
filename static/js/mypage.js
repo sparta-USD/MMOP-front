@@ -81,6 +81,12 @@ async function handleMypage() {
         
         // 4. 프로필 탭 - 프로필 정보 삽입
         appendUserProfile(response_json)
+
+        // 5. 비밀번호 변경 탭 - 로그인방식별 화면 처리
+        let element_password_tab = document.getElementById("password_reset_box")
+        kakaoPasswordTab(response_json, element_password_tab)
+
+
     }).catch(error => {
         console.warn(error.message)
     });
@@ -560,7 +566,22 @@ async function handleUpdateProfile() {
         console.warn(error.message);
     });
 }
-
+// 5. 비밀번호 재설정 탭 - 로그인방식별 화면 처리 
+function kakaoPasswordTab(dataset, element) {
+    if (dataset['email_valid']==false){
+        element.innerHTML = '';
+        let password_reset_box = document.getElementById("password_reset_box");
+        if(!password_reset_box.innerHTML){
+            password_reset_box.innerHTML =`
+            <div class="none_result_list">
+                <h3>카카오 소셜 로그인을 하셨습니다.</h3>
+                <p>카카오 소셜 로그인을 이용하시는 경우,<br>
+                    카카오톡을 통하여 비밀번호 변경을 진행해주세요.</p>
+            </div>
+            `;
+        }
+    }
+}
 
 // 5. 비밀번호 재설정 탭 - 비밀번호 재설정
 document.getElementById("btn_password_reset").addEventListener("click",function(){
