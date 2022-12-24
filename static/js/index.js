@@ -53,7 +53,7 @@ function append_top_perfume_list(top_data,element){
                     </div>
                     <div class="card_body">
                         <div class="card_content">
-                            <p class="item_card_editor"><span class="brand">${data['brand']}</span></p>
+                            <p class="item_card_editor"><span class="brand">${data['brand_title']}</span></p>
                             <p class="item_card_title"><span class="title">${data['title']}</span></p>
                         </div>
                     </div>
@@ -87,11 +87,9 @@ async function handleCustomPerfume(){
 }
 // 2-1. 최근 제작한 커스텀 향수 불러오기
 function append_custom_perfume_list(custom_data){
-    console.log(custom_data);
     let custom_perfume_list = document.getElementById("custom_perfume_list");
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
-        console.log(data);
         let custom_list = document.createElement('div');
         custom_list.className = 'swiper-slide';
         custom_list.innerHTML = `
@@ -147,9 +145,10 @@ function custom_perfume_swiper(){
     var swiper = new Swiper(".custom_perfume_swiper", {
         slidesPerView: 5,
         spaceBetween: 30,
-        loop:true,
+        slidesPerGroup: 5,
+        loop: true,
         autoplay: {
-              delay: 2500,
+              delay: 4500,
               disableOnInteraction: false,
         },
         navigation: {
@@ -185,7 +184,7 @@ function brand_list(brand_data){
         new_perfume_list.className = "col-lg-3 col-md-4 col-6";
         new_perfume_list.id = 'brand' + data['id'];
         new_perfume_list.innerHTML = `
-            <a href="/brand_detail.html?brand=${data['id']}">
+            <a href="/brand.html?brand=${data['id']}">
                 <div class='item_card brand_card'>
                     <div class="card_header list_profile">
                         <div class="item_image">
