@@ -90,7 +90,6 @@ function append_custom_perfume_list(custom_data){
     let custom_perfume_list = document.getElementById("custom_perfume_list");
     custom_perfume_list.innerHTML = '';
     custom_data.forEach(data => {
-        console.log(data);
         let custom_list = document.createElement('div');
         custom_list.className = 'swiper-slide';
         custom_list.innerHTML = `
@@ -146,9 +145,10 @@ function custom_perfume_swiper(){
     var swiper = new Swiper(".custom_perfume_swiper", {
         slidesPerView: 5,
         spaceBetween: 30,
-        loop:true,
+        slidesPerGroup: 5,
+        loop: true,
         autoplay: {
-              delay: 2500,
+              delay: 4500,
               disableOnInteraction: false,
         },
         navigation: {
