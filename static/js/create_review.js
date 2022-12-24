@@ -83,8 +83,14 @@ async function handleCreateReview() {
     review_formData.append("bad_content", bad_content);
     review_formData.append("grade", grade);
 
+    // 이미지 크기 체크
+    const imgSize = image.size;
+    const maxSize = 2 * 1024 * 1024; // 2MB로 제한
+    if (imgSize > maxSize){
+        alert("이미지는 2MB 이내로 등록 가능합니다!");
+    }
     // 리뷰 작성 시 에러 처리
-    if (good_content == "" || bad_content == "" || grade == ""){
+    else if (good_content == "" || bad_content == "" || grade == ""){
         alert("빈칸을 채워주세요!")
     }
     else if (good_content.length <= 10 || good_content.length > 500) {
