@@ -36,7 +36,7 @@ async function handleCategory() {
             
             // 추천 향 리스트
             let recommend_note_list = document.getElementById("card")
-            append_recommend_note_list(note_data, url_data, recommend_note_list)
+            append_recommend_note_list(note_data, url_data, recommend_note_list, response_json)
             
         }
 
@@ -55,47 +55,45 @@ async function handleCategory() {
         // 카테고리 탭 선택시 향 띄우기
         for(let i = 1; i<13; i++){
             window['note_list_'+i] = document.getElementById(`tab_0${i}`).querySelector(".row")
-            append_note_list(window['category'+i],window['note_list_'+i])
-        };
-        
+            append_note_list(window['category'+i],window['note_list_'+i], response_json)
+        };    
+
         // 향1 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
-                note01_pick = response_json['notes'][idx]['image']
-            }
-        })
-
-        // 향2 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
-                note02_pick = response_json['notes'][idx]['image']
-            }
-        })
-
-        // 향3 이미지
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
-                note03_pick = response_json['notes'][idx]['image']
-            }
-        })
-        
         if ( JSON.parse(sessionStorage.getItem("note01")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note01"))){
+                    note01_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note01_pick + '" id="' + JSON.parse(sessionStorage.getItem("note01")) + '"><button class="delete_button" onclick="handlePickDelete1()">x'
         }
+
+        // 향2 이미지
         if ( JSON.parse(sessionStorage.getItem("note02")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note02"))){
+                    note02_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note02_pick + '" id="' + JSON.parse(sessionStorage.getItem("note02")) + '"><button class="delete_button" onclick="handlePickDelete2()">x'
         }
+
+        // 향3 이미지
         if ( JSON.parse(sessionStorage.getItem("note03")) != null ){
+            $.each(response_json['notes'],function(idx,row){
+                if(response_json['notes'][idx].id==JSON.parse(sessionStorage.getItem("note03"))){
+                    note03_pick = response_json['notes'][idx]['image']
+                }
+            })
             document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note03_pick + '" id="' + JSON.parse(sessionStorage.getItem("note03")) + '"><button class="delete_button" onclick="handlePickDelete3()">x'
         }
-    
     }).catch(error => {
         console.warn(error.message)
     });
 }
 
 // 추천 향 리스트
-function append_recommend_note_list(dataset, url_data, element) {
+function append_recommend_note_list(dataset, url_data, element, response_json) {
     var recommend = []
     for (let i = 0; i < 313; i++) {
         for (let j = 0; j < url_data.length; j++) {
@@ -104,6 +102,7 @@ function append_recommend_note_list(dataset, url_data, element) {
             }
         }
     }
+    data = response_json
     element.innerHTML = '';
     recommend.forEach(data => {
         let new_item = document.createElement('div');
@@ -115,14 +114,15 @@ function append_recommend_note_list(dataset, url_data, element) {
             <div class="title">
                 <div class="name">${data['kor_name']}</div>
             </div>
-            <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+
+            <button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id, data)">+
         `;
         element.append(new_item);
     });
 }
 
 // 향 리스트
-function append_note_list(dataset, element) {
+function append_note_list(dataset, element, response_json) {
+    data= response_json
     element.innerHTML = '';
     dataset.forEach(data => {
         let new_item = document.createElement('div');
@@ -137,7 +137,7 @@ function append_note_list(dataset, element) {
                 <div class="card_body">
                     <div class="card_content">
                         <p class="item_card_title"><span class="title">${data['kor_name']}</span></p>
-                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id)">+</span></p>     
+                        <p class="item_card_editor"><span class="brand"><button class="circle_pick" id="${data['id']}" onclick="handlePick(this.id, data)">+</span></p>     
                     </div>
                 </div>
             </div>
@@ -147,107 +147,62 @@ function append_note_list(dataset, element) {
 }
 
 // 향 선택
-async function handlePick(clicked_id) {
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
 
-        // 선택한 id값과 같은 id값의 이미지 불러오기
-        $.each(response_json['notes'],function(idx,row){
-            if(response_json['notes'][idx].id==clicked_id){
-                note_pick = response_json['notes'][idx]['image']
-            }
-        })
-
-        if ( JSON.parse(sessionStorage.getItem("note01")) == null ) {
-            if ( JSON.parse(sessionStorage.getItem("note02")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
-                alert("동일한 향은 선택하실 수 없습니다.")
-            }else{
-                document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete1()">x'
-                note01 = clicked_id
-                sessionStorage.setItem("note01", JSON.stringify(note01));
-            }
-        } else if ( JSON.parse(sessionStorage.getItem("note02")) == null ) {
-            if ( JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
-                alert("동일한 향은 선택하실 수 없습니다.")
-            }else{
-                document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
-                note02 = clicked_id
-                sessionStorage.setItem("note02", JSON.stringify(note02));
-            }
-        } else if ( JSON.parse(sessionStorage.getItem("note03")) == null ) {
-            if (JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note02")) == clicked_id ){
-                alert("동일한 향은 선택하실 수 없습니다.")
-            }else{
-                document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
-                note03 = clicked_id
-                sessionStorage.setItem("note03", JSON.stringify(note03));
-            }
-        } else {
-            alert("더이상 추가할 수 없습니다.")
+function handlePick(clicked_id, response_json){
+    $.each(response_json['notes'],function(idx,row){
+        if(response_json['notes'][idx].id==clicked_id){
+            note_pick = response_json['notes'][idx]['image']
         }
-        
     })
+
+    if ( JSON.parse(sessionStorage.getItem("note01")) == null ) {
+        if ( JSON.parse(sessionStorage.getItem("note02")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
+            alert("동일한 향은 선택하실 수 없습니다.")
+        }else{
+            document.getElementById("note01").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete1()">x'
+            note01 = clicked_id
+            sessionStorage.setItem("note01", JSON.stringify(note01));
+        }
+    } else if ( JSON.parse(sessionStorage.getItem("note02")) == null ) {
+        if ( JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note03")) == clicked_id ){
+            alert("동일한 향은 선택하실 수 없습니다.")
+        }else{
+            document.getElementById("note02").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete2()">x'
+            note02 = clicked_id
+            sessionStorage.setItem("note02", JSON.stringify(note02));
+        }
+    } else if ( JSON.parse(sessionStorage.getItem("note03")) == null ) {
+        if (JSON.parse(sessionStorage.getItem("note01")) == clicked_id || JSON.parse(sessionStorage.getItem("note02")) == clicked_id ){
+            alert("동일한 향은 선택하실 수 없습니다.")
+        }else{
+            document.getElementById("note03").innerHTML = '<img aria-hidden="false" draggable="false" loading="lazy" class="note" src="' + note_pick + '" id="' + clicked_id + '"><button class="delete_button" onclick="handlePickDelete3()">x'
+            note03 = clicked_id
+            sessionStorage.setItem("note03", JSON.stringify(note03));
+        }
+    } else {
+        alert("더이상 추가할 수 없습니다.")
+    }
 }
 
 // 향1 삭제
-async function handlePickDelete1(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
-        document.getElementById("note01").innerText = "+"
-        delete note01
-        sessionStorage.removeItem("note01")
-    })
-    
+function handlePickDelete1(){
+    document.getElementById("note01").innerText = "+"
+    delete note01
+    sessionStorage.removeItem("note01")
 }
 
 // 향2 삭제
-async function handlePickDelete2(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
-        document.getElementById("note02").innerText = "+"
-        delete note02
-        sessionStorage.removeItem("note02")
-    })
-    
+function handlePickDelete2(){
+    document.getElementById("note02").innerText = "+"
+    delete note02
+    sessionStorage.removeItem("note02")
 }
 
 // 향3 삭제
-async function handlePickDelete3(){
-    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-        },
-    }).then(response => {
-        return response.json()
-    }).then(result => {
-        const response_json = result;
-        document.getElementById("note03").innerText = "+"
-        delete note03
-        sessionStorage.removeItem("note03")
-    })
-    
+function handlePickDelete3(){
+    document.getElementById("note03").innerText = "+"
+    delete note03
+    sessionStorage.removeItem("note03")
 }
 
 // 다음 step 버튼

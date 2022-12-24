@@ -145,9 +145,10 @@ function custom_perfume_swiper(){
     var swiper = new Swiper(".custom_perfume_swiper", {
         slidesPerView: 5,
         spaceBetween: 30,
-        loop:true,
+        slidesPerGroup: 5,
+        loop: true,
         autoplay: {
-              delay: 2500,
+              delay: 4500,
               disableOnInteraction: false,
         },
         navigation: {
