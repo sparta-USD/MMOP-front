@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 향 카테고리 , 선택한 향 띄우기
 async function handleCategory() {
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -147,6 +147,7 @@ function append_note_list(dataset, element, response_json) {
 }
 
 // 향 선택
+
 function handlePick(clicked_id, response_json){
     $.each(response_json['notes'],function(idx,row){
         if(response_json['notes'][idx].id==clicked_id){

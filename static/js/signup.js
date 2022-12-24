@@ -28,7 +28,7 @@ async function handleSignup(){
     }
     const loader = document.getElementById("page-loader")
     loader.className += 'show';
-    const response = await fetch("http://127.0.0.1:8000/users/signup/", {
+    const response = await fetch("https://api.mmop-perfume.com/users/signup/", {
         headers: {
             "content-type": "application/json",
         },
@@ -63,7 +63,7 @@ async function handleSignup(){
 };
 
 const REST_API_KEY = "0240e7e88dd3a8d26072a3070fda2b02";
-const REDIRECT_URI = "https://mmop-perfume.com/users/signin.html";
+const REDIRECT_URI = "https://www.mmop-perfume.com/users/signin.html";
 
 function kakaoSignin(){
     location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`

@@ -15,7 +15,7 @@ window.onpageshow = function(event) {
 
 // 1. top20 향수 불러오기 API 통신
 async function handleTopPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/perfume/?ordering=-likes_count',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/?ordering=-likes_count',{
         headers: {
             "content-type": "application/json",
         },
@@ -67,7 +67,7 @@ function append_top_perfume_list(top_data,element){
 
 // 2. 최근 제작한 커스텀 향수 불러오기 API 통신
 async function handleCustomPerfume(){
-    const response = await fetch('http://127.0.0.1:8000/custom_perfume/',{
+    const response = await fetch('https://api.mmop-perfume.com/custom_perfume/',{
         headers: {
             "content-type": "application/json",
         },
@@ -100,7 +100,7 @@ function append_custom_perfume_list(custom_data){
                             <img aria-hidden="false" draggable="false" loading="lazy" src="${data['package']['image']}">
                         </div>
                         <div class="logo_image">
-                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="http://127.0.0.1:8000${data['logo']}">` : ``}
+                            ${data["logo"]? `<img aria-hidden="false" draggable="false" loading="lazy" src="https://api.mmop-perfume.com${data['logo']}">` : ``}
                         </div>
                         <div class="materials">
                             ${data["note01"]? `<div class="perfume_images material"><img src="${data["note01"]["image"]}"></div>` : ``}
@@ -161,7 +161,7 @@ function custom_perfume_swiper(){
 // 3. 브랜드 리스트 불러오기 API통신
 async function handleBrandList(){
     
-    const response = await fetch('http://127.0.0.1:8000/perfume/brand/random/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/brand/random/',{
         method: 'GET',
     })
     .then(response => {

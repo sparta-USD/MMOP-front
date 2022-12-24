@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
 // 브랜드 리스트 불러오기
 async function handleBrandList(){
     
-    const response = await fetch('http://127.0.0.1:8000/perfume/brand/',{
+    const response = await fetch('https://api.mmop-perfume.com/perfume/brand/',{
         method: 'GET',
     })
     .then(response => {

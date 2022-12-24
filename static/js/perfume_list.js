@@ -43,7 +43,7 @@ document.getElementById("sorting_option_reviews_count").addEventListener("change
 
 // 1. 전체 목록 불러오기
 async function handlePerfumeList(){
-    const response = await fetch(`http://127.0.0.1:8000/perfume/?ordering=${ordering}&page=${page}`,{
+    const response = await fetch(`https://api.mmop-perfume.com/perfume/?ordering=${ordering}&page=${page}`,{
         headers: {
             
         },

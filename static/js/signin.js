@@ -6,7 +6,7 @@ async function handleSignin(){
         return alert("이메일 또는 비밀번호가 비어있습니다.")
     }
 
-    const response = await fetch("http://127.0.0.1:8000/users/signin/", {
+    const response = await fetch("https://api.mmop-perfume.com/users/signin/", {
         headers: {
             "content-type": "application/json",
         },
@@ -45,7 +45,7 @@ async function handleSignin(){
 };
 
 const REST_API_KEY = "0240e7e88dd3a8d26072a3070fda2b02";
-const REDIRECT_URI = "https://mmop-perfume.com/users/signin.html";
+const REDIRECT_URI = "https://www.mmop-perfume.com/users/signin.html";
 
 function kakaoSignin(){
     location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
@@ -55,7 +55,7 @@ window.onload = async () => {
     let params = new URL(window.location.href).searchParams;
     // 인가코드 받아왔을 때
     if(params.has("code")){
-        const response = await fetch("http://127.0.0.1:8000/users/oauth/callback/kakao/", {
+        const response = await fetch("https://api.mmop-perfume.com/users/oauth/callback/kakao/", {
             headers: {
                 "content-type": "application/json",
             },

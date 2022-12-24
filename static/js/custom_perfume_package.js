@@ -8,7 +8,7 @@ async function handleCategory() {
         alert("향을 선택하셔야 됩니다!")
         location.href="/custom_perfume_note.html"
     }else{
-        const response = await fetch('http://127.0.0.1:8000/custom_perfume/custom/', {
+        const response = await fetch('https://api.mmop-perfume.com/custom_perfume/custom/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -86,6 +86,7 @@ function append_package_list(dataset, element, response_json) {
 }
 
 // 용기 선택
+
 async function handlePick(clicked_id, response_json) {
     $.each(response_json['packages'],function(idx,row){
         if(response_json['packages'][idx].id==clicked_id){
