@@ -574,9 +574,9 @@ function kakaoPasswordTab(dataset, element) {
         if(!password_reset_box.innerHTML){
             password_reset_box.innerHTML =`
             <div class="none_result_list">
-                <h3>카카오 로그인을 하셨습니다.</h3>
-                <p>카카오에서 비밀번호를 변경해주세요.<br>
-                    MMOP만의 완벽한 추천 공식으로 당신에게 어울리는 향수를 추천해드립니다.</p>
+                <h3>카카오 소셜 로그인을 하셨습니다.</h3>
+                <p>카카오 소셜 로그인을 이용하시는 경우,<br>
+                    카카오톡을 통하여 비밀번호 변경을 진행해주세요.</p>
             </div>
             `;
         }
