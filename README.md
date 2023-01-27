@@ -136,9 +136,9 @@ title | method | url
 <br>
 
 ## 🗣 사용자 피드백
-<a href="https://github.com/sparta-USD/MMOP-django/wiki/%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%94%BC%EB%93%9C%EB%B0%B1">👉 사용자 피드백 보러가기 </a>
+<a href="https://github.com/sparta-USD/MMOP-django/wiki/%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%94%BC%EB%93%9C%EB%B0%B1-:-%ED%96%A5%EC%88%98-%EC%B6%94%EC%B2%9C">👉 사용자 피드백 보러가기 </a>
 
 <br>
 
 ## 🎯 트러블 슈팅
-<a href="https://github.com/sparta-USD/MMOP-django/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85">👉 트러블 슈팅 보러가기 </a>
+<a href="https://github.com/sparta-USD/MMOP-django/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85">👉 트러블 슈팅 보러가기 </a>
