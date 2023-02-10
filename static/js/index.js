@@ -1,3 +1,4 @@
+console.log("jenkins 성공!")
 document.addEventListener("DOMContentLoaded", function(){
     handleTopPerfume();
     handleCustomPerfume();
